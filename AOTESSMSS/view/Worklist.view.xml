@@ -1,0 +1,485 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.Worklist"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:t="sap.ui.table"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<ObjectPageLayout id="objectPageLayout"
+		enableLazyLoading="true" useIconTabBar="true">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="รายการคำขอ"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสพนักงาน" text="10001" id="PERNR" visible="false"/>
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="รายการค้างดำเนินการ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<!-- <l:VerticalLayout> <m:Label text="ปีที่ได้รับสิทธิ" labelFor="DTP1" 
+									/> <m:Select id="selectedYear" width="20%" forceSelection="false" selectedKey="2560"> 
+									<core:Item key="2560" text="2560" /> </m:Select> <m:Text text=" " /> </l:VerticalLayout> -->
+								<f:SimpleForm id="form1" editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+
+											<m:ToolbarSpacer />
+											<m:SearchField placeholder="Filter"
+												value="{ui>/filterValue}" search="handleTxtFilter"
+												width="15rem" />
+										</m:Toolbar>
+									</f:toolbar>
+									<t:Table id="onProcessTabel"
+										visibleRowCount="{ui>rowCount}" rows="{docList>/List}"
+										selectionMode="true">
+										<t:extension>
+											<m:FacetFilter id="facetFilter" type="Simple"
+												showReset="true" showPopoverOKButton="true"
+												reset="handleFacetFilterReset">
+												<m:lists>
+													<m:FacetFilterList title="กรองประเภท"
+														key="module" multiSelect="true"
+														listClose="handleListClose">
+														<m:items>
+															<m:FacetFilterItem
+																text="จัดการเวลาและการลา(TM)" icon="sap-icon://filter"
+																key="TM" />
+															<m:FacetFilterItem text="ระบบสวัสดิการ(BE)"
+																key="BE" />
+															<m:FacetFilterItem text="ข้อมูลพนักงาน(PA)"
+																key="PA" />
+															<m:FacetFilterItem text="การอบรมและสัมนา(TE)"
+																key="TE" />
+															<m:FacetFilterItem
+																text="การอนุมัติข้อมูลการลดหย่อน(PY)" key="PY" />
+														</m:items>
+													</m:FacetFilterList>
+												</m:lists>
+											</m:FacetFilter>
+										</t:extension>
+										<t:columns>
+											<t:Column width="15rem" hAlign="Center" sortProperty="docno">
+												<m:Label text="เลขที่คำขอ" wrapping="true" />
+												<t:template>
+													<m:Link text="{docList>docid}" press="onPressDocNo"
+														app:mydata="{docList>docid}"></m:Link>
+												</t:template>
+											</t:Column>
+											<t:Column width="5rem" hAlign="Center"
+												sortProperty="module">
+												<m:Label text="ประเภท" wrapping="true" />
+												<t:template>
+													<m:Text text="{docList>module}" wrapping="true" />
+												</t:template>
+											</t:Column>
+											<t:Column width="15rem" hAlign="Center">
+												<m:Label text="เรื่อง" wrapping="true" />
+												<t:template>
+													<m:Text text="{docList>header}" wrapping="true" />
+												</t:template>
+											</t:Column>
+<!-- 											<t:Column width="10rem" hAlign="Center"> -->
+<!-- 												<m:Label text="รายละเอียด 1" /> -->
+<!-- 												<t:template> -->
+<!-- 													<m:Text text="{docList>ltext1}" wrapping="ture" /> -->
+<!-- 												</t:template> -->
+<!-- 											</t:Column> -->
+<!-- 											<t:Column width="10rem" hAlign="Center"> -->
+<!-- 												<m:Label text="รายละเอียด 2" /> -->
+<!-- 												<t:template> -->
+<!-- 													<m:Text text="{docList>ltext2}" wrapping="ture" /> -->
+<!-- 												</t:template> -->
+<!-- 											</t:Column> -->
+<!-- 											<t:Column width="10rem" hAlign="Center"> -->
+<!-- 												<m:Label text="รายละเอียด 3" /> -->
+<!-- 												<t:template> -->
+<!-- 													<m:Text text="{docList>ltext3}" wrapping="ture" /> -->
+<!-- 												</t:template> -->
+<!-- 											</t:Column> -->
+											<t:Column width="8rem" hAlign="Center">
+												<m:Label text="ผู้สร้างคำขอ" wrapping="true" />
+												<t:template>
+<!-- 													<m:Text text="{docList>userad}" wrapping="true" /> -->
+													<m:Text text="{docList>username}" wrapping="true" />
+												</t:template>
+											</t:Column>
+											<t:Column width="7rem" hAlign="Center"
+												sortProperty="bedat">
+												<m:Label text="วันที่รับเอกสาร" wrapping="true" />
+												<t:template>
+													<m:Text text="{docList>bedat}" wrapping="true" />
+												</t:template>
+											</t:Column>
+
+											<t:Column width="7rem" hAlign="Center">
+												<m:Label text="สถานะ" wrapping="true" />
+												<t:template>
+													<m:Text text="{docList>sttext}" wrapping="true" />
+												</t:template>
+											</t:Column>
+											<t:Column width="10rem" hAlign="Center">
+												<m:Label text="รายละเอียด 1" />
+												<t:template>
+													<m:Text text="{docList>ltext1}" wrapping="ture" />
+												</t:template>
+											</t:Column>
+											<t:Column width="10rem" hAlign="Center">
+												<m:Label text="รายละเอียด 2" />
+												<t:template>
+													<m:Text text="{docList>ltext2}" wrapping="ture" />
+												</t:template>
+											</t:Column>
+											<t:Column width="10rem" hAlign="Center">
+												<m:Label text="รายละเอียด 3" />
+												<t:template>
+													<m:Text text="{docList>ltext3}" wrapping="ture" />
+												</t:template>
+											</t:Column>
+											<t:Column width="10rem" hAlign="Center">
+												<m:Label text="สถานะ SAP" />
+												<t:template>
+													<m:Text text="{docList>sapst}" wrapping="ture" />
+												</t:template>
+											</t:Column>
+											<t:Column width="10rem" hAlign="Center">
+												<m:Label text="รายละเอียด SAP" />
+												<t:template>
+													<m:Text text="{docList>saptxt}" wrapping="ture" />
+												</t:template>
+											</t:Column>
+<!-- 											<t:Column width="7rem" hAlign="Center"> -->
+<!-- 												<m:Label text="การติดตามงาน" wrapping="true" /> -->
+<!-- 												<t:template> -->
+<!-- 													<m:Button icon="sap-icon://search" -->
+<!-- 														app:mydata="{docList>module}" press="onTrack" /> -->
+<!-- 												</t:template> -->
+<!-- 											</t:Column> -->
+										</t:columns>
+										<t:footer>
+											<m:Toolbar>
+												<m:Button icon="sap-icon://employee-approvals"
+													text="อนุมัติรายการที่เลือก" tooltip="อนุมัติที่เลือก" press="onMassApprove"
+													class="sapUiTinyMargin"></m:Button>
+											</m:Toolbar>
+										</t:footer>
+									</t:Table>
+
+
+
+									<f:content>
+
+
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="เอกสารของฉัน">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<!-- <l:VerticalLayout> <m:Label text="ปีที่ได้รับสิทธิ" labelFor="DTP1" 
+									/> <m:Select id="selectedYear" width="20%" forceSelection="false" selectedKey="2560"> 
+									<core:Item key="2560" text="2560" /> </m:Select> <m:Text text=" " /> </l:VerticalLayout> -->
+								<f:SimpleForm id="form2" editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+
+											<m:ToolbarSpacer />
+											<m:SearchField placeholder="Filter"
+												value="{ui>/filterValueMyTask}"
+												search="handleTxtFilterMyTask" width="15rem" />
+										</m:Toolbar>
+									</f:toolbar>
+
+									<t:Table id="myTaskTable" title="" rows="{myList>/List}"
+										selectionMode="None">
+										<t:extension>
+											<m:FacetFilter id="facetFilterMyTask"
+												type="Simple" showReset="true" showPopoverOKButton="true"
+												reset="handleFacetFilterResetMyTask">
+												<m:lists>
+													<m:FacetFilterList title="กรองประเภท"
+														key="module" multiSelect="true"
+														listClose="handleListCloseMyTask">
+														<m:items>
+															<m:FacetFilterItem
+																text="จัดการเวลาและการลา" icon="sap-icon://filter"
+																key="TM" />
+															<m:FacetFilterItem text="ระบบสวัสดิการ"
+																key="BE" />
+															<m:FacetFilterItem text="ข้อมูลพนักงาน"
+																key="PA" />
+															<m:FacetFilterItem text="การอบรมและสัมนา"
+																key="TE" />
+															<m:FacetFilterItem
+																text="การอนุมัติข้อมูลการลดหย่อน" key="PY" />
+														</m:items>
+													</m:FacetFilterList>
+												</m:lists>
+											</m:FacetFilter>
+										</t:extension>
+										<t:columns>
+<!-- 											<t:Column width="4rem" hAlign="Center" -->
+<!-- 												sortProperty="workDate"> -->
+<!-- 												<m:Label text="ลำดับ" wrapping="true" /> -->
+<!-- 												<t:template> -->
+<!-- 													<m:Text text="{No}" /> -->
+<!-- 												</t:template> -->
+<!-- 											</t:Column> -->
+											<t:Column width="15rem" hAlign="Center">
+												<m:Label text="เลขที่คำขอ" wrapping="true" />
+												<t:template>
+													<m:Link text="{myList>docid}" press="onPressDocNo"
+														app:mydata="{myList>docid}"></m:Link>
+												</t:template>
+											</t:Column>
+											<t:Column width="5rem" hAlign="Center"
+												sortProperty="module">
+												<m:Label text="ประเภท" wrapping="true" />
+												<t:template>
+													<m:Text text="{myList>module}" wrapping="true" />
+												</t:template>
+											</t:Column>
+											<t:Column width="15rem" hAlign="Center">
+												<m:Label text="เรื่อง" wrapping="true" />
+												<t:template>
+													<m:Text text="{myList>header}" wrapping="true" />
+												</t:template>
+											</t:Column>
+											
+											<t:Column width="8rem" hAlign="Center">
+												<m:Label text="ผู้สร้างคำขอ" wrapping="true" />
+												<t:template>
+													<m:Text text="{myList>username}" wrapping="true" />
+												</t:template>
+											</t:Column>
+											<t:Column width="7rem" hAlign="Center"
+												sortProperty="bedat">
+												<m:Label text="วันที่รับเอกสาร" wrapping="true" />
+												<t:template>
+													<m:Text text="{myList>bedat}" wrapping="true" />
+												</t:template>
+											</t:Column>
+
+											<t:Column width="7rem" hAlign="Center">
+												<m:Label text="สถานะ" wrapping="true" />
+												<t:template>
+													<m:Text text="{myList>sttext}" wrapping="true" />
+												</t:template>
+											</t:Column>
+											<t:Column width="10rem" hAlign="Center">
+												<m:Label text="รายละเอียด 1" />
+												<t:template>
+													<m:Text text="{myList>ltext1}" wrapping="ture" />
+												</t:template>
+											</t:Column>
+											<t:Column width="10rem" hAlign="Center">
+												<m:Label text="รายละเอียด 2" />
+												<t:template>
+													<m:Text text="{myList>ltext2}" wrapping="ture" />
+												</t:template>
+											</t:Column>
+											<t:Column width="10rem" hAlign="Center">
+												<m:Label text="รายละเอียด 3" />
+												<t:template>
+													<m:Text text="{myList>ltext3}" wrapping="ture" />
+												</t:template>
+											</t:Column>
+											<t:Column width="10rem" hAlign="Center">
+												<m:Label text="สถานะ SAP" />
+												<t:template>
+													<m:Text text="{docList>sapst}" wrapping="ture" />
+												</t:template>
+											</t:Column>
+											<t:Column width="10rem" hAlign="Center">
+												<m:Label text="รายละเอียด SAP" />
+												<t:template>
+													<m:Text text="{docList>saptxt}" wrapping="ture" />
+												</t:template>
+											</t:Column>
+<!-- 											<t:Column width="7rem" hAlign="Center"> -->
+<!-- 												<m:Label text="การติดตามงาน" wrapping="true" /> -->
+<!-- 												<t:template> -->
+<!-- 													<m:Button icon="sap-icon://search" -->
+<!-- 														app:mydata="{id}" press="onTrack" /> -->
+<!-- 												</t:template> -->
+<!-- 											</t:Column> -->
+
+										</t:columns>
+									</t:Table>
+
+									<f:content>
+
+
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection >
+				<subSections>
+					<ObjectPageSubSection
+						title="ประวัติการดำเนินการ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<!-- <l:VerticalLayout> <m:Label text="ปีที่ได้รับสิทธิ" labelFor="DTP1" 
+									/> <m:Select id="selectedYear" width="20%" forceSelection="false" selectedKey="2560"> 
+									<core:Item key="2560" text="2560" /> </m:Select> <m:Text text=" " /> </l:VerticalLayout> -->
+								<f:SimpleForm id="form3" editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+
+											<m:ToolbarSpacer />
+											<m:SearchField placeholder="Filter"
+												value="{ui>/filterValueHistory}"
+												search="handleTxtFilterHistory" width="15rem" />
+										</m:Toolbar>
+									</f:toolbar>
+									<t:Table id="HistoryTable" title="" rows="{myTask>/List}"
+										selectionMode="None">
+										<t:extension>
+											<m:FacetFilter id="facetFilterHistory"
+												type="Simple" showReset="true" showPopoverOKButton="true"
+												reset="handleFacetFilterResetHistory">
+												<m:lists>
+													<m:FacetFilterList title="กรองประเภท"
+														key="DocType" multiSelect="true"
+														listClose="handleListCloseHistory">
+														<m:items>
+															<m:FacetFilterItem
+																text="จัดการเวลาและการลา" icon="sap-icon://filter"
+																key="จัดการเวลาและการลา" />
+															<m:FacetFilterItem text="ระบบสวัสดิการ"
+																key="ระบบสวัสดิการ" />
+															<m:FacetFilterItem text="ข้อมูลพนักงาน"
+																key="ข้อมูลพนักงาน" />
+															<m:FacetFilterItem
+																text="การอนุมัติข้อมูลการลดหย่อน" key="การอนุมัติข้อมูลการลดหย่อน" />
+														</m:items>
+													</m:FacetFilterList>
+												</m:lists>
+											</m:FacetFilter>
+										</t:extension>
+										<t:columns>
+<!-- 											<t:Column width="4rem" hAlign="Center" -->
+<!-- 												sortProperty="workDate"> -->
+<!-- 												<m:Label text="ลำดับ" wrapping="true" /> -->
+<!-- 												<t:template> -->
+<!-- 													<m:Text text="{No}" /> -->
+<!-- 												</t:template> -->
+<!-- 											</t:Column> -->
+											<t:Column width="15rem" hAlign="Center" sortProperty="docno" >
+												<m:Label text="เลขที่คำขอ" wrapping="true" />
+												<t:template>
+													<m:Link text="{myTask>docno}" press="onPressDocNo"
+														app:mydata="{myTask>docno}"></m:Link>
+												</t:template>
+											</t:Column>
+											<t:Column width="5rem" hAlign="Center"
+												sortProperty="module">
+												<m:Label text="ประเภท" wrapping="true" />
+												<t:template>
+													<m:Text text="{myTask>module}" wrapping="true" />
+												</t:template>
+											</t:Column>
+											<t:Column width="15rem" hAlign="Center">
+												<m:Label text="เรื่อง" wrapping="true" />
+												<t:template>
+													<m:Text text="{myTask>header}" wrapping="true" />
+												</t:template>
+											</t:Column>
+											
+											<t:Column width="8rem" hAlign="Center">
+												<m:Label text="ผู้สร้างคำขอ" wrapping="true" />
+												<t:template>
+													<m:Text text="{myTask>username}" wrapping="true" />
+												</t:template>
+											</t:Column>
+											<t:Column width="7rem" hAlign="Center"
+												sortProperty="bedat">
+												<m:Label text="วันที่รับเอกสาร" wrapping="true" />
+												<t:template>
+													<m:Text text="{myTask>bedat}" wrapping="true" />
+												</t:template>
+											</t:Column>
+
+											<t:Column width="7rem" hAlign="Center">
+												<m:Label text="สถานะ" wrapping="true" />
+												<t:template>
+													<m:Text text="{myTask>sttext}" wrapping="true" />
+												</t:template>
+											</t:Column>
+											<t:Column width="10rem" hAlign="Center">
+												<m:Label text="รายละเอียด 1" />
+												<t:template>
+													<m:Text text="{myTask>ltext1}" wrapping="ture" />
+												</t:template>
+											</t:Column>
+											<t:Column width="10rem" hAlign="Center">
+												<m:Label text="รายละเอียด 2" />
+												<t:template>
+													<m:Text text="{myTask>ltext2}" wrapping="ture" />
+												</t:template>
+											</t:Column>
+											<t:Column width="10rem" hAlign="Center">
+												<m:Label text="รายละเอียด 3" />
+												<t:template>
+													<m:Text text="{myTask>ltext3}" wrapping="ture" />
+												</t:template>
+											</t:Column>
+<!-- 											<t:Column width="7rem" hAlign="Center"> -->
+<!-- 												<m:Label text="การติดตามงาน" wrapping="true" /> -->
+<!-- 												<t:template> -->
+<!-- 													<m:Button icon="sap-icon://search" -->
+<!-- 														app:mydata="{id}" press="onTrack" /> -->
+<!-- 												</t:template> -->
+<!-- 											</t:Column> -->
+
+										</t:columns>
+									</t:Table>
+
+									<f:content>
+
+
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

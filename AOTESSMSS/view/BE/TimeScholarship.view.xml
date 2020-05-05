@@ -1,0 +1,140 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.BE.TimeScholarship"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:t="sap.ui.table" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="ขอรับทุนการศึกษาบุตร"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+
+<!-- 			<l:VerticalLayout> -->
+<!-- 				<m:ObjectStatus title="วันที่จ้างงาน" -->
+<!-- 					text="" /> -->
+<!-- 				<m:ObjectStatus title="วันที่บรรจุ" text="" /> -->
+<!-- 			</l:VerticalLayout> -->
+
+<!-- 			<l:VerticalLayout> -->
+<!-- 				<m:ObjectStatus title="สถานภาพ" text="" /> -->
+<!-- 				<m:ObjectStatus title="วันที่สมรส/หย่า" -->
+<!-- 					text="11/11/2559" /> -->
+<!-- 				<m:ObjectStatus title="คู่สมรส" -->
+<!-- 					text="นางสมหญิง ดังใจหมาย" /> -->
+<!-- 				<m:ObjectStatus title="อาชีพคู่สมรส" text="รับราชการ" /> -->
+<!-- 				<m:ObjectStatus title="สถานที่ทำงาน" -->
+<!-- 					text="โรงเรียนสายน้ำผึ้ง" /> -->
+<!-- 			</l:VerticalLayout> -->
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm title="" columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:toolbar>
+<!-- 										<m:Toolbar> -->
+<!-- 											<m:ToolbarSpacer /> -->
+<!-- 											<m:Button icon="sap-icon://employee-approvals" -->
+<!-- 												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ" -->
+<!-- 												class="sapUiTinyMargin"></m:Button> -->
+<!-- 											<m:Button icon="sap-icon://save" text="บันทึก" -->
+<!-- 												tooltip="บันทึก" class="sapUiTinyMargin"></m:Button> -->
+<!-- 											<m:Button icon="sap-icon://cancel" text="ยกเลิก" -->
+<!-- 												tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button> -->
+<!-- 										</m:Toolbar> -->
+									</f:toolbar>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="ปรับเปลี่ยนระยะเวลา">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<l:VerticalLayout>
+									<f:SimpleForm editable="false"
+										layout="ResponsiveGridLayout"
+										title="ปรับเปลี่ยนระยะเวลาการขอรับทุนการศึกษาบุตร"
+										labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="4"
+										adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+										emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3"
+										columnsM="3" singleContainerFullSize="false">
+										<f:content>
+											<m:Table inset="false">
+
+												<m:columns>
+													<m:Column>
+														<m:Text text="เรื่อง" />
+													</m:Column>
+													<m:Column>
+														<m:Text text="วันที่" />
+													</m:Column>
+												</m:columns>
+												<m:items>
+													<m:ColumnListItem>
+														<m:cells>
+															<m:Text text="วันที่เปิดรอบ" />
+															<m:DatePicker displayFormat="dd/MM/yyyy" id="begda"
+																valueFormat="dd/MM/yyyy" value=""
+																change="handleChange" />
+														</m:cells>
+													</m:ColumnListItem>
+													<m:ColumnListItem>
+														<m:cells>
+															<m:Text text="วันที่ปิดรอบ" />
+															<m:DatePicker displayFormat="dd/MM/yyyy" id="endda"
+																valueFormat="dd/MM/yyyy" value=""
+																change="handleChange" />
+														</m:cells>
+													</m:ColumnListItem>
+												</m:items>
+											</m:Table>
+										</f:content>
+									</f:SimpleForm>
+
+									<m:Button text="บันทึก" press="onSavePressed"></m:Button>
+								</l:VerticalLayout>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			
+			
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

@@ -1,0 +1,133 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.PY.TaxYearReport"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="เรียกดูหนังสือรับรองการหักภาษี ณ ที่จ่าย (50 ทวิ) และตัวอย่างการคำนวณ ภ.ง.ด.91
+" objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="02-123-4567" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG1" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="familyId"
+						title="เรียกดูหนังสือรับรองการหักภาษี ณ ที่จ่าย (50 ทวิ) และตัวอย่างการคำนวณ ภ.ง.ด.91">
+						<blocks>
+							<ObjectPageLazyLoader id="familyLazyLoader">
+								<l:VerticalLayout>
+									<f:SimpleForm editable="true"
+										layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+										labelSpanM="4" labelSpanS="4" adjustLabelSpan="false"
+										emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+										columnsXL="3" columnsL="3" columnsM="3"
+										singleContainerFullSize="false">
+										<f:content>
+											<m:Label text="เลือกปี" />
+											<m:Select id="selectYear" selectedKey="none" items="{path: 'yearItem>/List'}">
+												<m:items>
+													<core:Item text="{yearItem>text}" key="{yearItem>key}" />
+												</m:items>
+											</m:Select>
+
+											<m:Label text="" />
+											<m:Button text="ค้นหา" press="onSearch"
+												class="sapUiLargeMarginEnd"></m:Button>
+											<m:Text text="" class="sapUiLargeMarginEnd" />
+										</f:content>
+									</f:SimpleForm>
+									<m:Table id="listTable" inset="false" visible="false"  items="{path: 'listItem>/nodeInfo'}">
+										<m:columns>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="รายการ" level="H2" />
+											</m:Column>
+											<m:Column minScreenWidth="Desktop"
+												demandPopin="true" popinDisplay="Inline" hAlign="Center">
+												<m:Text text="" level="H2" />
+											</m:Column>
+										</m:columns>
+										<m:items>
+											<m:ColumnListItem hAlign="Center">
+												<m:cells>
+													<m:Text id="downloadName" text="{listItem>nodeName}" />
+													<m:Button press="onDLbtnpress" 
+														icon="sap-icon://download" />
+												</m:cells>
+											</m:ColumnListItem>
+										</m:items>
+									</m:Table>
+								</l:VerticalLayout>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection >
+						<blocks>
+							<ObjectPageLazyLoader>
+								<l:VerticalLayout>
+									<m:ObjectStatus text=" รายการหนังสือรับรองภาษีนี้เป็นการสร้างข้อมูลมาจากระบบ SAP โดยจะมีชื่อไฟล์โดยยกตัวอย่างมาดังนี้" />
+									
+									<m:ObjectStatus text="." />
+									
+									<m:ObjectStatus text="P91-00471001-25611231-THP91-00471001-25611231-TH" />
+									<m:ObjectStatus text="P91                 ย่อมาจาก  ภ.ง.ด.91" />
+									<m:ObjectStatus text="00471001  เป็นรหัสพนักงาน" />
+									<m:ObjectStatus text="25611231  เป็นปีพุทธศักราช / เดือน / วันที่" />
+									<m:ObjectStatus text="TH               ฟอร์มไทย" />
+
+									
+									<m:ObjectStatus text="" />
+									<m:ObjectStatus text="." />
+									
+									<m:ObjectStatus text=" รายการหนังสือรับรองภาษีนี้เป็นการสร้างข้อมูลมาจากระบบ SAP โดยจะมีชื่อไฟล์โดยยกตัวอย่างมาดังนี้" />
+									
+									<m:ObjectStatus text="." />
+									
+									<m:ObjectStatus text="    WHT-00471001-25611231-TH-09123456" />
+									<m:ObjectStatus text=" WHT        ย่อมาจาก Withholding Tax" />
+									<m:ObjectStatus text="00471001  เป็นรหัสพนักงาน" />
+									<m:ObjectStatus text="25611231  เป็นปีพุทธศักราช / เดือน / วันที่" />
+									<m:ObjectStatus text="TH               ฟอร์มไทย" />
+									<m:ObjectStatus text="09123456  รหัสบุคคล(ลูกจ้างชั่วคราว)" />
+								</l:VerticalLayout>
+							</ObjectPageLazyLoader>						
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

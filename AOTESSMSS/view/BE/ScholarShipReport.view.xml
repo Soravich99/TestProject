@@ -1,0 +1,172 @@
+
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.BE.ScholarShipReport"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:t="sap.ui.table">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="รายชื่อบุตรพนง. และลูกจ้าที่ได้รับทุนการศึกษาประจำปี"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<l:VerticalLayout>
+									<m:VBox class="sapUiSmallMargin" alignItems="Center">
+										<m:Text text="ท่าอากาศยานไทย จำกัดมหาชน" class="header_text"/>
+
+										<m:Text
+											text="รายชื่อบุตรพนง. และลูกจ้างที่ได้รับทุนการศึกษาประจำปี 2560" class="header_text"/>
+
+										<m:Text text="" />
+									</m:VBox>
+
+
+
+									<m:Table inset="false">
+										<m:columns>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center" filterProperty="true">
+												<m:Text text="ลำดับ" level="H2" />
+											</m:Column>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="รายชื่อบุตร" level="H2" />
+											</m:Column>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="ระดับการศึกษา" level="H2" />
+											</m:Column>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="รหัสพนักงาน" level="H2" />
+											</m:Column>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="ชื่อพนักงาน/ลูกจ้าง" level="H2" />
+											</m:Column>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="ท่าอากาศยาน" level="H2" />
+											</m:Column>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="สังกัด" level="H2" />
+											</m:Column>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="ผลการศึกษา" level="H2" />
+
+											</m:Column>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="ทุนการศึกษาที่ได้รับ" level="H2" />
+
+											</m:Column>
+
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="หมายเหตุ" level="H2" />
+
+											</m:Column>
+										</m:columns>
+										<m:items>
+											<m:ColumnListItem>
+												<m:cells>
+													<m:Label text="1" />
+													<m:Label text="เด็กหญิงฐิตาพร เย็นประโคน"
+														wrapping="true" />
+													<m:Text text="ประถมศึกษาตอนต้น" />
+													<m:Text text="49-4745" />
+													<m:Text text="นายอภิศักดิ์ เย็นประโคน"
+														wrapping="true" />
+													<m:Text text="ท่าอากาศยานดอนเมือง" />
+													<m:Text text="งปห.ศปพ.สงขค" />
+													<m:Text text="3.27" />
+													<m:Text text="8,000.00" />
+													<m:Text text="" />
+												</m:cells>
+											</m:ColumnListItem>
+											<m:ColumnListItem>
+												<m:cells>
+													<m:Label text="2" />
+													<m:Label text="เด็กหญิงเปรมสินี ทองโสภณ"
+														wrapping="true" />
+													<m:Text text="ประถมศึกษาตอนปลาย" />
+													<m:Text text="49-4919" />
+													<m:Text text="นางสุปาณี ทองโสภณ" wrapping="true" />
+													<m:Text text="ท่าอากาศยานภูเก็ต" />
+													<m:Text text="สตส.สงขต." />
+													<m:Text text="3.70" />
+													<m:Text text="8,000.00" />
+													<m:Text text="" />
+												</m:cells>
+											</m:ColumnListItem>
+											<m:ColumnListItem>
+												<m:cells>
+													<m:Label text="3" />
+													<m:Label text="เด็กหญิงสรัสนันท์ จันโท"
+														wrapping="true" />
+													<m:Text text="มัธยมศึกษาตอนต้น" />
+													<m:Text text="47-3570" />
+													<m:Text text="นางสุระวี จันโท" wrapping="true" />
+													<m:Text text="ท่าอากาศยานดอนเมือง" />
+													<m:Text text="สตส.สงขต." />
+													<m:Text text="3.58" />
+													<m:Text text="8,000.00" />
+													<m:Text text="" />
+												</m:cells>
+											</m:ColumnListItem>
+											<m:ColumnListItem>
+												<m:cells>
+													<m:Label text="4" />
+													<m:Label text="เด็กชายวันชนะ มั่นคง"
+														wrapping="true" />
+													<m:Text text="มัธยมศึกษาตอนปลาย" />
+													<m:Text text="47-3571" />
+													<m:Text text="นางสุระวี จันโท" wrapping="true" />
+													<m:Text text="ท่าอากาศยานสุวรรณภูมิ" />
+													<m:Text text="สตค.ฝรภ.ทสภ." />
+													<m:Text text="3.44" />
+													<m:Text text="8,000.00" />
+													<m:Text text="" />
+												</m:cells>
+											</m:ColumnListItem>
+											<m:ColumnListItem>
+												<m:cells>
+													<m:Label text="4" />
+													<m:Label text="เด็กหญิงจิตรา รุ่งโรจ"
+														wrapping="true" />
+													<m:Text text="ประถมต้น" />
+													<m:Text text="47-3571" />
+													<m:Text text="นางจันทิรา จากฝา" wrapping="true" />
+													<m:Text text="ท่าอากาศยานสุวรรณภูมิ" />
+													<m:Text text="สตค.ฝรภ.ทสภ." />
+													<m:Text text="3.00" />
+													<m:Text text="8,000.00" />
+													<m:Text text="" />
+												</m:cells>
+											</m:ColumnListItem>
+										</m:items>
+									</m:Table>
+								</l:VerticalLayout>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

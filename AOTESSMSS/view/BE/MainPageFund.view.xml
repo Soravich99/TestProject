@@ -1,0 +1,172 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.BE.MainPageFund"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:t="sap.ui.table" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified">
+
+	<ObjectPageLayout>
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="จัดการเงินสะสมและกองทุน"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="วันที่จ้างงาน"
+					text="" id="DAT01" />
+				<m:ObjectStatus title="วันที่บรรจุ" text="" id="DAT02" />
+			</l:VerticalLayout>
+			
+			<l:VerticalLayout>
+				<m:ObjectStatus title="สถานภาพ" text="" id="FAMST" />
+				
+			</l:VerticalLayout>
+
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="นโยบายและอัตราสะสม">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="false"
+									layout="ResponsiveGridLayout" title="" labelSpanXL="4"
+									labelSpanL="4" labelSpanM="4" labelSpanS="4"
+									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3"
+									columnsM="3" singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://edit" text="แก้ไข"
+												tooltip="แก้ไข" class="sapUiTinyMargin"
+												press="onClickEditFund"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+									<f:content>
+										<core:Title text="" />
+										<m:Label text="รหัสบุคคล" />
+										<m:Text text="" id="empno">
+											<m:layoutData>
+												<l:GridData span="XL2 L2 M2 S2" />
+											</m:layoutData>
+										</m:Text>
+										<m:Text text="" id="empname" />
+										<m:Label text="สังกัด" />
+										<m:Text text="" id="org" />
+										<m:Label text="ขอเปลี่ยนนโยบาย" />
+										<m:Text text="" id="txt1" />
+										<m:Label text="นโยบาย" Required="True" />
+										<m:Text text="" id="ZZPCY" />
+										<m:Label text="ขอเปลี่ยนนออัตราสะสม" />
+										<m:Text text="" id="txt2" />
+										<m:Label text="อัตราสะสม" Required="True" />
+										<m:Text text="" id="EMEPC">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Text>
+										<m:Text text="%" />
+										<m:Button text="แก้ไขเงินสะสม" press="onClickEditFund3" class="sapUiLargeMarginEnd"></m:Button>
+
+
+										<core:Title text="" />
+										<m:Label text="ตำแหน่ง" />
+										<m:Text text="" id="plans" />
+
+<!-- 										<m:Label text="สถานะ" /> -->
+<!-- 										<m:Text text="" id="status" /> -->
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="ผู้รับผลประโยชน์">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="false"
+									layout="ResponsiveGridLayout" title="" labelSpanXL="4"
+									labelSpanL="4" labelSpanM="4" labelSpanS="4"
+									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2"
+									columnsM="2" singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://edit" text="แก้ไข"
+												tooltip="แก้ไข" class="sapUiTinyMargin"
+												press="onClickEditFund2"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+									<f:content>
+										<l:VerticalLayout>
+										
+										<m:Label text="" />
+										<m:Text text="" id="txt5" />
+										
+										<m:Label text="ขอเปลี่ยนผู้รับผลประโยชน์" />
+										<m:Text text="" id="txt3" />
+										
+										<m:Label text="" />
+										<m:Text text="" id="txt4" />
+										
+										<m:Table id="idProductsTable2" inset="false">
+											<m:columns>
+												<m:Column>
+													<m:Text text="ลำดับ" />
+												</m:Column>
+												<m:Column>
+													<m:Text text="ชื่อผู้รับผลประโยชน์" />
+												</m:Column>
+												<m:Column>
+													<m:Text text="ความสัมพันธ์" />
+												</m:Column>
+												<m:Column>
+													<m:Text text="ร้อยละ" />
+												</m:Column>
+											</m:columns>
+										</m:Table>
+										</l:VerticalLayout>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

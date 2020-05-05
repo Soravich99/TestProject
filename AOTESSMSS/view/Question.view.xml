@@ -1,0 +1,105 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.Question"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:t="sap.ui.table"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<ObjectPageLayout id="objectPageLayout"
+		enableLazyLoading="true" useIconTabBar="true">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="รายละเอียดคู่มือระบบESSMSS"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสพนักงาน" text="10001" id="PERNR" visible="false"/>
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="รายละเอียดคู่มือระบบESSMSS">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<!-- <l:VerticalLayout> <m:Label text="ปีที่ได้รับสิทธิ" labelFor="DTP1" 
+									/> <m:Select id="selectedYear" width="20%" forceSelection="false" selectedKey="2560"> 
+									<core:Item key="2560" text="2560" /> </m:Select> <m:Text text=" " /> </l:VerticalLayout> -->
+								<f:SimpleForm id="form1" editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+								<f:content>
+								<l:VerticalLayout>
+								<m:Table id="idCertificationTable"
+											inset="false">
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:Title text="เอกสารคู่มือ" level="H2"/>
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column
+													minScreenWidth="Phone"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เอกสาร" />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+													
+														<m:Link
+															text="PA" target="_blank" href="file:///C:/Users/PDK/Desktop/AOTESSMSS/images/photoESS.jpg"/>
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Link
+															text="TM" herf=""/>
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Link
+															text="BE" herf=""/>
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Link
+															text="TE" herf=""/>
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Link
+															text="PD" herf=""/>
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Link
+															text="PY" herf=""/>
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+								</l:VerticalLayout>
+								</f:content>
+
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

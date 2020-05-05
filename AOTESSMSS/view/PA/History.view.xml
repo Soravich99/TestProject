@@ -1,0 +1,239 @@
+<mvc:View controllerName="sap.ui.demo.toolpageapp.controller.PA.HRApproval"
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:c="sap.suite.ui.commons" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified">
+
+	<m:SplitApp id="myTask" initialDetail="detail1"
+		initialMaster="master">
+		<m:masterPages>
+			<m:Page id="master" title="ประวัติการดำเนินการ" icon="sap-icon://action"
+				class="sapUiStdPage">
+				<m:subHeader>
+					<m:Toolbar>
+						<m:SearchField liveChange="onSearch" width="100%" />
+					</m:Toolbar>
+				</m:subHeader>
+				<m:content>
+					<m:List id="idList">
+						<m:items>
+							<m:StandardListItem title="ใบคำร้องขอเพิ่มข้อมูลบุตร"
+								id="item1" description="สร้างวันที่ 18/08/2561 14:00" info="รออนุมัติ"
+								infoState="Warning" type="Navigation" press="onPressNavToDetail"
+								custom:mydata="detail1" />
+						</m:items>
+					</m:List>
+				</m:content>
+			</m:Page>
+		</m:masterPages>
+		<m:detailPages>
+			<m:Page id="detail1" title="รายละเอียด" class="sapUiStdPage"
+				showNavButton="true" navButtonPress="onPressDetailBack">
+				<m:content>
+					<ObjectPageLayout>
+
+						<headerTitle>
+							<ObjectPageHeader objectTitle="ใบคำร้องขอเพิ่มข้อมูลบุตร"
+								objectSubtitle="">
+							</ObjectPageHeader>
+						</headerTitle>
+						<headerContent>
+							<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสพนักงาน" text="620001" />
+				<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นายสมชาย01 จิตใจงาม01" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์"
+					text="" />
+				<m:ObjectStatus title="Email"
+					text="" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="ฝ่าย" text="ฝทส0101" />
+				<m:ObjectStatus title="ส่วน" text="สทส010101" />
+								<m:ObjectStatus title="ปฏิบัติงานตำแหน่ง" text="เจ้าหน้าที่บริหารงาน" />
+								<m:ObjectStatus title="ประเภทตารางการทำงาน" text="ปกติ" />
+							</l:VerticalLayout>
+						</headerContent>
+						<sections>
+							<ObjectPageSection>
+								<subSections>
+									<ObjectPageSubSection title="สถานะ">
+										<blocks>
+											<ObjectPageLazyLoader>
+												<c:ProcessFlow id="processflow" scrollable="false"
+													wheelZoomable="true" headerPress="onHeaderPress">
+													<c:nodes>
+														<c:ProcessFlowNode laneId="1" nodeId="1"
+															title="ใบคำร้อง" titleAbbreviation="Req"
+															isTitleClickable="true" children="2" state="Positive"
+															stateText="ใบคำร้อง" texts="พนักงานทำการสร้างใบคำร้อง"
+															focused="false" />
+														<c:ProcessFlowNode laneId="2" nodeId="2"
+															id="target1" title="อนุมัติโดยฝ่ายบุคคลท่า"
+															titleAbbreviation="HR" isTitleClickable="true" children="3"
+															state="Neutral" stateText="รอการอนุมัติ" texts="HR ทำการอนุมัติใบคำร้อง"
+															focused="true" />
+														<c:ProcessFlowNode laneId="3" nodeId="3"
+															id="target2" title="ระบบส่งอีเมลแจ้งผู้บังคับบัญชา"
+															titleAbbreviation="" isTitleClickable="true" state="Planned"
+															stateText="รอการอนุมัติ" texts="อีเมลส่งให้กับผู้บังคับบัญชา"
+															focused="false" />
+													</c:nodes>
+													<c:lanes>
+														<c:ProcessFlowLaneHeader laneId="1"
+															iconSrc="sap-icon://order-status" text="ใบคำร้อง"
+															position="0" />
+														<c:ProcessFlowLaneHeader laneId="2"
+															id="lane2" iconSrc="sap-icon://order-status" text="อนุมัติโดยฝ่ายบุคคลท่า"
+															position="1" />
+														<c:ProcessFlowLaneHeader laneId="3"
+															iconSrc="sap-icon://order-status" text="แจ้งผู้บังคับบัญชา"
+															position="2" />
+													</c:lanes>
+												</c:ProcessFlow>
+											</ObjectPageLazyLoader>
+										</blocks>
+									</ObjectPageSubSection>
+								</subSections>
+							</ObjectPageSection>
+							<ObjectPageSection>
+								<subSections>
+									<ObjectPageSubSection title="รายละเอียด">
+										<blocks>
+											<ObjectPageLazyLoader>
+												<f:SimpleForm columnsL="1" columnsM="1"
+													editable="true" layout="ResponsiveGridLayout">
+													<f:content>
+														<core:Title text="ข้อมูลบุตร" />
+														<m:Label text="ลำดับที่" required="true" />
+														<m:Select id="orderChildEdit" selectedKey="1"
+															enabled="false">
+															<m:items>
+																<core:Item text="กรุณาเลือกลำดับที่บุตร" key="none" />
+																<core:Item text="1" key="1" />
+																<core:Item text="2" key="2" />
+																<core:Item text="3" key="3" />
+																<core:Item text="4" key="4" />
+																<core:Item text="5" key="5" />
+															</m:items>
+														</m:Select>
+														<m:Label text="อาชีพ" required="true" />
+														<m:Select id="job" selectedKey="student" enabled="false">
+															<m:items>
+																<core:Item text="กรุณาเลือกอาชีพ" key="default" />
+																<core:Item text="ไม่มี" key="none" />
+																<core:Item text="นักเรียน" key="student" />
+																<core:Item text="พนักงานทอท." key="empAot" />
+																<core:Item text="พนักงานเอกชน" key="empIndividual" />
+															</m:items>
+														</m:Select>
+														<m:Label text="รหัสพนักงาน" id="empIDLabel" />
+														<m:Input value="" id="empIDInput" enabled="false" />
+														<m:Button text="ค้นหา" icon="sap-icon://search"
+															width="65px" enabled="false" />
+
+														<m:Label text="คำนำหน้า" required="true" />
+														<m:Select id="titleChildEdit" selectedKey="1"
+															enabled="false">
+															<m:items>
+																<core:Item text="กรุณาเลือกคำนำหน้า" key="2" />
+																<core:Item text="ด.ญ." key="1" />
+																<core:Item text="ด.ช." key="2" />
+																<core:Item text="นาง" key="3" />
+																<core:Item text="นาย" key="4" />
+																<core:Item text="นางสาว" key="5" />
+															</m:items>
+														</m:Select>
+														<m:Label text="ชื่อจริง" required="true" />
+														<m:Input value="ธนพบ" enabled="false" />
+														<m:Label text="นามสกุล" required="true" />
+														<m:Input value="ยงยศ" enabled="false" />
+														<m:Label text="เลขที่บัตรประชาชน" required="true" />
+														<m:Input value="1-5725-58978-00-2" enabled="false" />
+														<m:Label text="วันเดือนปี เกิด" required="true" />
+														<m:DatePicker displayFormat="dd/MM/yyyy"
+															enabled="false" valueFormat="dd/MM/yyyy" value="31/01/2547"
+															change="handleChange" />
+														<m:Label text="สถานะบุตร" required="true" />
+														<m:Select id="statusChildEdit" selectedKey="1"
+															enabled="false">
+															<m:items>
+																<core:Item text="กรุณาเลือกสถานะบุตร" key="none" />
+																<core:Item text="บุตรในปกครอง" key="1" />
+																<core:Item text="นอกปกครอง" key="2" />
+																<core:Item text="รับรองบุตร" key="3" />
+															</m:items>
+														</m:Select>
+														<m:Label text="สถานภาพปัจจุบัน" required="true" />
+														<m:Select id="status" selectedKey="faAot"
+															enabled="false">
+															<m:items>
+																<core:Item text="กรุณาเลือกสถานภาพปัจจุบัน"
+																	key="1" />
+																<core:Item text="ยังมีชีวิตอยู่" key="faAot" />
+																<core:Item text="เสียชีวิต" key="faIndividual" />
+															</m:items>
+														</m:Select>
+													</f:content>
+												</f:SimpleForm>
+											</ObjectPageLazyLoader>
+										</blocks>
+									</ObjectPageSubSection>
+								</subSections>
+							</ObjectPageSection>
+
+							<ObjectPageSection>
+								<subSections>
+									<ObjectPageSubSection title="เอกสารแนบ">
+										<blocks>
+											<ObjectPageLazyLoader>
+												<f:SimpleForm columnsL="2" columnsM="2"
+													editable="true" layout="ResponsiveGridLayout">
+													<f:content>
+														<l:VerticalLayout>
+															<m:Link text="สำเนาสูติบัตรบุตรลำดับที่1.pdf"
+																href="model/medicalDoc.pdf" target="_blank"></m:Link>
+															<m:Link text="สำเนาบัตรประชาชนบุตรลำดับที่1.pdf"
+																href="model/medicalDoc.pdf" target="_blank"></m:Link>
+															<m:Link text="สำเนาใบรับรองบุตรลำดับที่1.pdf"
+																href="model/medicalDoc.pdf" target="_blank"></m:Link>
+														</l:VerticalLayout>
+													</f:content>
+												</f:SimpleForm>
+											</ObjectPageLazyLoader>
+										</blocks>
+									</ObjectPageSubSection>
+								</subSections>
+							</ObjectPageSection>
+
+							<ObjectPageSection visible="false">
+								<subSections>
+									<ObjectPageSubSection title="การอนุมัติ">
+										<blocks>
+											<ObjectPageLazyLoader>
+												<f:SimpleForm columnsL="2" columnsM="2"
+													editable="true" layout="ResponsiveGridLayout">
+													<f:content>
+														<l:VerticalLayout>
+															<l:HorizontalLayout>
+																<m:Label text="Comment:" class="sapUiTinyMargin" />
+																<m:TextArea value="" class="sapUiTinyMargin"
+																	growing="true" width="250px" enabled="false" />
+															</l:HorizontalLayout>
+														</l:VerticalLayout>
+													</f:content>
+												</f:SimpleForm>
+											</ObjectPageLazyLoader>
+										</blocks>
+									</ObjectPageSubSection>
+								</subSections>
+							</ObjectPageSection>
+
+						</sections>
+					</ObjectPageLayout>
+				</m:content>
+			</m:Page>
+		</m:detailPages>
+	</m:SplitApp>
+</mvc:View>

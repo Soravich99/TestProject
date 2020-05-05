@@ -1,0 +1,120 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.PA.EditIdCard"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<ObjectPageLayout id="objectPageLayout">
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="แก้ไขข้อมูลบัตรประชาชน" objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="02-123-4567" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />					
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+			</l:VerticalLayout>
+
+		</headerContent>
+
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId"
+						title="แก้ไขข้อมูลบัตรประชาชน">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="2" labelSpanS="2" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://hr-approval"
+												text="บันทึก" tooltip="บันทึก" press="onSavePressed"
+												class="sapUiTinyMargin"></m:Button>
+<!-- 											<m:Button icon="sap-icon://save" text="บันทึก" -->
+<!-- 												tooltip="บันทึก" class="sapUiTinyMargin" visible="false"></m:Button> -->
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+												press="onCancelPressed" tooltip="ยกเลิก"
+												class="sapUiTinyMargin"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+									<f:content>
+										<core:Title text="" />
+										<m:Label text="เลขบัตรประชาชน" />
+										<m:Input value="" enabled="false" id="ICNUM" />
+
+										<m:Label text="ออกให้ ณ" required="true" />
+										<m:Input value=""
+											placeholder="กรุณากรอกเขต/อำเภอที่ออกบัตร" id="AUTH1" />
+										
+										<m:Label text="วันที่ออกบัตร" required="true" />
+										<m:DatePicker displayFormat="dd/MM/yyyy"
+											valueFormat="dd/MM/yyyy" value="" change="handleChange" id="FPDAT" />
+										<m:Label text="วันที่บัตรหมดอายุ" required="true" />
+										<m:DatePicker displayFormat="dd/MM/yyyy"
+											valueFormat="dd/MM/yyyy" value="" change="handleChange" id="EXPID" />
+										<m:Label text="วันที่มีผล" required="true" />
+										<m:DatePicker displayFormat="dd/MM/yyyy"
+											valueFormat="dd/MM/yyyy" value="" change="handleChange" id="AEDTM" />
+
+
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="familyId"
+						title="เอกสารแนบ">
+						<blocks>
+							<ObjectPageLazyLoader id="familyLazyLoader">
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+
+										<m:Label text="สำเนาบัตรประชาชนที่เปลี่ยนแปลงแล้ว"
+											labelFor="fileUploader2" />
+										<u:FileUploader name="myFileUpload"
+										buttonText="แนบเอกสาร"
+											uploadUrl="upload/" placeholder=""
+											uploadComplete="handleUploadComplete" width="100%" />
+
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

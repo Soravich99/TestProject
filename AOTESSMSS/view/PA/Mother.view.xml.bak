@@ -1,0 +1,234 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.PA.Mother"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<ObjectPageLayout id="objectPageLayout2">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="ส่งใบคำร้องขอแก้ไขข้อมูลมารดา" objectSubtitle="">
+				<!-- <actions> <ObjectPageHeaderActionButton icon="sap-icon://edit" text="edit" 
+					importance="Medium" visible="false"/> <ObjectPageHeaderActionButton icon="sap-icon://save" 
+					text="save" importance="Medium"/> <ObjectPageHeaderActionButton icon="sap-icon://cancel" 
+					text="cancel" importance="Medium"/> <ObjectPageHeaderActionButton icon="sap-icon://refresh" 
+					text=""/> </actions> -->
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสพนักงาน" text="620001" />
+				<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นายสมชาย01 จิตใจงาม01" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์"
+					text="089-123-4567" />
+				<m:ObjectStatus title="Email"
+					text="somchai.j@airportthai.co.th" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="ฝ่าย" text="ฝทส0101" />
+				<m:ObjectStatus title="ส่วน" text="สทส010101" />
+				<m:ObjectStatus title="ปฏิบัติงานตำแหน่ง"
+					text="เจ้าหน้าที่บริหารงาน" />
+				<m:ObjectStatus title="ประเภทตารางการทำงาน"
+					text="ปกติ" />
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+			<ObjectPageSection id="fatherSection">
+				<subSections>
+					<ObjectPageSubSection id="shopConfigurationId"
+						title="แก้ไขข้อมูลมารดา">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopConfigurationLazyLoader">
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="2" labelSpanS="2" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://hr-approval"
+												text="ส่งเพื่ออนุมัติ" tooltip="บันทึก"
+												class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+												tooltip="ยกเลิก" class="sapUiTinyMargin"
+												press="onCancelPressed"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+									<f:content>
+										<core:Title text="รายละเอียด" />
+										<m:Label text="อาชีพ" required="true" />
+										<m:Select id="job" selectedKey="AOT">
+											<m:items>
+												<core:Item text="กรุณาเลือกอาชีพ" key="default" />
+												<core:Item text="พนักงานทอท." key="พนักงานเกษียณ" />
+												<core:Item text="พนักงานรัฐวิสาหกิจ"
+													key="stateEnterprise" />
+												<core:Item text="ข้าราชการ" key="official" />
+												<core:Item text="ข้าราชการบำนาญ" key="pensioner" />
+												<core:Item text="ข้าราชการบำเหน็จ"
+													key="governmentServant" />
+												<core:Item text="ลูกจ้างราชการ"
+													key="governmentEmployee" />
+												<core:Item text="พนักงานเอกชน"
+													key="privateEmployee" />
+												<core:Item text="ไม่มีอาชีพ" key="none" />
+											</m:items>
+										</m:Select>
+										<m:Label text="วันที่มีผล" required="true" />
+										<m:DatePicker displayFormat="dd/MM/yyyy"
+											valueFormat="dd/MM/yyyy" value="" change="handleChange" />
+										<m:Label text="สถานที่ทำงาน" id="workplace" />
+										<m:Input value="ท่าอากาศยานดอนเมือง"
+											id="workplaceInput" />
+										<m:Label text="รหัสพนักงาน" id="faEmpIDLabel"
+											visible="true" />
+										<m:Input value="525782" id="faEmpIDInput"
+											visible="true" />
+										<m:Button text="ค้นหา" icon="sap-icon://search"
+											width="65px" visible="true" />
+										<m:Label text="คำนำหน้า" required="true" />
+										<m:Select id="titlefatherEdit" selectedKey="3">
+											<m:items>
+												<core:Item text="" key="none" />
+												<core:Item text="นาง" key="3" />
+												<core:Item text="นาย" key="4" />
+												<core:Item text="นางสาว" key="5" />
+											</m:items>
+										</m:Select>
+										<m:Label text="ชื่อจริง" required="true" />
+										<m:Input value="มารดา" />
+										<m:Label text="วันที่เปลี่ยนชื่อ" required="false" />
+										<m:DatePicker displayFormat="dd/MM/yyyy"
+											valueFormat="dd/MM/yyyy" value="" change="handleChange" />
+										<m:Label text="นามสกุล" required="true" />
+										<m:Input value="จิตใจงาม" />
+										<m:Label text="วันที่เปลี่ยนสกุล" required="false" />
+										<m:DatePicker displayFormat="dd/MM/yyyy"
+											valueFormat="dd/MM/yyyy" value="" change="handleChange" />
+										<m:Label text="เลขที่บัตรประชาชน" required="false" />
+										<m:Input value="1-0702-03609-04-2" enabled="false" />
+										<m:Label text="วันเกิด" required="true" />
+										<m:DatePicker displayFormat="dd/MM/yyyy"
+											valueFormat="dd/MM/yyyy" value="01/01/2493"
+											change="handleChange" />
+										<m:Label text="อายุ" />
+										<m:Input value="69ปี" enabled="false" />
+										<m:Label text="เบอร์โทร" />
+										<m:Input value="095-561-0220" />
+										<m:Label text="สถานะ" required="true" />
+										<m:RadioButton groupName="GroupB" text="มีชีวิต"
+											selected="false" />
+										<m:RadioButton groupName="GroupB"
+											text="เสียชีวิต" selected="true" />
+
+										<m:Label text="วันที่เสียชีวิต" />
+										<m:DatePicker displayFormat="dd/MM/yyyy"
+											valueFormat="dd/MM/yyyy" value="" change="handleChange" />
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="เอกสารแนบ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+
+										<m:Label text="สำเนาบัตรประชาชน"
+											labelFor="fileUploader" />
+										<u:FileUploader name="myFileUpload"
+											uploadUrl="upload/" placeholder=""
+											uploadComplete="handleUploadComplete" width="100%" />
+										<m:Button text="Upload" press="handleUploadPress"
+											width="25%"></m:Button>
+										<m:Label text="" labelFor="fileUploader" />
+										<m:Link text="สำเนาบัตรประชาชน.pdf"
+											href="model/medicalDoc.pdf" target="_blank"></m:Link>
+
+										<m:Label text="สำเนาใบเปลี่ยนชื่อ"
+											labelFor="fileUploader77" />
+										<u:FileUploader name="myFileUpload"
+											uploadUrl="upload/" placeholder=""
+											uploadComplete="handleUploadComplete" width="100%" />
+										<m:Button text="Upload" press="handleUploadPress"
+											width="25%"></m:Button>
+										<m:Label text="" labelFor="fileUploader" />
+										<m:Link text="สำเนาใบเปลี่ยนชื่อ.pdf"
+											href="model/medicalDoc.pdf" target="_blank"></m:Link>
+
+										<m:Label text="สำเนาใบเปลี่ยนสกุล.pdf"
+											labelFor="fileUploader2" />
+										<u:FileUploader name="myFileUpload"
+											uploadUrl="upload/" placeholder=""
+											uploadComplete="handleUploadComplete" width="100%" />
+										<m:Button text="Upload" press="handleUploadPress"
+											width="25%"></m:Button>
+										<m:Label text="" labelFor="fileUploader" />
+										<m:Link text="สำเนาใบเปลี่ยนสกุล.pdf"
+											href="model/medicalDoc.pdf" target="_blank"></m:Link>
+
+										<m:Label text="สำเนาใบมรณะบัตร"
+											labelFor="fileUploader2" />
+										<u:FileUploader name="myFileUpload"
+											uploadUrl="upload/" placeholder=""
+											uploadComplete="handleUploadComplete" width="100%" />
+										<m:Button text="Upload" press="handleUploadPress"
+											width="25%"></m:Button>
+										<m:Label text="" labelFor="fileUploader" />
+										<m:Link text="สำเนาใบมรณะบัตร.pdf"
+											href="model/medicalDoc.pdf" target="_blank"></m:Link>
+
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm title="" columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://employee-approvals"
+												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ"
+												class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+												tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+
+
+
+</mvc:View>

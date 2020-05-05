@@ -1,0 +1,83 @@
+<mvc:View controllerName="sap.ui.demo.toolpageapp.controller.TE.InputTrainingPlan"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="นำเข้าแผนพัฒนาบุคคลประจำปี"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="02-123-4567" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ผู้บังคับบัญชา"
+					text="นาย ขอ แสนดี" id="KZTIM" />
+			
+				<m:ObjectStatus
+					title="ข้อมูลการแพ้อาหาร/อาหารที่งดเว้น" text="เนื้อวัว, ถั่ว" id="SMARK"/>
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="นำเข้าแผนพัฒนาบุคคลประจำปี">
+						<blocks>
+							<ObjectPageLazyLoader >
+								<f:SimpleForm
+									editable="true" layout="ResponsiveGridLayout" labelSpanXL="4"
+									labelSpanL="4" labelSpanM="12" labelSpanS="12"
+									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1"
+									columnsM="1" singleContainerFullSize="false">
+									<f:content>
+										<core:Title text="" />
+										<m:Label text="แผนพัฒนาบุคคลประจำปี" required="true"/>
+										<m:Select selectedKey="เลือกปี" width="20%" id="iYear" items="{path: 'yearItem>/List'}">
+											<m:items>
+												<core:Item text="{yearItem>text}" key="{yearItem>key}" />
+											</m:items>
+										</m:Select>
+										<m:Label text="ไฟล์" labelFor="fileUploader21"
+										 required="true"/>
+										<u:FileUploader
+										buttonText="แนบเอกสาร"  maximumFileSize="30MB" fileType="PDF,pdf"
+											name="myFileUpload" uploadUrl="upload/" placeholder=""
+											uploadComplete="handleUploadComplete" width="100%" id="fileUpload" />
+										<m:Button text="อัพโหลด"
+											press="handleUploadPress" width="40%" />
+									
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

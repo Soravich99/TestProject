@@ -1,0 +1,274 @@
+<mvc:View 
+controllerName="sap.ui.demo.toolpageapp.controller.BE.FamilyBenefitPage"
+xmlns="sap.uxap"
+xmlns:l="sap.ui.layout" 
+xmlns:f="sap.ui.layout.form" 
+xmlns:m="sap.m"
+xmlns:core="sap.ui.core" 
+xmlns:mvc="sap.ui.core.mvc">
+	<!-- <VBox class="sapUiSmallMargin"> -->
+
+		<ObjectPageLayout id="objectPageLayout">
+
+			<sections>
+				<ObjectPageSection>
+					<subSections>
+						<ObjectPageSubSection id="shopOwnerId" title="สิทธิ์และประวัติค่าเล่าเรียนบุตร">
+							<blocks>
+								<ObjectPageLazyLoader id="shopOwnerLazyLoader">
+									<f:SimpleForm id="SimpleFormDisplay480_12120"
+										editable="false" layout="ResponsiveGridLayout" title="สิทธิ์และประวัติค่าเล่าเรียนบุตร"
+										labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+										adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+										emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3"
+										columnsM="1" singleContainerFullSize="false">
+										<f:toolbar>
+											<!--  <m:Toolbar>
+												<m:Title text="เงินช่วยเหลือบุตร" level="H2" />
+												<m:ToolbarSpacer />
+												<m:Button icon="sap-icon://save" text="บันทึก"
+													tooltip="บันทึก" class="sapUiTinyMargin"></m:Button>
+												<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+													tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button>
+											</m:Toolbar>-->
+										</f:toolbar>
+
+										<f:content>
+										<core:Title text="" />
+										<m:Label text="หมายเลขเงินเดือน" />
+										<m:Text text="5999999" />
+										<m:Text text="นาง งาม รักการงาน" />
+										<m:Label text="สังกัด" />
+										<m:Text text="ฝ่ายทรัพยากรบุคคล" />
+										<m:Label text="คู่สมรส" />
+										<m:Text text="นาย มั่งคง รักการงาน" />
+										<m:Label text="สถานะสมรส" />
+										<m:Text text="" />
+
+
+										<core:Title text="" />
+										<m:Label text="ตำแหน่ง" />
+										<m:Text text="เจ้าหน้าที่งานบุคคล" />
+										<m:Label text="" />
+										<m:Text text="" type="Status" enabled="false" />
+										<m:Label text="" />
+										<m:Text text="" type="Status" enabled="false" />
+										<m:Label text="" />
+										<m:Text text="" type="Status" enabled="false" />
+										<m:Label text="อาชีพ" />
+										<m:Text text="วิศวกร" />
+
+
+										<core:Title text="" />
+										<m:Label text="สถานะ" />
+										<m:Text text="Active" />
+										<m:Label text="" />
+										<m:Text text="" type="Status" enabled="false" />
+										<m:Label text="" />
+										<m:Text text="" type="Status" enabled="false" />
+										<m:Label text="" />
+										<m:Text text="" type="Status" enabled="false" />
+										<m:Label text="สถานที่ทำงาน" />
+										<m:Text text="บริษัท อิตาเลียนไทย จำกัด" />
+									</f:content>
+									</f:SimpleForm>
+
+								</ObjectPageLazyLoader>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+				
+				<ObjectPageSection>
+					<subSections>
+						<ObjectPageSubSection id="shopOwnerId2" title="ขอเบิกค่าการศึกษาบุตร">
+							<blocks>
+								<ObjectPageLazyLoader id="shopOwnerLazyLoader2">
+
+									<f:SimpleForm id="SimpleFormDisplay480_12120-2"
+										editable="false" layout="ResponsiveGridLayout"
+										labelSpanXL="1" labelSpanL="1" labelSpanM="12" labelSpanS="12"
+										adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+										emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1"
+										columnsM="1" singleContainerFullSize="false">
+										<f:content>
+										<m:Table id="idEducationHistoryTable"
+											inset="false">
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:Button icon="sap-icon://create" text="สร้างใหม่" tooltip="สร้างใหม่" class="sapUiTinyMargin" press="handleLinkPress"></m:Button>
+													<m:ToolbarSpacer/>
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column
+													minScreenWidth="Phone"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ผู้ใช้สิทธิชื่อ" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Phone"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="สถานศึกษา" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Phone"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="สังกัดสถานศึกษา" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ระดับการศึกษา" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ชั้น" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ภาค/ปีการศึกษา" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ใบเสร็จ" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วันที่" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="จำนวนเงิน" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เบิกได้" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="สถานะ" level="H2"/>
+												</m:Column>
+												 <m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="View" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="แก้ไข" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ลบ" level="H2"/>
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text
+															text="ด.ช   ใจดี  รักการงาน" />
+														<m:Text
+															text="โรงเรียนเลิศหล้า" />
+														<m:Text
+															text="เอกชน" />
+														<m:Text
+															text="ประถมศึกษา" />
+														<m:Text
+															text="2" />
+														<m:Text
+															text="1/2561" />
+														<m:Text
+															text="61-43040" />
+														<m:Text
+															text="25/02/2018" />
+														<m:Text
+															text="11,200.00" />
+														<m:Text
+															text="11,200.00" />	
+														<m:Text
+															text="รออนุมัติ" />
+														<m:Text
+															text="" />
+														<m:Text
+															text="" />
+														<m:Text
+															text="" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+													<m:Text
+															text="ด.ญ   ดีงาม  รักการงาน" />
+														<m:Text
+															text="โรงเรียนเลิศหล้า" />
+														<m:Text
+															text="เอกชน" />
+														<m:Text
+															text="ประถมศึกษา" />
+														<m:Text
+															text="6" />
+														<m:Text
+															text="1/2561" />
+														<m:Text
+															text="61-43041" />
+														<m:Text
+															text="25/02/2018" />
+														<m:Text
+															text="33,200.00" />
+														<m:Text
+															text="13,200.00" />
+														<m:Text
+															text="บันทึก" />	
+														<m:Button icon="sap-icon://search" press="onOpenFDialog"></m:Button>
+														<m:Button icon="sap-icon://edit" press="handleEditLinkPress"></m:Button>
+														<m:Button icon="sap-icon://delete" id="Delete1" press="handleConfirmationDeletePress"></m:Button>				
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+										
+										</f:content>
+									</f:SimpleForm>
+
+								</ObjectPageLazyLoader>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+
+
+				
+				
+				
+				
+
+
+			</sections>
+		</ObjectPageLayout>
+
+	<!-- </VBox>  -->
+</mvc:View>

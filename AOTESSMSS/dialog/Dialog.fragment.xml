@@ -1,0 +1,36 @@
+﻿<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<TableSelectDialog
+		noDataText="No Products Found"
+		title="เลือกพนักงาน"
+		search="handleSearch"
+		confirm="handleClose"
+		cancel="handleClosex"
+		items="{
+			path : '/Employees',
+			sorter : {
+				path : 'empId',
+				descending : false
+			}
+		}">
+		<ColumnListItem>
+			<cells>
+				<Text text="{empId}" />
+				<Text text="{empName}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column width="12em">
+				<header>
+					<Text text="รหัสพนักงาน" />
+				</header>
+			</Column>
+			<Column width="12em">
+				<header>
+					<Text text="ชื่อ - สกุล" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

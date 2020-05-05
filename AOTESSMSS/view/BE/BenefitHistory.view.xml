@@ -1,0 +1,1101 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.BE.BenefitHistory"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<!-- <VBox class="sapUiSmallMargin"> -->
+
+	<ObjectPageLayout id="objectPageLayout"
+		enableLazyLoading="true" useIconTabBar="true">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="สิทธิ์และประวัติการเบิกสวัสดิการ" objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="วันที่จ้างงาน"
+					text="" />
+				<m:ObjectStatus title="วันที่บรรจุ" text="" />
+			</l:VerticalLayout>
+			
+			<l:VerticalLayout>
+				<m:ObjectStatus title="สถานภาพ"
+					text="" />
+				<m:ObjectStatus title="วันที่สมรส/หย่า"
+					text="11/11/2559" />
+				<m:ObjectStatus title="คู่สมรส"
+					text="นางสมหญิง ดังใจหมาย" />
+				<m:ObjectStatus title="อาชีพคู่สมรส"
+					text="รับราชการ" />
+				<m:ObjectStatus title="สถานที่ทำงาน"
+					text="โรงเรียนสายน้ำผึ้ง" />
+			</l:VerticalLayout>
+		</headerContent>
+
+		<sections>
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="สิทธิการเบิกค่ารักษาพยาบาล">
+						<blocks>
+							<ObjectPageLazyLoader>
+
+								<f:SimpleForm editable="false"
+									layout="ResponsiveGridLayout" labelSpanXL="1" labelSpanL="1"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false"
+									title="สิทธิ์ในการเบิก OPD เอกชน">
+									<f:content>
+										<m:Table inset="false" items="{path: 'befList>/List'}">
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="สิทธิ์ที่ได้รับ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ใช้ไป" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ระหว่างดำเนินการ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="สิทธิ์คงเหลือ" level="H2" />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="{befList>total}" />
+														<m:Text text="{befList>spent}" />
+														<m:Text text="{befList>inused}" />
+														<m:Text text="{befList>balance}" />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="tab01"
+						title="เบิกค่ารักษาพยาบาล">
+						<blocks>
+							<ObjectPageLazyLoader id="tab01Laz">
+
+								<f:SimpleForm id="tab01form" editable="false"
+									layout="ResponsiveGridLayout" labelSpanXL="1" labelSpanL="1"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false" title="เบิกค่ารักษาพยาบาล">
+									<f:content>
+										<m:Table id="idTab01" inset="false" items="{path: 'medList>/List'}">
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เลขที่คำขอ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ผู้ใช้สิทธิ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ชื่อ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="โรงพยาบาล" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="สังกัด" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ประเภท" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ใบเสร็จ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="วันที่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="จำนวนเงิน" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="เบิกได้" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="สถานะ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="แสดงข้อมูล" level="H2">
+														<m:layoutData>
+															<l:GridData span="L1 M1 S1" />
+														</m:layoutData>
+													</m:Text>
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="แก้ไข" level="H2">
+														<m:layoutData>
+															<l:GridData span="L1 M1 S1" />
+														</m:layoutData>
+													</m:Text>
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ลบ" level="H2">
+														<m:layoutData>
+															<l:GridData span="L1 M1 S1" />
+														</m:layoutData>
+													</m:Text>
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="{medList>docid}" />
+														<m:Text text="{medList>elclp}" />
+														<m:Text text="{medList>famsa}" />
+														<m:Text text="{medList>hname}" />
+														<m:Text text="{medList>clmty}" />
+														<m:Text text="{medList>affty}" />
+														<m:Text text="{medList>rcpt1}" />
+														<m:Text text="{medList>bedat}" />
+														<m:Text text="{medList>empkey}" />
+														<m:Text text="{medList>emppay}" />
+														<m:Text text="{medList>sttext}" />
+<!-- 														<m:Button icon="sap-icon://search" -->
+<!-- 															press="onOpenFDialog"></m:Button> -->
+														<m:Text text="" />
+														<m:Text text="" />
+														<m:Text text="" />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="tab02"
+						title="เบิกค่าเล่าเรียนบุตร">
+						<blocks>
+							<ObjectPageLazyLoader id="tab02obj">
+
+								<f:SimpleForm id="tab02form" editable="false"
+									layout="ResponsiveGridLayout" labelSpanXL="1" labelSpanL="1"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false" title="เบิกค่าเล่าเรียนบุตร">
+									<f:content>
+										<m:Table id="idFamTable" inset="false" items="{path: 'tuitionList>/List'}">
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เลขที่คำขอ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ผู้ใช้สิทธิชื่อ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="สถานศึกษา" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="สังกัดสถานศึกษา" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ระดับการศึกษา" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ชั้น" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ภาค/ปีการศึกษา" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ใบเสร็จ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="วันที่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="จำนวนเงิน" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="เบิกได้" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="สถานะ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="แสดงข้อมูล" level="H2">
+														<m:layoutData>
+															<l:GridData span="L1 M1 S1" />
+														</m:layoutData>
+													</m:Text>
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="แก้ไข" level="H2">
+														<m:layoutData>
+															<l:GridData span="L1 M1 S1" />
+														</m:layoutData>
+													</m:Text>
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ลบ" level="H2">
+														<m:layoutData>
+															<l:GridData span="L1 M1 S1" />
+														</m:layoutData>
+													</m:Text>
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="{tuitionList>docid}" />
+														<m:Text text="{tuitionList>childSel}" />
+														<m:Text text="{tuitionList>childEdu}" />
+														<m:Text text="{tuitionList>eduType}" />
+														<m:Text text="{tuitionList>eduLevel}" />
+														<m:Text text="{tuitionList>eduCyear}" />
+														<m:Text text="{tuitionList>eduYear}" />
+														<m:Text text="{tuitionList>invno}" />
+														<m:Text text="{tuitionList>DTP2}" />
+														<m:Text text="{tuitionList>invBalance}" />
+														<m:Text text="{tuitionList>empPay}" />
+														<m:Text text="{tuitionList>sttext}" />
+<!-- 														<m:Button icon="sap-icon://search" -->
+<!-- 															press="onOpenFDialog"></m:Button> -->
+														<m:Text text="" />
+														<m:Text text="" />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="tab03"
+						title="เบิกเงินค่าช่วยเหลือบุตร">
+						<blocks>
+							<ObjectPageLazyLoader id="tab03laz">
+
+								<f:SimpleForm id="tab03Form" editable="false"
+									layout="ResponsiveGridLayout" labelSpanXL="1" labelSpanL="1"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false"
+									title="เบิกเงินค่าช่วยเหลือบุตร">
+									<f:content>
+										<m:Table id="idTab03" inset="false">
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เลขที่คำขอ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วันที่ขอ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ประเภทการขอ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="จำนวนบุตรที่ขอเบิก" level="H2" />
+												</m:Column>
+
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="เบิกได้ตามสิทธิ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="เงินตกเบิก" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="สถานะ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="วันที่อนุมัติ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="แสดงข้อมูล" level="H2">
+														<m:layoutData>
+															<l:GridData span="L1 M1 S1" />
+														</m:layoutData>
+													</m:Text>
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="แก้ไข" level="H2">
+														<m:layoutData>
+															<l:GridData span="L1 M1 S1" />
+														</m:layoutData>
+													</m:Text>
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ลบ" level="H2">
+														<m:layoutData>
+															<l:GridData span="L1 M1 S1" />
+														</m:layoutData>
+													</m:Text>
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="CHD6100001" />
+														<m:Text text="10/07/2561" />
+														<m:Text text="เบิกเต็มจำนวน" />
+														<m:Text text="1" />
+														<m:Text text="500.00" />
+														<m:Text text=" " />
+														<m:Text text="อนุมัติ" />
+														<m:Text text="17/01/2561" />
+														<m:Button icon="sap-icon://search">
+															<m:layoutData>
+																<l:GridData span="L1 M1 S1" />
+															</m:layoutData>
+														</m:Button>
+														<m:Text text=" ">
+															<m:layoutData>
+																<l:GridData span="L1 M1 S1" />
+															</m:layoutData>
+														</m:Text>
+														<m:Text text=" ">
+															<m:layoutData>
+																<l:GridData span="L1 M1 S1" />
+															</m:layoutData>
+														</m:Text>
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<l:VerticalLayout>
+															<m:Text text="CHD6100001" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Text text="15/01/2561" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Text text="การขอรับเงินช่วยเหลือบุตร" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Text text="3" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Text text="1,500.00" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Text text="1,500.00" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Text text="บันทึก" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Text text="17/01/2561" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Button icon="sap-icon://search">
+																<m:layoutData>
+																	<l:GridData span="L1 M1 S1" />
+																</m:layoutData>
+															</m:Button>
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Button icon="sap-icon://edit">
+																<m:layoutData>
+																	<l:GridData span="L1 M1 S1" />
+																</m:layoutData>
+															</m:Button>
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Button icon="sap-icon://delete">
+																<m:layoutData>
+																	<l:GridData span="L1 M1 S1" />
+																</m:layoutData>
+															</m:Button>
+														</l:VerticalLayout>
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="เบิกเงินทุนการศึกษา">
+						<blocks>
+							<ObjectPageLazyLoader>
+
+								<f:SimpleForm editable="false"
+									layout="ResponsiveGridLayout" labelSpanXL="1" labelSpanL="1"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false" title="เบิกเงินทุนการศึกษา">
+									<f:content>
+										<m:Table inset="false">
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เลขที่คำขอ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วันที่ขอ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="บุตร" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ระดับการศึกษา" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ชั้นที่/ปีที่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ผลการศึกษา" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ปีการศึกษา" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="เบิกได้ตามสิทธิ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="สถานะ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="วันที่อนุมัติ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="แสดงข้อมูล" level="H2">
+														<m:layoutData>
+															<l:GridData span="L1 M1 S1" />
+														</m:layoutData>
+													</m:Text>
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="แก้ไข" level="H2">
+														<m:layoutData>
+															<l:GridData span="L1 M1 S1" />
+														</m:layoutData>
+													</m:Text>
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ลบ" level="H2">
+														<m:layoutData>
+															<l:GridData span="L1 M1 S1" />
+														</m:layoutData>
+													</m:Text>
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<l:VerticalLayout>
+															<m:Text text="SCH6100001" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Text text="10/4/2561" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Text text="ด.ช. มั่นคง สุขสมหวัง" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Text text="มัธยมศึกษาตอนต้น" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Text text="1" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Text text="3.25" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Text text="2560" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Text text="8,000.00" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Text text="อนุมัติ" />
+														</l:VerticalLayout>
+														<l:VerticalLayout>
+															<m:Text text="10/6/2561" />
+														</l:VerticalLayout>
+
+														<m:Button icon="sap-icon://search">
+															<m:layoutData>
+																<l:GridData span="L1 M1 S1" />
+															</m:layoutData>
+														</m:Button>
+														<m:Text text=" ">
+															<m:layoutData>
+																<l:GridData span="L1 M1 S1" />
+															</m:layoutData>
+														</m:Text>
+														<m:Text text=" ">
+															<m:layoutData>
+																<l:GridData span="L1 M1 S1" />
+															</m:layoutData>
+														</m:Text>
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection visible="false">
+				<subSections>
+					<ObjectPageSubSection id="tab04"
+						title="เบิกเงินค่าช่วยเหลือภัยพิบัติ">
+						<blocks>
+							<ObjectPageLazyLoader id="tab04Laz">
+
+								<f:SimpleForm id="tab04Form" editable="false"
+									layout="ResponsiveGridLayout" labelSpanXL="1" labelSpanL="1"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false"
+									title="เบิกเงินค่าช่วยเหลือภัยพิบัติ">
+									<f:content>
+										<m:Table id="idTab04" inset="false">
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เลขที่คำขอ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วันที่ขอ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ประเภทภัยพิบัติ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="จำนวนเงินที่ขอเบิก" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="เบิกได้ตามสิทธิ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="สถานะ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="วันที่อนุมัติ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="แสดงข้อมูล" level="H2">
+														<m:layoutData>
+															<l:GridData span="L1 M1 S1" />
+														</m:layoutData>
+													</m:Text>
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="แก้ไข" level="H2">
+														<m:layoutData>
+															<l:GridData span="L1 M1 S1" />
+														</m:layoutData>
+													</m:Text>
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ลบ" level="H2">
+														<m:layoutData>
+															<l:GridData span="L1 M1 S1" />
+														</m:layoutData>
+													</m:Text>
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="ABC6100001" />
+														<m:Text text="10/07/2561" />
+														<m:Text text="อัคคีภัย" />
+														<m:Text text="26,000.00" />
+														<m:Text text="2,000.00" />
+														<m:Text text="อนุมัติ" />
+														<m:Text text="14/07/2561" />
+														<m:Button icon="sap-icon://search">
+															<m:layoutData>
+																<l:GridData span="L1 M1 S1" />
+															</m:layoutData>
+														</m:Button>
+
+													</m:cells>
+												</m:ColumnListItem>
+
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="ABC6100002" />
+														<m:Text text="15/07/2561" />
+														<m:Text text="อัคคีภัย" />
+														<m:Text text="26,000.00" />
+														<m:Text text="2,000.00" />
+														<m:Text text="บันทึก" />
+														<m:Text text="24/07/2561" />
+														<m:Button icon="sap-icon://search">
+															<m:layoutData>
+																<l:GridData span="L1 M1 S1" />
+															</m:layoutData>
+														</m:Button>
+														<m:Button icon="sap-icon://edit">
+															<m:layoutData>
+																<l:GridData span="L1 M1 S1" />
+															</m:layoutData>
+														</m:Button>
+														<m:Button icon="sap-icon://delete">
+															<m:layoutData>
+																<l:GridData span="L1 M1 S1" />
+															</m:layoutData>
+														</m:Button>
+
+													</m:cells>
+												</m:ColumnListItem>
+
+											</m:items>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="tab05"
+						title="เบิกค่าจัดการงานศพ">
+						<blocks>
+							<ObjectPageLazyLoader id="tab05Laz">
+
+								<f:SimpleForm id="tab05Form" editable="false"
+									layout="ResponsiveGridLayout" labelSpanXL="1" labelSpanL="1"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false" title="เบิกค่าจัดการงานศพ">
+									<f:content>
+										<m:Table id="idTab05" inset="false">
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เลขที่คำขอ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ผู้ใช้สิทธิ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ความสัมพันธ์" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="วันที่เสียชีวิต" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="สาเหตุการเสียชีวิต" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ผู้จัดการศพ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="โทรศัพท์" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="เบิกได้ตามสิทธิ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="สถานะ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="วันที่อนุมัติ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="แสดงข้อมูล" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="แก้ไข" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ลบ" level="H2" />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="FNR6100001" />
+														<m:Text text="นายสุชาติ จิตยั่งยืน" />
+														<m:Text text="" />
+														<m:Text text="05/05/2561" />
+														<m:Text text="อุบัติเหตุทางรถยนต์" />
+														<m:Text text="นางสายใจ จิตยั่งยืน" />
+														<m:Text text="086-990-9199" />
+														<m:Text text="8,000.00" />
+														<m:Text text="บันทึก" />
+														<m:Text text="" />
+														<m:Button icon="sap-icon://search">
+															<m:layoutData>
+																<l:GridData span="L1 M1 S1" />
+															</m:layoutData>
+														</m:Button>
+														<m:Button icon="sap-icon://edit">
+															<m:layoutData>
+																<l:GridData span="L1 M1 S1" />
+															</m:layoutData>
+														</m:Button>
+														<m:Button icon="sap-icon://delete">
+															<m:layoutData>
+																<l:GridData span="L1 M1 S1" />
+															</m:layoutData>
+														</m:Button>
+
+													</m:cells>
+
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="FNR6100002" />
+														<m:Text text="นายสมโชค ดังใจหมาย" />
+														<m:Text text="บุตร" />
+														<m:Text text="12/03/2561" />
+														<m:Text text="อุบัติเหตุจักรยานยนต์" />
+														<m:Text text="นายสมชาย ดังใจหมาย" />
+														<m:Text text="081-576-7355" />
+														<m:Text text="5,000.00" />
+														<m:Text text="อนุมัติ" />
+														<m:Text text="19/03/2561" />
+														<m:Button icon="sap-icon://search">
+															<m:layoutData>
+																<l:GridData span="L1 M1 S1" />
+															</m:layoutData>
+														</m:Button>
+														<m:Text text="" />
+														<m:Text text="" />
+
+													</m:cells>
+
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="เครื่องแบบพนักงาน">
+						<blocks>
+							<ObjectPageLazyLoader>
+
+								<f:SimpleForm editable="false"
+									layout="ResponsiveGridLayout" labelSpanXL="1" labelSpanL="1"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false" title="เครื่องแบบพนักงาน">
+									<f:content>
+										<m:Table inset="false" items="{path: 'uniList>/List'}">
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เลขที่คำขอ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วันที่ขอ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วันที่มีผล" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ประเภทเครื่องแบบ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="จำนวน(ชุด)" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="มูลค่าเครื่องแบบ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="สถานะ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="วันที่อนุมัติ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="แสดงข้อมูล" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="แก้ไข" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ลบ" level="H2" />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="{uniList>docid}" />
+														<m:Text text="{uniList>rqdat}" />
+														<m:Text text="{uniList>bedat}" />
+														<m:Text text="{uniList>uftype01t}" />
+														<m:Text text="{uniList>maxunit01}" />
+														<m:Text text="{uniList>maxrate01}" />
+														<m:Text text="{uniList>sttext}" />
+														<m:Text text="{uniList>bedat}" />
+														<m:Button icon="sap-icon://search">
+															<m:layoutData>
+																<l:GridData span="L1 M1 S1" />
+															</m:layoutData>
+														</m:Button>
+														<m:Text text="" />
+														<m:Text text="" />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="สวัสดิการอื่นๆ">
+						<blocks>
+							<ObjectPageLazyLoader>
+
+								<f:SimpleForm editable="false"
+									layout="ResponsiveGridLayout" labelSpanXL="1" labelSpanL="1"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false" title="สวัสดิการอื่นๆ">
+									<f:content>
+										<m:Table inset="false">
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เลขที่คำขอ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วันที่ขอ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ประเภทสวัสดิการ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="เบิกได้ตามสิทธิ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="สถานะ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="วันที่อนุมัติ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="แสดงข้อมูล" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="แก้ไข" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ลบ" level="H2" />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="OTH6100001" />
+														<m:Text text="1/10/2561" />
+														<m:Text text="ค่าอุทกภัยและอื่นๆ(เจ้าของ)" />
+														<m:Text text="7,000.00" />
+														<m:Text text="อนุมัติ" />
+														<m:Text text="7/2/2561" />
+														<m:Button icon="sap-icon://search">
+															<m:layoutData>
+																<l:GridData span="L1 M1 S1" />
+															</m:layoutData>
+														</m:Button>
+														<m:Text text="" />
+														<m:Text text="" />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+		</sections>
+	</ObjectPageLayout>
+
+	<!-- </VBox> -->
+</mvc:View>

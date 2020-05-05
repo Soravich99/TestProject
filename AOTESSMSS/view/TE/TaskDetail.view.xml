@@ -1,0 +1,83 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.TE.TaskDetail"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:c="sap.suite.ui.commons">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="การติดตามงาน"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสพนักงาน" text="10001" id="PERNR"/>
+				<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="ดร.กษิภณ อภิมุขคุณานนท์" />
+				<m:ObjectStatus title="สังกัด"
+					text="ท่าอากาศยานดอนเมือง" />
+				<m:ObjectStatus title="กลุ่มพนักงาน" text="" />
+				<m:ObjectStatus title="กลุ่มย่อยพนักงาน"
+					text="ระดับ 6" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="ปฏิบัติงานตำแหน่ง"
+					text="ผู้อำนวยการฝ่าย" />
+				<m:ObjectStatus title="รักษาการ" text="-" />
+				<m:ObjectStatus title="วันที่จ้างงาน"
+					text="" />
+				<m:ObjectStatus title="วันที่บรรจุ" text="" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="สถานภาพ" text="" />
+			</l:VerticalLayout>
+
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="สถานะ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<c:ProcessFlow scrollable="false"
+									wheelZoomable="true" foldedCorners="true">
+									<c:nodes>
+										<c:ProcessFlowNode laneId="1" nodeId="1"
+											title="สร้างใบคำขอ" titleAbbreviation="Req"
+											isTitleClickable="true" children="2" state="Positive"
+											stateText="สร้างเอกสาร" texts="" focused="false" />
+										<c:ProcessFlowNode laneId="2" nodeId="2"
+											title="อนุมัติโดย นายสมชาย ใจดี ผบ.ส่วน" titleAbbreviation=""
+											isTitleClickable="true" children="3" state="Positive"
+											stateText="อนุมัติ" texts="" focused="true" />
+										<c:ProcessFlowNode laneId="3" nodeId="3"
+											title="อนุมัติโดย นายสุขุม มั่นคง ผบ.ฝ่าย"
+											titleAbbreviation="" isTitleClickable="true" state="Neutral"
+											stateText="รอการอนุมัติ" texts="" focused="false" />
+									</c:nodes>
+									<c:lanes>
+										<c:ProcessFlowLaneHeader laneId="1"
+											iconSrc="sap-icon://order-status" text="ใบคำขอ" position="0" />
+										<c:ProcessFlowLaneHeader laneId="2"
+											iconSrc="sap-icon://order-status" text="ผู้อนุมัติลำดับที่ 1"
+											position="1" />
+										<c:ProcessFlowLaneHeader laneId="3"
+											iconSrc="sap-icon://order-status" text="ผู้อนุมัติลำดับที่ 2"
+											position="2" />
+									</c:lanes>
+								</c:ProcessFlow>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

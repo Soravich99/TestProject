@@ -1,0 +1,177 @@
+{
+  "OnProcess": [
+    {
+      "id": "TM",
+      "No": "1",
+      "DocType": "จัดการเวลาและการลา",
+      "DocNo": "TM00001",
+      "DocName": "ใบลา",
+      "DocDesc1": "ลาป่วย",
+      "DocDesc2": "-",
+      "DocDesc3": "-",
+      "DocCreatedBy": "นายสมปอง มุ่งดี",
+      "DocRecvDate": "01/10/2561",
+      "Status": "รออนุมัติ"
+    },
+    {
+      "id": "TM",
+      "No": "1",
+      "DocType": "จัดการเวลาและการลา",
+      "DocNo": "TM00002",
+      "DocName": "การเปลี่ยนกะ/สับเปลี่ยนกะ",
+      "DocDesc1": "สับเปลี่ยนกะ",
+      "DocDesc2": "-",
+      "DocDesc3": "-",
+      "DocCreatedBy": "นายสมชาย สวัสดิ",
+      "DocRecvDate": "04/10/2561",
+      "Status": "รออนุมัติ"
+    },
+    {
+      "id": "TM",
+      "No": "1",
+      "DocType": "จัดการเวลาและการลา",
+      "DocNo": "TM00003",
+      "DocName": "การเปลี่ยนเวร/สับเปลี่ยนเวร",
+      "DocDesc1": "สับเปลี่ยนเวร",
+      "DocDesc2": "-",
+      "DocDesc3": "-",
+      "DocCreatedBy": "นายสมชาย สวัสดิ",
+      "DocRecvDate": "03/10/2561",
+      "Status": "รออนุมัติ"
+    },
+    {
+      "id": "BE",
+      "No": "2",
+      "DocType": "ระบบสวัสดิการ",
+      "DocNo": "BE00001",
+      "DocName": "เบิกเงินค่ารักษาพยาบาล",
+      "DocDesc1": "-",
+      "DocDesc2": "-",
+      "DocDesc3": "-",
+      "DocCreatedBy": "นายอิทธิวัฒ สุขขี",
+      "DocRecvDate": "05/10/2561",
+      "Status": "รออนุมัติ"
+    },
+    {
+      "id": "PA",
+      "No": "3",
+      "DocType": "ข้อมูลพนักงาน",
+      "DocNo": "PA00001",
+      "DocName": "ใบคำร้องขอแก้ไขข้อมูลส่วนตัว",
+      "DocDesc1": "-",
+      "DocDesc2": "-",
+      "DocDesc3": "-",
+      "DocCreatedBy": "นายสมชาย จิตใจงาม",
+      "DocRecvDate": "15/03/2562",
+      "Status": "รออนุมัติ"
+    },
+    {
+      "id": "TE",
+      "No": "4",
+      "DocType": "ระบบเงินเดือน",
+      "DocNo": "PY00001",
+      "DocName": "การรับทราบข้อมูลลดหย่อน",
+      "DocDesc1": "-",
+      "DocDesc2": "-",
+      "DocDesc3": "-",
+      "DocCreatedBy": "นาย มานะ แสนสุขใจ",
+      "DocRecvDate": "05/10/2561",
+      "Status": "รออนุมัติ"
+    }
+  ],
+  "MyTask": [
+    {
+      "id": "TM",
+      "No": "1",
+      "DocType": "จัดการเวลาและการลา",
+      "DocNo": "TM00001",
+      "DocName": "ใบลา",
+      "DocDesc1": "ลาป่วย",
+      "DocDesc2": "-",
+      "DocDesc3": "-",
+      "DocCreatedBy": "ดร.กษิภณ อภิมุขคุณานนท์",
+      "DocCreatDate": "01/10/2561",
+      "Status": "รออนุมัติ"
+    },
+    {
+      "id": "BE",
+      "No": "2",
+      "DocType": "ระบบสวัสดิการ",
+      "DocNo": "BE00001",
+      "DocName": "เบิกเงินค่ารักษาพยาบาล",
+      "DocDesc1": "-",
+      "DocDesc2": "-",
+      "DocDesc3": "-",
+      "DocCreatedBy": "ดร.กษิภณ อภิมุขคุณานนท์",
+      "DocCreatDate": "05/10/2561",
+      "Status": "รออนุมัติ"
+    },
+    {
+      "id": "PA",
+      "No": "3",
+      "DocType": "ข้อมูลพนักงาน",
+      "DocNo": "PA00001",
+      "DocName": "ใบคำร้องขอแก้ไขข้อมูลส่วนตัว",
+      "DocDesc1": "-",
+      "DocDesc2": "-",
+      "DocDesc3": "-",
+      "DocCreatedBy": "ดร.กษิภณ อภิมุขคุณานนท์",
+      "DocCreatDate": "05/10/2561",
+      "Status": "อนุมัติ"
+    },
+    {
+      "id": "TE",
+      "No": "4",
+      "DocType": "การฝึกอบรมและสัมมนา",
+      "DocNo": "TE00001",
+      "DocName": "ลงทะเบียนพนักงานเข้ารับการฝึกอบรม",
+      "DocDesc1": "-",
+      "DocDesc2": "-",
+      "DocDesc3": "-",
+      "DocCreatedBy": "ดร.กษิภณ อภิมุขคุณานนท์",
+      "DocCreatDate": "05/10/2561",
+      "Status": "อนุมัติ"
+    }
+  ],
+  "History": [
+    {
+      "id": "leave",
+      "No": "1",
+      "DocType": "จัดการเวลาและการลา",
+      "DocNo": "TM00001",
+      "DocName": "ใบลา",
+      "DocDesc1": "ลาป่วย",
+      "DocDesc2": "-",
+      "DocDesc3": "-",
+      "DocCreatedBy": "นายสมปอง มุ่งดี",
+      "DocRecvDate": "01/10/2561",
+      "Status": "รออนุมัติ"
+    },
+    {
+      "id": "BE",
+      "No": "2",
+      "DocType": "ระบบสวัสดิการ",
+      "DocNo": "BE00001",
+      "DocName": "เบิกเงินค่ารักษาพยาบาล",
+      "DocDesc1": "-",
+      "DocDesc2": "-",
+      "DocDesc3": "-",
+      "DocCreatedBy": "นายอิทธิวัฒ สุขขี",
+      "DocRecvDate": "05/10/2561",
+      "Status": "รออนุมัติ"
+    },
+    {
+      "id": "leave",
+      "No": "3",
+      "DocType": "จัดการเวลาและการลา",
+      "DocNo": "TM00012",
+      "DocName": "ใบลา",
+      "DocDesc1": "ลาป่วย",
+      "DocDesc2": "-",
+      "DocDesc3": "-",
+      "DocCreatedBy": "นายสมปอง มุ่งดี",
+      "DocRecvDate": "01/10/2561",
+      "Status": "อนุมัติ"
+    }
+  ]
+}

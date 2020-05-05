@@ -1,0 +1,262 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.TM.LeaveDetail"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc">
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="สร้างใบลา"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ประเภทตารางการทำงาน"
+					text="กะ" />
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId"
+						title="สร้างใบลา">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<f:SimpleForm id="SimpleFormDisplay480_12120"
+									editable="true" layout="ResponsiveGridLayout" labelSpanXL="4"
+									labelSpanL="4" labelSpanM="2" labelSpanS="2"
+									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3"
+									columnsM="3" singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://employee-approvals"
+												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ" press="onSendPressed"
+												class="sapUiTinyMargin" ></m:Button>
+<!-- 											<m:Button icon="sap-icon://employee-approvals" -->
+<!-- 												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ" press="onSendPressed" -->
+<!-- 												class="sapUiTinyMargin" press="onClickSend"></m:Button> -->
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก" press="onCancelPressed"
+												tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+									<f:content>
+										<m:Label text="ประเภทการลา" required="true" />
+										<m:Select id="leaveType" items="{path: 'leaveItem>/List'}"
+											selectedKey="เลือกประเภทวันลา" change="onChangeLeaveType">
+											<m:items>
+												<core:Item text="{leaveItem>atext}"
+													key="{leaveItem>subty}" />
+											</m:items>
+										</m:Select>
+										<m:Label text="" />
+										<m:Text id="leaveQuota" text="" enabled="false" />
+
+										<m:Label text="วันที่ลา" labelFor="DTP1"
+											required="true" />
+<!-- 										<m:DateRangeSelection id="DRS1" -->
+<!-- 											change="onChangeDate" displayFormat="dd/MM/yyyy" /> -->
+										<m:DatePicker displayFormat="dd/MM/yyyy" change="onChangeDate"
+											valueFormat="dd/MM/yyyy" value="" id="date_from"/>
+										<m:DatePicker displayFormat="dd/MM/yyyy" change="onChangeDate"
+											valueFormat="dd/MM/yyyy" value="" id="date_to"/>
+										<m:Label text="เวลาที่ลา" labelFor="DTP1"
+											required="true" />
+
+
+										<m:Label text="เวลาที่ลา" />
+										<m:Select id="selectTime" change="onChangeTime"
+												forceSelection="false" selectedKey="{/LeaveTimes/0/TimeId}"
+												items="{
+												path: '/LeaveTimes',
+												sorter: { path: 'TimeName' }
+											}">
+											<core:Item key="{TimeId}" text="{TimeName}" />
+										</m:Select>
+										<m:Input id="leaveHalfTime" value="08:00 - 17:00" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL4 L4 M4 S4" />
+											</m:layoutData>
+										</m:Input>
+
+										<m:Label text="จำนวนวันลา" />
+										<m:Text id="leaveAmt" enabled="false" />
+
+										<m:Label text="สาเหตุการลา" required="true"/>
+										<m:TextArea  id="lreason" />
+
+										<m:Label text="สามารถติดต่อได้ที่" />
+										<m:TextArea id="lcontact"/>
+										<m:Label text="หมายเหตุ" required="true" />
+										<m:Text id="txt001" text="กรณีที่พนักงานลาป่วยต่อเนื่องตั้งแต่ 3 วันขึ้นไป ต้องแนบเอกสารประกอบการลา" />
+										<m:Label text="" />
+										<m:Text id="txt002" text="พนักงานที่เข้ากะ จะต้องลาเต็มช่วงเวลากะเท่านั้น" />
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="deligateTab"
+						title="ผู้ปฏิบัติงานแทน">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="2" labelSpanS="2" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									<f:content>
+										<m:Table id="ins" items="{/Diligator}">
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:Button icon="sap-icon://add" text="เพิ่ม"
+														press="addRow" />
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column width="50px" />
+
+												<m:Column width="120px">
+													<m:Text text="ผู้ปฏิบัติงานแทน" />
+												</m:Column>
+												<m:Column minScreenWidth="Tablet"
+													demandPopin="true" hAlign="Center">
+													<m:Text text="งานที่รับผิดชอบ" />
+												</m:Column>
+												<m:Column width="150px" minScreenWidth="Tablet"
+													demandPopin="true">
+													<m:Text text="วันที่เริ่มต้น" />
+												</m:Column>
+												<m:Column width="150px" minScreenWidth="Tablet"
+													demandPopin="true">
+													<m:Text text="วันที่สิ้นสุด" />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Button icon="sap-icon://delete"
+															press="deleteRow" type="Reject" />
+														<m:Input value="{diligator}" enabled="false" />
+														<m:MultiComboBox
+															selectionChange="handleSelectionChange"
+															selectionFinish="handleSelectionFinish" width="100%"
+															items="{
+													path: 'module',templateShareable:false
+												}">
+															<core:Item key="{ModuleId}" text="{ModuleName}" />
+														</m:MultiComboBox>
+														<m:DatePicker id="DTP3"
+															displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy"
+															value="{dateFrom}" change="onLastDateChange" />
+														<m:DatePicker id="DTP4"
+															displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy"
+															value="{dateTo}" change="onLastDateChange" />
+
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopConfigurationId"
+						title="เอกสารแนบ">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopConfigurationLazyLoader">
+								<f:SimpleForm title="" columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:content>
+<!-- 										<m:UploadCollection id="UploadCollection" -->
+<!-- 											maximumFilenameLength="55" maximumFileSize="10" -->
+<!-- 											multiple="true" sameFilenameAllowed="true" -->
+<!-- 											instantUpload="false" change="onChange" -->
+<!-- 											fileDeleted="onFileDeleted" -->
+<!-- 											filenameLengthExceed="onFilenameLengthExceed" -->
+<!-- 											fileSizeExceed="onFileSizeExceed" -->
+<!-- 											typeMissmatch="onTypeMissmatch" -->
+<!-- 											uploadComplete="onUploadComplete" -->
+<!-- 											beforeUploadStarts="onBeforeUploadStarts" -->
+<!-- 											noDataText="ลากวางเอกสารที่นี่ หรือกด +" noDataDescription="" -->
+<!-- 											numberOfAttachmentsText="เพิ่มเอกสาร"> -->
+<!-- 										</m:UploadCollection> -->
+										<m:Label text="เอกสารประกอบการลา"
+											labelFor="fileUploader" />
+										<u:FileUploader name="myFileUpload"
+											buttonText="แนบเอกสาร" maximumFileSize="30MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG"
+											uploadUrl="upload/" placeholder="" id="fileUpload"
+											uploadComplete="handleUploadComplete" width="50%" />				
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm title="" columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:toolbar>
+										<m:Toolbar>
+<!-- 											<m:ToolbarSpacer /> -->
+<!-- 											<m:Button icon="sap-icon://employee-approvals" -->
+<!-- 												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ" -->
+<!-- 												class="sapUiTinyMargin" press="onSendPressed"></m:Button> -->
+<!-- 											<m:Button icon="sap-icon://cancel" text="ยกเลิก" -->
+<!-- 												tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button> -->
+										</m:Toolbar>
+									</f:toolbar>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

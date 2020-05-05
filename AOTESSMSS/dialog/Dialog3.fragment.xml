@@ -1,0 +1,36 @@
+﻿<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<TableSelectDialog
+		noDataText="No Hospital Found"
+		title="เลือกสถานพยาบาล"
+		search="handleSearch"
+		confirm="handleClose"
+		cancel="handleClosex"
+		items="{
+			path : '/Institute',
+			sorter : {
+				path : 'hcode',
+				descending : false
+			}
+		}">
+		<ColumnListItem>
+			<cells>
+				<Text text="{hcode}" />
+				<Text text="{hname}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column width="12em">
+				<header>
+					<Text text="รหัสสถานพยาบาล" />
+				</header>
+			</Column>
+			<Column width="12em">
+				<header>
+					<Text text="ชื่อสถานพยาบาล" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

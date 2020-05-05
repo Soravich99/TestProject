@@ -1,0 +1,71 @@
+<mvc:View 
+controllerName="sap.ui.demo.toolpageapp.controller.BE.FloodDonate"
+xmlns="sap.uxap"
+xmlns:l="sap.ui.layout" 
+xmlns:f="sap.ui.layout.form" 
+xmlns:m="sap.m"
+xmlns:core="sap.ui.core" 
+xmlns:mvc="sap.ui.core.mvc">
+	<!-- <VBox class="sapUiSmallMargin"> -->
+
+		<ObjectPageLayout id="objectPageLayout">
+
+<headerTitle>
+	<ObjectPageHeader objectTitle="เงินช่วยเหลือภัยพิบัติ" objectSubtitle="">
+	</ObjectPageHeader>
+</headerTitle>
+
+			<sections>
+				<ObjectPageSection>
+					<subSections>
+						<ObjectPageSubSection id="shopOwnerId" title="เงินช่วยเหลือภัยพิบัติ">
+							<blocks>
+								<ObjectPageLazyLoader id="shopOwnerLazyLoader">
+									<f:SimpleForm id="SimpleFormDisplay480_12120" title="เงินช่วยเหลือภัยพิบัติ"
+										editable="true" layout="ResponsiveGridLayout" 
+										labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+										adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+										emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3"
+										columnsM="1" singleContainerFullSize="false">
+										
+										<f:content>
+											<core:Title text="" class="sapUiSmallMarginBeginEnd"/>
+											<m:Label text="หมายเลขเงินเดือน"/>
+
+											<m:Text text="99999999" type="SalaryNo" enabled="false">
+												<m:layoutData>
+								                  <l:GridData span="L3 M3 S3" />
+								                </m:layoutData>
+								            </m:Text>
+											<m:Text text="นายสมชาย ดังใจหมาย" type="EmployeeName" enabled="false" width="auto"/>
+											
+											<m:Label text="สังกัด" />
+											<m:Text text="ท่าอากาศยานดอนเมือง" type="department" enabled="false"/>
+
+											<m:Label text="สถานะภาพ" />
+											<m:Text text="" type="department" enabled="false"/>
+
+
+											<core:Title text="" class="Col2" />
+											<m:Label text="ตำแหน่ง" />
+											<m:Text text="ผู้อำนวยการส่วน" type="PositionName" enabled="false"/>
+										
+
+											<core:Title text="" class="Col222" />
+											<m:Label text="สถานะ" />
+											<m:Text text="Active" type="Status" enabled="false"/>
+											
+										</f:content>
+									</f:SimpleForm>
+
+								</ObjectPageLazyLoader>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+				
+			</sections>
+		</ObjectPageLayout>
+
+	<!-- </VBox>  -->
+</mvc:View>

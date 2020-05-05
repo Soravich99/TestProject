@@ -1,0 +1,375 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.TM.MyLeave"
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns="sap.uxap"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m"
+	xmlns:c="sap.suite.ui.commons"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<m:SplitApp id="myLeave" initialDetail="detail1" initialMaster="master" >
+		<m:masterPages>
+			<m:Page id="master" title="รายการใบลา" icon="sap-icon://action" class="sapUiStdPage">
+				<m:subHeader>
+					<m:Toolbar>
+						<m:SearchField
+							liveChange="onSearch"
+							width="100%" />
+					</m:Toolbar>
+				</m:subHeader>
+				<m:content>
+					<m:List
+						id="idList">
+						<m:items>
+							<m:StandardListItem title="05/10/2560 - 05/10/2560" description="ลาป่วย" info="รออนุมัติ" infoState="Warning"
+							 type="Navigation" press="onPressNavToDetail" custom:mydata="detail1"/>
+							<m:StandardListItem title="05/11/2560 - 06/11/2560" description="ลากิจ" info="อนุมัติแล้ว" infoState="Success"
+							 type="Navigation" press="onPressNavToDetail" custom:mydata="detail2"/>
+						</m:items>
+					</m:List>
+				</m:content>
+			</m:Page>
+		</m:masterPages>
+		<m:detailPages>
+			<m:Page id="detail1" title="รายละเอียดใบลา" class="sapUiStdPage" showNavButton="true" navButtonPress="onPressDetailBack">
+				<m:content>
+				
+				
+					<ObjectPageSection>
+					<subSections>
+						<ObjectPageSubSection
+							id="leaveQuotaId"
+							title="วันลาทั้งหมด">
+							<blocks>
+								<ObjectPageLazyLoader
+									id="leaveQuotaLazyLoader">
+									<l:HorizontalLayout>
+										<m:StandardTile
+											icon="sap-icon://create-leave-request"
+											type="None"
+											number="7"
+											numberUnit="วัน"
+											title="จำนวนวันลาพักร้อนที่ใช้ได้"/>
+										<m:StandardTile
+											icon="sap-icon://bed"
+											type="None"
+											number="28"
+											numberUnit="วัน"
+											title="จำนวนวันลาป่วยที่ใช้ได้"/>
+									</l:HorizontalLayout>
+								</ObjectPageLazyLoader>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+					</ObjectPageSection>
+					
+					
+					
+					<ObjectPageLayout>
+				
+						<headerTitle>
+							<ObjectPageHeader
+								objectTitle="ข้อมูลการลา"
+								objectSubtitle="">
+							</ObjectPageHeader>
+						</headerTitle>
+						<headerContent>
+							
+						</headerContent>
+						<sections>
+							<ObjectPageSection>
+								<subSections>
+									<ObjectPageSubSection
+										title="สถานะ">
+										<blocks>
+											<ObjectPageLazyLoader>
+												<c:ProcessFlow
+													scrollable="false"
+													wheelZoomable="true"
+													foldedCorners="true">
+													<c:nodes>
+														<c:ProcessFlowNode
+															laneId="1"
+															nodeId="1"
+															title="สร้างใบลา"
+															titleAbbreviation="Req"
+															isTitleClickable="true"
+															children="2"
+															state="Positive"
+															stateText="สร้างใบลา"
+															texts="พนักงานทำการสร้างใบลา"
+															focused="false" />
+														<c:ProcessFlowNode
+															laneId="2"
+															nodeId="2"
+															title="อนุมัติโดยหัวหน้า"
+															titleAbbreviation="MGR"
+															isTitleClickable="true"
+															children="3"
+															state="Neutral"
+															stateText="รอการอนุมัติ"
+															texts="หัวหน้าทำการอนุมัติการลา"
+															focused="true" />
+														<c:ProcessFlowNode
+															laneId="3"
+															nodeId="3"
+															title="อนุมัติโดยฝ่ายบุคคล"
+															titleAbbreviation="HR"
+															isTitleClickable="true"
+															state="Planned"
+															stateText="รอการอนุมัติ"
+															texts="ฝ่ายบุคคลทำการอนุมัติการลา"
+															focused="false" />
+													</c:nodes>
+													<c:lanes>
+														<c:ProcessFlowLaneHeader
+															laneId="1"
+															iconSrc="sap-icon://order-status"
+															text="สร้างใบลา"
+															position="0" />
+														<c:ProcessFlowLaneHeader
+															laneId="2"
+															iconSrc="sap-icon://order-status"
+															text="อนุมัติโดยหัวหน้า"
+															position="1" />
+														<c:ProcessFlowLaneHeader
+															laneId="3"
+															iconSrc="sap-icon://order-status"
+															text="อนุมัติโดยฝ่ายบุคคล"
+															position="2" />
+													</c:lanes>
+												</c:ProcessFlow>
+											</ObjectPageLazyLoader>
+										</blocks>
+									</ObjectPageSubSection>
+								</subSections>
+							</ObjectPageSection>
+							<ObjectPageSection>
+							<subSections>
+								<ObjectPageSubSection
+									title="รายละเอียด">
+									<blocks>
+										<ObjectPageLazyLoader>
+											<f:SimpleForm
+												columnsL="1"
+												columnsM="1"
+												editable="false"
+												layout="ResponsiveGridLayout">
+												<f:content>
+													<l:HorizontalLayout>
+														<l:VerticalLayout>
+														<m:Title text="ชื่อพนักงาน: " level="H2" />
+														<m:Text text="ดร. กษิภณ อภิมุขคุณานนท์"/>
+														</l:VerticalLayout>
+													</l:HorizontalLayout>
+													<l:HorizontalLayout>
+														<l:VerticalLayout>
+														<m:Title text="ประเภทการลา: " level="H2"/>
+														<m:Text text="ลาป่วย"/>
+														</l:VerticalLayout>
+													</l:HorizontalLayout>
+													<l:HorizontalLayout>
+														<l:VerticalLayout>
+														<m:Title text="วัน/เวลา ที่เริ่มลา: " level="H2"/>
+														<m:Text text="05/10/2017 08:00"/>
+														</l:VerticalLayout>
+													</l:HorizontalLayout>
+													<l:HorizontalLayout>
+														<l:VerticalLayout>
+														<m:Title text="วัน/เวลา สุดท้ายที่ลา: " level="H2"/>
+														<m:Text text="05/10/2017 17:00"/>
+														</l:VerticalLayout>
+													</l:HorizontalLayout>
+												</f:content>
+											</f:SimpleForm>
+										</ObjectPageLazyLoader>
+									</blocks>
+								</ObjectPageSubSection>
+							</subSections>
+							</ObjectPageSection>
+				
+							<ObjectPageSection>
+								<subSections>
+									<ObjectPageSubSection
+										title="เอกสารแนบ">
+										<blocks>
+											<ObjectPageLazyLoader>
+												<f:SimpleForm
+													columnsL="2"
+													columnsM="2"
+													editable="true"
+													layout="ResponsiveGridLayout" >
+													<f:content>
+														<l:VerticalLayout>
+															<m:Link text="ใบรับรองแพทย์.pdf" href="model/medicalDoc.pdf" target="_blank"></m:Link>
+														</l:VerticalLayout>
+													</f:content>
+												</f:SimpleForm>
+											</ObjectPageLazyLoader>
+										</blocks>
+									</ObjectPageSubSection>
+								</subSections>
+							</ObjectPageSection>
+				
+						</sections>
+					</ObjectPageLayout>
+				</m:content>
+			</m:Page>
+			<m:Page id="detail2" title="รายละเอียดใบลา" class="sapUiStdPage" showNavButton="true" navButtonPress="onPressDetailBack">
+				<m:content>
+					<ObjectPageLayout>
+				
+						<headerTitle>
+							<ObjectPageHeader
+								objectTitle="ข้อมูลการลา"
+								objectSubtitle="">
+							</ObjectPageHeader>
+						</headerTitle>
+						<headerContent>
+							
+						</headerContent>
+						<sections>
+							<ObjectPageSection>
+								<subSections>
+									<ObjectPageSubSection
+										title="สถานะ">
+										<blocks>
+											<ObjectPageLazyLoader>
+												<c:ProcessFlow
+													scrollable="false"
+													wheelZoomable="true"
+													foldedCorners="true">
+													<c:nodes>
+														<c:ProcessFlowNode
+															laneId="1"
+															nodeId="1"
+															title="สร้างใบลา"
+															titleAbbreviation="Req"
+															isTitleClickable="true"
+															children="2"
+															state="Positive"
+															stateText="สร้างใบลา"
+															texts="พนักงานทำการสร้างใบลา"
+															focused="false" />
+														<c:ProcessFlowNode
+															laneId="2"
+															nodeId="2"
+															title="อนุมัติโดยหัวหน้า"
+															titleAbbreviation="MGR"
+															isTitleClickable="true"
+															children="3"
+															state="Positive"
+															stateText="อนุมัติแล้ว"
+															texts="หัวหน้าทำการอนุมัติการลา"
+															focused="false" />
+														<c:ProcessFlowNode
+															laneId="3"
+															nodeId="3"
+															title="อนุมัติโดยฝ่ายบุคคล"
+															titleAbbreviation="HR"
+															isTitleClickable="true"
+															state="Positive"
+															stateText="อนุมัติแล้ว"
+															texts="ฝ่ายบุคคลทำการอนุมัติการลา"
+															focused="false" />
+													</c:nodes>
+													<c:lanes>
+														<c:ProcessFlowLaneHeader
+															laneId="1"
+															iconSrc="sap-icon://order-status"
+															text="สร้างใบลา"
+															position="0" />
+														<c:ProcessFlowLaneHeader
+															laneId="2"
+															iconSrc="sap-icon://order-status"
+															text="อนุมัติโดยหัวหน้า"
+															position="1" />
+														<c:ProcessFlowLaneHeader
+															laneId="3"
+															iconSrc="sap-icon://order-status"
+															text="อนุมัติโดยฝ่ายบุคคล"
+															position="2" />
+													</c:lanes>
+												</c:ProcessFlow>
+											</ObjectPageLazyLoader>
+										</blocks>
+									</ObjectPageSubSection>
+								</subSections>
+							</ObjectPageSection>
+							<ObjectPageSection>
+							<subSections>
+								<ObjectPageSubSection
+									title="รายละเอียด">
+									<blocks>
+										<ObjectPageLazyLoader>
+											<f:SimpleForm
+												columnsL="1"
+												columnsM="1"
+												editable="false"
+												layout="ResponsiveGridLayout">
+												<f:content>
+													<l:HorizontalLayout>
+														<l:VerticalLayout>
+														<m:Title text="ชื่อพนักงาน: " level="H2" />
+														<m:Text text="ดร. กษิภณ อภิมุขคุณานนท์"/>
+														</l:VerticalLayout>
+													</l:HorizontalLayout>
+													<l:HorizontalLayout>
+														<l:VerticalLayout>
+														<m:Title text="ประเภทการลา: " level="H2"/>
+														<m:Text text="ลากิจ"/>
+														</l:VerticalLayout>
+													</l:HorizontalLayout>
+													<l:HorizontalLayout>
+														<l:VerticalLayout>
+														<m:Title text="วัน/เวลา ที่เริ่มลา: " level="H2"/>
+														<m:Text text="05/11/2017 08:00"/>
+														</l:VerticalLayout>
+													</l:HorizontalLayout>
+													<l:HorizontalLayout>
+														<l:VerticalLayout>
+														<m:Title text="วัน/เวลา สุดท้ายที่ลา: " level="H2"/>
+														<m:Text text="06/11/2017 17:00"/>
+														</l:VerticalLayout>
+													</l:HorizontalLayout>
+												</f:content>
+											</f:SimpleForm>
+										</ObjectPageLazyLoader>
+									</blocks>
+								</ObjectPageSubSection>
+							</subSections>
+							</ObjectPageSection>
+				
+							<ObjectPageSection>
+								<subSections>
+									<ObjectPageSubSection
+										title="เอกสารแนบ">
+										<blocks>
+											<ObjectPageLazyLoader>
+												<f:SimpleForm
+													columnsL="2"
+													columnsM="2"
+													editable="true"
+													layout="ResponsiveGridLayout" >
+													<f:content>
+														<l:VerticalLayout>
+															
+														</l:VerticalLayout>
+													</f:content>
+												</f:SimpleForm>
+											</ObjectPageLazyLoader>
+										</blocks>
+									</ObjectPageSubSection>
+								</subSections>
+							</ObjectPageSection>
+				
+						</sections>
+					</ObjectPageLayout>
+				</m:content>
+			</m:Page>
+		</m:detailPages>
+		
+	</m:SplitApp>
+</mvc:View>

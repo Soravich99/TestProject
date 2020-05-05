@@ -1,0 +1,314 @@
+{
+  "modules" : [
+    {
+      "name" : "sap/ui/richtexteditor/RichTextEditor.js",
+      "description" : "Provides control sap.ui.richtexteditor.RichTextEditor.",
+      "size" : 78638,
+      "compressedSize" : 36335,
+      "required" : ["jquery.sap.global.js", "sap/ui/core/Control.js", "sap/ui/core/ResizeHandler.js", "sap/ui/richtexteditor/ToolbarWrapper.js", "sap/ui/richtexteditor/library.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/RichTextEditorRenderer.js",
+      "description" : "Provides default renderer for control sap.ui.richtexteditor.RichTextEditor",
+      "size" : 2296,
+      "compressedSize" : 1032,
+      "required" : ["jquery.sap.global.js", "sap/ui/core/Renderer.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/ToolbarWrapper.js",
+      "description" : "Provides control sap.ui.richtexteditor.ToolbarWrapper.",
+      "size" : 42091,
+      "compressedSize" : 19348,
+      "required" : ["jquery.sap.global.js", "sap/ui/core/Control.js", "sap/ui/core/IconPool.js", "sap/ui/core/Item.js", "sap/ui/richtexteditor/library.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/ToolbarWrapperRenderer.js",
+      "description" : "Provides default renderer for control sap.ui.richtexteditor.ToolbarWrapper",
+      "size" : 1022,
+      "compressedSize" : 362,
+      "required" : ["jquery.sap.global.js", "sap/ui/core/Renderer.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/library-preload.js",
+      "size" : 65816,
+      "required" : ["jquery.sap.global.js", "sap/m/Button.js", "sap/m/CheckBox.js", "sap/m/Dialog.js", "sap/m/HBox.js", "sap/m/Input.js", "sap/m/Label.js", "sap/m/Menu.js", "sap/m/MenuButton.js", "sap/m/MenuItem.js", "sap/m/OverflowToolbar.js", "sap/m/OverflowToolbarLayoutData.js", "sap/m/Select.js", "sap/m/StepInput.js", "sap/m/Text.js", "sap/m/ToggleButton.js", "sap/m/ToolbarSeparator.js", "sap/m/VBox.js", "sap/ui/core/Control.js", "sap/ui/core/Core.js", "sap/ui/core/IconPool.js", "sap/ui/core/Item.js", "sap/ui/core/Renderer.js", "sap/ui/core/ResizeHandler.js", "sap/ui/core/library.js", "sap/ui/unified/ColorPicker.js"],
+      "includes" : ["sap/ui/richtexteditor/RichTextEditor.js", "sap/ui/richtexteditor/RichTextEditorRenderer.js", "sap/ui/richtexteditor/ToolbarWrapper.js", "sap/ui/richtexteditor/ToolbarWrapperRenderer.js", "sap/ui/richtexteditor/library.js", "sap/ui/richtexteditor/manifest.json"]
+    },
+    {
+      "name" : "sap/ui/richtexteditor/library-preload.json",
+      "size" : 0,
+      "required" : ["jquery.sap.global.js", "sap/m/Button.js", "sap/m/CheckBox.js", "sap/m/Dialog.js", "sap/m/HBox.js", "sap/m/Input.js", "sap/m/Label.js", "sap/m/Menu.js", "sap/m/MenuButton.js", "sap/m/MenuItem.js", "sap/m/OverflowToolbar.js", "sap/m/OverflowToolbarLayoutData.js", "sap/m/Select.js", "sap/m/StepInput.js", "sap/m/Text.js", "sap/m/ToggleButton.js", "sap/m/ToolbarSeparator.js", "sap/m/VBox.js", "sap/ui/core/Control.js", "sap/ui/core/Core.js", "sap/ui/core/IconPool.js", "sap/ui/core/Item.js", "sap/ui/core/Renderer.js", "sap/ui/core/ResizeHandler.js", "sap/ui/core/library-preload.json", "sap/ui/core/library.js", "sap/ui/unified/ColorPicker.js"],
+      "includes" : ["sap/ui/richtexteditor/RichTextEditor.js", "sap/ui/richtexteditor/RichTextEditorRenderer.js", "sap/ui/richtexteditor/ToolbarWrapper.js", "sap/ui/richtexteditor/ToolbarWrapperRenderer.js", "sap/ui/richtexteditor/library.js", "sap/ui/richtexteditor/manifest.json"]
+    },
+    {
+      "name" : "sap/ui/richtexteditor/library.js",
+      "description" : "Initialization Code and shared classes of library sap.ui.richtexteditor.",
+      "size" : 13163,
+      "compressedSize" : 7383,
+      "required" : ["jquery.sap.global.js", "sap/m/Button.js", "sap/m/CheckBox.js", "sap/m/Dialog.js", "sap/m/HBox.js", "sap/m/Input.js", "sap/m/Label.js", "sap/m/Menu.js", "sap/m/MenuButton.js", "sap/m/MenuItem.js", "sap/m/OverflowToolbar.js", "sap/m/OverflowToolbarLayoutData.js", "sap/m/Select.js", "sap/m/StepInput.js", "sap/m/Text.js", "sap/m/ToggleButton.js", "sap/m/ToolbarSeparator.js", "sap/m/VBox.js", "sap/ui/core/Core.js", "sap/ui/core/library.js", "sap/ui/unified/ColorPicker.js"],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/manifest.json",
+      "size" : 1202,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle.properties",
+      "size" : 3622,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_ar.properties",
+      "size" : 5224,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_bg.properties",
+      "size" : 6348,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_ca.properties",
+      "size" : 3746,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_cs.properties",
+      "size" : 3806,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_da.properties",
+      "size" : 3660,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_de.properties",
+      "size" : 3749,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_el.properties",
+      "size" : 6049,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_en.properties",
+      "size" : 3568,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_en_US_sappsd.properties",
+      "size" : 4223,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_en_US_saptrc.properties",
+      "size" : 2691,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_es.properties",
+      "size" : 3687,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_et.properties",
+      "size" : 3620,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_fi.properties",
+      "size" : 3763,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_fr.properties",
+      "size" : 3730,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_hi.properties",
+      "size" : 5739,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_hr.properties",
+      "size" : 3630,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_hu.properties",
+      "size" : 3977,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_it.properties",
+      "size" : 3683,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_iw.properties",
+      "size" : 5014,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_ja.properties",
+      "size" : 4194,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_kk.properties",
+      "size" : 5670,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_ko.properties",
+      "size" : 4084,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_lt.properties",
+      "size" : 3936,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_lv.properties",
+      "size" : 3800,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_ms.properties",
+      "size" : 3617,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_nl.properties",
+      "size" : 3674,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_no.properties",
+      "size" : 3626,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_pl.properties",
+      "size" : 3813,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_pt.properties",
+      "size" : 3711,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_ro.properties",
+      "size" : 3735,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_ru.properties",
+      "size" : 6003,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_sh.properties",
+      "size" : 3620,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_sk.properties",
+      "size" : 3859,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_sl.properties",
+      "size" : 3707,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_sv.properties",
+      "size" : 3652,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_th.properties",
+      "size" : 5584,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_tr.properties",
+      "size" : 3813,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_uk.properties",
+      "size" : 5986,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_vi.properties",
+      "size" : 4363,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_zh_CN.properties",
+      "size" : 3888,
+      "required" : [],
+      "includes" : []
+    },
+    {
+      "name" : "sap/ui/richtexteditor/messagebundle_zh_TW.properties",
+      "size" : 3924,
+      "required" : [],
+      "includes" : []
+    }
+  ]
+}

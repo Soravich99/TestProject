@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns="sap.uxap"
+	xmlns:l="sap.ui.layout" 
+	xmlns:f="sap.ui.layout.form" 
+	xmlns:m="sap.m"
+	xmlns:u="sap.ui.unified" 
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc">
+	<!--<m:Dialog id="helloDialog" title="ขอเบิกค่าการศึกษาบุตร">
+		<m:List class="sapUiResponsiveMargin" width="auto"
+			items="{/ProductCollection}">
+			  <m:items>	
+				  <m:ObjectListItem title="{ProductName}" number="{Quantity}" />
+			</m:items>	
+		</m:List>-->
+ <m:Dialog title="รายละเอียด" id="DisplayFam" items="{FamBenefit>/employee1}" 
+		afterClose="dialogAfterclose" contentWidth="60%" stretchOnPhone="true"> 
+			<f:SimpleForm title="ข้อมูลผู้ประกอบการ" columnsL="1" columnsM="1" editable="true" layout="ResponsiveGridLayout" 
+			width="100%"> 
+				<f:content> 
+					<m:Label text="บุตร" /> 
+					<m:Text text="{ChildrenName}" /> 
+					<m:Label text="วัน เดือน ปี เกิด" /> 
+					<m:Text text="{ChildrenBirthDate}" /> 
+					<m:Label text="อายุ" /> 
+					<m:Text text="{ChildrenAge}" /> 
+					<m:Label text="สถานศึกษา" /> 
+					<m:Text text="{ChildrenSchool}" /> 
+					<m:Label text="จังหวัด" /> 
+					<m:Text text="{SchoolProvince}" /> 
+					<m:Label text="ซึ่งเป็นของ" /> 
+					<m:Text text="{WhichOf}" />
+					<m:Label text="ระดับที่ศึกษา " /> 
+					<m:Text text="{SchoolLevel}" /> 
+					<m:Label text="จำนวนเงิน " /> 
+					<m:Text text="{Amount}" /> 
+					<m:Label text="เบิกได้" /> 
+					<m:Text text="{WithdrawAble}" /> 
+					<m:Label text="ชั้น" /> 
+					<m:Text text="{Grade}" /> 
+					<m:Label text="ภาค" /> 
+					<m:Text text="{Semester}" /> 
+					<m:Label text="ปีการศึกษา" /> 
+					<m:Text text="{SemesterYear}" /> 
+					<m:Label text="ใบเสร็จเลขที่" /> 
+					<m:Text text="{ReceiptNo}" /> 
+					<m:Label text="วันที่" /> 
+					<m:Text text="{ReceiptDate}" /> 
+				</f:content> 
+			</f:SimpleForm> 
+			<m:beginButton> 
+				<m:Button text="Close" press="onCloseDialog" /> 
+			</m:beginButton>
+		</m:Dialog> -->
+</core:FragmentDefinition>

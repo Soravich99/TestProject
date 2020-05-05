@@ -1,0 +1,303 @@
+<mvc:View 
+controllerName="sap.ui.demo.toolpageapp.controller.BE.EditStudentTuitionfee"
+	 xmlns="sap.uxap"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:m="sap.m"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<!-- <VBox class="sapUiSmallMargin"> -->
+
+		<ObjectPageLayout id="objectPageLayout">
+
+			<sections>
+				<ObjectPageSection>
+					<subSections>
+						<ObjectPageSubSection id="shopOwnerId" title="ขอเบิกค่าการศึกษาบุตร">
+							<blocks>
+								<ObjectPageLazyLoader id="shopOwnerLazyLoader">
+									<f:SimpleForm id="SimpleFormDisplay480_12120"
+										editable="false" layout="ResponsiveGridLayout" title="ขอเบิกค่าการศึกษาบุตร"
+										labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+										adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+										emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3"
+										columnsM="1" singleContainerFullSize="false">
+										<f:toolbar>
+											<m:Toolbar>
+												<m:Title text="ขอเบิกค่าการศึกษาบุตร" level="H2" />
+												<m:ToolbarSpacer />
+												<m:Button icon="sap-icon://employee-approvals" text="ส่งเพื่ออนุมัติ"
+													tooltip="ส่งเพื่ออนุมัติ" class="sapUiTinyMargin"></m:Button>
+												<m:Button icon="sap-icon://save" text="บันทึก"
+													tooltip="บันทึก" class="sapUiTinyMargin" press="addRow"></m:Button>
+												<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+													tooltip="ยกเลิก" class="sapUiTinyMargin" press="onCancel"></m:Button>
+											</m:Toolbar>
+										</f:toolbar>
+
+										<f:content>
+											<core:Title text="" />
+											<m:Label text="บุตร" required="true"/>
+											<m:MenuButton text="ด.ญ ดีงาม รักการงาน" buttonMode="Split" defaultAction="onDefaultAction" >
+												<m:menu>
+													<m:Menu>
+														<m:items>
+															<m:MenuItem text="ด.ช ใจดี รักการงาน" />
+															<m:MenuItem text="ด.ญ ดีงาม รักการงาน"/>
+														</m:items>
+													</m:Menu>
+												</m:menu>
+											</m:MenuButton>
+
+											<m:Label text="สถานศึกษา" required="true"/>
+											<m:MenuButton text="โรงเรียนเลิศล้า" buttonMode="Split"
+												defaultAction="onDefaultAction" width="150%">
+												<m:menu>
+													<m:Menu itemSelected="onMenuAction">
+														<m:items>
+															<m:MenuItem text="โรงเรียนเลิศล้า" />
+															<m:MenuItem text="โรงเรียนเซนต์โยเซฟคอนเวนต์" />
+															<m:MenuItem text="โรงเรียนสารสาร์ท" />
+														</m:items>
+													</m:Menu>
+												</m:menu>
+											</m:MenuButton>
+										
+
+
+											<m:Label text="ระดับที่ศึกษา" required="true"/>
+											<m:MenuButton text="ประถมศึกษา" buttonMode="Split"
+												defaultAction="onDefaultAction">
+												<m:menu>
+													<m:Menu itemSelected="onMenuAction">
+														<m:items>
+															<m:MenuItem text="ประถมศึกษา" />
+															<m:MenuItem text="มัธยมศึกษา" />														</m:items>
+													</m:Menu>
+												</m:menu>
+											</m:MenuButton>
+
+											<m:Label text="ชั้น" required="true"/>
+											<m:Input value="6">
+												<m:layoutData>
+													<l:GridData span="XL2 L2 M2 S2" />
+												</m:layoutData>
+											</m:Input>
+
+											<m:Label text="ใบเสร็จเลขที่" required="true"/>
+											<m:Input value="61-43041">
+												<m:layoutData>
+													<l:GridData span="XL5 L5 M5 S5" />
+												</m:layoutData>
+											</m:Input>
+
+
+
+
+
+											<core:Title text="" class="Col2" />
+											<m:Label text="วัน เดือน ปี เกิด" />
+											<m:Input value="25/04/2554" type="PositionName"
+												enabled="false" />
+											<m:Label text="จังหวัด" />
+											<m:Input value="กรุงเทพมหานคร" type="SpouseOccupationName"
+												enabled="false" />
+											<m:Label text="จำนวนเงิน" required="true" />
+											<m:Input value="33,200.00" type="MoneyAmount" />
+											<m:Label text="ภาค" required="true"/>
+											<m:Input value="1">
+												<m:layoutData>
+													<l:GridData span="XL2 L2 M2 S2" />
+												</m:layoutData>
+											</m:Input>
+											<m:Label text="วันที่" required="true"/>
+											<m:DatePicker id="DTP2" displayFormat="dd/MM/yyyy"
+												valueFormat="dd/MM/yyyy" value="25/02/2018" change="handleChange"
+												width="50%" />
+
+
+
+
+											<core:Title text="" />
+											<m:Label text="อายุ" />
+											<m:Input value="7" type="ChildrenAge" description="ปี"
+												enabled="false" />
+											<m:Label text="ซึ่งเป็นของ" />
+											<m:Input value="เอกชน(ไม่ได้รับเงินอุดหนุน)" type="WhichOf"
+												enabled="false" />
+											<m:Label text="เบิกได้" />
+											<m:Input value="11,200.00" type="Withdrawable"
+												enabled="false" />
+											<m:Label text="ปีการศึกษา" required="true"/>
+											<m:Input value="2561">
+												<m:layoutData>
+													<l:GridData span="XL2 L2 M2 S2" />
+												</m:layoutData>
+											</m:Input>
+
+										</f:content>
+									</f:SimpleForm>
+
+								</ObjectPageLazyLoader>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+				
+				<ObjectPageSection>
+					<subSections>
+						<ObjectPageSubSection id="shopOwnerId2" title="เอกสารแนบ">
+							<blocks>
+								<ObjectPageLazyLoader id="shopOwnerLazyLoader2">
+
+									<f:SimpleForm id="SimpleFormDisplay480_12120-2"
+										editable="false" layout="ResponsiveGridLayout"
+										labelSpanXL="1" labelSpanL="1" labelSpanM="12" labelSpanS="12"
+										adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+										emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1"
+										columnsM="1" singleContainerFullSize="false">
+										<f:content>
+
+											<m:Label text="แนบเอกสาร" required="true"/>
+<l:VerticalLayout>
+											<l:HorizontalLayout>
+											<m:CheckBox text="ใบเสร็จ" selected="true" >
+												<m:layoutData>
+													<l:GridData linebreak="true" indentL="1"
+														indentM="1" />
+												</m:layoutData>
+											</m:CheckBox>
+											</l:HorizontalLayout>
+											<l:HorizontalLayout>
+											<m:CheckBox text="หนังสือรับรอง/คำประกาศ">
+												<m:layoutData>
+													<l:GridData linebreak="true" indentL="1"
+														indentM="1" />
+												</m:layoutData>
+											</m:CheckBox>
+											</l:HorizontalLayout>
+											<l:HorizontalLayout>
+											<m:CheckBox id="focusMe" text="อื่นๆ">
+												<m:layoutData>
+													<l:GridData linebreak="true" indentL="1"
+														indentM="1" />
+												</m:layoutData>
+											</m:CheckBox>
+												<m:Input value=" " class="sapUiTinyMargin"/>
+											</l:HorizontalLayout>
+</l:VerticalLayout>
+										</f:content>
+									</f:SimpleForm>
+
+								</ObjectPageLazyLoader>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+
+
+				<ObjectPageSection>
+					<subSections>
+						<ObjectPageSubSection id="shopOwnerId3" title="ใบเสร็จ">
+							<blocks>
+								<ObjectPageLazyLoader id="shopOwnerLazyLoader3">
+									<f:SimpleForm id="SimpleFormDisplay480_121202-3"
+										editable="false" layout="ResponsiveGridLayout" 
+										labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+										adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+										emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1"
+										columnsM="1" singleContainerFullSize="false">
+										<f:content>
+											<l:VerticalLayout>
+												<m:UploadCollection id="UploadCollection"
+													maximumFilenameLength="80" maximumFileSize="10" multiple="true"
+													sameFilenameAllowed="true" instantUpload="false" change="onChange"
+													fileDeleted="onFileDeleted" filenameLengthExceed="onFilenameLengthExceed"
+													fileSizeExceed="onFileSizeExceed" typeMissmatch="onTypeMissmatch"
+													uploadComplete="onUploadComplete" beforeUploadStarts="onBeforeUploadStarts"
+													noDataText="ลากวางเอกสารที่นี่ หรือกด +" noDataDescription=""
+													numberOfAttachmentsText="เพิ่มเอกสาร">
+												</m:UploadCollection>
+											</l:VerticalLayout>
+										</f:content>
+									</f:SimpleForm>
+
+								</ObjectPageLazyLoader>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+				
+				
+					<ObjectPageSection>
+					<subSections>
+						<ObjectPageSubSection id="shopOwnerId4" title="หนังสือรับรอง/คำประกาศ">
+							<blocks>
+								<ObjectPageLazyLoader id="shopOwnerLazyLoader3">
+									<f:SimpleForm id="SimpleFormDisplay480_121202-4"
+										editable="false" layout="ResponsiveGridLayout" 
+										labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+										adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+										emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1"
+										columnsM="1" singleContainerFullSize="false">
+										<f:content>
+											<l:VerticalLayout>
+												<m:UploadCollection id="UploadCollection2"
+													maximumFilenameLength="80" maximumFileSize="10" multiple="true"
+													sameFilenameAllowed="true" instantUpload="false" change="onChange"
+													fileDeleted="onFileDeleted" filenameLengthExceed="onFilenameLengthExceed"
+													fileSizeExceed="onFileSizeExceed" typeMissmatch="onTypeMissmatch"
+													uploadComplete="onUploadComplete" beforeUploadStarts="onBeforeUploadStarts"
+													noDataText="ลากวางเอกสารที่นี่ หรือกด +" noDataDescription=""
+													numberOfAttachmentsText="เพิ่มเอกสาร">
+												</m:UploadCollection>
+											</l:VerticalLayout>
+										</f:content>
+									</f:SimpleForm>
+
+								</ObjectPageLazyLoader>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+				
+									<ObjectPageSection>
+					<subSections>
+						<ObjectPageSubSection id="shopOwnerId5" title="อื่นๆ">
+							<blocks>
+								<ObjectPageLazyLoader id="shopOwnerLazyLoader5">
+									<f:SimpleForm id="SimpleFormDisplay480_121202-5"
+										editable="false" layout="ResponsiveGridLayout" 
+										labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+										adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+										emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1"
+										columnsM="1" singleContainerFullSize="false">
+										<f:content>
+											<l:VerticalLayout>
+												<m:UploadCollection id="UploadCollection3"
+													maximumFilenameLength="80" maximumFileSize="10" multiple="true"
+													sameFilenameAllowed="true" instantUpload="false" change="onChange"
+													fileDeleted="onFileDeleted" filenameLengthExceed="onFilenameLengthExceed"
+													fileSizeExceed="onFileSizeExceed" typeMissmatch="onTypeMissmatch"
+													uploadComplete="onUploadComplete" beforeUploadStarts="onBeforeUploadStarts"
+													noDataText="ลากวางเอกสารที่นี่ หรือกด +" noDataDescription=""
+													numberOfAttachmentsText="เพิ่มเอกสาร">
+												</m:UploadCollection>
+											</l:VerticalLayout>
+										</f:content>
+									</f:SimpleForm>
+
+								</ObjectPageLazyLoader>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+				
+
+				
+				
+				
+
+
+			</sections>
+		</ObjectPageLayout>
+
+	<!-- </VBox>  -->
+</mvc:View>

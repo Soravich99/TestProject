@@ -1,0 +1,408 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.BE.CreateStudentTuitionfee"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified">
+	<!-- <VBox class="sapUiSmallMargin"> -->
+
+	<ObjectPageLayout id="objectPageLayout">
+		<headerTitle>
+			<ObjectPageHeader objectTitle="เบิกเงินค่าเล่าเรียนบุตร"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="วันที่จ้างงาน"
+					text="" id="DAT01" />
+				<m:ObjectStatus title="วันที่บรรจุ" text="" id="DAT02" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="สถานภาพ" text="" id="FAMST" />
+				<m:ObjectStatus title="วันที่สมรส/หย่า" id="FAMDT"
+					text="" />
+				<m:ObjectStatus title="คู่สมรส" id="SNAME"
+					text="" />
+				<m:ObjectStatus title="อาชีพคู่สมรส" text="" id="JOBTL" />
+				<m:ObjectStatus title="สถานที่ทำงาน"  id="EFAML"
+					text="" />
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="เบิกเงินค่าเล่าเรียนบุตร">
+						<blocks>
+							<ObjectPageLazyLoader>
+
+								<f:SimpleForm title="เบิกเงินค่าเล่าเรียนบุตร"
+									editable="true" layout="ResponsiveGridLayout" labelSpanXL="4"
+									labelSpanL="4" labelSpanM="4" labelSpanS="4"
+									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3"
+									columnsM="3" singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:Title text="เบิกเงินค่าเล่าเรียนบุตร" level="H2" />
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://employee-approvals"
+												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ" press="onSendPressed"
+												class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://save" text="บันทึก" press="onSavePressed"
+												tooltip="บันทึก" class="sapUiTinyMargin" ></m:Button>
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก" press="onCancelPressed"
+												tooltip="ยกเลิก" class="sapUiTinyMargin" ></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+
+									<f:content>
+										<core:Title text="" />
+										<m:Label text="เลขที่คำขอ" />
+										<m:Input value="" enabled="false" id="rqust"
+											class="sapUiContentPadding">
+											<m:layoutData>
+												<l:GridData span="L8 M8 S8" />
+											</m:layoutData>
+										</m:Input>
+
+										<m:Label text="วันที่ขอ" />
+										<m:Input value="" enabled="false" id="rqdat"
+											class="sapUiContentPadding">
+											<m:layoutData>
+												<l:GridData span="L8 M8 S8" />
+											</m:layoutData>
+										</m:Input>
+										
+										<m:Label text="บุตร" required="true" />
+										<m:Select selectedKey="บุตร" items="{path: 'childItem>/List'}" id="childSel" change="onChangeChield">
+											<m:items>
+												 <core:Item text="{childItem>text}" key="{childItem>key}" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="วัน เดือน ปี เกิด" />
+										<m:Input value="" type="PositionName" id="childBirth"
+											enabled="false" />
+
+										<m:Label text="อายุ" />
+										<m:Input value="" type="ChildrenAge" description="ปี" id="childAge"
+											enabled="false" />
+										<m:Text text="" />
+
+										<m:Label text="สถานศึกษา" required="true" />
+										<m:Select items="{path: 'eduItem>/List'}" id="childEdu">
+											<m:items>
+												 <core:Item text="{eduItem>scnam}" key="{eduItem>sccode}" />
+											</m:items>
+										</m:Select>
+										<m:Label text="" />
+										<m:Button icon="sap-icon://search" press="searchEmp"/>
+
+										<m:Label text="" />
+										<m:Input value=""
+											type="SpouseOccupationName" id="othItem" />
+
+										<m:Label text="ประเภทสถานศึกษา" />
+										<m:Select id="eduType" items="{path: 'eduType>/List'}" change="onBRNget">
+											<m:items>
+												<core:Item text="{eduType>text}" key="{eduType>key}" />
+											</m:items>
+										</m:Select>
+
+										<core:Title text="" class="Col2" />
+
+										<m:Label text="ระดับชั้นการศึกษา" required="true" />
+										<m:Select id="eduLevel" items="{path: 'eduLevel>/List'}" change="onBRNget">
+											<m:items>
+												<core:Item text="{eduLevel>text}" key="{eduLevel>key}" />
+											</m:items>
+										</m:Select>
+										
+										
+										<m:Label text="คณะ/สาขา"  required="true" />
+										<m:Select id="eduBran" items="{path: 'eduBran>/List'}" change="onSelbrn">
+											<m:items>
+												<core:Item text="{eduBran>text}" key="{eduBran>key}" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="ชั้นปีการศึกษาที่" required="true" />
+										<m:Input value="" id="eduCyear" />
+<!-- 										<m:Text text="เช่น มัธยมศึกษาปีที่ 5 = 5,ประถมศึกษาปีที่ 3 = 3" /> -->
+										
+										<m:Label text="ปีการศึกษาที่" required="true" change="onCallRFC" />
+										<m:Input value="" id="eduYear" />
+										<m:Text text="ต้องเป็นปี ค.ศ." />
+										
+										<m:Label text="ภาค" required="true" />
+										<m:Select id="eduTerm">
+											<m:items>
+												<core:Item text="เลือก" key="เลือก" />
+												<core:Item text="1" key="1" />
+												<core:Item text="2" key="2" />
+												<core:Item text="3" key="3" />
+												<core:Item text="4" key="4" />
+												<core:Item text="ฤดูร้อน / Summer" key="5" />
+											</m:items>
+										</m:Select>
+										<m:Text text="" />										
+										
+										<m:Label text="สิทธิต่อปีการศึกษา" />
+										<m:Input value="" description="บาท" id="empTotal"
+											enabled="false" />
+
+										<m:Label text="สิทธิคงเหลือต่อปีการศึกษา"  />
+										<m:Input value="" description="บาท" id="empBalance"
+											enabled="false" />
+
+		
+										<m:Label text="ใบเสร็จเลขที่" required="true" />
+										<m:Input value="" id="invno" />
+
+										<m:Label text="วันที่ในใบเสร็จ" required="true" />
+										<m:DatePicker id="DTP2"
+											displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy"
+											value="วัน/เดือน/ปี" change="handleChange" />
+
+										<m:Label text="จำนวนเงินตามใบเสร็จ" required="true" />
+										<m:Input value="" description="บาท" id="invBalance" change="inputAmt" />
+										
+										<m:Label text="วันที่มีผลจ่าย" required="true" />
+										<m:Input value="" description="" id="payDate" enabled="false" />
+										
+										<core:Title text="" />
+
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+<!-- 			<ObjectPageSection> -->
+<!-- 				<subSections> -->
+<!-- 					<ObjectPageSubSection -->
+<!-- 						title="เบิกเงินค่าเล่าเรียนบุตร (การเงิน)"> -->
+<!-- 						<blocks> -->
+<!-- 							<ObjectPageLazyLoader> -->
+
+<!-- 								<f:SimpleForm title="เบิกเงินค่าเล่าเรียนบุตร" -->
+<!-- 									editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" -->
+<!-- 									labelSpanL="4" labelSpanM="4" labelSpanS="4" -->
+<!-- 									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" -->
+<!-- 									emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" -->
+<!-- 									columnsM="3" singleContainerFullSize="false"> -->
+<!-- 									<f:toolbar> -->
+<!-- 										<m:Toolbar> -->
+<!-- 											<m:Title text="ขอเบิกค่าการศึกษาบุตร" level="H2" /> -->
+<!-- 											<m:ToolbarSpacer /> -->
+<!-- 										</m:Toolbar> -->
+<!-- 									</f:toolbar> -->
+
+<!-- 									<f:content> -->
+									
+<!-- 									<core:Title text="" /> -->
+<!-- 										<m:Label text="เลขที่คำขอ" /> -->
+<!-- 										<m:Input value="EDU6100010" enabled="false" -->
+<!-- 											class="sapUiContentPadding"> -->
+<!-- 											<m:layoutData> -->
+<!-- 												<l:GridData span="L8 M8 S8" /> -->
+<!-- 											</m:layoutData> -->
+<!-- 										</m:Input> -->
+
+<!-- 										<m:Label text="วันที่ขอ" /> -->
+<!-- 										<m:Input value="20/11/2561" enabled="false" -->
+<!-- 											class="sapUiContentPadding"> -->
+<!-- 											<m:layoutData> -->
+<!-- 												<l:GridData span="L8 M8 S8" /> -->
+<!-- 											</m:layoutData> -->
+<!-- 										</m:Input> -->
+									
+<!-- 										<m:Label text="บุตร" required="true" /> -->
+<!-- 										<m:Select selectedKey="บุตร" enabled="false"> -->
+<!-- 											<m:items> -->
+<!-- 												<core:Item text="บุตร" key="บุตร" /> -->
+<!-- 												<core:Item text="ด.ช ใจดี รักการงาน" /> -->
+<!-- 												<core:Item text="ด.ญ ดีงาม รักการงาน" /> -->
+<!-- 											</m:items> -->
+<!-- 										</m:Select> -->
+
+<!-- 										<m:Label text="วัน เดือน ปี เกิด" /> -->
+<!-- 										<m:Input value="25/04/2544" type="PositionName" -->
+<!-- 											enabled="false" /> -->
+
+<!-- 										<m:Label text="อายุ" /> -->
+<!-- 										<m:Input value="17" type="ChildrenAge" description="ปี" -->
+<!-- 											enabled="false" /> -->
+<!-- 										<m:Text text="" /> -->
+
+<!-- 										<m:Label text="สถานศึกษา" required="true" /> -->
+<!-- 										<m:Select selectedKey="สถานศึกษา" enabled="false"> -->
+<!-- 											<m:items> -->
+<!-- 												<core:Item text="โรงเรียนสารสาร์ท" key="โรงเรียนสารสาร์ท" /> -->
+<!-- 												<core:Item text="โรงเรียนเลิศล้า" /> -->
+<!-- 												<core:Item text="โรงเรียนเซนต์โยเซฟคอนเวนต์" /> -->
+<!-- 												<core:Item text="โรงเรียนสารสาร์ท" /> -->
+<!-- 											</m:items> -->
+<!-- 										</m:Select> -->
+
+<!-- 										<m:Label text="จังหวัด" /> -->
+<!-- 										<m:Input value="กรุงเทพมหานคร" -->
+<!-- 											type="SpouseOccupationName" enabled="false" /> -->
+
+<!-- 										<m:Label text="ประเภทสถานศึกษา" /> -->
+<!-- 										<m:Select selectedKey="เลือก" enabled="false"> -->
+<!-- 											<m:items> -->
+<!-- 												<core:Item text="รัฐบาล" key="รัฐบาล" /> -->
+<!-- 												<core:Item text="รัฐบาล" /> -->
+<!-- 												<core:Item text="เอกชน" /> -->
+<!-- 												<core:Item text="รัญบาล (ไม่ได้รับเงินอุดหนุน)" /> -->
+<!-- 												<core:Item text="เอกชน (ไม่ได้รับเงินอุดหนุน)" /> -->
+<!-- 											</m:items> -->
+<!-- 										</m:Select> -->
+
+<!-- 										<core:Title text="" class="Col2" /> -->
+
+<!-- 										<m:Label text="ระดับชั้นการศึกษา" required="true" /> -->
+<!-- 										<m:Select selectedKey="ระดับชั้นการศึกษา" enabled="false"> -->
+<!-- 											<m:items> -->
+<!-- 												<core:Item text="ประกาศนียบัตรวิชาชีพ (ปวส.)" -->
+<!-- 													key="ประกาศนียบัตรวิชาชีพ (ปวส.)" /> -->
+<!-- 												<core:Item text="ประถมศึกษา" /> -->
+<!-- 												<core:Item text="มัธยมศึกษา" /> -->
+<!-- 											</m:items> -->
+<!-- 										</m:Select> -->
+										
+<!-- 										<m:Label text="คณะ/สาขา"  required="true" /> -->
+<!-- 										<m:Select selectedKey="คอมพิวเตอร์และธุรกิจ" enabled="false"> -->
+<!-- 											<m:items> -->
+<!-- 												<core:Item text="คอมพิวเตอร์และธุรกิจ" -->
+<!-- 													key="คอมพิวเตอร์และธุรกิจ" /> -->
+<!-- 												<core:Item text="คอมพิวเตอร์และธุรกิจ" /> -->
+<!-- 												<core:Item text="การเงินและการบัญชี" /> -->
+<!-- 											</m:items> -->
+<!-- 										</m:Select> -->
+										
+<!-- 										<m:Label text="ชั้นปีการศึกษา" required="true" /> -->
+<!-- 										<m:Input value="2" enabled="false" /> -->
+<!-- 										<m:Text text="" />										 -->
+
+<!-- 										<m:Label text="ปีการศึกษา"  required="true" /> -->
+<!-- 										<m:Input value="2561" enabled="false" /> -->
+<!-- 										<m:Text text="" /> -->
+
+<!-- 										<m:Label text="ภาค" required="true" /> -->
+<!-- 										<m:Select selectedKey="เลือก" enabled="false"> -->
+<!-- 											<m:items> -->
+<!-- 												<core:Item text="1" key="1" /> -->
+<!-- 												<core:Item text="1" /> -->
+<!-- 												<core:Item text="2" /> -->
+<!-- 												<core:Item text="3" /> -->
+<!-- 												<core:Item text="4" /> -->
+<!-- 												<core:Item text="ฤดูร้อน / Summer" /> -->
+<!-- 											</m:items> -->
+<!-- 										</m:Select> -->
+<!-- 										<m:Text text="" /> -->
+
+<!-- 										<m:Label text="สิทธิต่อปีการศึกษา" /> -->
+<!-- 										<m:Input value="11,200.00" description="บาท" -->
+<!-- 											enabled="false" /> -->
+
+<!-- 										<m:Label text="สิทธิคงเหลือต่อปีการศึกษา" /> -->
+<!-- 										<m:Input value="1,200.00" description="บาท" -->
+<!-- 											enabled="false" /> -->
+
+
+
+<!-- 										<m:Label text="ใบเสร็จเลขที่" required="true" /> -->
+<!-- 										<m:Input value="52136" enabled="false" /> -->
+
+<!-- 										<m:Label text="วันที่ในใบเสร็จ" required="true" /> -->
+<!-- 										<m:DatePicker displayFormat="dd/MM/yyyy" -->
+<!-- 											valueFormat="dd/MM/yyyy" value="01/04/2561" -->
+<!-- 											change="handleChange" enabled="false" /> -->
+
+<!-- 										<m:Label text="จำนวนเงินตามใบเสร็จ" required="true" /> -->
+<!-- 										<m:Input value="8,000.00" description="บาท" enabled="false" /> -->
+
+<!-- 										<m:Label text="จำนวนเงินที่เบิกได้" required="true" /> -->
+<!-- 										<m:Input value="" description="บาท" /> -->
+
+<!-- 										<core:Title text="" /> -->
+
+<!-- 									</f:content> -->
+<!-- 								</f:SimpleForm> -->
+
+<!-- 							</ObjectPageLazyLoader> -->
+<!-- 						</blocks> -->
+<!-- 					</ObjectPageSubSection> -->
+<!-- 				</subSections> -->
+<!-- 			</ObjectPageSection> -->
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="เอกสารแนบ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+									
+										<core:Title text="" />
+										<m:Label required="true" text="ใบเสร็จ"
+											labelFor="fileUploader21" />
+										<u:FileUploader name="myFileUpload"
+											buttonText="แนบเอกสาร" maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG"
+											uploadUrl="upload/" placeholder="" id="file01"
+											uploadComplete="handleUploadComplete" width="50%" />
+										
+										<m:Label required="false" text="หนังสือรับรองเรื่องอัตราค่าธรรมเนียมการศึกษาปีปัจจุบัน"
+											labelFor="fileUploader21" />
+										<u:FileUploader name="myFileUpload"
+											buttonText="แนบเอกสาร" maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG"
+											uploadUrl="upload/" placeholder="" id="file02"
+											uploadComplete="handleUploadComplete" width="50%" />
+										
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+	<!-- </VBox> -->
+</mvc:View>

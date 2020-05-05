@@ -1,0 +1,59 @@
+<core:FragmentDefinition xmlns="sap.uxap"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:m="sap.m"
+	xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<m:Dialog title="รายละเอียด" id="motherDialog" afterClose="dialogAfterclose"
+		contentWidth="60%" stretchOnPhone="true">
+		<f:SimpleForm title="ข้อมูลมารดา" columnsL="1"
+			columnsM="1" editable="true" layout="ResponsiveGridLayout" width="100%">
+			<f:content>
+				<m:Label text="อาชีพ" />
+				<m:Select id="job" selectedKey="AOT" enabled="false">
+					<m:items>
+						<core:Item text="กรุณาเลือกอาชีพ" key="default" />
+						<core:Item text="พนักงานทอท." key="AOT" />
+						<core:Item text="พนักงานรัฐวิสาหกิจ" key="stateEnterprise" />
+						<core:Item text="ข้าราชการ" key="official" />
+						<core:Item text="ข้าราชการบำนาญ" key="pensioner" />
+						<core:Item text="ข้าราชการบำเหน็จ" key="governmentServant" />
+						<core:Item text="ลูกจ้างราชการ" key="governmentEmployee" />
+						<core:Item text="พนักงานเอกชน" key="privateEmployee" />
+						<core:Item text="ไม่มีอาชีพ" key="none" />
+					</m:items>
+				</m:Select>
+				<m:Label text="รหัสพนักงาน" id="faEmpIDLabel" />
+				<m:Input value="620001" id="faEmpIDInput" enabled="false"/>
+				<m:Label text="คำนำหน้า" />
+				<m:Select id="titlefatherEdit" selectedKey="3" enabled="false">
+					<m:items>
+						<core:Item text="" key="none" />
+						<core:Item text="นาง" key="3" />
+						<core:Item text="นาย" key="4" />
+						<core:Item text="นางสาว" key="5" />
+					</m:items>
+				</m:Select>
+				<m:Label text="ชื่อจริง" />
+				<m:Input value="มารดา" enabled="false"/>
+				<m:Label text="นามสกุล" />
+				<m:Input value="จิตใจงาม" enabled="false" />
+				<m:Label text="เลขที่บัตรประชาชน" />
+				<m:Input value="1-0702-03609-04-2" enabled="false" />
+				<m:Label text="วันเดือนปี เกิด" />
+				<m:DatePicker displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy"
+					value="01/01/2493" change="handleChange" enabled="false"/>
+				<m:Label text="เบอร์โทร" />
+				<m:Input value="095-561-0220" enabled="false"/>
+				<m:Label text="สถานะ"/>
+				<m:RadioButton groupName="GroupB" text="มีชีวิต"
+					selected="true" enabled="false"/>
+				<m:RadioButton groupName="GroupB" text="เสียชีวิต"
+					selected="false" enabled="false"/>
+			</f:content>
+			<!-- <m:footer> <m:Text text="สร้างเมื่อวันที่ 18/08/2018 14:20:00" /> 
+				<m:Text text="แก้ไขเมื่อวันที่ 18/08/2018 14:20:00" /> <m:Text text="อนุมัติเมื่อวันที่ 
+				20/08/2018 08:20:00 โดย คุณหญิงจรัญ สนิทวงค์" /> </m:footer> -->
+		</f:SimpleForm>
+		<m:beginButton>
+			<m:Button text="Close" press="onCloseDialog" />
+		</m:beginButton>
+	</m:Dialog>
+</core:FragmentDefinition>

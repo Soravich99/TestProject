@@ -1,0 +1,142 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.TM.TmCancel"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="ยกเลิกเอกสาร"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ประเภทตารางการทำงาน"
+					text="-" />
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId"
+						title="ยกเลิกเอกสาร">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<f:SimpleForm editable="false"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="2" labelSpanS="2" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://employee-approvals"
+												text="ส่งเพื่อแจ้ง" tooltip="ส่งเพื่อแจ้ง" press="onSendPressed"
+												class="sapUiTinyMargin" ></m:Button>
+<!-- 											<m:Button icon="sap-icon://employee-approvals" -->
+<!-- 												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ" press="onSendPressed" -->
+<!-- 												class="sapUiTinyMargin" press="onClickSend"></m:Button> -->
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก" press="onCancelPressed"
+												tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+									<f:content>
+										<m:Label text="" />
+										<m:Text text="" />
+										<m:Label text="เรื่อง" />
+										<m:Input id="cnType" enabled="false"></m:Input>
+										<m:Label text="เลขที่เอกสารที่ยกเลิก" />
+										<m:Input id="cnDoc" enabled="false"></m:Input>
+										<m:Label text="วันที่ขอยกเลิก" />
+										<m:Input id="cnDate" text="" enabled="false" ></m:Input>
+										<m:Label text="สาเหตุการยกเลิก" />
+										<m:TextArea enabled="true" value="" id="cnReason" />
+										
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			
+			<ObjectPageSection visible="false">
+				<subSections>
+					<ObjectPageSubSection title="ผู้อนุมัติ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+										<m:Table id="appTab01" inset="false">
+<!-- 											<m:headerToolbar> -->
+<!-- 												<m:Toolbar> -->
+<!-- 													<m:ToolbarSpacer /> -->
+<!-- 													<m:Button icon="sap-icon://add" text="เพิ่ม" press="onAdd" -->
+<!-- 														tooltip="เพิ่ม" class="sapUiTinyMargin"></m:Button> -->
+<!-- 												</m:Toolbar> -->
+<!-- 											</m:headerToolbar> -->
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center" width="20rem">
+													<m:Text text="ชื่อผู้อนุมัติ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="ตำแหน่ง" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="วันที่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="ความเห็น" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="หมายเหตุ" level="H2" />
+												</m:Column>
+											</m:columns>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+								
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

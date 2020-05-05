@@ -1,0 +1,68 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.TE.TrainingAssignList"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="การลงทะเบียนพนักงานเข้ารับการฝึกอบรม" objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId"
+						title="รายชื่อหลักสูตร">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<m:Table id="idTab01" inset="false">
+									<m:columns>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="หลักสูตร" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="รุ่นหลักสูตร" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="สถานที่ฝึกอบรม" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="เริ่มฝึกอบรม" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="สิ้นสุดฝึกอบรม" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="ลงทะเบียนภายในวันที่" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="จำนวนที่นั่ง" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Desktop" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="" level="H2" />
+										</m:Column>
+									</m:columns>
+									
+								</m:Table>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

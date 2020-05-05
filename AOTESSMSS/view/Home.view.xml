@@ -1,0 +1,256 @@
+﻿ <mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.Home"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+
+	<Page showHeader="false">
+		<l:BlockLayout
+			id="BlockLayout"
+			background="Light">
+
+			<!--<l:BlockLayoutRow>
+				<l:BlockLayoutCell class="sapUiNoContentPadding">
+					<Image
+						src="{
+							path: 'view>/isPhone',
+							formatter: '.formatter.srcImageValue'
+						}"
+						width="100%"/>
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>-->
+
+			<l:BlockLayoutRow
+				rowColorSet="ColorSet1"
+				class="shopAdministrationTitle">
+				<l:BlockLayoutCell
+					class="sapUiResponsiveContentPadding sapUiSmallMarginBegin"
+					title="ระบบจัดการข้อมูลบุคคล"
+					backgroundColorSet="ColorSet9"
+					backgroundColorShade="ShadeB"
+					titleAlignment="Left"/>
+			</l:BlockLayoutRow>
+
+			<l:BlockLayoutRow rowColorSet="ColorSet2">
+				
+				<!--<l:BlockLayoutCell>
+					<l:VerticalLayout>
+						<core:Icon
+							src="sap-icon://favorite-list"
+							size="2.5rem"
+							color="Default"/>
+						<Title
+							text="HR ADMIN"
+							titleStyle="H2"
+							class="sapUiTinyMarginTopBottom"/>
+						<Link text="สร้างใบลา" href="#/TM/LeaveDetail"/>
+						<Link text="ตรวจสอบการลา" href="#/MyLeave"/>
+						<Link text="อนุมัติจ่ายค่าล่วงเวลา/เวร-กะ" href="#/OTheader"/>
+						<Link text="ใบแจ้งยอดเงินเดือน" href="#/PaySlip"/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>-->
+				
+				<l:BlockLayoutCell>
+					<l:VerticalLayout>
+						<core:Icon
+							src="sap-icon://request"
+							size="2.5rem"
+							color="Default"/>
+						<Title
+							text="ข้อมูลพนักงาน"
+							titleStyle="H2"
+							class="sapUiTinyMarginTopBottom"/>
+						<Link text="ข้อมูลของฉัน" href="#/PA/MyInfo"/>
+						<Link text="ใบคำร้องขอแก้ไขข้อมูลส่วนตัว" href="#/PA/EditMyInfo"/>
+						<Link text="ใบคำร้องขอแก้ข้อมูลสถานภาพสมรส" href="#/PA/MaritalStatus"/>
+						<Link text="ใบคำร้องขอแก้ไขที่อยู่ตามทะเบียนบ้าน" href="#/PA/Address"/>
+						<Link text="ใบคำร้องขอแก้ไขที่อยู่ปัจจุบัน" href="#/PA/CreateCurrentAddress"/>
+						<Link text="ใบคำร้องขอแก้ไขข้อมูลบิดา" href="#/PA/Father"/>
+						<Link text="ใบคำร้องขอแก้ไขข้อมูลมารดา" href="#/PA/Mother"/>
+						<Link text="ใบคำร้องขอแก้ไขข้อมูลคู่สมรส" href="#/PA/Spouse"/>
+						<Link text="ใบคำร้องขอแก้ไขข้อมูลบุตร" href="#/PA/EditChildren"/>
+						<Link text="ใบคำร้องขอเพิ่มประวัติการศึกษา" href="#/PA/AddEducation"/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+				
+				<l:BlockLayoutCell>
+					<l:VerticalLayout>
+						<core:Icon
+							src="sap-icon://general-leave-request"
+							size="2.5rem"
+							color="Default"/>
+						<Title
+							text="จัดการเวลาและการลา"
+							titleStyle="H2"
+							class="sapUiTinyMarginTopBottom"/>
+						<Link text="สร้างใบลา" href="#/TM/LeaveDetail"/>
+						<Link text="ตรวจสอบสิทธิ์การลา" href="#/TM/MyLeave"/>
+						<Link text="ประวัติการจัดการเวลา" href="#/TM/LeaveHistory"/>
+						<Link text="ขออนุมัติทำงานล่วงเวลา" href="#/TM/OtRequest"/>
+						<Link text="การเปลี่ยนกะ" href="#/TM/ChangeShift"/>
+						<Link text="การเปลี่ยนเวร" href="#/TM/ChangeTurn"/>
+						<Link text="รายงานสรุปการทำงาน" href="#/TM/Timesheet"/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+				
+				<l:BlockLayoutCell> 
+				     <l:VerticalLayout> 
+				      <core:Icon 
+				       src="sap-icon://family-care" 
+				       size="2.5rem" 
+				       color="Default"/> 
+				      <Title 
+				       text="ระบบสวัสดิการ" 
+				       titleStyle="H2" 
+				       class="sapUiTinyMarginTopBottom"/> 
+				      <Link text="สิทธิ์และประวัติการเบิก" href="#/BE/BenefitHistory" wrapping="true"/>
+				      <Link text="เบิกเงินค่ารักษาพยาบาล" href="#/BE/MedicalBenefit" wrapping="true"/>
+				      <Link text="เบิกเงินค่าเล่าเรียนบุตร"  href="#/BE/CreateStudentTuitionfee" wrapping="true"/> 
+				      <Link text="เบิกเงินค่าช่วยเหลือบุตร" href="#/BE/ChildrenAllowanceType1" wrapping="true"/> 
+					  <Link text="ขอรับทุนการศึกษาบุตร" href="#/BE/CreateScholarship" wrapping="true"/>
+					  <Link text="เบิกเงินช่วยเหลือการจัดการศพ"  href="#/BE/CreateFuneralCost" wrapping="true"/> 
+					  <Link text="ผู้รับผลประโยชน์ค่าทำศพ" href="#/BE/BeneficiaryFuneralCost" wrapping="true"/>
+				      <Link text="สำรวจเครื่องแบบพนักงาน" href="#/BE/CreateUniform" wrapping="true"/>
+				      <Link text="จัดการเงินสะสมและกองทุน" href="#/BE/MainPageFund" wrapping="true"/>
+				      <Link text="เบิกสวัสดิการอื่นๆ" href="#/BE/CreateOtherBenefit" wrapping="true"/> 
+				      <Link text="พิมพ์ใบนำส่งเอกสาร" href="#/BE/GenerateRequest" wrapping="true"/>
+				      <Link text="รายงานสวัสดิการ" href="#/BE/BenefitReport" wrapping="true"/> 
+				     </l:VerticalLayout> 
+				</l:BlockLayoutCell>
+				
+				<l:BlockLayoutCell>
+					<l:VerticalLayout>
+						<core:Icon
+							src="sap-icon://e-learning"
+							size="2.5rem"
+							color="Default"/>
+						<Title
+							text="การฝึกอบรมและสัมมนา"
+							titleStyle="H2"
+							class="sapUiTinyMarginTopBottom"/>
+						<Link text="ลงทะเบียนฝึกอบรม" href="#/TE/TrainingList"/>
+						<Link text="แบบสำรวจความต้องการฝึกอบรม" href="#/TE/PreBookTrainingList"/>
+						<Link text="ประวัติการฝึกอบรม" href="#/TE/TrainingHistory"/>
+						<Link text="แผนพัฒนาบุคคลประจำปี" href="#/TE/TrainingPlan"/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+				
+				
+				<!--<l:BlockLayoutCell>
+					<l:VerticalLayout>
+						<core:Icon
+							src="sap-icon://request"
+							size="2.5rem"
+							color="Default"/>
+						<Title
+							text="ESS"
+							titleStyle="H2"
+							class="sapUiTinyMarginTopBottom"/>
+						<Text
+							text="ข้อมูลพนักงาน"
+							class="sapUiTinyMarginBottom"/>
+						<Link text="ข้อมูลของฉัน" href="#/MyInfo"/>
+						<Link text="รายงาน" href="#/Statistics"/>
+						<Text
+							text="จัดการเวลาและการลา"
+							class="sapUiTinyMarginBottom"/>
+						<Link text="สร้างใบลา" href="#/LeaveDetail"/>
+						<Link text="ตรวจสอบการลา" href="#/MyLeave"/>
+						<Link text="จัดการ OT"/>
+						<Link text="การเปลี่ยนกะ"/>
+						<Link text="การเปลี่ยนเวร"/>
+						<Link text="แก้ไขเวลาทำงาน"/>
+						<Text
+							text="ระบบการฝึกอบรมและสัมมนา"
+							class="sapUiTinyMarginBottom"/>
+						<Link text="แผนการฝึกอบรม"/>
+						<Link text="ลงทะเบียนฝึกอบรม"/>
+						<Link text="ประวัติการฝึกอบรม"/>
+						<Text
+							text="ระบบเงินเดือน"
+							class="sapUiTinyMarginBottom"/>
+						<Link text="การบันทึกข้อมูลลดหย่อนภาษีเงินได้บุคคลธรรมดา" wrapping="true"/>
+						<Link text="การเรียกดูรายงานภาษีประจำปี"/>
+						<Link text="การเบิกจ่าย"/>
+						<Link text="Slip เงินเดือน"/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>-->
+			
+			</l:BlockLayoutRow>
+			
+			<l:BlockLayoutRow rowColorSet="ColorSet2">
+
+				<l:BlockLayoutCell>
+					<l:VerticalLayout>
+						<core:Icon
+							src="sap-icon://add-activity"
+							size="2.5rem"
+							color="Default"/>
+						<Title
+							text="ผลการประเมิน"
+							titleStyle="H2"
+							class="sapUiTinyMarginTopBottom"/>
+						<Link text="ผลการประเมินการปฏิบัติงาน" href="#/PD/JobAppraisal"/>
+						<Link text="ผลการประเมินด้วยตัวชี้วัด(KPI)" href="#/PD/KPI"/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+
+				<l:BlockLayoutCell>
+					<l:VerticalLayout>
+						<core:Icon
+							src="sap-icon://money-bills"
+							size="2.5rem"
+							color="Default"/>
+						<Title
+							text="ระบบเงินเดือน"
+							titleStyle="H2"
+							class="sapUiTinyMarginTopBottom"/>
+						<Link text="เรียกดูใบแจ้งเงินได้ (Payslip)" href="#/PY/Salary"/>
+						<Link text="เรียกดูหนังสือรับรองภาษี" href="#/PY/TaxYearReport"/>
+						<Link text="การบันทึกข้อมูลลดหย่อนภาษีฯ" href="#/PY/TaxBreak" wrapping="true"/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+				
+				<l:BlockLayoutCell>
+					<l:VerticalLayout>
+						<core:Icon
+							src="sap-icon://manager"
+							size="2.5rem"
+							color="Default"/>
+						<Title
+							text="MSS"
+							titleStyle="H2"
+							class="sapUiTinyMarginTopBottom"/>
+						<Link text="การลงทะเบียนพนักงานเข้ารับการฝึกอบรม" href="#/TE/TrainingAssignList"/>
+						<Link text="ประวัติการฝึกอบรมของพนักงาน" href="#/TE/SearchTrainingHistory"/>
+						<Link text="เบิกค่าทำศพพนักงาน" href="#/BE/CreateMSSFuneralCost"/>
+						<Link text="อนุมัติจ่ายค่าล่วงเวลา/ค่าเวร/ค่ากะ" href="#/TM/OTheader"/>
+						
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+				
+				<l:BlockLayoutCell>
+					<l:VerticalLayout>
+						<core:Icon
+							src="sap-icon://employee"
+							size="2.5rem"
+							color="Default"/>
+						<Title
+							text="HR Administration"
+							titleStyle="H2"
+							class="sapUiTinyMarginTopBottom"/>
+						<Link text="นำเข้าแผนพัฒนาบุคคลประจำปี" href="#/TE/InputTrainingPlan"/>
+						<Link text="ปรับเปลี่ยนระยะเวลาการขอรับทุนการศึกษาบุตร" href="#/BE/TimeScholarship"/>
+						<Link text="ปรับเปลี่ยนระยะเวลาการสำรวจเครื่องแบบพนักงาน" href="#/BE/TimeUniform"/>
+						<Link text="ปรับเปลี่ยนระยะเวลาเงินสะสมและกองทุน" href="#/BE/TimeMainPageFund"/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+				
+				
+			</l:BlockLayoutRow>
+
+		</l:BlockLayout>
+	</Page>
+
+</mvc:View>

@@ -1,0 +1,528 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.BE.ChildrenAllowanceType1"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:t="sap.ui.table" xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="เงินช่วยเหลือบุตร"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="วันที่จ้างงาน"
+					text="" id="DAT01" />
+				<m:ObjectStatus title="วันที่บรรจุ" text="" id="DAT02" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="สถานภาพ" text="" id="FAMST" />
+				<m:ObjectStatus title="วันที่สมรส/หย่า" id="FAMDT"
+					text="" />
+				<m:ObjectStatus title="คู่สมรส" id="SNAME"
+					text="" />
+				<m:ObjectStatus title="อาชีพคู่สมรส" text="" id="JOBTL" />
+				<m:ObjectStatus title="สถานที่ทำงาน"  id="EFAML"
+					text="" />
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerIdasq"
+						title="เงินช่วยเหลือบุตร">
+						<blocks>
+							<ObjectPageLazyLoader>
+
+								<f:SimpleForm title="เงินช่วยเหลือบุตร"
+									editable="true" layout="ResponsiveGridLayout" labelSpanXL="4"
+									labelSpanL="4" labelSpanM="4" labelSpanS="4"
+									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3"
+									columnsM="3" singleContainerFullSize="false">
+
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://employee-approvals"
+												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ" press="onSendPressed"
+												class="sapUiTinyMargin"></m:Button>
+<!-- 											<m:Button icon="sap-icon://save" text="บันทึก" -->
+<!-- 												tooltip="บันทึก" class="sapUiTinyMargin"></m:Button> -->
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก" press="onCancelPressed"
+												tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+
+									<f:content>
+										<core:Title text="" />
+										<m:Label text="เลขที่คำขอ" />
+											<m:Input value="" enabled="false" id="rqust"
+												class="sapUiContentPadding">
+												<m:layoutData>
+													<l:GridData span="L8 M8 S8" />
+												</m:layoutData>
+											</m:Input>
+
+										<m:Label text="ประเภทการขอ" />
+<!-- 										<m:Input value="เบิกเต็มจำนวน" type="SalaryNo" -->
+<!-- 											enabled="false" class="sapUiContentPadding"> -->
+<!-- 											<m:layoutData> -->
+<!-- 												<l:GridData span="L8 M8 S8" /> -->
+<!-- 											</m:layoutData> -->
+<!-- 										</m:Input> -->
+										<m:Select selectedKey="ประเภทการขอ" id="SelType" change="onSelectType">
+											<m:items>
+												<core:Item text="ประเภทการขอ" key="ประเภทการขอ" />
+												<core:Item text="เบิกเต็มจำนวน" key="1" />
+												<core:Item text="เบิกส่วนต่าง" key="2" />
+<!-- 												<core:Item text="เบิกกรณีทดแทนบุตร" /> -->
+											</m:items>
+										</m:Select>
+
+										<m:Label text="วันที่ขอ" />
+										<m:Input value="" type="SalaryNo" id="rqdat"
+											enabled="false" class="sapUiContentPadding">
+											<m:layoutData>
+												<l:GridData span="L8 M8 S8" />
+											</m:layoutData>
+										</m:Input>
+
+										<core:Title text="" class="Col2" />
+
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection id="sec01" visible="false">
+				<subSections>
+					<ObjectPageSubSection
+						title="รายละเอียด เบิกเต็มจำนวน">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<l:VerticalLayout>
+
+									<f:SimpleForm columnsXL="1" columnsL="1"
+										columnsM="1" editable="true" layout="ResponsiveGridLayout">
+										<f:content>
+											<m:Table inset="false" id="ChildTab01">
+
+												<m:headerToolbar>
+													<m:Toolbar>
+														<m:Title text="เบิกเต็มจำนวน" level="H2" />
+													</m:Toolbar>
+												</m:headerToolbar>
+
+												<m:columns>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="ลำดับบุตรตามสิทธิ" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="ชื่อ - นามสกุล" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="วัน เดือน ปี เกิด" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="อายุ" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="วันที่มีสิทธิ์" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="วันที่สิ้นสุด" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="เลขที่บัตรประชาชน" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="เบิกได้ตามสิทธิ" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="ตกเบิก" level="H2" />
+													</m:Column>
+												</m:columns>
+<!-- 												<m:items> -->
+<!-- 													<m:ColumnListItem> -->
+<!-- 														<m:cells> -->
+<!-- 															<m:Text text="1" /> -->
+<!-- 															<m:Text text="นายสมโชค ดังใจหมาย" /> -->
+<!-- 															<m:Text text="10/1/2003" /> -->
+<!-- 															<m:Text text="15 ปี" /> -->
+<!-- 															<m:Text text="1/10/2017" /> -->
+<!-- 															<m:Text text="10/1/2021" /> -->
+<!-- 															<m:Text text="1100500123456" /> -->
+<!-- 															<m:Text text="500.00" /> -->
+<!-- 															<m:Text text="1,500.00" /> -->
+<!-- 														</m:cells> -->
+<!-- 													</m:ColumnListItem> -->
+<!-- 													<m:ColumnListItem> -->
+<!-- 														<m:cells> -->
+<!-- 															<m:Text text="2" /> -->
+<!-- 															<m:Text text="ด.ช.สมศักดิ์ ดังใจหมาย" /> -->
+<!-- 															<m:Text text="01/01/2005" /> -->
+<!-- 															<m:Text text="13 ปี" /> -->
+<!-- 															<m:Text text="01/10/2017" /> -->
+<!-- 															<m:Text text="10/01/2021" /> -->
+<!-- 															<m:Text text="1100500123455" /> -->
+<!-- 															<m:Text text="500.00" /> -->
+<!-- 															<m:Text text="1,500.00" /> -->
+<!-- 														</m:cells> -->
+<!-- 													</m:ColumnListItem> -->
+<!-- 													<m:ColumnListItem> -->
+<!-- 														<m:cells> -->
+<!-- 															<m:Text text="3" /> -->
+<!-- 															<m:Text text="ด.ญ.สมฤทัย ดังใจหมาย" /> -->
+<!-- 															<m:Text text="01/01/2010" /> -->
+<!-- 															<m:Text text="8 ปี" /> -->
+<!-- 															<m:Text text="01/10/2017" /> -->
+<!-- 															<m:Text text="10/01/2021" /> -->
+<!-- 															<m:Text text="1100500123466" /> -->
+<!-- 															<m:Text text="500.00" /> -->
+<!-- 															<m:Text text="1,500.00" /> -->
+<!-- 														</m:cells> -->
+<!-- 													</m:ColumnListItem> -->
+<!-- 												</m:items> -->
+											</m:Table>
+										</f:content>
+
+									</f:SimpleForm>
+
+								</l:VerticalLayout>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection id="sec02" visible="false" >
+				<subSections>
+					<ObjectPageSubSection
+						title="รายละเอียด เบิกส่วนต่าง">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<l:VerticalLayout>
+
+									<f:SimpleForm columnsXL="1" columnsL="1"
+										columnsM="1" editable="true" layout="ResponsiveGridLayout">
+										<f:content>
+											<m:Table inset="false" id="ChildTab02">
+
+												<m:headerToolbar>
+													<m:Toolbar>
+														<m:Title text="เบิกส่วนต่าง" level="H2" />
+													</m:Toolbar>
+												</m:headerToolbar>
+
+												<m:columns>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="ลำดับบุตรตามสิทธิ" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="ชื่อ - นามสกุล" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="วัน เดือน ปี เกิด" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="อายุ" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="วันที่มีสิทธิ์" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="วันที่สิ้นสุด" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="เลขที่บัตรประชาชน" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="เบิกได้ตามสิทธิ" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="คู่สมรสได้รับเงินช่วยเหลือ"
+															level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="ส่วนต่างตามสิทธิ" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="ตกเบิก" level="H2" />
+													</m:Column>
+												</m:columns>
+<!-- 												<m:items> -->
+<!-- 													<m:ColumnListItem> -->
+<!-- 														<m:cells> -->
+<!-- 															<m:Text text="1" /> -->
+<!-- 															<m:Text text="นายสมโชค ดังใจหมาย" /> -->
+<!-- 															<m:Text text="10/1/2003" /> -->
+<!-- 															<m:Text text="15 ปี" /> -->
+<!-- 															<m:Text text="1/10/2017" /> -->
+<!-- 															<m:Text text="10/1/2021" /> -->
+<!-- 															<m:Text text="1100500123456" /> -->
+<!-- 															<m:Text text="500.00" /> -->
+<!-- 															<m:Input value="200.00" /> -->
+<!-- 															<m:Text text="300.00" /> -->
+<!-- 														</m:cells> -->
+<!-- 													</m:ColumnListItem> -->
+<!-- 												</m:items> -->
+											</m:Table>
+										</f:content>
+
+									</f:SimpleForm>
+
+								</l:VerticalLayout>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId3"
+						title="เอกสารแนบ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+										<core:Title text="" />
+										<m:Label required="true"
+											text="เอกสารรับรองการจ่ายเงินช่วยเหลือบุตรจากหน่วยงานคู่สมรส"
+											labelFor="fileUploader21" />
+										<u:FileUploader name="myFileUpload"
+											buttonText="แนบเอกสาร" maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG"
+											uploadUrl="upload/" placeholder="" id="file01"
+											uploadComplete="handleUploadComplete" width="50%" />
+										
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+<!-- 			<ObjectPageSection> -->
+<!-- 				<subSections> -->
+<!-- 					<ObjectPageSubSection -->
+<!-- 						title="รายละเอียด เบิกกรณีทดแทนบุตร"> -->
+<!-- 						<blocks> -->
+<!-- 							<ObjectPageLazyLoader> -->
+<!-- 								<l:VerticalLayout> -->
+
+<!-- 									<f:SimpleForm columnsXL="1" columnsL="1" -->
+<!-- 										columnsM="1" editable="true" layout="ResponsiveGridLayout"> -->
+<!-- 										<f:content> -->
+<!-- 											<m:Table inset="false"> -->
+
+<!-- 												<m:headerToolbar> -->
+<!-- 													<m:Toolbar> -->
+<!-- 														<m:Title text="ข้อมูลบุตรที่ยกเลิกสิทธิ" -->
+<!-- 															level="H2" /> -->
+<!-- 													</m:Toolbar> -->
+<!-- 												</m:headerToolbar> -->
+
+<!-- 												<m:columns> -->
+<!-- 													<m:Column minScreenWidth="Phone" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="ลำดับบุตรตามสิทธิ" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Phone" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="ชื่อ - นามสกุล" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Desktop" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="วัน เดือน ปี เกิด" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Desktop" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="อายุ" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Desktop" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="วันที่มีสิทธิ์" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Desktop" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="วันที่สิ้นสุด" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Desktop" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="เลขที่บัตรประชาชน" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Desktop" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="เบิกได้ตามสิทธิ" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Desktop" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="สาเหตุ" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Desktop" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="วันที่มีผลยกเลิก" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 												</m:columns> -->
+<!-- 												<m:items> -->
+<!-- 													<m:ColumnListItem> -->
+<!-- 														<m:cells> -->
+<!-- 															<m:Select selectedKey="1"> -->
+<!-- 																<m:items> -->
+<!-- 																	<core:Item text="1" key="1" /> -->
+<!-- 																</m:items> -->
+<!-- 															</m:Select> -->
+<!-- 															<m:Text text="นายสมโชค ดังใจหมาย" /> -->
+<!-- 															<m:Text text="10/1/2003" /> -->
+<!-- 															<m:Text text="15 ปี" /> -->
+<!-- 															<m:Text text="1/10/2017" /> -->
+<!-- 															<m:Text text="10/1/2021" /> -->
+<!-- 															<m:Text text="1100500123456" /> -->
+<!-- 															<m:Text text="300.00" /> -->
+<!-- 															<m:Input value="เสียชีวิต" enabled="false"></m:Input> -->
+<!-- 															<m:Text text="12/6/2561" /> -->
+<!-- 														</m:cells> -->
+<!-- 													</m:ColumnListItem> -->
+<!-- 												</m:items> -->
+<!-- 											</m:Table> -->
+<!-- 										</f:content> -->
+
+<!-- 									</f:SimpleForm> -->
+
+<!-- 									<f:SimpleForm columnsXL="1" columnsL="1" -->
+<!-- 										columnsM="1" editable="true" layout="ResponsiveGridLayout"> -->
+<!-- 										<f:content> -->
+<!-- 											<m:Table inset="false"> -->
+
+<!-- 												<m:headerToolbar> -->
+<!-- 													<m:Toolbar> -->
+<!-- 														<m:Title text="ข้อมูลบุตรที่เบิกทดแทนบุตรคนเดิม" -->
+<!-- 															level="H2" /> -->
+<!-- 													</m:Toolbar> -->
+<!-- 												</m:headerToolbar> -->
+
+<!-- 												<m:columns> -->
+<!-- 													<m:Column minScreenWidth="Phone" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="ลำดับบุตรตามสิทธิ" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Phone" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="ชื่อ - นามสกุล" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Desktop" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="วัน เดือน ปี เกิด" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Desktop" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="อายุ" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Desktop" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="วันที่มีสิทธ์ิ" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Desktop" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="วันที่สิ้นสุด" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Desktop" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="เลขที่บัตรประชาชน" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Desktop" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="เบิกได้ตามสิทธิ" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column minScreenWidth="Desktop" -->
+<!-- 														demandPopin="true" popinDisplay="Inline"> -->
+<!-- 														<m:Text text="ตกเบิก" level="H2" /> -->
+<!-- 													</m:Column> -->
+<!-- 												</m:columns> -->
+<!-- 												<m:items> -->
+<!-- 													<m:ColumnListItem> -->
+<!-- 														<m:cells> -->
+<!-- 															<m:Text text="4" /> -->
+<!-- 															<m:Text text="นายสมโชค ดังใจหมาย" /> -->
+<!-- 															<m:Text text="10/1/2003" /> -->
+<!-- 															<m:Text text="15 ปี" /> -->
+<!-- 															<m:Text text="1/10/2017" /> -->
+<!-- 															<m:Text text="10/1/2021" /> -->
+<!-- 															<m:Text text="1100500123456" /> -->
+<!-- 															<m:Text text="300.00" /> -->
+<!-- 															<m:Text text="-300" /> -->
+<!-- 														</m:cells> -->
+<!-- 													</m:ColumnListItem> -->
+<!-- 												</m:items> -->
+<!-- 											</m:Table> -->
+<!-- 										</f:content> -->
+
+<!-- 									</f:SimpleForm> -->
+
+<!-- 								</l:VerticalLayout> -->
+<!-- 							</ObjectPageLazyLoader> -->
+<!-- 						</blocks> -->
+<!-- 					</ObjectPageSubSection> -->
+<!-- 				</subSections> -->
+<!-- 			</ObjectPageSection> -->
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

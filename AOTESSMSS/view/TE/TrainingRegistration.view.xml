@@ -1,0 +1,163 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.TE.TrainingRegistration"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="ลงทะเบียนฝึกอบรม"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="342558" id="pernr" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" id="telna"
+					text="" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน 1" id="TELNR2"
+					text="" />
+				<m:ObjectStatus title="Email" id="email"
+					text="Somchaitest@gmail.com" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="ชื่อ - นามสกุล" id="fullname"
+					text="นาย อัศวิน พงษ์เสือ" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ผู้บังคับบัญชา"
+					text="นาย ขอ แสนดี" id="KZTIM" />
+			
+				<m:ObjectStatus
+					title="ข้อมูลการแพ้อาหาร/อาหารที่งดเว้น" text="เนื้อวัว, ถั่ว" id="SMARK"/>
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId"
+						title="รายละเอียดหลักสูตร">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="4" labelSpanS="4" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+
+									<f:content>
+
+
+										<core:Title text="รายละเอียดหลักสูตร" />
+										<m:Label text="ชื่อรุ่นหลักสูตร" />
+										<m:TextArea enabled="false" id="c_text" value="การใช้งานเครื่องตรวจสอบวัตถุระเบิด รุ่น2" />
+
+										<m:Label text="รายละเอียดหลักสูตร " />
+										<m:TextArea enabled="false" id="c_desc" value="การใช้งานเครื่องตรวจสอบวัตถุระเบิด รุ่น2" />
+
+										<m:Label text="หลักสูตรที่จำเป็นต้องผ่านมาก่อน" />
+										<m:TextArea enabled="false" id="c_req" value="-" />
+
+										<m:Label text="เริ่มฝึกอบรม" />
+										<m:TextArea enabled="false" id="c_beg" value="15/05/2562"  rows="1"/>
+
+										<m:Label text="สิ้นสุดฝึกอบรม" />
+										<m:TextArea enabled="false" id="c_end" value="16/05/2562"  rows="1"/>
+
+										<m:Label text="สถานที่ฝึกอบรม" />
+										<m:TextArea enabled="false" id="c_loc" value="สำนักงานใหญ่" rows="1"/>
+
+										<core:Title text="ตารางฝึกอบรม" />
+
+										<m:Table inset="false" id="trainSche">
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="วันที่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="เวลาเริ่ม" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="เวลาสิ้นสุด" level="H2" />
+												</m:Column>
+											</m:columns>
+<!-- 											<m:items> -->
+<!-- 												<m:ColumnListItem> -->
+<!-- 													<m:cells> -->
+<!-- 														<m:Text id="c_beg2" text="15/05/2562" /> -->
+<!-- 														<m:Text text="09:00" /> -->
+<!-- 														<m:Text text="16:00" /> -->
+<!-- 													</m:cells> -->
+<!-- 												</m:ColumnListItem> -->
+<!-- 											</m:items> -->
+										</m:Table>
+										<core:Title text="" />
+
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="ตารางฝึกอบรม">
+						<blocks>
+							<ObjectPageLazyLoader>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopConfigurationId"
+						title="">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopConfigurationLazyLoader">
+								<f:SimpleForm title="" columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:content>
+										<l:VerticalLayout>
+											<m:Text class="custom_header" text="หมายเหตุ :" />
+											<m:Text class="custom_header"
+												text="- โปรดตรวจสอบรายละเอียด ข้อมูลการแพ้อาหาร/อาหารที่งดเว้น ในรายละเอียดด้านบน หากต้องการแก้ไขหรือเพิ่มข้อมูล ให้ไปแก้ไขในเมนู ข้อมูลของฉัน" />
+
+											<m:Text class="custom_header"
+												text="- กรณีที่พนักงานต้องการยกเลิกลงทะเบียนหลังจากผู้บังคับบัญชาอนุมัติแล้ว ให้พนักงานแจ้งส่วนงาน ทอท. เพื่อแจ้งการขอยกเลิกไปยังหน่วยงานฝึกอบรมเพื่อทำการขออนุมัติ" />
+
+											<l:HorizontalLayout>
+												<m:Button text="ยืนยันการลงทะเบียน" id="regisBtn"
+													class="sapUiTinyMargin" press="onSendPressed" />
+											</l:HorizontalLayout>
+										</l:VerticalLayout>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

@@ -1,0 +1,295 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.BE.CreateScholarship"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:t="sap.ui.table" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="ขอรับทุนการศึกษาบุตร"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="วันที่จ้างงาน"
+					text="" id="DAT01" />
+				<m:ObjectStatus title="วันที่บรรจุ" text="" id="DAT02" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="สถานภาพ" text="" id="FAMST" />
+				<m:ObjectStatus title="วันที่สมรส/หย่า" id="FAMDT"
+					text="" />
+				<m:ObjectStatus title="คู่สมรส" id="SNAME"
+					text="" />
+				<m:ObjectStatus title="อาชีพคู่สมรส" text="" id="JOBTL" />
+				<m:ObjectStatus title="สถานที่ทำงาน"  id="EFAML"
+					text="" />
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="ขอรับทุนการศึกษาบุตร">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm id="formX" editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="1"
+									singleContainerFullSize="false">
+
+									<f:toolbar>
+										<m:Toolbar>
+											<m:Title text="" level="H2" />
+											
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://employee-approvals" press="onSendPressed"
+												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ"
+												class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://save" text="บันทึก" press="onSavePressed"
+												tooltip="บันทึก" class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก" press="onCancelPressed"
+												tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+
+
+									<f:content>
+
+										<core:Title text="" />
+
+										<m:Label text="เลขที่คำขอ" />
+										<m:Input value="" enabled="false"
+											class="sapUiContentPadding" id="RQUST">
+											<m:layoutData>
+												<l:GridData span="L8 M8 S8" />
+											</m:layoutData>
+										</m:Input>
+
+										<m:Label text="วันที่ขอ" />
+										<m:Input value="" enabled="false"
+											class="sapUiContentPadding" id="RQDAT">
+											<m:layoutData>
+												<l:GridData span="L8 M8 S8" />
+											</m:layoutData>
+										</m:Input>
+										
+										<m:Label text="ชื่อ - นามสกุล" />
+										<m:Select id="selectedName" selectedKey="เลือก" items="{path: 'childItem>/List'}" change="onChildChange">
+											<m:items>
+												<core:Item text="{childItem>text}" key="{childItem>key}" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="วันเดือนปีเกิด" />
+										<m:Input id="birthDate" value=""
+											enabled="false" />
+
+										<m:Label text="อายุ" />
+										<m:Input id="age" value="" enabled="false" />
+
+										<m:Label text="การศึกษา" />
+										<m:Select id="selectedGrade" items="{path: 'eduItem>/List'}"  change="onItemchange" >
+											<m:items>
+												<core:Item text="{eduItem>text}" key="{eduItem>key}" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="ชั้นที่/ปีที่" />
+										<m:Input id="year" value="" />
+
+										<core:Title text="" />
+										<m:Label text="สถานศึกษา" />
+										<m:Select id="selectedPlace" items="{path: 'placeItem>/List'}">
+											<m:items>
+												<core:Item text="{placeItem>scnam}" key="{placeItem>sccode}" />
+											</m:items>
+										</m:Select>
+										<m:Button icon="sap-icon://search" press="searchEmp"/>
+										<m:Label text="" />
+										<m:Input value="" id="othPlace" />
+										
+										<m:Label text="ผลการศึกษา" />
+										<m:Input value="" id="mingd" change="onChangegd" />
+										<m:Input value="" id="untxt" enabled="false" />
+<!-- 										<m:Select id="selectedUnit" items="{path: 'unitItem>/List'}"> -->
+<!-- 											<m:items> -->
+<!-- 												<core:Item text="{unitItem>text}" key="{unitItem>key}" /> -->
+<!-- 											</m:items> -->
+<!-- 										</m:Select> -->
+
+										<m:Label text="ปีการศึกษา (ค.ศ.)" />
+										<m:Input value="" id="scyear" />
+
+										<m:Label text="ทุนการศึกษาที่ได้รับ" />
+										<m:Input value="" enabled="false" id="sclamt"/>
+
+										<core:Title text="" />
+										<core:Title text="" />
+
+									</f:content>
+									<f:content>
+
+										<m:VBox id="contentHolder">
+
+										</m:VBox>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="เอกสารแนบ">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader3">
+								<f:SimpleForm id="SimpleFormDisplay480_121202-3"
+									editable="true" layout="ResponsiveGridLayout" labelSpanXL="4"
+									labelSpanL="4" labelSpanM="12" labelSpanS="12"
+									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1"
+									columnsM="1" singleContainerFullSize="false">
+									<f:content>
+										
+										<m:Label text="หนังสือรับรองผลการศึกษาของ ทอท." labelFor="fileUploader21" />
+										<u:FileUploader name="myFileUpload"
+											buttonText="แนบเอกสาร" maximumFileSize="30MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG"
+											uploadUrl="upload/" placeholder="" id="fileUpload01"
+											uploadComplete="handleUploadComplete" width="50%" />
+										
+										<m:Label text="ใบรับรองเกรดเฉลี่ยจากสถานศึกษา" labelFor="fileUploader21" />
+										<u:FileUploader name="myFileUpload"
+											buttonText="แนบเอกสาร" maximumFileSize="30MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG"
+											uploadUrl="upload/" placeholder="" id="fileUpload02"
+											uploadComplete="handleUploadComplete" width="50%" />
+										
+										<m:Label text="หนังสือรับรองผลการศึกษาและสำเนาสมุดรายงานประจำตัว/สมุดพก/ทรานสคริป" labelFor="fileUploader21" />
+										<u:FileUploader name="myFileUpload"
+											buttonText="แนบเอกสาร" maximumFileSize="30MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG"
+											uploadUrl="upload/" placeholder="" id="fileUpload03"
+											uploadComplete="handleUploadComplete" width="50%" />
+										
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+<!-- 			<ObjectPageSection> -->
+<!-- 				<subSections> -->
+<!-- 					<ObjectPageSubSection> -->
+<!-- 						<blocks> -->
+<!-- 							<ObjectPageLazyLoader> -->
+<!-- 								<f:SimpleForm title="" columnsL="1" columnsM="1" -->
+<!-- 									editable="true" layout="ResponsiveGridLayout"> -->
+<!-- 									<f:toolbar> -->
+<!-- 										<m:Toolbar> -->
+<!-- 											<m:ToolbarSpacer /> -->
+<!-- 											<m:Button icon="sap-icon://employee-approvals" -->
+<!-- 												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ" -->
+<!-- 												class="sapUiTinyMargin"></m:Button> -->
+<!-- 											<m:Button icon="sap-icon://save" text="บันทึก" -->
+<!-- 												tooltip="บันทึก" class="sapUiTinyMargin"></m:Button> -->
+<!-- 											<m:Button icon="sap-icon://cancel" text="ยกเลิก" -->
+<!-- 												tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button> -->
+<!-- 										</m:Toolbar> -->
+<!-- 									</f:toolbar> -->
+<!-- 								</f:SimpleForm> -->
+<!-- 							</ObjectPageLazyLoader> -->
+<!-- 						</blocks> -->
+<!-- 					</ObjectPageSubSection> -->
+<!-- 				</subSections> -->
+<!-- 			</ObjectPageSection> -->
+
+<!-- 			<ObjectPageSection> -->
+<!-- 				<subSections> -->
+<!-- 					<ObjectPageSubSection -->
+<!-- 						title="ปรับเปลี่ยนระยะเวลา"> -->
+<!-- 						<blocks> -->
+<!-- 							<ObjectPageLazyLoader> -->
+<!-- 								<l:VerticalLayout> -->
+<!-- 									<f:SimpleForm editable="false" -->
+<!-- 										layout="ResponsiveGridLayout" -->
+<!-- 										title="ปรับเปลี่ยนระยะเวลาการขอรับทุนการศึกษาบุตร" -->
+<!-- 										labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="4" -->
+<!-- 										adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" -->
+<!-- 										emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" -->
+<!-- 										columnsM="3" singleContainerFullSize="false"> -->
+<!-- 										<f:content> -->
+<!-- 											<m:Table inset="false"> -->
+
+<!-- 												<m:columns> -->
+<!-- 													<m:Column> -->
+<!-- 														<m:Text text="เรื่อง" /> -->
+<!-- 													</m:Column> -->
+<!-- 													<m:Column> -->
+<!-- 														<m:Text text="วันที่" /> -->
+<!-- 													</m:Column> -->
+<!-- 												</m:columns> -->
+<!-- 												<m:items> -->
+<!-- 													<m:ColumnListItem> -->
+<!-- 														<m:cells> -->
+<!-- 															<m:Text text="วันที่เปิดรอบ" /> -->
+<!-- 															<m:DatePicker displayFormat="dd/MM/yyyy" -->
+<!-- 																valueFormat="dd/MM/yyyy" value="01/04/2561" -->
+<!-- 																change="handleChange" /> -->
+<!-- 														</m:cells> -->
+<!-- 													</m:ColumnListItem> -->
+<!-- 													<m:ColumnListItem> -->
+<!-- 														<m:cells> -->
+<!-- 															<m:Text text="วันที่ปิดรอบ" /> -->
+<!-- 															<m:DatePicker displayFormat="dd/MM/yyyy" -->
+<!-- 																valueFormat="dd/MM/yyyy" value="31/10/2561" -->
+<!-- 																change="handleChange" /> -->
+<!-- 														</m:cells> -->
+<!-- 													</m:ColumnListItem> -->
+<!-- 												</m:items> -->
+<!-- 											</m:Table> -->
+<!-- 										</f:content> -->
+<!-- 									</f:SimpleForm> -->
+
+<!-- 									<m:Button text="บันทึก"></m:Button> -->
+<!-- 								</l:VerticalLayout> -->
+<!-- 							</ObjectPageLazyLoader> -->
+<!-- 						</blocks> -->
+<!-- 					</ObjectPageSubSection> -->
+<!-- 				</subSections> -->
+<!-- 			</ObjectPageSection> -->
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

@@ -1,0 +1,393 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.BE.ApproveBeneficiaryFuneralCost"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified"
+	xmlns:mvc="sap.ui.core.mvc">
+	<!-- <VBox class="sapUiSmallMargin"> -->
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="การแสดงเจตนาผู้รับผลประโยชน์ค่าทำศพ" objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="วันที่จ้างงาน"
+					text="" />
+				<m:ObjectStatus title="วันที่บรรจุ" text="" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="สถานภาพ" text="" />
+			</l:VerticalLayout>
+
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="ผู้รับผลประโยชน์ค่าทำศพ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<l:VerticalLayout>
+									<f:SimpleForm title="" editable="true"
+										layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+										labelSpanM="4" labelSpanS="4" adjustLabelSpan="false"
+										emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+										columnsXL="3" columnsL="3" columnsM="3"
+										singleContainerFullSize="false">
+
+										<f:toolbar>
+											<m:Toolbar>
+												<m:Title text="ผู้รับผลประโยชน์ค่าทำศพ" level="H2" />
+												<m:ToolbarSpacer />
+												<m:Button icon="sap-icon://employee-approvals"
+													text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ" id="btnSend" visible="false"
+													class="sapUiTinyMargin"></m:Button>
+												<m:Button icon="sap-icon://edit"
+													text="แก้ไข" tooltip="แก้ไข"  id="btnEdit" visible="false"
+													press="onEditPressed" class="sapUiTinyMargin"></m:Button>
+<!-- 												<m:Button icon="sap-icon://save" text="บันทึก" id="btnSave" visible="false" -->
+<!-- 													tooltip="บันทึก" class="sapUiTinyMargin"></m:Button> -->
+<!-- 												<m:Button icon="sap-icon://cancel" text="ยกเลิก" -->
+<!-- 													tooltip="ยกเลิก" class="sapUiTinyMargin" -->
+<!-- 													press="BackhandleLinkPress"></m:Button> -->
+											</m:Toolbar>
+										</f:toolbar>
+
+										<f:content>
+											<core:Title text="" />
+											<m:Label text="เลขที่คำขอ" />
+											<m:Input value="" enabled="false" id="RQUST"
+												class="sapUiContentPadding">
+												<m:layoutData>
+													<l:GridData span="L8 M8 S8" />
+												</m:layoutData>
+											</m:Input>
+
+											<m:Label text="ประเภท" />
+											<m:Select selectedKey="ผู้รับผลประโยชน์ค่าทำศพ"
+												enabled="false">
+												<m:items>
+													<core:Item text="ผู้รับผลประโยชน์ค่าทำศพ"
+														key="ผู้รับผลประโยชน์ค่าทำศพ" />
+												</m:items>
+											</m:Select>
+
+											<m:Label text="วันที่ขอ" />
+											<m:Input value="15/09/2561" type="SalaryNo" id="RQDAT"
+												enabled="false" class="sapUiContentPadding">
+												<m:layoutData>
+													<l:GridData span="L8 M8 S8" />
+												</m:layoutData>
+											</m:Input>
+
+											<m:Label text="วันที่มีผล" />
+											<m:DatePicker id="EFFDAT" placeholder="วัน/เดือน/ปี  " enabled="false"
+												displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy"
+												value="" change="" >
+												<m:layoutData>
+													<l:GridData span="L8 M8 S8" />
+												</m:layoutData>
+											</m:DatePicker>
+
+											<core:Title text="" class="Col2" />
+
+										</f:content>
+									</f:SimpleForm>
+
+									<f:SimpleForm columnsXL="1" columnsL="1"
+										columnsM="1" editable="true" layout="ResponsiveGridLayout">
+										<f:content>
+											<l:VerticalLayout>
+												<m:Table inset="false">
+
+<!-- 													<m:headerToolbar> -->
+<!-- 														<m:Toolbar> -->
+<!-- 															<m:Title text="" level="H2" /> -->
+<!-- 															<m:ToolbarSpacer /> -->
+<!-- 															<m:Button icon="sap-icon://add" text="เพิ่ม" -->
+<!-- 																tooltip="เพิ่ม" class="sapUiTinyMargin"></m:Button> -->
+<!-- 														</m:Toolbar> -->
+<!-- 													</m:headerToolbar> -->
+
+													<m:columns>
+														<m:Column minScreenWidth="Phone"
+															demandPopin="true" popinDisplay="Inline">
+															<m:Text text="ลำดับที่" level="H2" />
+														</m:Column>
+														<m:Column minScreenWidth="Phone"
+															demandPopin="true" popinDisplay="Inline">
+															<m:Text text="ชื่อ-สกุล ผู้รับผลประโยชน์"
+																level="H2" />
+														</m:Column>
+														<m:Column minScreenWidth="Desktop"
+															demandPopin="true" popinDisplay="Inline">
+															<m:Text text="ความสัมพันธ์" level="H2" />
+														</m:Column>
+														<m:Column minScreenWidth="Desktop"
+															demandPopin="true" popinDisplay="Inline">
+															<m:Text text="เลขที่บัตรประชาชน" level="H2" />
+														</m:Column>
+														<m:Column minScreenWidth="Desktop"
+															demandPopin="true" popinDisplay="Inline">
+															<m:Text
+																text="ส่วนแบ่งผลประโยชน์(ร้อยละไม่มีทศนิยม)" level="H2" />
+														</m:Column>
+													</m:columns>
+													<m:items>
+														<m:ColumnListItem>
+															<m:cells>
+																<m:Text text="1" />
+																<m:Input value="" id="name1" enabled="false" />
+																<m:Input value="" id="rela1" enabled="false" />
+																<m:Input value="" id="icnum1" enabled="false" />
+																<m:Input value="" id="value1" enabled="false" />
+															</m:cells>
+														</m:ColumnListItem>
+														<m:ColumnListItem>
+															<m:cells>
+																<m:Text text="2" />
+																<m:Input value="" id="name2" enabled="false" />
+																<m:Input value="" id="rela2" enabled="false" />
+																<m:Input value="" id="icnum2" enabled="false" />
+																<m:Input value="" id="value2" enabled="false" />
+															</m:cells>
+														</m:ColumnListItem>
+														<m:ColumnListItem>
+															<m:cells>
+																<m:Text text="3" />
+																<m:Input value="" id="name3" enabled="false" />
+																<m:Input value="" id="rela3" enabled="false" />
+																<m:Input value="" id="icnum3" enabled="false" />
+																<m:Input value="" id="value3" enabled="false" />
+															</m:cells>
+														</m:ColumnListItem>
+														<m:ColumnListItem>
+															<m:cells>
+																<m:Text text="4" />
+																<m:Input value="" id="name4" enabled="false" />
+																<m:Input value="" id="rela4" enabled="false" />
+																<m:Input value="" id="icnum4" enabled="false" />
+																<m:Input value="" id="value4" enabled="false" />
+															</m:cells>
+														</m:ColumnListItem>
+														<m:ColumnListItem>
+															<m:cells>
+																<m:Text text="5" />
+																<m:Input value="" id="name5" enabled="false" />
+																<m:Input value="" id="rela5" enabled="false" />
+																<m:Input value="" id="icnum5" enabled="false" />
+																<m:Input value="" id="value5" enabled="false" />
+															</m:cells>
+														</m:ColumnListItem>
+													</m:items>
+												</m:Table>
+												
+												<m:Text text=" "></m:Text>
+
+												<m:Text
+													text="หมายเหตุ : กรุณากรอกชื่อ และนามสกุลของผู้รับผลประโยชน์ให้ถูกต้อง" />
+											</l:VerticalLayout>
+										</f:content>
+									</f:SimpleForm>
+
+
+
+								</l:VerticalLayout>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+
+
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId3"
+						title="เอกสารแนบ">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader3">
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+										<core:Title text="" />
+										<m:Label required="true"
+											text="สำเนาบัตรประชาชนตนเองพร้อมเซ็นรับรอง"
+											labelFor="fileUploader21" />
+										<m:Link text="" id="file01"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload1"
+											buttonText="แนบเอกสาร"  maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file01n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+
+										<m:Label required="true"
+											text="สำเนาบัตรประชาชนผู้รับผลประโยชน์"
+											labelFor="fileUploader21" />
+										<m:Link text="" id="file02"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload1"
+											buttonText="แนบเอกสาร"  maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file02n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+									</f:content>
+
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="ผู้อนุมัติ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+										<m:Table id="appTab01" inset="false">
+<!-- 											<m:headerToolbar> -->
+<!-- 												<m:Toolbar> -->
+<!-- 													<m:ToolbarSpacer /> -->
+<!-- 													<m:Button icon="sap-icon://add" text="เพิ่ม" press="onAdd" -->
+<!-- 														tooltip="เพิ่ม" class="sapUiTinyMargin"></m:Button> -->
+<!-- 												</m:Toolbar> -->
+<!-- 											</m:headerToolbar> -->
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center" width="20rem">
+													<m:Text text="ชื่อผู้อนุมัติ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="ตำแหน่ง" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="วันที่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="ความเห็น" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="หมายเหตุ" level="H2" />
+												</m:Column>
+											</m:columns>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+								
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			
+			<ObjectPageSection id="approveSection" >
+				<subSections>
+					<ObjectPageSubSection id="tab07" title="การอนุมัติ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									<f:content>
+										
+										<m:Label text="ความเห็น" labelFor="selectApprovals" id="lblv1" />
+										<m:Select selectedKey="เลือก" id="sellv1"
+											forceSelection="false" >
+											<m:items>
+												<core:Item text="เลือก" key="เลือก" />
+												<core:Item text="อนุมัติ" key="อนุมัติ" />
+												<core:Item text="ไม่อนุมัติ" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="หมายเหตุ" />
+										<m:TextArea id="avlv1" />
+
+										<m:Label text="วันที่แก้ไข" />
+										<m:Input title="" value="13/10/2561" enabled="true" id="approveDate"
+											editable="false" />
+
+										<m:Label text="ดำเนินการโดย" />
+										<m:Input title="" value="" id="ENAME_APP"
+											enabled="true" editable="false" />
+
+										<m:Label text="ตำแหน่ง" />
+										<m:Input title="" value="" id="PLANS_DESC_APP"
+											enabled="true" editable="false" />
+										<m:Label text="ลำดับถัดไป" />
+										<m:Input title="" value="" id="PLANS_DESC_APPNEXT"
+											enabled="true" editable="false" />
+											
+										
+
+										<m:Label text="" />
+										<l:VerticalLayout>
+											<l:HorizontalLayout>
+												<m:Button text="บันทึก" type="Accept" id="appv1"
+													press="onAccept"></m:Button>
+
+												<m:Button text="ยกเลิก" id="canv1"></m:Button>
+											</l:HorizontalLayout>
+										</l:VerticalLayout>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+		</sections>
+	</ObjectPageLayout>
+
+	<!-- </VBox> -->
+</mvc:View>

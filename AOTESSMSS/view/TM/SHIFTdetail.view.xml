@@ -1,0 +1,135 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.TM.SHIFTdetail"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:t="sap.ui.table"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<ObjectPageLayout id="objectPageLayout"
+		enableLazyLoading="true" useIconTabBar="true">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="อนุมัติจ่ายค่าล่วงเวลา/เวร-กะ"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="รายการค้างดำเนินการ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<!-- <l:VerticalLayout> <m:Label text="ปีที่ได้รับสิทธิ" labelFor="DTP1" 
+									/> <m:Select id="selectedYear" width="20%" forceSelection="false" selectedKey="2560"> 
+									<core:Item key="2560" text="2560" /> </m:Select> <m:Text text=" " /> </l:VerticalLayout> -->
+								<f:SimpleForm id="form1" editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+
+											<m:ToolbarSpacer />
+											<m:SearchField placeholder="Filter"
+												value="{ui>/filterValue}" search="handleTxtFilter"
+												width="15rem" />
+										</m:Toolbar>
+									</f:toolbar>
+									<t:Table id="onProcessTabel"
+										visibleRowCount="{ui>rowCount}" rows="{docList>/List}"
+										selectionMode="true">
+										<t:columns>
+											<t:Column width="15rem" hAlign="Center">
+												<m:Label text="รหัสพนักงาน" wrapping="true" />
+												<t:template>
+													<m:Text text="{docList>pernr}" wrapping="true" />
+												</t:template>
+											</t:Column>
+											<t:Column width="25rem" hAlign="Center">
+												<m:Label text="ชื่อ-นามสกุล" wrapping="true" />
+												<t:template>
+													<m:Text text="{docList>name}" wrapping="true" />
+												</t:template>
+											</t:Column>
+											<t:Column width="15rem" hAlign="Center"
+												sortProperty="DocType">
+												<m:Label text="วันที่" wrapping="true" />
+												<t:template>
+													<m:Text text="{docList>begda}" wrapping="true" />
+												</t:template>
+											</t:Column>
+											<t:Column width="15rem" hAlign="Center">
+												<m:Label text="ตารางกะ" wrapping="true" />
+												<t:template>
+													<m:Text text="{docList>schedule}" wrapping="true" />
+												</t:template>
+											</t:Column>
+											<t:Column width="10rem" hAlign="Center">
+												<m:Label text="เวลาทำงานจริง" />
+												<t:template>
+													<m:Text text="{docList>time}" wrapping="ture" />
+												</t:template>
+											</t:Column>
+											<t:Column width="10rem" hAlign="Center">
+												<m:Label text="ชั่วโมง" />
+												<t:template>
+													<m:Text text="{docList>hour}" wrapping="ture" />
+												</t:template>
+											</t:Column>
+											<t:Column width="10rem" hAlign="Center">
+												<m:Label text="จำนวนเงิน" />
+												<t:template>
+													<m:Text text="{docList>betrg}" wrapping="ture" />
+												</t:template>
+											</t:Column>
+										</t:columns>
+										<t:footer>
+											<m:Toolbar>
+												<m:Button icon="sap-icon://employee-approvals"
+													text="อนุมัติรายการที่เลือก" tooltip="อนุมัติที่เลือก" press="onAccept"
+													class="sapUiTinyMargin"></m:Button>
+											</m:Toolbar>
+										</t:footer>
+									</t:Table>
+
+
+
+									<f:content>
+
+
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

@@ -1,0 +1,383 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.PY.ApproveTaxBreak"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<ObjectPageLayout id="objectPageLayout">
+
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId"
+						title="การรับทราบแบบแจ้งรายการเพื่อการบันทึกค่าลดหย่อน ปี 2562">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" title="ข้อมูลส่วนตัวพนักงาน"
+									columnsXL="2" columnsL="2" columnsM="1" labelSpanXL="3"
+									labelSpanL="3" labelSpanM="3">
+									<f:toolbar>
+									<m:Label class="desc_text" text="" />
+
+										<m:Text class="desc_text"
+											text=" ปีภาษี หมายถึงเดือนมกราคม - ธันวาคม" />
+
+										<m:Toolbar>
+											<m:Label class="desc_text" text="" />
+										<m:Text class="desc_text"
+											text=" ปีภาษี หมายถึงเดือนมกราคม - ธันวาคม"   />
+											<m:ToolbarSpacer />
+										</m:Toolbar>
+									</f:toolbar>
+									<f:content>
+										<m:Label text="รหัสพนักงาน" />
+										<m:Input value="" enabled="false"  id="PERNR">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Input value="" enabled="false" id="ENAME" >
+											<m:layoutData>
+												<l:GridData span="XL2 L2 M2 S2" />
+											</m:layoutData>
+										</m:Input>
+
+										<m:Label text="เลขประจำตัวประชาชน" />
+										<m:Input id="ICNUM" value=""
+											enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL3 L3 M3 S3" />
+											</m:layoutData>
+										</m:Input>
+										<m:Label text="สถานภาพ" />
+										<m:Select id="status" selectedKey="" width="20%" enabled="false">
+											<m:items>
+												<core:Item text="โสด" key="1" />
+												<core:Item text="" key="2" />
+												<core:Item text="หม้าย" key="3" />
+												<core:Item text="สมรส - คู่สมรสมีเงินได้" key="4" />
+												<core:Item text="สมรส - คู่สมรสไม่มีเงินได้" key="5" />
+												<core:Item text="หย่า - คู่สมรสมีเงินได้" key="6" />
+												<core:Item text="หย่า - คู่สมรสไม่มีเงินได้" key="7" />
+												<core:Item text="ตายระหว่างภาษี - คู่สมรสมีเงินได้" key="8" />
+												<core:Item text="ตายระหว่างภาษี - คู่สมรสไม่มีเงินได้" key="9" />
+												<core:Item text="หม้ายระหว่างภาษี - คู่สมรสมีเงินได้" key="10" />
+												<core:Item text="หม้ายระหว่างภาษี - คู่สมรสไม่มีเงินได้" key="11" />
+												<core:Item text="หย่าระหว่างภาษี - คู่สมรสมีเงินได้" key="12" />
+												<core:Item text="หย่าระหว่างภาษี - คู่สมรสไม่มีเงินได้" key="13" />
+											</m:items>
+										</m:Select>
+
+
+										<m:Label text="คู่สมรส" />
+										<m:Input value="" enabled="false" id="spouse">
+											<m:layoutData>
+												<l:GridData span="XL3 L3 M3 S3" />
+											</m:layoutData>
+										</m:Input>
+										
+										<m:Label text="จำนวนบุตร (คน)" />
+										<m:Input value="" id="CHILDAMT1" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="สำหรับใช้สิทธิ์ลดหย่อนภาษี" />
+										<m:Label text="" />
+										<m:Text class="desc_text"
+											text="บุตรคนละ 30,000 บาท"   />
+											
+										<m:Label text="จำนวนบุตร (คน)" />
+										<m:Input value="" id="CHILDAMT2" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="สำหรับใช้สิทธิ์ลดหย่อนภาษี" />
+										<m:Label text="" />
+										<m:Text class="desc_text"
+											text="บุตรตั้งแต่คนที่ 2 เป็นต้นไป ที่เกิดในหรือหลังปี พ.ศ. 2561 คนละ 60,000 บาท" visible="true" />
+										
+										<m:Label text="อุปการะเลี้ยงดูคนพิการ (คน)" />
+										<m:Input value="" id="DISPERSON" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="ยกมาจากแบบ (ล.ย.04)" />
+
+										<m:Label text="" />
+										<m:Text class="desc_text"
+											text="การหักลดหย่อนค่าอุปการะเลี้ยงดูบิดามารดา สามี หรือ ภริยา บุตรชอบด้วยกฏหมายหรือบุตรบุญธรรมของผู้มีเงินได้ บิดามารดา หรือบุตรชอบด้วยกฏหมายของสามีหรือภริยาของผู้มีเงินได้หรือบุคคลอื่น ที่ผู้มีเงินได้เป็นผู้ดูแลตามกฏหมาย ว่าด้วยการส่งเสริมและพัฒนาคุณภาพ ชีวิตคนพิการ คนละ 60,000 บาท" />
+
+										<m:Label text="ค่าซื้อหน่วยลงทุนในกองทุนรวมเพื่อการเลี้ยงชีพ (RMF)" />
+										<m:Input value="" id="RMFFUND" change="convertAmount" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="บาท" />
+
+										<m:Label text="" />
+										<m:Text class="desc_text"
+											text="สามารถหักลดหย่อนได้ตามที่จ่ายจริง แต่ไม่เกินร้อยละ 15 ของเงินได้พึงประเมินที่ได้รับและเมื่อรวมกับเงินสะสมเข้ากองทุนสำรองเลี้ยงชีพ+เงินสะสมเข้ากองทุนบำเหน็จบำนาญข่าราชการ+เงินสะสมเข้ากองทุนสงเคาระห์ตามกฎหมายว่าด้วยโรงเรียนเอกชน+เงินที่ซื้อหน่วยลงทุนในกองทุนสำรองเลี้ยงชีพ (RMF )+เงินสะสมเข้ากองทุนออมแห่งชาติแล้ว ในปีภาษีนั้น ต้องไม่เกิน 500,000 บาท
+" />
+
+										<m:Label
+											text="ค่าซื้อหน่วยลงทุนในกองทุนรวมหุ้นระยะยาว ( LTF)
+" />
+										<m:Input value="" id="LTFFUND" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="บาท" />
+
+										<m:Label text="" />
+										<m:Text class="desc_text"
+											text="สามารถหักลดหย่อนได้ตามที่จ่ายจริง แต่ไม่เกินร้อยละ 15 ของเงินได้พึงประเมินที่ได้รับ ในปีภาษีนั้น ต้องไม่เกิน 500,000 บาท
+" />
+
+										<m:Label text="ดอกเบี้ยเงินกู้ยืมเพื่อซื้อ เช่าซื้อ หรือสร้างอาคารที่อยู่อาศัย
+" />
+										<m:Input value="" id="HOUSELOAN" enabled="false" />
+										<m:Text
+											text="บาท (จำนวนเงินที่จ่ายจริงในปีภาษีนี้ แต่ไม่เกิน 100,000 บาท)" />
+
+										<m:Label text="เบี้ยประกันชีวิต" />
+										<m:Input value="" id="INNSURE" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text
+											text="บาท (จำนวนเงินที่จ่ายจริงในปีภาษีนี้ แต่ไม่เกิน 100,000 บาท)" />
+
+										<m:Label text="เบี้ยประกันสุขภาพ" />
+										<m:Input value="" id="HEALTH" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text
+											text="บาท (จำนวนเงินที่จ่ายจริงในปีภาษีนี้ แต่ไม่เกิน 15,000 บาท)" />
+
+										<m:Label text="เบี้ยประกันชีวิตแบบบำนาญ" />
+										<m:Input value="" id="OLDFUND" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text
+											text="บาท (จำนวนเงินที่จ่ายจริงในปีภาษีนี้ แต่ไม่เกิน 200,000 บาท)" />
+											
+										<m:Label text="เบี้ยประกันชีวิต คู่สมรส" />
+										<m:Input value="" id="MAINSUR" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text=" บาท (จำนวนเงินที่จ่ายจริงในปีภาษีนี้ แต่ไม่เกิน 10,000 บาท)" />
+
+										<m:Label text="เบี้ยประกันสุขภาพบิดา" />
+										<m:Input value="" id="FAINSUR" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="บาท (ยกเว้นภาษีตามจำนวนที่จ่ายจริงแต่ไม่เกิน 15,000 บาท)" />
+										
+										<m:Label text="เบี้ยประกันสุขภาพมารดา" />
+										<m:Input value="" id="MOINSUR" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="บาท (ยกเว้นภาษีตามจำนวนที่จ่ายจริงแต่ไม่เกิน 15,000 บาท)" />
+
+										<m:Label text="เบี้ยประกันสุขภาพบิดาคู่สมรส" />
+										<m:Input value="" id="FASINSUR" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="บาท (ยกเว้นภาษีตามจำนวนที่จ่ายจริงแต่ไม่เกิน 15,000 บาท)" />
+
+										<m:Label text="เบี้ยประกันสุขภาพมารดา คู่สมรส" />
+										<m:Input value="" id="MOSINSUR" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="บาท (ยกเว้นภาษีตามจำนวนที่จ่ายจริงแต่ไม่เกิน 15,000 บาท)" />
+
+										<m:Label text="" />
+										<m:Text class="desc_text"
+											text="ผู้มีเงินได้จ่ายค่าเบี้ยประกันสุขภาพให้บิดามารดาของตน และบิดามารดาของคู่สมรสที่ไม่มีเงินได้ให้ยกเว้นภาษีเงินได้ตามจำนวน ที่จ่ายจริงแต่ไม่เกิน 15,000 บาท" />
+
+										
+
+										<m:Label text="อุปการะเลี้ยงดูบิดา" />
+										<m:Input value="" id="FATHER" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="บาท (หักลดหย่อนบิดาของผู้มีเงินได้คนละ 30,000 บาท)" />
+
+
+										<m:Label text="อุปการะเลี้ยงดูมารดา" />
+										<m:Input value="" id="MOTHER" enabled="false" >
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="บาท (หักลดหย่อนมารดาของผู้มีเงินได้คนละ 30,000 บาท)" />
+
+										<m:Label text="" />
+										<m:Text class="desc_text"
+											text="บิดามารดาต้องมีอายุตั้งแต่ 60 ปีขึ้นไป และอยู่ในความอุปการะเลี้ยงดูของผู้มีเงินได้ แต่ต้องไม่มีเงินได้พึงประเมินในปีภาษีที่ขอหักลดหย่อนเกิน 30,000 บาทขึ้นไป (บุตรบุญธรรมไม่มีสิทธิหักลดหย่อน)" />
+
+										<m:Label text="อุปการะเลี้ยงดูบิดา คู่สมรส" />
+										<m:Input value="" id="FSTHER" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="บาท (หักลดหย่อนบิดาของผู้สมรสที่ไม่มีเงินได้ คนละ 30,000 บาท)" />
+
+										<m:Label text="อุปการะเลี้ยงดูมารดา คู่สมรส" />
+										<m:Input value="" id="MSTHER" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="บาท (หักลดหย่อนมารดาของผู้สมรสที่ไม่มีเงินได้ คนละ 30,000 บาท)" />
+
+										<m:Label text="" />
+										<m:Text class="desc_text"
+											text="หักลดหย่อนบิดามารดาของผู้มีเงินได้คนละ 30,000 บาท และหักลดหย่อนได้สำหรับบิดามารดาของคู่สมรสที่ไม่มีเงินได้อีกคนละ 30,000 บาท" />
+
+										
+										<m:Label text="เงินสนับสนุนการศึกษา/การกีฬา/อื่นๆ" />
+										<m:Input value="" id="EDUFUND" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="บาท (จำนวนที่จ่ายจริงระบบจะคำนวณ 2 เท่าให้อัตโนมัติ)" />
+
+										<m:Label text="เงินบริจาค" />
+										<m:Input value="" id="DONATE" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text
+											text="บาท (จำนวนเงินที่จ่ายจริงในปีภาษีนี้ แต่ไม่เกินร้อยละ 10)" />
+
+										<m:Label text="เงินบริจาคกับทอท.(หักเงินเดือน) รวม
+" />
+										<m:Input value="" id="AOTDONATE" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="บาท แบ่งจ่ายจำนวน">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Text>
+										<m:Input value="" id="CYCLE" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="งวด" />
+										<m:Label text="ยอดเงินที่หักได้" />
+<!-- 										<m:Text text="ยอดเงินที่หักได้" -->
+<!-- 										> -->
+<!-- 											<m:layoutData> -->
+<!-- 												<l:GridData span="XL1 L1 M1 S1" /> -->
+<!-- 											</m:layoutData> -->
+<!-- 										</m:Text> -->
+										<m:Input value="" id="TOTAL" enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL1 L1 M1 S1" />
+											</m:layoutData>
+										</m:Input>
+										<m:Text text="บาท" />
+											
+										<m:Label text="" />
+										<m:Text text='(หากบันทึกหลังจากวันที่ 14 ของเดือน ข้อมูลการลดหย่อนจะมีผลในการคำนวนภาษีในเดือนถัดไป)' />
+
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			
+			
+			<ObjectPageSection id="approveSection">
+				<subSections>
+					<ObjectPageSubSection title="การรับทราบ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									<f:content>
+
+										<m:Label text="ความเห็น" labelFor="selectApprovals" />
+										<m:Select selectedKey="เลือก" id="selApp"
+											forceSelection="false" >
+											<m:items>
+												<core:Item text="เลือก" key="เลือก" />
+												<core:Item text="รับทราบ" key="รับทราบ" />
+												<core:Item text="ไม่รับทราบ" key="ไม่รับทราบ" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="หมายเหตุ" />
+										<m:TextArea id="avlv1" />
+
+										<m:Label text="วันที่แก้ไข" />
+										<m:Input title="" value="" enabled="true" id="approveDate"
+											editable="false" />
+
+										<m:Label text="ดำเนินการโดย" />
+										<m:Input title="" value="" id="ENAME_APP"
+											enabled="true" editable="false" />
+										
+										<m:Label text="ตำแหน่ง" />
+										<m:Input title="" value="" id="PLANS_DESC_APP"
+											enabled="true" editable="false" />
+										<m:Label text="" />
+
+										<l:VerticalLayout>
+											<l:HorizontalLayout>
+												<m:Button text="บันทึก" type="Accept"
+													press="onAccept"></m:Button>
+
+												<m:Button text="ยกเลิก"></m:Button>
+											</l:HorizontalLayout>
+										</l:VerticalLayout>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

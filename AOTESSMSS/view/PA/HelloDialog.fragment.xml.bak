@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns="sap.uxap"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:m="sap.m"
+	xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<m:Dialog title="รายละเอียด" id="helloDialog" afterClose="dialogAfterclose"
+		contentWidth="60%"  stretchOnPhone="true">
+		<f:SimpleForm title="ข้อมูลคู่สมรส" columnsL="1"
+			columnsM="1" editable="true" layout="ResponsiveGridLayout" width="100%">
+			<f:content>
+				<m:Label text="อาชีพ" />
+				<m:Input id="job" value="พนักงานทอท." enabled="false" />
+
+				<m:Label text="รหัสพนักงาน" id="empIDLabel" />
+				<m:Input value="620011" id="empIDInput" enabled="false" />
+
+				<m:Label text="คำนำหน้า" />
+				<m:Input id="titleSpouseEdit" value="นาง" enabled="false" />
+
+				<m:Label text="ชื่อจริง " />
+				<m:Input value="สมชาย" placeholder="กรุณากรอกชื่อ" enabled="false" />
+				<m:Label text="นามสกุล " />
+				<m:Input value="จิตใจงาม" placeholder="กรุณากรอกนามสกุล"
+					enabled="false" />
+				<m:Label text="เลขที่บัตรประชาชน" />
+				<m:Input value="1-2345-67890-12-3" placeholder="" enabled="false" />
+				<m:Label text="วันเดือนปี เกิด" />
+				<m:DatePicker displayFormat="dd/MM/yyyy" enabled="false"
+					valueFormat="dd/MM/yyyy" value="01/01/2533" change="handleChange" />
+				<m:Label text="เบอร์โทรศัพท์" />
+				<m:Input value="095-819-8491" placeholder="กรุณากรอกเบอร์โทรศัพท์"
+					enabled="false" />
+			</f:content>
+		</f:SimpleForm>
+		<m:beginButton>
+			<m:Button text="Close" press="onCloseDialog" />
+		</m:beginButton>
+	</m:Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,270 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.BE.CreateUniform"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:t="sap.ui.table" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="เครื่องแบบพนักงาน"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="วันที่จ้างงาน" id="DAT01"
+					text="" />
+				<m:ObjectStatus title="วันที่บรรจุ" text="" id="DAT02" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="สถานภาพ" text="" id="FAMST" />
+				
+			</l:VerticalLayout>
+
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="เครื่องแบบพนักงาน">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm id="form1" editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="1"
+									singleContainerFullSize="false">
+
+									<f:toolbar>
+										<m:Toolbar>
+
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://employee-approvals"
+												text="ส่งเพื่อรับทราบ" tooltip="ส่งเพื่อรับทราบ"
+												press="onSendPressed" class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://save" text="บันทึก" press="onSavePressed"
+												tooltip="บันทึก" class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก"  press="onCancelPressed"
+												tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+
+
+									<f:content>
+
+										<core:Title text="" />
+										<m:Label text="เลขที่คำขอ" />
+										<m:Input value="" enabled="false" id="RQUST"
+											class="sapUiContentPadding">
+											<m:layoutData>
+												<l:GridData span="L8 M8 S8" />
+											</m:layoutData>
+										</m:Input>
+
+										<m:Label text="วันที่ขอ" />
+										<m:Input value="" enabled="false" id="RQDAT"
+											class="sapUiContentPadding">
+											<m:layoutData>
+												<l:GridData span="L8 M8 S8" />
+											</m:layoutData>
+										</m:Input>
+										
+										<m:Label text="" />
+										<m:Text text="" />
+										
+<!-- 										<m:Label text="ประเภทเครื่องแบบ" /> -->
+<!-- 										<m:Select change="onChange1" id="UFTYPE01" items="{path:'ufData>/List'}" > -->
+<!-- 											<m:items> -->
+<!-- 												<core:Item text="{ufData>uftext}" key="{ufData>uftype}" /> -->
+<!-- 											</m:items> -->
+<!-- 											<m:layoutData> -->
+<!-- 												<l:GridData span="L8 M8 S8" /> -->
+<!-- 											</m:layoutData> -->
+<!-- 										</m:Select> -->
+										
+<!-- 										<m:Label text="รายละเอียดเครื่องแบบ" /> -->
+<!-- 										<m:Select change="onChange" id="UFSTYP01" items="{path:'ufData2>/List'}" > -->
+<!-- 											<m:items> -->
+<!-- 												<core:Item text="{ufData2>usftxt}" key="{ufData2>usftyp}" /> -->
+<!-- 											</m:items> -->
+<!-- 											<m:layoutData> -->
+<!-- 												<l:GridData span="L8 M8 S8" /> -->
+<!-- 											</m:layoutData> -->
+<!-- 										</m:Select> -->
+										
+<!-- 										<m:Label text="จำนวนชุด" /> -->
+<!-- 										<m:Input value="" change="inputAmt" type="Number" id="MAXUNIT01" -->
+<!-- 											class="sapUiContentPadding"> -->
+<!-- 											<m:layoutData> -->
+<!-- 												<l:GridData span="L8 M8 S8" /> -->
+<!-- 											</m:layoutData> -->
+<!-- 										</m:Input> -->
+										
+<!-- 										<m:Label text="มูลค่าเครื่องแบบ/ต่อชุด" /> -->
+<!-- 										<m:Input value="" enabled="false" id="MAXRATE01" -->
+<!-- 											class="sapUiContentPadding"> -->
+<!-- 											<m:layoutData> -->
+<!-- 												<l:GridData span="L8 M8 S8" /> -->
+<!-- 											</m:layoutData> -->
+<!-- 										</m:Input> -->
+										
+<!-- 										<m:Label text="" /> -->
+<!-- 										<m:Text text="" /> -->
+										
+										
+<!-- 										<m:Label text="ประเภทเครื่องแบบ" /> -->
+<!-- 										<m:Select change="onChange2" id="UFTYPE02" items="{path:'ufData>/List'}" > -->
+<!-- 											<m:items> -->
+<!-- 												<core:Item text="{ufData>uftext}" key="{ufData>uftype}" /> -->
+<!-- 											</m:items> -->
+<!-- 											<m:layoutData> -->
+<!-- 												<l:GridData span="L8 M8 S8" /> -->
+<!-- 											</m:layoutData> -->
+<!-- 										</m:Select> -->
+										
+<!-- 										<m:Label text="รายละเอียดเครื่องแบบ" /> -->
+<!-- 										<m:Select change="onChange" id="UFSTYP02" items="{path:'ufData3>/List'}" > -->
+<!-- 											<m:items> -->
+<!-- 												<core:Item text="{ufData3>usftxt}" key="{ufData3>usftyp}" /> -->
+<!-- 											</m:items> -->
+<!-- 											<m:layoutData> -->
+<!-- 												<l:GridData span="L8 M8 S8" /> -->
+<!-- 											</m:layoutData> -->
+<!-- 										</m:Select> -->
+										
+<!-- 										<m:Label text="จำนวนชุด" /> -->
+<!-- 										<m:Input value="" change="inputAmt" type="Number" id="MAXUNIT02" -->
+<!-- 											class="sapUiContentPadding"> -->
+<!-- 											<m:layoutData> -->
+<!-- 												<l:GridData span="L8 M8 S8" /> -->
+<!-- 											</m:layoutData> -->
+<!-- 										</m:Input> -->
+										
+<!-- 										<m:Label text="มูลค่าเครื่องแบบ/ต่อชุด" /> -->
+<!-- 										<m:Input value="" enabled="false" id="MAXRATE02" -->
+<!-- 											class="sapUiContentPadding"> -->
+<!-- 											<m:layoutData> -->
+<!-- 												<l:GridData span="L8 M8 S8" /> -->
+<!-- 											</m:layoutData> -->
+<!-- 										</m:Input> -->
+										
+									</f:content>
+
+									<f:content>
+
+										<core:Title text="" />
+
+										<m:Label text="ยอดรวมมูลค่าเครื่องแบบ" />
+										<m:Input value="" enabled="false" id="MAXUNIT"/>
+
+										<core:Title text="" />
+										<core:Title text="" />
+
+									</f:content>
+
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="tab01" visible="true"
+						title="รายการเครื่องแบบ">
+						<blocks>
+							<ObjectPageLazyLoader id="tab01Laz">
+
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+										<m:Table id="idTab01" inset="false">
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:ToolbarSpacer />
+													<m:Button icon="sap-icon://add" text="เพิ่ม" press="onAdd"
+														tooltip="เพิ่ม" class="sapUiTinyMargin"></m:Button>
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center" width="20rem">
+													<m:Text text="ประเภทเครื่องแบบ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="รายละเอียดเครื่องแบบ " level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="จำนวนชุด" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="มูลค่าเครื่องแบบ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="ลบ" level="H2" />
+												</m:Column>
+											</m:columns>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			
+			<ObjectPageSection visible="false">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<ObjectPageLazyLoader>
+
+								<f:SimpleForm id="xx" title="" columnsL="1"
+									columnsM="1" editable="true" layout="ResponsiveGridLayout">
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

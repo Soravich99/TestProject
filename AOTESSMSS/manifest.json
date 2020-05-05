@@ -1,0 +1,1205 @@
+{
+  "_version": "1.1.0",
+  "sap.app": {
+	"_version": "1.1.0",
+	"id": "sap.ui.demo.toolpageapp",
+	"type": "application",
+	"i18n": "i18n/i18n.properties",
+	"title": "{{appTitle}}",
+	"description": "{{appDescription}}",
+	"applicationVersion": {
+	  "version": "1.0.0"
+	}
+  },
+  "sap.ui": {
+	"_version": "1.1.0",
+	"technology": "UI5",
+	"deviceTypes": {
+	  "desktop": true,
+	  "tablet": true,
+	  "phone": true
+	},
+	"supportedThemes": [
+	  "sap_hcb",
+	  "sap_bluecrystal",
+	  "sap_belize"
+	]
+  },
+  "sap.ui5": {
+	"_version": "1.1.0",
+	"rootView": "sap.ui.demo.toolpageapp.view.App",
+	"dependencies": {
+	  "minUI5Version": "1.30",
+	  "libs": {
+		"sap.ui.core": {},
+		"sap.m": {},
+		"sap.tnt": {},
+		"sap.ui.layout": {}
+	  }
+	},
+	"models": {
+	  "i18n": {
+		"type": "sap.ui.model.resource.ResourceModel",
+		"settings": {
+		  "bundleName": "sap.ui.demo.toolpageapp.i18n.i18n"
+		}
+	  },
+		"side" : {
+			"type": "sap.ui.model.json.JSONModel",
+			"uri": "model/sideContent.json"
+		},
+		"alerts": {
+			"type": "sap.ui.model.json.JSONModel",
+			"uri": "model/alerts.json"
+		},
+		"customer": {
+			"type": "sap.ui.model.json.JSONModel",
+			"uri": "model/customers.json"
+		}
+	},
+	"resources": {
+		"css": [
+			{
+				"uri": "css/style.css"
+			}
+		],
+		"js": [
+			{
+				"uri": "JS/jspdf.customfonts.min.js"
+			},
+			{
+				"uri": "JS/jspdf.customfonts.debug.js"
+			},
+			{
+				"uri": "JS/defaultVFS.js"
+			},
+			{
+				"uri": "JS/qrcode.js"
+			},
+			{
+				"uri": "JS/qrcode.min.js"
+			}
+		]
+	},
+	"routing": {
+	  "config": {
+		"routerClass": "sap.m.routing.Router",
+		"controlId": "mainContents",
+		"viewType": "XML",
+		"controlAggregation": "pages",
+		"viewPath": "sap.ui.demo.toolpageapp.view",
+		"async": true
+	  },
+	  "routes": [
+		{
+		  "pattern": "",
+			"name": "home",
+			"target": "home"
+		},
+		{
+		  "pattern": "login",
+			"name": "login",
+			"target": "login"
+		},
+		{
+		  "pattern": "SystemSettings",
+		  "name": "systemSettings",
+		  "target": ["masterSettings", "detailSettings1"]
+		},
+		  {
+		  "pattern": "Statistics",
+		  "name": "statistics",
+		  "target": "statistics"
+		  },
+		  {
+		  "pattern": "TM/LeaveDetail",
+		  "name": "TM/leaveDetail",
+		  "target": "TM/leaveDetail"
+		  },
+		  {
+		  "pattern": "TM/TmCancel/{from}",
+		  "name": "TM/tmCancel",
+		  "target": "TM/tmCancel"
+		  },
+		  {
+		  "pattern": "TM/ApproveLeaveDetail/{from}",
+		  "name": "TM/approveLeaveDetail",
+		  "target": "TM/approveLeaveDetail"
+		  },
+		  {
+		  "pattern": "TM/ApproveChangeShift/{from}",
+		  "name": "TM/approveChangeShift",
+		  "target": "TM/approveChangeShift"
+		  },
+		  {
+		  "pattern": "TM/ApproveChangeTurn/{from}",
+		  "name": "TM/approveChangeTurn",
+		  "target": "TM/approveChangeTurn"
+		  },
+		  {
+		  "pattern": "TM/ViewLeaveDetail/{from}",
+		  "name": "TM/viewLeaveDetail",
+		  "target": "TM/viewLeaveDetail"
+		  },
+		  {
+		  "pattern": "TM/ViewChangeShift/{from}",
+		  "name": "TM/viewChangeShift",
+		  "target": "TM/viewChangeShift"
+		  },
+		  {
+		  "pattern": "TM/ViewChangeTurn/{from}",
+		  "name": "TM/viewChangeTurn",
+		  "target": "TM/viewChangeTurn"
+		  },
+		  {
+		  "pattern": "TM/ApproveOtRequest/{from}",
+		  "name": "TM/approveOtRequest",
+		  "target": "TM/approveOtRequest"
+		  },
+		  {
+		  "pattern": "PA/MyInfo",
+		  "name": "PA/myInfo",
+		  "target": "PA/myInfo"
+		  },
+		  {
+		  "pattern": "TM/MyLeave",
+		  "name": "TM/myLeave",
+		  "target": "TM/myLeave"
+		  },
+		  {
+		  "pattern": "MyTask",
+		  "name": "myTask",
+		  "target": "myTask"
+		  },
+		  {
+		  "pattern": "PaySlip",
+		  "name": "paySlip",
+		  "target": "paySlip"
+		  },
+		  {
+		  "pattern": "TeamCalendar",
+		  "name": "teamCalendar",
+		  "target": "teamCalendar"
+		  },
+		  {
+		  "pattern": "TM/ChangeShift",
+		  "name": "TM/changeShift",
+		  "target": "TM/changeShift"
+		  },
+		  {
+		  "pattern": "PA/DisplayFormRequestEditMyProfile",
+		  "name": "PA/displayFormRequestEditMyProfile",
+		  "target": "PA/displayFormRequestEditMyProfile"
+		  },
+		  {
+		  "pattern": "PA/EditFormRequestEditMyProfile",
+		  "name": "PA/editFormRequestEditMyProfile",
+		  "target": "PA/editFormRequestEditMyProfile"
+		  },
+		  {
+		  "pattern": "PA/MainPageRequestEditMyProfile",
+		  "name": "PA/mainPageRequestEditMyProfile",
+		  "target": "PA/mainPageRequestEditMyProfile"
+		  },
+		  {
+		  "pattern": "PA/Spouse",
+		  "name": "PA/spouse",
+		  "target": "PA/spouse"
+		  },
+		  {
+		  "pattern": "PA/ViewSpouse",
+		  "name": "PA/viewspouse",
+		  "target": "PA/viewspouse"
+		  },
+		  {
+		  "pattern": "PA/EditMyInfo",
+		  "name": "PA/editMyInfo",
+		  "target": "PA/editMyInfo"
+		  },
+		  {
+		  "pattern": "PA/EditIdCard",
+		  "name": "PA/editIdCard",
+		  "target": "PA/editIdCard"
+		  },
+		  {
+		  "pattern": "PA/AddContactPerson",
+		  "name": "PA/addContactPerson",
+		  "target": "PA/addContactPerson"
+		  },
+		  {
+		  "pattern": "PA/EditContactPerson",
+		  "name": "PA/editContactPerson",
+		  "target": "PA/editContactPerson"
+		  },
+		  {
+		  "pattern": "PA/AddChildren",
+		  "name": "PA/addChildren",
+		  "target": "PA/addChildren"
+		  },
+		  {
+		  "pattern": "PA/Father",
+		  "name": "PA/father",
+		  "target": "PA/father"
+		  },
+		  {
+		  "pattern": "PA/Mother",
+		  "name": "PA/mother",
+		  "target": "PA/mother"
+		  },
+		  {
+		  "pattern": "PA/ViewFather",
+		  "name": "PA/viewfather",
+		  "target": "PA/viewfather"
+		  },
+		  {
+		  "pattern": "PA/ViewMother",
+		  "name": "PA/viewmother",
+		  "target": "PA/viewmother"
+		  },
+		  {
+		  "pattern": "PA/CreateCurrentAddress",
+		  "name": "PA/createCurrentAddress",
+		  "target": "PA/createCurrentAddress"
+		  },
+		  {
+		  "pattern": "PA/Address",
+		  "name": "PA/address",
+		  "target": "PA/address"
+		  },
+		  {
+		  "pattern": "PA/ApproveAddParent/{from}",
+		  "name": "PA/approveAddParent",
+		  "target": "PA/approveAddParent"
+		  },
+		  {
+		  "pattern": "PA/ApproveFather/{from}",
+		  "name": "PA/approveFather",
+		  "target": "PA/approveFather"
+		  },
+		  {
+		  "pattern": "PA/ApproveMother/{from}",
+		  "name": "PA/approveMother",
+		  "target": "PA/approveMother"
+		  },
+		  {
+		  "pattern": "PA/ApproveSpouse/{from}",
+		  "name": "PA/approveSpouse",
+		  "target": "PA/approveSpouse"
+		  },
+		  {
+		  "pattern": "PA/ApproveAddress/{from}",
+		  "name": "PA/approveAddress",
+		  "target": "PA/approveAddress"
+		  },
+		  {
+		  "pattern": "PA/ApproveName/{from}",
+		  "name": "PA/approveName",
+		  "target": "PA/approveName"
+		  },
+		  {
+		  "pattern": "PA/Education",
+		  "name": "PA/education",
+		  "target": "PA/education"
+		  },
+		  {
+		  "pattern": "PA/ApproveAddEducation/{from}",
+		  "name": "PA/approveAddEducation",
+		  "target": "PA/approveAddEducation"
+		  },
+		  {
+		  "pattern": "PA/HRApproval",
+		  "name": "PA/hrApproval",
+		  "target": "PA/hrApproval"
+		  },
+		  {
+		  "pattern": "TM/ChangeTurn",
+		  "name": "TM/changeTurn",
+		  "target": "TM/changeTurn"
+		  },
+		  {
+		  "pattern": "TE/TrainingList",
+		  "name": "TE/trainingList",
+		  "target": "TE/trainingList"
+		  },
+		  {
+		  "pattern": "TE/TrainingRegistration/{from}",
+		  "name": "TE/trainingRegistration",
+		  "target": "TE/trainingRegistration"
+		  },
+		  {
+		  "pattern": "TE/ApproveTrainingRegistration/{from}",
+		  "name": "TE/approveTrainingRegistration",
+		  "target": "TE/approveTrainingRegistration"
+		  },
+		  {
+		  "pattern": "TE/TrainingAssignList",
+		  "name": "TE/trainingAssignList",
+		  "target": "TE/trainingAssignList"
+		  },
+		  {
+		  "pattern": "TE/TrainingAssignRegistration/{from}",
+		  "name": "TE/trainingAssignRegistration",
+		  "target": "TE/trainingAssignRegistration"
+		  },
+		  {
+		  "pattern": "TE/TrainingHistory",
+		  "name": "TE/trainingHistory",
+		  "target": "TE/trainingHistory"
+		  },
+		  {
+		  "pattern": "TE/TrainingHistoryView/{from}",
+		  "name": "TE/trainingHistoryView",
+		  "target": "TE/trainingHistoryView"
+		  },
+		  {
+		  "pattern": "TE/InputTrainingPlan",
+		  "name": "TE/inputTrainingPlan",
+		  "target": "TE/inputTrainingPlan"
+		  },
+		  {
+		  "pattern": "TE/SearchTrainingHistory",
+		  "name": "TE/searchTrainingHistory",
+		  "target": "TE/searchTrainingHistory"
+		  },
+		  {
+		  "pattern": "BE/MedicalBenefit",
+		  "name": "BE/medicalBenefit",
+		  "target": "BE/medicalBenefit"
+		  },
+		  {
+		  "pattern": "BE/ApproveMedicalBenefit/{from}",
+		  "name": "BE/approveMedicalBenefit",
+		  "target": "BE/approveMedicalBenefit"
+		  },
+		  {
+		  "pattern": "TE/PreBookTrainingList",
+		  "name": "TE/preBookTrainingList",
+		  "target": "TE/preBookTrainingList"
+		  },
+		  {
+		  "pattern": "TE/TrainingPlan",
+		  "name": "TE/trainingPlan",
+		  "target": "TE/trainingPlan"
+		  },
+		  {
+		  "pattern": "TM/OtRequest",
+		  "name": "TM/otRequest",
+		  "target": "TM/otRequest"
+		  },
+		  {
+		  "pattern": "TM/Timesheet",
+		  "name": "TM/timesheet",
+		  "target": "TM/timesheet"
+		  },
+		  {
+		  "pattern": "PA/MaritalStatus",
+		  "name": "PA/maritalStatus",
+		  "target": "PA/maritalStatus"
+		  },
+		  {
+		  "pattern": "PA/ApproveMaritalStatus/{from}",
+		  "name": "PA/approvemaritalStatus",
+		  "target": "PA/approvemaritalStatus"
+		  },
+		  {
+		  "pattern": "PA/EditChildren/{from}",
+		  "name": "PA/editChildren",
+		  "target": "PA/editChildren"
+		  },
+		  {
+		  "pattern": "PA/ViewChildren/{from}",
+		  "name": "PA/viewChildren",
+		  "target": "PA/viewChildren"
+		  },
+		  {
+		  "pattern": "PA/ApproveChildren/{from}",
+		  "name": "PA/approveChildren",
+		  "target": "PA/approveChildren"
+		  },
+		  {
+		  "pattern": "PA/AddEducation",
+		  "name": "PA/addEducation",
+		  "target": "PA/addEducation"
+		  },
+		  {
+		  "pattern": "PA/AddParent",
+		  "name": "PA/addParent",
+		  "target": "PA/addParent"
+		  },
+		  {
+		  "pattern": "PA/Child",
+		  "name": "PA/child",
+		  "target": "PA/child"
+		  },
+		  {
+		  "pattern": "PA/FatherDialog",
+		  "name": "PA/fatherDialog",
+		  "target": "PA/fatherDialog"
+		  },
+		  {
+		  "pattern": "PA/MotherDialog",
+		  "name": "PA/motherDialog",
+		  "target": "PA/motherDialog"
+		  },
+		  {
+		  "pattern": "PA/History",
+		  "name": "PA/history",
+		  "target": "PA/history"
+		  },
+		  {
+		  "pattern": "NewEmployee",
+		  "name": "newEmployee",
+		  "target": "newEmployee"
+		  },
+		  {
+		  "pattern": "BE/FamilyBenefitPage",
+		  "name": "BE/familyBenefitPage",
+		  "target": "BE/familyBenefitPage"
+		  },
+		  {
+		  "pattern": "BE/CreateStudentTuitionfee",
+		  "name": "BE/createStudentTuitionfee",
+		  "target": "BE/createStudentTuitionfee"
+		  },
+		  {
+		  "pattern": "BE/ApproveStudentTuitionfee/{from}",
+		  "name": "BE/approveStudentTuitionfee",
+		  "target": "BE/approveStudentTuitionfee"
+		  },
+		  {
+		  "pattern": "BE/MainPageFund",
+		  "name": "BE/mainPageFund",
+		  "target": "BE/mainPageFund"
+		  },
+		  {
+		  "pattern": "BE/TimeMainPageFund",
+		  "name": "BE/timeMainPageFund",
+		  "target": "BE/timeMainPageFund"
+		  },
+		  {
+		  "pattern": "BE/DisplayFund",
+		  "name": "BE/displayFund",
+		  "target": "BE/displayFund"
+		  },
+		  {
+		  "pattern": "BE/ChangeFund",
+		  "name": "BE/changeFund",
+		  "target": "BE/changeFund"
+		  },
+		  {
+		  "pattern": "BE/ChangeFund2",
+		  "name": "BE/changeFund2",
+		  "target": "BE/changeFund2"
+		  },
+		  {
+		  "pattern": "BE/ChangeFund3",
+		  "name": "BE/changeFund3",
+		  "target": "BE/changeFund3"
+		  },
+		  {
+		  "pattern": "BE/ApproveFund/{from}",
+		  "name": "BE/approveFund",
+		  "target": "BE/approveFund"
+		  },
+		  {
+		  "pattern": "BE/ApproveFund2/{from}",
+		  "name": "BE/approveFund2",
+		  "target": "BE/approveFund2"
+		  },
+		  {
+		  "pattern": "BE/ApproveFund3/{from}",
+		  "name": "BE/approveFund3",
+		  "target": "BE/approveFund3"
+		  },
+		  {
+		  "pattern": "BE/ChildrenAllowance",
+		  "name": "BE/childrenAllowance",
+		  "target": "BE/childrenAllowance"
+		  },
+		  {
+		  "pattern": "BE/ChildrenAllowanceType1",
+		  "name": "BE/childrenAllowanceType1",
+		  "target": "BE/childrenAllowanceType1"
+		  },
+		  {
+		  "pattern": "BE/ApproveChildrenAllowanceType1/{from}",
+		  "name": "BE/approveChildrenAllowanceType1",
+		  "target": "BE/approveChildrenAllowanceType1"
+		  },
+		  {
+		  "pattern": "BE/ChildrenAllowanceTypeO",
+		  "name": "BE/childrenAllowanceTypeO",
+		  "target": "BE/childrenAllowanceTypeO"
+		  },
+		  {
+		  "pattern": "BE/ApproveChildrenAllowanceTypeO/{from}",
+		  "name": "BE/approveChildrenAllowanceTypeO",
+		  "target": "BE/approveChildrenAllowanceTypeO"
+		  },
+		  {
+		  "pattern": "PA/Referee",
+		  "name": "PA/referee",
+		  "target": "PA/referee"
+		  },
+		  {
+		  "pattern": "BE/ChildrenAllowanceType2",
+		  "name": "BE/childrenAllowanceType2",
+		  "target": "BE/childrenAllowanceType2"
+		  },
+		  {
+		  "pattern": "BE/ChildrenAllowanceType3",
+		  "name": "BE/childrenAllowanceType3",
+		  "target": "BE/childrenAllowanceType3"
+		  },
+		  {
+		  "pattern": "BE/ChildrenAllowanceType4",
+		  "name": "BE/childrenAllowanceType4",
+		  "target": "BE/childrenAllowanceType4"
+		  },
+		  {
+		  "pattern": "BE/FloodDonate",
+		  "name": "BE/floodDonate",
+		  "target": "BE/floodDonate"
+		  },
+		  {
+		  "pattern": "BE/createFloodDonate",
+		  "name": "BE/createFloodDonate",
+		  "target": "BE/createFloodDonate"
+		  },
+		  {
+		  "pattern": "BE/ApproveFuneralCost/{from}",
+		  "name": "BE/approveFuneralCost",
+		  "target": "BE/approveFuneralCost"
+		  },
+		  {
+		  "pattern": "BE/FuneralCost",
+		  "name": "BE/funeralCost",
+		  "target": "BE/funeralCost"
+		  },
+		  {
+		  "pattern": "BE/BeneficiaryFuneralCost",
+		  "name": "BE/beneficiaryFuneralCost",
+		  "target": "BE/beneficiaryFuneralCost"
+		  },
+		  {
+		  "pattern": "BE/ApproveBeneficiaryFuneralCost/{from}",
+		  "name": "BE/approvebeneficiaryFuneralCost",
+		  "target": "BE/approvebeneficiaryFuneralCost"
+		  },
+		  {
+		  "pattern": "BE/CreateFuneralCost",
+		  "name": "BE/createFuneralCost",
+		  "target": "BE/createFuneralCost"
+		  },
+		  {
+		  "pattern": "BE/EditStudentTuitionfee",
+		  "name": "BE/editStudentTuitionfee",
+		  "target": "BE/editStudentTuitionfee"
+		  },
+		  {
+		  "pattern": "PY/ApproveTaxBreak/{from}",
+		  "name": "PY/approvetaxBreak",
+		  "target": "PY/approvetaxBreak"
+		  },
+		  {
+		  "pattern": "PY/TaxBreak",
+		  "name": "PY/taxBreak",
+		  "target": "PY/taxBreak"
+		  },
+		  {
+		  "pattern": "PY/TaxYearReport",
+		  "name": "PY/taxYearReport",
+		  "target": "PY/taxYearReport"
+		  },
+		  {
+		  "pattern": "PY/Salary",
+		  "name": "PY/salary",
+		  "target": "PY/salary"
+		  },
+		  {
+		  "pattern": "BE/BenefitHistory",
+		  "name": "BE/benefitHistory",
+		  "target": "BE/benefitHistory"
+		  },
+		  {
+		  "pattern": "BE/CreateMSSFuneralCost",
+		  "name": "BE/createMSSFuneralCost",
+		  "target": "BE/createMSSFuneralCost"
+		  },
+		  {
+		  "pattern": "BE/ApproveMSSFuneralCost/{from}",
+		  "name": "BE/approveMSSFuneralCost",
+		  "target": "BE/approveMSSFuneralCost"
+		  },
+		  {
+		  "pattern": "TM/LeaveHistory",
+		  "name": "TM/leaveHistory",
+		  "target": "TM/leaveHistory"
+		  },
+		  {
+		  "pattern": "BE/CreateScholarship",
+		  "name": "BE/createScholarship",
+		  "target": "BE/createScholarship"
+		  },
+		  {
+		  "pattern": "BE/ApproveScholarship/{from}",
+		  "name": "BE/approveScholarship",
+		  "target": "BE/approveScholarship"
+		  },
+		  {
+		  "pattern": "BE/ChangeScholarship",
+		  "name": "BE/changeScholarship",
+		  "target": "BE/changeScholarship"
+		  },
+		  {
+		  "pattern": "BE/TimeScholarship",
+		  "name": "BE/timeScholarship",
+		  "target": "BE/timeScholarship"
+		  },
+		  {
+		  "pattern": "BE/CreateUniform",
+		  "name": "BE/createUniform",
+		  "target": "BE/createUniform"
+		  },
+		  {
+		  "pattern": "BE/GenerateRequest",
+		  "name": "BE/generateRequest",
+		  "target": "BE/generateRequest"
+		  },
+		  {
+		  "pattern": "BE/ApproveUniform/{from}",
+		  "name": "BE/approveUniform",
+		  "target": "BE/approveUniform"
+		  },
+		  {
+		  "pattern": "BE/TimeUniform",
+		  "name": "BE/timeUniform",
+		  "target": "BE/timeUniform"
+		  },
+		  {
+		  "pattern": "BE/CreateOtherBenefit",
+		  "name": "BE/createOtherBenefit",
+		  "target": "BE/createOtherBenefit"
+		  },
+		  {
+		  "pattern": "BE/ApproveOtherBenefit/{from}",
+		  "name": "BE/approveOtherBenefit",
+		  "target": "BE/approveOtherBenefit"
+		  },
+		  {
+		  "pattern": "BE/BenefitReport",
+		  "name": "BE/benefitReport",
+		  "target": "BE/benefitReport"
+		  },
+		  {
+		  "pattern": "BE/ScholarShipReport",
+		  "name": "BE/scholarShipReport",
+		  "target": "BE/scholarShipReport"
+		  },
+		  {
+		  "pattern": "BE/DonateReport",
+		  "name": "BE/donateReport",
+		  "target": "BE/donateReport"
+		  },
+		  {
+		  "pattern": "BE/FundReport",
+		  "name": "BE/fundReport",
+		  "target": "BE/fundReport"
+		  },
+		  {
+		  "pattern": "Worklist",
+		  "name": "worklist",
+		  "target": "worklist"
+		  },
+		  {
+			  "pattern": "Question",
+			  "name": "question",
+			  "target": "question"
+			  },
+		  {
+		  "pattern": "TM/TaskDetail",
+		  "name": "TM/taskDetail",
+		  "target": "TM/taskDetail"
+		  },
+		  {
+		  "pattern": "TM/OTdetail/{from}",
+		  "name": "TM/OTdetail",
+		  "target": "TM/OTdetail"
+		  },
+		  {
+		  "pattern": "TM/SHIFTdetail/{from}",
+		  "name": "TM/SHIFTdetail",
+		  "target": "TM/SHIFTdetail"
+		  },
+		  {
+		  "pattern": "TM/OTheader",
+		  "name": "TM/OTheader",
+		  "target": "TM/OTheader"
+		  },
+		  {
+		  "pattern": "BE/TaskDetail",
+		  "name": "BE/taskDetail",
+		  "target": "BE/taskDetail"
+		  },
+		  {
+		  "pattern": "TE/TaskDetail",
+		  "name": "TE/taskDetail",
+		  "target": "TE/taskDetail"
+		  },
+		  {
+		  "pattern": "PA/TaskDetail",
+		  "name": "PA/taskDetail",
+		  "target": "PA/taskDetail"
+		  },
+		  {
+		  "pattern": "PD/PerformanceAppraisal",
+		  "name": "PD/performanceAppraisal",
+		  "target": "PD/performanceAppraisal"
+		  },
+		  {
+		  "pattern": "PD/JobAppraisal",
+		  "name": "PD/jobAppraisal",
+		  "target": "PD/jobAppraisal"
+		  },
+		  {
+		  "pattern": "PD/KPI",
+		  "name": "PD/kPI",
+		  "target": "PD/kPI"
+		  }
+		  
+	  ],
+	  "targets": {
+	  	"home": {
+			"viewName": "Home"
+		},
+		"login": {
+			"viewName": "login"
+		},
+		"appSettings":
+		{
+			"viewName": "settings.AppSettings"
+		},
+		"masterSettings": {
+		  "viewName": "settings.MasterSettings",
+			"controlId": "appSettings",
+			"controlAggregation": "masterPages",
+			"parent": "appSettings"
+		},
+		  "detailSettings1": {
+			  "viewName": "settings.DetailSettings1",
+			  "controlId": "appSettings",
+			  "controlAggregation": "detailPages",
+			  "parent": "appSettings"
+		  },
+		"statistics": {
+		  "viewName": "Statistics"
+		},
+		"TM/leaveDetail": {
+		  "viewName": "TM/LeaveDetail"
+		},
+		"TM/tmCancel": {
+		  "viewName": "TM/TmCancel"
+		},
+		"TM/approveLeaveDetail": {
+		  "viewName": "TM/ApproveLeaveDetail"
+		},
+		"TM/approveChangeShift": {
+		  "viewName": "TM/ApproveChangeShift"
+		},
+		"TM/approveChangeTurn": {
+		  "viewName": "TM/ApproveChangeTurn"
+		},
+		"TM/viewLeaveDetail": {
+		  "viewName": "TM/ViewLeaveDetail"
+		},
+		"TM/viewChangeShift": {
+		  "viewName": "TM/ViewChangeShift"
+		},
+		"TM/viewChangeTurn": {
+		  "viewName": "TM/ViewChangeTurn"
+		},
+		"TM/approveOtRequest": {
+		  "viewName": "TM/ApproveOtRequest"
+		},
+		"PA/myInfo": {
+		  "viewName": "PA/MyInfo"
+		},
+		"myProfile": {
+		  "viewName": "MyProfile"
+		},
+		"requestEditProfile": {
+		  "viewName": "RequestEditProfile"
+		},
+		"TM/myLeave": {
+		  "viewName": "TM/MyLeave"
+		},
+		"myTask": {
+		  "viewName": "MyTask"
+		},
+		"PA/editMyInfo": {
+		  "viewName": "PA/EditMyInfo"
+		},
+		"PA/editIdCard": {
+		  "viewName": "PA/EditIdCard"
+		},
+		"paySlip": {
+		  "viewName": "PaySlip"
+		},
+		"teamCalendar": {
+		  "viewName": "TeamCalendar"
+		},
+		"TM/changeShift": {
+		  "viewName": "TM/ChangeShift"
+		},
+		"PA/editFormRequestEditMyProfile": {
+		  "viewName": "PA/EditFormRequestEditMyProfile"
+		},
+		"PA/displayFormRequestEditMyProfile": {
+		  "viewName": "PA/DisplayFormRequestEditMyProfile"
+		},
+		"PA/mainPageRequestEditMyProfile": {
+		  "viewName": "PA/MainPageRequestEditMyProfile"
+		},
+		"PA/spouse": {
+		  "viewName": "PA/Spouse"
+		},
+		"PA/viewspouse": {
+		  "viewName": "PA/ViewSpouse"
+		},
+		"PA/addContactPerson": {
+		  "viewName": "PA/AddContactPerson"
+		},
+		"PA/editContactPerson": {
+		  "viewName": "PA/EditContactPerson"
+		},
+		"PA/addChildren": {
+		  "viewName": "PA/AddChildren"
+		},
+		"PA/father": {
+		  "viewName": "PA/Father"
+		},
+		"PA/mother": {
+		  "viewName": "PA/Mother"
+		},
+		"PA/viewfather": {
+		  "viewName": "PA/ViewFather"
+		},
+		"PA/viewmother": {
+		  "viewName": "PA/ViewMother"
+		},
+		"PA/approveSpouse": {
+		  "viewName": "PA/ApproveSpouse"
+		},
+		"PA/address": {
+		  "viewName": "PA/Address"
+		},
+		"PA/createCurrentAddress": {
+		  "viewName": "PA/CreateCurrentAddress"
+		},
+		"PA/approveAddParent": {
+		  "viewName": "PA/ApproveAddParent"
+		},
+		"PA/approveFather": {
+		  "viewName": "PA/ApproveFather"
+		},
+		"PA/approveMother": {
+		  "viewName": "PA/ApproveMother"
+		},
+		"PA/approveAddress": {
+		  "viewName": "PA/ApproveAddress"
+		},
+		"PA/approveName": {
+		  "viewName": "PA/ApproveName"
+		},
+		"PA/education": {
+		  "viewName": "PA/Education"
+		},
+		"PA/approveAddEducation": {
+		  "viewName": "PA/ApproveAddEducation"
+		},
+		"hello": {
+		  "viewName": "Hello"
+		},
+		"PA/hrApproval": {
+		  "viewName": "PA/HRApproval"
+		},
+		"TM/changeTurn": {
+		  "viewName": "TM/ChangeTurn"
+		},
+		"PA/referee": {
+		  "viewName": "PA/Referee"
+		},
+		"TE/trainingList": {
+		  "viewName": "TE/TrainingList"
+		},
+		"TE/trainingRegistration": {
+		  "viewName": "TE/TrainingRegistration"
+		},
+		"TE/approveTrainingRegistration": {
+		  "viewName": "TE/ApproveTrainingRegistration"
+		},
+		"TE/trainingAssignList": {
+		  "viewName": "TE/TrainingAssignList"
+		},
+		"TE/trainingAssignRegistration": {
+		  "viewName": "TE/TrainingAssignRegistration"
+		},
+		"TE/trainingHistory": {
+		  "viewName": "TE/TrainingHistory"
+		},
+		"TE/trainingHistoryView": {
+		  "viewName": "TE/TrainingHistoryView"
+		},
+		"TE/inputTrainingPlan": {
+		  "viewName": "TE/InputTrainingPlan"
+		},
+		"TE/searchTrainingHistory": {
+		  "viewName": "TE/SearchTrainingHistory"
+		},
+		"BE/medicalBenefit": {
+		  "viewName": "BE/MedicalBenefit"
+		},
+		"BE/approveMedicalBenefit": {
+		  "viewName": "BE/ApproveMedicalBenefit"
+		},
+		"TE/preBookTrainingList": {
+		  "viewName": "TE/PreBookTrainingList"
+		},
+		"TE/trainingPlan": {
+		  "viewName": "TE/TrainingPlan"
+		},
+		"TM/otRequest": {
+		  "viewName": "TM/OtRequest"
+		},
+		"TM/timesheet": {
+		  "viewName": "TM/Timesheet"
+		},
+		"PA/maritalStatus": {
+		  "viewName": "PA/MaritalStatus"
+		},
+		"PA/approvemaritalStatus": {
+		  "viewName": "PA/ApproveMaritalStatus"
+		},
+		"PA/editChildren": {
+		  "viewName": "PA/EditChildren"
+		},
+		"PA/viewChildren": {
+		  "viewName": "PA/ViewChildren"
+		},
+		"PA/approveChildren": {
+		  "viewName": "PA/ApproveChildren"
+		},
+		"PA/addEducation": {
+		  "viewName": "PA/AddEducation"
+		},
+		"PA/addParent": {
+		  "viewName": "PA/AddParent"
+		},
+		"PA/child": {
+		  "viewName": "PA/Child"
+		},
+		"PA/fatherDialog": {
+		  "viewName": "PA/FatherDialog"
+		},
+		"PA/motherDialog": {
+		  "viewName": "PA/motherDialog"
+		},
+		"PA/history": {
+		  "viewName": "PA/History"
+		},
+		"newEmployee": {
+		  "viewName": "NewEmployee"
+		},
+		"BE/familyBenefitPage": {
+		  "viewName": "BE/FamilyBenefitPage"
+		},
+		"BE/createStudentTuitionfee": {
+		  "viewName": "BE/CreateStudentTuitionfee"
+		},
+		"BE/approveStudentTuitionfee": {
+		  "viewName": "BE/ApproveStudentTuitionfee"
+		},
+		"BE/mainPageFund": {
+		  "viewName": "BE/MainPageFund"
+		},
+		"BE/timeMainPageFund": {
+		  "viewName": "BE/TimeMainPageFund"
+		},
+		"BE/changeFund": {
+		  "viewName": "BE/ChangeFund"
+		},
+		"BE/changeFund2": {
+		  "viewName": "BE/ChangeFund2"
+		},
+		"BE/changeFund3": {
+		  "viewName": "BE/ChangeFund3"
+		},
+		"BE/approveFund": {
+		  "viewName": "BE/ApproveFund"
+		},
+		"BE/approveFund2": {
+		  "viewName": "BE/ApproveFund2"
+		},
+		"BE/approveFund3": {
+		  "viewName": "BE/ApproveFund3"
+		},
+		"BE/displayFund": {
+		  "viewName": "BE/DisplayFund"
+		},
+		"BE/childrenAllowance": {
+		  "viewName": "BE/ChildrenAllowance"
+		},
+		"BE/childrenAllowanceType1": {
+		  "viewName": "BE/ChildrenAllowanceType1"
+		},
+		"BE/approveChildrenAllowanceType1": {
+		  "viewName": "BE/ApproveChildrenAllowanceType1"
+		},
+		"BE/childrenAllowanceTypeO": {
+		  "viewName": "BE/ChildrenAllowanceTypeO"
+		},
+		"BE/approveChildrenAllowanceTypeO": {
+		  "viewName": "BE/ApproveChildrenAllowanceTypeO"
+		},
+		"BE/childrenAllowanceType2": {
+		  "viewName": "BE/ChildrenAllowanceType2"
+		},
+		"BE/childrenAllowanceType3": {
+		  "viewName": "BE/ChildrenAllowanceType3"
+		},
+		"BE/childrenAllowanceType4": {
+		  "viewName": "BE/ChildrenAllowanceType4"
+		},
+		"BE/floodDonate": {
+		  "viewName": "BE/FloodDonate"
+		},
+		"BE/createFloodDonate": {
+		  "viewName": "BE/CreateFloodDonate"
+		},
+		"BE/createFuneralCost": {
+		  "viewName": "BE/CreateFuneralCost"
+		},
+		"BE/approveFloodDonate": {
+		  "viewName": "BE/ApproveFloodDonate"
+		},
+		"BE/beneficiaryFuneralCost": {
+		  "viewName": "BE/BeneficiaryFuneralCost"
+		},
+		"BE/approvebeneficiaryFuneralCost": {
+		  "viewName": "BE/ApproveBeneficiaryFuneralCost"
+		},
+		"BE/funeralCost": {
+		  "viewName": "BE/FuneralCost"
+		},
+		"BE/approveFuneralCost": {
+		  "viewName": "BE/ApproveFuneralCost"
+		},
+		"BE/editStudentTuitionfee": {
+		  "viewName": "BE/EditStudentTuitionfee"
+		},
+		"PY/approvetaxBreak": {
+		  "viewName": "PY/ApproveTaxBreak"
+		},
+		"PY/taxBreak": {
+		  "viewName": "PY/TaxBreak"
+		},
+		"PY/taxYearReport": {
+		  "viewName": "PY/TaxYearReport"
+		},
+		"PY/salary": {
+		  "viewName": "PY/Salary"
+		},
+		"BE/benefitHistory": {
+		  "viewName": "BE/BenefitHistory"
+		},
+		"BE/createMSSFuneralCost": {
+		  "viewName": "BE/CreateMSSFuneralCost"
+		},
+		"BE/approveMSSFuneralCost": {
+		  "viewName": "BE/ApproveMSSFuneralCost"
+		},
+		"TM/leaveHistory": {
+		  "viewName": "TM/LeaveHistory"
+		},
+		"BE/createScholarship": {
+		  "viewName": "BE/CreateScholarship"
+		},
+		"BE/approveScholarship": {
+		  "viewName": "BE/ApproveScholarship"
+		},
+		"BE/createScholarship": {
+		  "viewName": "BE/CreateScholarship"
+		},
+		"BE/timeScholarship": {
+		  "viewName": "BE/TimeScholarship"
+		},
+		"BE/createUniform": {
+		  "viewName": "BE/CreateUniform"
+		},
+		"BE/generateRequest": {
+		  "viewName": "BE/GenerateRequest"
+		},
+		"BE/approveUniform": {
+		  "viewName": "BE/ApproveUniform"
+		},	
+		"BE/timeUniform": {
+		  "viewName": "BE/TimeUniform"
+		},
+		"BE/createOtherBenefit": {
+		  "viewName": "BE/CreateOtherBenefit"
+		},
+		"BE/approveOtherBenefit": {
+		  "viewName": "BE/ApproveOtherBenefit"
+		},
+		"BE/benefitReport": {
+		  "viewName": "BE/BenefitReport"
+		},
+		"BE/scholarShipReport": {
+		  "viewName": "BE/ScholarShipReport"
+		},
+		"BE/donateReport": {
+		  "viewName": "BE/DonateReport"
+		},
+		"BE/fundReport": {
+		  "viewName": "BE/FundReport"
+		},
+		"worklist": {
+		  "viewName": "Worklist"
+		},
+		"question": {
+			  "viewName": "Question"
+			},
+		"TM/taskDetail": {
+		  "viewName": "TM/TaskDetail"
+		},
+		"TM/OTdetail": {
+		  "viewName": "TM/OTdetail"
+		},
+		"TM/SHIFTdetail": {
+		  "viewName": "TM/SHIFTdetail"
+		},
+		"TM/OTheader": {
+		  "viewName": "TM/OTheader"
+		},
+		"TE/taskDetail": {
+		  "viewName": "TE/TaskDetail"
+		},
+		"BE/taskDetail": {
+		  "viewName": "BE/TaskDetail"
+		},
+		"PA/taskDetail": {
+		  "viewName": "PA/TaskDetail"
+		},
+		"PD/performanceAppraisal": {
+		  "viewName": "PD/PerformanceAppraisal"
+		},
+		"PD/jobAppraisal": {
+		  "viewName": "PD/JobAppraisal"
+		},
+		"PD/kPI": {
+		  "viewName": "PD/KPI"
+		}
+	  }
+	}
+  }
+}

@@ -1,0 +1,418 @@
+<mvc:View 
+controllerName="sap.ui.demo.toolpageapp.controller.BE.ChildrenAllowance"
+xmlns="sap.uxap"
+xmlns:l="sap.ui.layout" 
+xmlns:f="sap.ui.layout.form" 
+xmlns:m="sap.m"
+xmlns:core="sap.ui.core" 
+xmlns:mvc="sap.ui.core.mvc">
+	<!-- <VBox class="sapUiSmallMargin"> -->
+
+		<ObjectPageLayout id="objectPageLayout">
+
+			<sections>
+				<ObjectPageSection>
+					<subSections>
+						<ObjectPageSubSection id="shopOwnerId" title="เงินช่วยเหลือบุตร">
+							<blocks>
+								<ObjectPageLazyLoader id="shopOwnerLazyLoader">
+									<f:SimpleForm id="SimpleFormDisplay480_12120"
+										editable="false" layout="ResponsiveGridLayout" title="เงินช่วยเหลือบุตร"
+										labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+										adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+										emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3"
+										columnsM="1" singleContainerFullSize="false">
+										<f:toolbar>
+											<!--  <m:Toolbar>
+												<m:Title text="เงินช่วยเหลือบุตร" level="H2" />
+												<m:ToolbarSpacer />
+												<m:Button icon="sap-icon://save" text="บันทึก"
+													tooltip="บันทึก" class="sapUiTinyMargin"></m:Button>
+												<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+													tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button>
+											</m:Toolbar>-->
+										</f:toolbar>
+
+										<f:content>
+											<core:Title text="" class="sapUiSmallMarginBeginEnd"/>
+											<m:Label text="หมายเลขเงินเดือน"/>
+
+											<m:Text text="99999999" type="SalaryNo" enabled="false">
+												<m:layoutData>
+								                  <l:GridData span="L3 M3 S3" />
+								                </m:layoutData>
+								            </m:Text>
+											<m:Text text="นายสมชาย ดังใจหมาย" type="EmployeeName" enabled="false" width="auto"/>
+											
+											<m:Label text="สังกัด" />
+											<m:Text text="ท่าอากาศยานดอนเมือง" type="department" enabled="false"/>
+
+
+											<m:Label text="คู่สมรส" />
+											<m:Text text="นางสมหญิง ดังใจหมาย" type="department" enabled="false"/>
+
+											<m:Label text="สถานะภาพ" />
+											<m:Text text="" type="department" enabled="false"/>
+
+
+
+											<core:Title text="" class="Col2" />
+											<m:Label text="ตำแหน่ง" />
+											<m:Text text="ผู้อำนวยการส่วน" type="PositionName" enabled="false"/>
+										
+											<m:Label text="กลุ่มพนักงาน" />
+											<m:Text text="พนักงาน/ลูกจ้างประจำ" type="SpouseOccupationName" enabled="false" />
+												
+											<m:Label text="อาชีพ" />
+											<m:Text text="รับราชการ" type="MoneyAmount" enabled="false"/>
+											
+											<m:Label text="วันที่สมรส" />
+											<m:Text text="26/03/2548" type="MoneyAmount" enabled="false"/>
+											
+
+
+
+											<core:Title text="" class="Col222" />
+											<m:Label text="สถานะ" />
+											<m:Text text="Active" type="Status" enabled="false"/>
+											
+											<m:Label text="" />
+											<m:Text text="" type="Status" enabled="false" />
+											<m:Label text="" />
+											<m:Text text="" type="Status" enabled="false" />
+											<m:Label text="" />
+											<m:Text text="" type="Status" enabled="false" />
+											<m:Label value=" " type="WhichOf" enabled="false" />
+											<m:Label text="สถานที่ทำงาน" />
+											<m:Text text="โรงเรียนสายน้ำผึ้ง" type="Withdrawable" enabled="false" />
+											<m:Label text="วันที่จ้างงาน" />
+											<m:Text text="01/10/2560" type="MoneyAmount" enabled="false"/>
+
+										</f:content>
+									</f:SimpleForm>
+
+								</ObjectPageLazyLoader>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+				
+				<ObjectPageSection>
+					<subSections>
+						<ObjectPageSubSection id="shopOwnerId2" title="การเงินช่วยเหลือบุตร">
+							<blocks>
+								<ObjectPageLazyLoader id="shopOwnerLazyLoader2">
+
+									<f:SimpleForm id="SimpleFormDisplay480_12120-2"
+										editable="false" layout="ResponsiveGridLayout"
+										labelSpanXL="1" labelSpanL="1" labelSpanM="12" labelSpanS="12"
+										adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+										emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1"
+										columnsM="1" singleContainerFullSize="false">
+										<f:content>
+										<m:Table id="idEducationHistoryTable"
+											inset="false">
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:Button icon="sap-icon://create" text="สร้างใหม่" tooltip="สร้างใหม่" class="sapUiTinyMargin"></m:Button>
+													<m:ToolbarSpacer/>
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column
+													minScreenWidth="Phone"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ประเภทการขอ" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Phone"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วันที่ขอ" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วันที่มีผล" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วันที่สิ้นสุด" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="บุตร" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เลขบัตรประชาชน" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เบิกได้ตามสิทธิ" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เงินตกเบิก" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="สถานะ" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วันที่อนุมัติ" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="แสดงข้อมูล" level="H2">
+														<m:layoutData>
+									                  		<l:GridData span="L1 M1 S1" />
+									                	</m:layoutData>
+								            		</m:Text>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="แก้ไข" level="H2">
+														<m:layoutData>
+									                  		<l:GridData span="L1 M1 S1" />
+									                	</m:layoutData>
+								            		</m:Text>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ลบ" level="H2">
+														<m:layoutData>
+									                  		<l:GridData span="L1 M1 S1" />
+									                	</m:layoutData>
+								            		</m:Text>
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text
+															text="การขอยกเลิกเงินช่วยเหลือบุตร" />
+														<m:Text
+															text="10/07/2561" />
+														<m:Text
+															text="1/03/2561" />
+														<m:Text
+															text="11/06/2561" />
+														<m:Text
+															text="นายสมโชค ดังใจหมาย" />
+														<m:Text
+															text="1100500123456" />
+														<m:Text
+															text="300.00" />
+														<m:Text
+															text=" " />
+														<m:Text
+															text="บันทึก" />
+														<m:Text
+															text=" " />
+														<m:Button icon="sap-icon://search">
+															<m:layoutData>
+									                  			<l:GridData span="L1 M1 S1" />
+									                		</m:layoutData>
+								            			</m:Button>
+														<m:Text
+															text=" " >
+															<m:layoutData>
+									                  			<l:GridData span="L1 M1 S1" />
+									                		</m:layoutData>
+								            			</m:Text>
+														<m:Text
+															text=" " >
+														<m:layoutData>
+									                  			<l:GridData span="L1 M1 S1" />
+									                		</m:layoutData>
+								            			</m:Text>
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+													<l:VerticalLayout>
+														<m:Text
+															text="การขอรับเงินช่วยเหลือบุตร" />
+														<m:Text
+															text=" " />
+														<m:Text
+															text=" " />
+													</l:VerticalLayout>	
+													<l:VerticalLayout>
+														<m:Text
+															text="15/01/2561" />
+														<m:Text
+															text=" " />
+														<m:Text
+															text=" " />
+													</l:VerticalLayout>
+													<l:VerticalLayout>
+														<m:Text
+															text="15/01/2561" />
+														<m:Text
+															text="15/01/2561" />
+														<m:Text
+															text="15/01/2561" />
+													</l:VerticalLayout>
+													<l:VerticalLayout>
+														<m:Text
+															text="10/01/2564" />
+														<m:Text
+															text="15/02/2569" />
+														<m:Text
+															text="15/02/2569" />
+													</l:VerticalLayout>
+													<l:VerticalLayout>
+														<m:Text
+															text="นายสมโชค ดังใจหมาย" />
+														<m:Text
+															text="ด.ช.สมศักดิ์ ดังใจหมาย" />
+														<m:Text
+															text="ด.ญ.สมฤทัย ดังใจหมาย" />
+													</l:VerticalLayout>
+													<l:VerticalLayout>		
+														<m:Text
+															text="1100500123456" />
+														<m:Text
+															text="1100500123455" />
+														<m:Text
+															text="1100500123454" />
+													</l:VerticalLayout>	
+													<l:VerticalLayout>	
+														<m:Text
+															text="500.00" />
+														<m:Text
+															text="500.00" />
+														<m:Text
+															text="500.00" />
+													</l:VerticalLayout>	
+													<l:VerticalLayout>	
+														<m:Text
+															text="1,500.00" />
+														<m:Text
+															text=" " />
+														<m:Text
+															text=" " />
+													</l:VerticalLayout>	
+													<l:VerticalLayout>
+														<m:Text
+															text="อนุมัติ" />
+														<m:Text
+															text=" " />
+														<m:Text
+															text=" " />
+													</l:VerticalLayout>	
+													<l:VerticalLayout>
+														<m:Text
+															text="17/01/2561" />
+														<m:Text
+															text=" " />
+														<m:Text
+															text=" " />
+													</l:VerticalLayout>	
+													<l:VerticalLayout>
+														<m:Button icon="sap-icon://search">
+														<m:layoutData>
+									                  			<l:GridData span="L1 M1 S1" />
+									                		</m:layoutData>
+								            			</m:Button>
+														<m:Text
+															text=" " >
+														<m:layoutData>
+									                  			<l:GridData span="L1 M2 S1" />
+									                		</m:layoutData>
+								            			</m:Text>
+														<m:Text
+															text=" " >
+														<m:layoutData>
+									                  			<l:GridData span="L1 M1 S1" />
+									                		</m:layoutData>
+								            			</m:Text>
+													</l:VerticalLayout>	
+													<l:VerticalLayout>	
+														<m:Button icon="sap-icon://edit">
+														<m:layoutData>
+									                  			<l:GridData span="L1 M1 S1" />
+									                		</m:layoutData>
+								            			</m:Button>
+														<m:Text
+															text=" " >
+															<m:layoutData>
+									                  			<l:GridData span="L1 M1 S1" />
+									                		</m:layoutData>
+								            			</m:Text>
+															<m:Text
+															text=" " >
+														<m:layoutData>
+									                  			<l:GridData span="L1 M1 S1" />
+									                		</m:layoutData>
+								            			</m:Text>
+													</l:VerticalLayout>
+													<l:VerticalLayout>	
+														<m:Button icon="sap-icon://delete">
+															<m:layoutData>
+									                  			<l:GridData span="L1 M1 S1" />
+									                		</m:layoutData>
+								            			</m:Button>
+														<m:Text
+															text=" " >
+														<m:layoutData>
+									                  			<l:GridData span="L1 M1 S1" />
+									                		</m:layoutData>
+								            			</m:Text>
+															<m:Text
+															text=" " >
+														<m:layoutData>
+									                  			<l:GridData span="L1 M1 S1" />
+									                		</m:layoutData>
+								            			</m:Text>
+													</l:VerticalLayout>			
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+										</f:content>
+									</f:SimpleForm>
+
+								</ObjectPageLazyLoader>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+
+
+				
+				
+				
+				
+
+
+			</sections>
+		</ObjectPageLayout>
+
+	<!-- </VBox>  -->
+</mvc:View>

@@ -1,0 +1,89 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.TE.PreBookTrainingRegistration"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="ลงทะเบียนฝึกอบรม"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสพนักงาน" text="10001" id="PERNR"/>
+				<m:ObjectStatus title="ชื่อ - นามสกุล" text="ดร.กษิภณ อภิมุขคุณานนท์" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" />
+				<m:ObjectStatus title="Email"
+					text="kasiphon.aphimukkhunanon@atos.net" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="ฝ่าย" text="ฝศร." />
+				<m:ObjectStatus title="ส่วน" text="" />
+				<m:ObjectStatus title="ปฏิบัติงานตำแหน่ง" text="ผู้อำนวยการฝ่าย" />
+				<m:ObjectStatus title="ประเภทตารางการทำงาน" text="ปกติ" />
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId" title="รายละเอียดหลักสูตร">
+						<blocks>
+							<ObjectPageLazyLoader id="shopOwnerLazyLoader">
+								<f:SimpleForm id="SimpleFormDisplay480_12120"
+									editable="true" layout="ResponsiveGridLayout" labelSpanXL="4"
+									labelSpanL="4" labelSpanM="4" labelSpanS="4" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+										<m:Label text="ชื่อหลักสูตร" />
+										<m:Input enabled="false" value="Excel ระดับกลาง" />
+
+										<m:Label text="สถานะหลักสูตร " />
+										<m:Input enabled="false" value="เปิดให้ลงทะเบียนแล้ว" />
+
+										<m:Label text="ข้อมูลหลักสูตร" />
+										<m:Input enabled="false" value="สอน Excel สำหรับใช้ในเองกร" />
+
+										<m:Label text="หลักสูตรที่จำเป็นต้องผ่านมาก่อน" />
+										<m:Input enabled="false" value="Excel พื้นฐาน" />
+
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopConfigurationId"
+						title="">
+						<blocks>
+							<ObjectPageLazyLoader id="shopConfigurationLazyLoader">
+								<f:SimpleForm title="" columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:content>
+										<l:VerticalLayout>
+											<l:HorizontalLayout>
+												<m:Button text="ลงทะเบียนหลักสูตร" class="sapUiTinyMargin"
+													id="regisBtn" press="onSendPressed"></m:Button>
+											</l:HorizontalLayout>
+										</l:VerticalLayout>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

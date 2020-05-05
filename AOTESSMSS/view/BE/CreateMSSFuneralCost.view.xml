@@ -1,0 +1,279 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.BE.CreateMSSFuneralCost"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified"
+	xmlns:mvc="sap.ui.core.mvc">
+	<!-- <VBox class="sapUiSmallMargin"> -->
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="การเบิกสวัสดิการในการจัดการงานศพ" objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId"
+						title="การเบิกสวัสดิการในการจัดการงานศพ">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<l:VerticalLayout>
+									<f:SimpleForm id="SimpleFormDisplay480_12120"
+										title="การเบิกสวัสดิการในการจัดการงานศพ" editable="true"
+										layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+										labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+										emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+										columnsXL="3" columnsL="3" columnsM="1"
+										singleContainerFullSize="false">
+
+										<f:toolbar>
+											<m:Toolbar>
+												<m:Title text="การเบิกสวัสดิการในการจัดการงานศพ"
+													level="H2" />
+												<m:ToolbarSpacer />
+												<m:Button icon="sap-icon://employee-approvals"
+													text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ"
+													press="onSendPressed" class="sapUiTinyMargin"></m:Button>
+												<m:Button icon="sap-icon://save" text="บันทึก" press="onSavePressed"
+													tooltip="บันทึก" class="sapUiTinyMargin"></m:Button>
+												<m:Button icon="sap-icon://cancel" text="ยกเลิก" press="onCancelPressed"
+													tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button>
+											</m:Toolbar>
+										</f:toolbar>
+
+										<f:content>
+											<core:Title text=""
+												class="sapUiSmallMarginBeginEnd" />
+											<m:Label text="เลขที่คำขอ" />
+											<m:Input value="" enabled="false" id="rqust"
+												class="sapUiContentPadding">
+												<m:layoutData>
+													<l:GridData span="L8 M8 S8" />
+												</m:layoutData>
+											</m:Input>
+
+											<m:Label text="วันที่ขอ" />
+											<m:Input value="" enabled="false" id="rqdat"
+												class="sapUiContentPadding">
+												<m:layoutData>
+													<l:GridData span="L8 M8 S8" />
+												</m:layoutData>
+											</m:Input>
+
+											<m:Label text="ประเภทการเบิก" required="true" />
+											<m:Select selectedKey="เบิกโดยผู้บังคับบัญชา"
+												enabled="false">
+												<m:items>
+													<core:Item text="เบิกโดยผู้บังคับบัญชา"
+														key="เบิกโดยผู้บังคับบัญชา" />
+												</m:items>
+											</m:Select>
+
+											<m:Label text="ชื่อพนักงาน" />
+											<m:Input value="" id="EMPNM" enabled="false" />
+
+											<m:Label text="รหัสพนักงาน" />
+											<m:Input value="" enabled="false" id="PERNO" change="onEmpchange">
+												<m:layoutData>
+													<l:GridData span="XL3 L3 M3 S3" />
+												</m:layoutData>
+											</m:Input>
+											<m:Button icon="sap-icon://search" press="searchEmp"/>
+
+											<core:Title text="" class="Col2" />
+
+											<m:Label text="เบิกให้" required="true" />
+											<m:Select selectedKey="ผู้ใช้สิทธิ์" id="ELCLP" items="{path: 'elclpItem>/List'}" change="onChangeelclp">
+												<m:items>
+													<core:Item text="{elclpItem>text}" key="{elclpItem>key}" />
+												</m:items>
+											</m:Select>
+
+											<m:Label text="ชื่อผู้ที่เบิกให้" required="true" />
+											<m:Select selectedKey="" items="{path: 'perItem>/List'}" id="perItem" change="onChangeChield">
+												<m:items>
+													<core:Item text="{perItem>text}" key="{perItem>key}" />
+												</m:items>
+											</m:Select>
+
+											<m:Label text="วันเดือนปีเกิด" required="true" />
+											<m:DatePicker displayFormat="dd/MM/yyyy"
+												valueFormat="dd/MM/yyyy" value="" id="FGBDT"
+												change="handleChange" width="50%" enabled="false" />
+
+											<m:Label text="อายุ" />
+											<m:Input value="" enabled="false" id="AGE" />
+
+											<m:Label text="วันที่เสียชีวิต" />
+											<m:DatePicker displayFormat="dd/MM/yyyy" id="RCDAT"
+												valueFormat="dd/MM/yyyy" value=""
+												change="handleChange" width="50%"  />
+
+											<m:Label text="สาเหตุ" required="true" />
+											<m:Input value="" id="reason" />
+											
+											<m:Label text="ใบเสร็จค่าพวงหรีด" />
+											<m:Input id="RCPNO" />
+
+											<core:Title text="" class="Col3" />
+
+											<m:Label text="" />
+											<m:Text text="ข้อมูลผู้จัดการศพ" />
+
+											<m:Label text="ความสัมพันธ์" required="true" />
+											<m:Input value="" id="relat" />
+
+											<m:Label text="ประเภทการจ่าย" />
+											<m:Select selectedKey="เช็ค" enabled="false">
+												<m:items>
+													<core:Item text="โอนเข้าบัญชีธนาคาร"
+														key="โอนเข้าบัญชีธนาคาร" />
+													<core:Item text="เช็ค" key="เช็ค" />
+												</m:items>
+											</m:Select>
+
+											<m:Label text="A/C Payee" required="true" />
+											<m:Input value="" id="payee" />
+
+										</f:content>
+									</f:SimpleForm>
+
+									<f:SimpleForm title="" editable="true"
+										layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+										labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+										emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+										columnsXL="3" columnsL="3" columnsM="1"
+										singleContainerFullSize="false">
+										<m:Label text=""></m:Label>
+										<m:Text text=""></m:Text>
+									</f:SimpleForm>
+
+									<f:SimpleForm title="" editable="true"
+										layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+										labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+										emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+										columnsXL="3" columnsL="3" columnsM="1"
+										singleContainerFullSize="false">
+
+										<m:Table inset="false">
+
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:Title text="รายการสวัสดิการ" level="H2" />
+													<m:ToolbarSpacer />
+												</m:Toolbar>
+											</m:headerToolbar>
+
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="รายการสวัสดิการ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="จำนวนเงิน" level="H2" />
+												</m:Column>
+
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="ค่าทำศพ" />
+														<m:Input value="" enabled="false" id="amt1" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="ค่าสวดพระอภิธรรม" />
+														<m:Input value="" enabled="false" id="amt2" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="ค่าพวงหรีด" />
+														<m:Input value="" id="amt3" change="inputAmt"/>
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="ยอดได้สุทธิ" />
+														<m:Input value="" enabled="false" id="amt4" />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:SimpleForm>
+
+								</l:VerticalLayout>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="เอกสารแนบ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+										<core:Title text="" />
+										<m:Label text="ใบมรณะบัตร" required="true"
+											labelFor="fileUploader22" />
+										<u:FileUploader name="myFileUpload1"
+										buttonText="แนบเอกสาร"  maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file01"
+											uploadUrl="upload/" placeholder=""
+											uploadComplete="handleUploadComplete" width="50%" />
+											
+										<m:Label text="ใบเสร็จค่าพวงหรีด " labelFor="fileUploader24" />
+										<u:FileUploader name="myFileUpload1"
+										buttonText="แนบเอกสาร"  maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file02"
+											uploadUrl="upload/" placeholder=""
+											uploadComplete="handleUploadComplete" width="50%" />
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+		</sections>
+	</ObjectPageLayout>
+
+	<!-- </VBox> -->
+</mvc:View>

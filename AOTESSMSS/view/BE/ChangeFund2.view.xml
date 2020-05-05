@@ -1,0 +1,240 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.BE.ChangeFund2"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:t="sap.ui.table" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified">
+
+	<ObjectPageLayout>
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="แก้ไขเงินสะสมและกองทุน"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="วันที่จ้างงาน"
+					text="" />
+				<m:ObjectStatus title="วันที่บรรจุ" text="" />
+			</l:VerticalLayout>
+			
+			<l:VerticalLayout>
+				<m:ObjectStatus title="สถานภาพ"
+					text="" />
+			</l:VerticalLayout>
+
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="ผู้รับผลประโยชน์">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" title="กองทุนสะสม"
+									LabelSpanXL="4" LabelSpanL="4" LabelSpanM="4" LabelSpanS="4"
+									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3"
+									columnsM="3" singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:Title
+												text="" />
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://employee-approvals"
+												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ" press="onSendPress"
+												class="sapUiTinyMargin"></m:Button>
+<!-- 											<m:Button icon="sap-icon://save" text="บันทึก" -->
+<!-- 												tooltip="บันทึก" class="sapUiTinyMargin"></m:Button> -->
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก" press="onCancelPressed"
+												tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button>
+<!-- 											<m:Button icon="sap-icon://save" text="บันทึก" -->
+<!-- 												tooltip="บันทึก" class="sapUiTinyMargin"></m:Button> -->
+<!-- 											<m:Button icon="sap-icon://cancel" text="ยกเลิก" -->
+<!-- 												tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button> -->
+										</m:Toolbar>
+									</f:toolbar>
+									<f:content>
+										<core:Title text="" />
+										<m:Label text="หมายเลขเงินเดือน" />
+										<m:Input value="" type="SalaryNo" id="empno"
+											enabled="false">
+											<m:layoutData>
+												<l:GridData span="XL3 L3 M3 S3" />
+											</m:layoutData>
+										</m:Input>
+										<m:Input value="" type="EmployeeName" id="empname" 
+											enabled="false" />
+										<m:Label text="สังกัด" />
+										<m:Input value="" id="org"
+											type="DepartmentName" enabled="false" />
+										<m:Label text="ขอเปลี่ยนผู้รับผลประโยชน์" />
+										<m:Input value="ในช่วงเดือน สิงหาคม มีผลเดือนตุลาคม " id="policy"
+											enabled="false" />
+<!-- 										<m:Label text="ผู้รับผลประโยชน์" required="true" /> -->
+<!-- 										<m:Select id="ZZPCY" items="{path: 'policyItem>/List'}"> -->
+<!-- 											<m:items> -->
+<!-- 												<core:Item text="{policyItem>chtxt}" key="{policyItem>choice}" /> -->
+<!-- 											</m:items> -->
+<!-- 										</m:Select> -->
+<!-- 										<m:Label text="อัตราสะสม" required="true" /> -->
+<!-- 										<m:Input value="" id="EMEPC" -->
+<!-- 											type="AccumulationRate" Description="%"> -->
+<!-- 											<m:layoutData> -->
+<!-- 												<l:GridData span="XL2 L2 M2 S2" /> -->
+<!-- 											</m:layoutData> -->
+<!-- 										</m:Input> -->
+<!-- 										<m:Text text="%" /> -->
+
+
+										<core:Title text="" />
+										<m:Label text="ตำแหน่ง" />
+										<m:Input value="" type="PositionName" id="plans"
+											enabled="false" />
+
+<!-- 										<m:Label text="สถานะ" /> -->
+<!-- 										<m:Input value="" -->
+<!-- 											type="PositionStatus" enabled="false" id="status" /> -->
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="ผู้ได้รับผลประโยชน์">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" title="" labelSpanXL="4"
+									labelSpanL="4" labelSpanM="4" labelSpanS="4"
+									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2"
+									columnsM="2" singleContainerFullSize="false">
+									<f:content>
+										<m:Table id="idProductsTable2" inset="false">
+											<m:headerToolbar>
+												<m:OverflowToolbar>
+													<m:content>
+														<m:ToolbarSpacer />
+<!-- 														<m:Button id="addUserButton" -->
+<!-- 															icon="sap-icon://add" press="onAddPress" /> -->
+<!-- 														<m:Button id="deleteUserButton" -->
+<!-- 															icon="sap-icon://delete" press="onDelete" /> -->
+														<!-- <Button id="addUserButton" icon="sap-icon://add" tooltip="" 
+															enabled="{= !${appView>/hasUIChanges}}" press="onCreate" text="เพิ่ม"> <layoutData> 
+															<OverflowToolbarLayoutData priority="NeverOverflow"/> </layoutData> </Button> 
+															<Button id="deleteUserButton" icon="sap-icon://delete" tooltip="" enabled="{= 
+															!${appView>/hasUIChanges}}" press="onDelete" text="ลบ"> <layoutData> <OverflowToolbarLayoutData 
+															priority="NeverOverflow"/> </layoutData> </Button> -->
+
+
+													</m:content>
+												</m:OverflowToolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column>
+													<m:Text text="ลำดับ" />
+												</m:Column>
+												<m:Column>
+													<m:Text text="ชื่อผู้รับผลประโยชน์" />
+												</m:Column>
+												<m:Column>
+													<m:Text text="เลขที่บัตรประชาชน" />
+												</m:Column>
+												<m:Column>
+													<m:Text text="ความสัมพันธ์" />
+												</m:Column>
+												<m:Column>
+													<m:Text text="ร้อยละ" />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Input value="1" enabled="false" />
+														<m:Input value="" id="p1" />
+														<m:Input value="" id="i1" liveChange="onMax13" />
+														<m:Input value="" id="s1" />
+														<m:Input value="" description="%" id="v1" liveChange="onMax3" Change="onMax3" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Input value="2" enabled="false" />
+														<m:Input value="" id="p2" />
+														<m:Input value="" id="i2" liveChange="onMax13" />
+														<m:Input value="" id="s2" />
+														<m:Input value="" description="%" id="v2" liveChange="onMax3" Change="onMax3"  />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Input value="3" enabled="false" />
+														<m:Input value="" id="p3" />
+														<m:Input value="" id="i3" liveChange="onMax13" />
+														<m:Input value="" id="s3" />
+														<m:Input value="" description="%" id="v3" liveChange="onMax3" Change="onMax3"  />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Input value="4" enabled="false" />
+														<m:Input value="" id="p4" />
+														<m:Input value="" id="i4" liveChange="onMax13" />
+														<m:Input value="" id="s4" />
+														<m:Input value="" description="%" id="v4" liveChange="onMax3" Change="onMax3"  />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Input value="5" enabled="false" />
+														<m:Input value="" id="p5" />
+														<m:Input value="" id="i5" liveChange="onMax13" />
+														<m:Input value="" id="s5" />
+														<m:Input value="" description="%" id="v5" liveChange="onMax3" Change="onMax3"  />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			
+			
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

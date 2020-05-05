@@ -1,0 +1,32 @@
+﻿{
+	"LeaveTypes": [
+		{
+			"TypeId": "1",
+			"TypeName": "à¸¥à¸²à¸�à¸´à¸ˆ"
+		}
+		],
+	"LeaveTimes": [
+		{
+			"TimeId": "0",
+			"TimeName": "เลือก"
+		},
+		{
+			"TimeId": "1",
+			"TimeName": "เต็มวัน"
+		},
+		{
+			"TimeId": "2",
+			"TimeName": "ครึ่งเช้า"
+		},
+		{
+			"TimeId": "3",
+			"TimeName": "ครึ่งบ่าย"
+		}
+		],
+	"Employees":[
+		{
+			"empId" : "456411",
+			"empName" : "นาย ณัฐพงษ์(TM-K) ชนะโชติ"
+		}
+		]
+}

@@ -1,0 +1,286 @@
+﻿{
+	"navigation": [
+		{
+			"title": "หน้าแรก",
+			"icon": "sap-icon://home",
+			"expanded": true,
+			"key": "home"
+		},
+		{
+			"title": "รายการคำขอ",
+			"icon": "sap-icon://home",
+			"expanded": true,
+			"key": "worklist"
+		},
+		{
+			"title": "ข้อมูลบุคคล",
+			"icon": "sap-icon://request",
+			"key": "home",
+			"items": [
+				{
+					"title": "ข้อมูลของฉัน",
+					"key": "PA/myInfo",
+					"items": [
+						{
+							"title": "XX"
+						}
+					]
+				},
+				{
+					"title": "ใบคำร้องขอแก้ไขข้อมูลส่วนตัว",
+					"key": "PA/editMyInfo"
+				},
+				{
+					"title": "ใบคำร้องขอแก้ข้อมูลสถานภาพ",
+					"key": "PA/maritalStatus"
+				},
+				{
+					"title": "ใบคำร้องขอแก้ไขที่อยู่ตามทะเบียนบ้าน",
+					"key": "PA/address"
+				},
+				{
+					"title": "ใบคำร้องขอแก้ไขที่อยู่ปัจจุบัน",
+					"key": "PA/createCurrentAddress"
+				},
+				{
+					"title": "ใบคำร้องขอแก้ไขข้อมูลบิดา",
+					"key": "PA/father"
+				},
+				{
+					"title": "ใบคำร้องขอแก้ไขข้อมูลมารดา",
+					"key": "PA/mother"
+				},
+				{
+					"title": "ใบคำร้องขอแก้ไขข้อมูลคู่สมรส",
+					"key": "PA/spouse"
+				},
+				{
+					"title": "ใบคำร้องขอเพิ่มประวัติการศึกษา",
+					"key": "PA/addEducation"
+				}
+			]
+		},
+		{
+			"title": "จัดการเวลาและการลา",
+			"icon": "sap-icon://general-leave-request",
+			"key": "home",
+			"items": [
+				{
+					"title": "สร้างใบลา",
+					"key": "TM/leaveDetail"
+				},
+				{
+					"title": "ตรวจสอบสิทธิการลา",
+					"key": "TM/myLeave"
+				},
+				{
+					"title": "ประวัติการจัดการเวลา",
+					"key": "TM/leaveHistory"
+				},
+				{
+					"title": "ขออนุมัติทำงานล่วงเวลา",
+					"key": "TM/otRequest"
+				},
+				{
+					"title": "การเปลี่ยนกะ",
+					"key": "TM/changeShift"
+				},
+				{
+					"title": "การเปลี่ยนเวร",
+					"key": "TM/changeTurn"
+				},
+				{
+					"title": "รายงานสรุปการทำงาน",
+					"key": "TM/timesheet"
+				}
+			]
+		},
+		{
+			"title": "ระบบสวัสดิการ",
+			"icon": "sap-icon://family-care",
+			"key": "home",
+			"items": [
+				{
+					"title": "สิทธิ์และประวัติการเบิก",
+					"key": "BE/benefitHistory"
+				},
+				{
+					"title": "เบิกเงินค่ารักษาพยาบาล",
+					"key": "BE/medicalBenefit"
+				},
+				{
+					"title": "เบิกเงินค่าเล่าเรียนบุตร",
+					"key": "BE/createStudentTuitionfee"
+				},
+				{
+					"title": "เบิกเงินค่าช่วยเหลือบุตร",
+					"key": "BE/childrenAllowanceType1"
+				},
+				{
+					"title": "เบิกเงินค่าช่วยเหลือบุตรกรณีทดแทน",
+					"key": "BE/childrenAllowanceTypeO"
+				},
+				{
+					"title": "ขอรับทุนการศึกษาบุตร",
+					"key": "BE/createScholarship"
+				},
+				{
+					"title": "เบิกเงินช่วยเหลือการจัดการศพ",
+					"key": "BE/createFuneralCost"
+				},
+				{
+					"title": "ผู้รับผลประโยชน์ค่าทำศพ",
+					"key": "BE/beneficiaryFuneralCost"
+				},
+				{
+					"title": "สำรวจเครื่องแบบพนักงาน",
+					"key": "BE/createUniform"
+				},
+				{
+					"title": "จัดการเงินสะสมและกองทุน",
+					"key": "BE/mainPageFund"
+				},
+				{
+					"title": "เบิกสวัสดิการอื่นๆ",
+					"key": "BE/createOtherBenefit"
+				},
+				{
+					"title": "พิมพ์ใบนำส่งเอกสาร",
+					"key": "BE/generateRequest"
+				},
+				{
+					"title": "รายงานสวัสดิการ",
+					"key": "BE/benefitReport"
+				}
+			]
+		},
+		{
+			"title": "การฝึกอบรมและสัมมนา",
+			"icon": "sap-icon://e-learning",
+			"key": "home",
+			"items": [
+				{
+					"title": "ลงทะเบียนฝึกอบรม",
+					"key": "TE/trainingList"
+				},
+				{
+					"title": "แบบสำรวจความต้องการฝึกอบรม",
+					"key": "TE/preBookTrainingList"
+				},
+				{
+					"title": "ประวัติการฝึกอบรม",
+					"key": "TE/trainingHistory"
+				},
+				{
+					"title": "แผนพัฒนาบุคคลประจำปี",
+					"key": "TE/trainingPlan"
+				}
+			]
+		},
+		{
+			"title": "ผลการประเมิน",
+			"icon": "sap-icon://add-activity",
+			"key": "home",
+			"items": [
+				{
+					"title": "ผลการประเมินการปฏิบัติงาน",
+					"key": "PD/jobAppraisal"
+				},
+				{
+					"title": "ผลการประเมินด้วยตัวชี้วัด(KPI)",
+					"key": "PD/kPI"
+				}
+			]
+		},
+		{
+			"title": "ระบบเงินเดือน",
+			"icon": "sap-icon://money-bills",
+			"key": "home",
+			"items": [
+				{
+					"title": "เรียกดูใบแจ้งเงินได้ (Payslip)",
+					"key": "PY/salary"
+				},
+				{
+					"title": "เรียกดูหนังสือรับรองภาษี",
+					"key": "PY/taxYearReport"
+				},
+				{
+					"title": "การบันทึกข้อมูลลดหย่อนภาษีฯ",
+					"key": "PY/taxBreak"
+				}
+			]
+		},
+		{
+			"title": "MSS",
+			"icon": "sap-icon://manager",
+			"key": "home",
+			"items": [
+				{
+					"title": "การลงทะเบียนพนักงานเข้ารับการฝึกอบรม",
+					"key": "TE/trainingAssignList"
+				},
+				{
+					"title": "ประวัติการฝึกอบรมของพนักงาน",
+					"key": "TE/searchTrainingHistory"
+				},
+				{
+					"title": "เบิกค่าทำศพพนักงาน",
+					"key": "BE/createMSSFuneralCost"
+				},
+				{
+					"title": "อนุมัติจ่ายค่าล่วงเวลา/ค่าเวร/ค่ากะ",
+					"key": "TM/OTheader"
+				}
+			]
+		},
+		{
+			"title": "HR Administion",
+			"icon": "sap-icon://employee",
+			"key": "HR SAP GUI",
+			"items": [
+				{
+					"title": "นำเข้าแผนพัฒนาบุคคลประจำปี",
+					"key": "TE/inputTrainingPlan"
+				},
+				{
+					"title": "ปรับเปลี่ยนระยะเวลาการขอรับทุนการศึกษาบุตร",
+					"key": "BE/timeScholarship"
+				},
+				{
+					"title": "ปรับเปลี่ยนระยะเวลาการสำรวจเครื่องแบบพนักงาน",
+					"key": "BE/timeUniform"
+				},
+				{
+					"title": "ปรับเปลี่ยนระยะเวลาเงินสะสมและกองทุน",
+					"key": "BE/timeMainPageFund"
+				}
+			]
+		}
+	],
+	"fixedNavigation": [
+		{
+			"title": "คำถามที่พบบ่อย/ช่วยเหลือ",
+			"icon": "sap-icon://chain-link",
+			"expanded": true,
+			"key": "question"
+		}
+	],
+	"masterSettings": [
+		{
+			"title": "15/09/2017 - 17/09/2017 (In progress)",
+			"key": "systemSettings",
+			"selected": true
+		},
+		{
+			"title": "01/08/2017 - 02/08/2017 (Completed)",
+			"key": "systemSettings",
+			"selected": false
+		},
+		{
+			"title": "11/07/2017 - 12/07/2017 (Completed)",
+			"key": "systemSettings",
+			"selected": false
+		}
+	]
+}

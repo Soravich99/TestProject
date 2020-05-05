@@ -1,0 +1,1193 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.BE.ApproveMedicalBenefit"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified"
+	xmlns:t="sap.ui.table" xmlns:mvc="sap.ui.core.mvc">
+	<!-- <VBox class="sapUiSmallMargin"> -->
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="อนุมัติการเบิกค่ารักษาพยาบาล" objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="วันที่จ้างงาน"
+					text="" />
+				<m:ObjectStatus title="วันที่บรรจุ" text="" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="สถานภาพ" text="" />
+				<m:ObjectStatus title="วันที่สมรส/หย่า"
+					text="" />
+				<m:ObjectStatus title="คู่สมรส"
+					text="" />
+				<m:ObjectStatus title="อาชีพคู่สมรส" text="" />
+				<m:ObjectStatus title="สถานที่ทำงาน"
+					text="" />
+			</l:VerticalLayout>
+		</headerContent>
+
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerIdasq"
+						title="ขอเบิกค่ารักษาพยาบาล">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+
+								<f:SimpleForm id="SimpleFormDisplay480_12120asd"
+									title="ขอเบิกค่ารักษาพยาบาล" editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="4" labelSpanS="4" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://employee-approvals" visible="false"
+												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ" press="onSendPressed" id="btnSend"
+												class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://edit"
+												text="แก้ไข" tooltip="แก้ไข"  id="btnEdit" visible="false"
+												press="onEditPressed" class="sapUiTinyMargin"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+									
+									<f:content>
+										<core:Title text=""
+											class="sapUiSmallMarginBeginEnd" />
+										<m:Label text="เลขที่คำขอ" />
+										<m:Input value="" enabled="false" id="RQUST"/>
+										<m:Label text="วันที่ขอ" />
+										<m:Input value="" enabled="false" id="RQDAT"/>
+
+										<m:Label text="ประเภทการเบิก" />
+										<m:Select selectedKey="ประเภทการเบิก" change="onChange" id="CLMTY" enabled="false">
+
+											<m:items>
+												<core:Item text="ประเภทการเบิก"  
+													key="ประเภทการเบิก" />
+												<core:Item key="1" text="รัฐบาล" />
+												<core:Item key="2" text="เอกชน" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="เลือกประเภทการเบิก" />
+										<m:Select id="SUBTY" selectedKey="เลือกประเภท" enabled="false">
+											<m:items>
+												<core:Item text="เลือกประเภท" key="เลือกประเภท" />
+												<core:Item key="0001" text="ผู้ป่วยนอก (OPD)" />
+												<core:Item key="0002" text="ผู้ป่วยใน (IPD)" />
+												<core:Item key="0003" text="ยาหรืออุปกรณ์ตามใบสั่งของ รพ./ทอท." />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="" />
+										<m:Input value="เบิก" enabled="false" />
+
+										<m:Label text="เบิกให้"  />
+										<m:Select selectedKey="ผู้เบิกให้" id="ELCLP" enabled="false" change="onELCLPChange" items="{path: 'elclpItem>/List'}" >
+											<m:items>
+												<core:Item text="{elclpItem>text}" key="{elclpItem>key}" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="ชื่อ" />
+										<m:Select id="FAMSA" items="{path: 'perItem>/List'}" change="onChangeChield"
+											selectedKey="" enabled="false">
+											<m:items>
+												<core:Item text="{perItem>text}" key="{perItem>key}" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="อาชีพ" />
+										<m:Input value="" type="PositionName"
+											enabled="" id="JOBTL"/>
+
+										<m:Label text="วัน เดือน ปี เกิด" />
+										<m:Input value="" type="PositionName"
+											enabled="false" id="FGBDT"/>
+
+										<m:Label text="อายุ" />
+										<m:Input value="" type="PositionName" id="AGE"
+											enabled="false" />
+										<m:Text text="ปี" />
+
+
+
+										<core:Title text="" class="Col2" />
+
+										<m:Label text="Reference No." />
+										<m:Input value="" id="VSTNO" enabled="false"></m:Input>
+
+
+										<m:Label text="สถานพยาบาล" />
+										<m:Select id="HTYPE" selectedKey="โรงพยาบาล" enabled="false" change="onHgroup" >
+											<m:items>
+												<core:Item text="เลือก" key="00" />
+												<core:Item text="โรงพยาบาล" key="01" />
+												<core:Item text="คลีนิก" key="02" />
+												<core:Item text="สถานีอนามัย" key="03" />
+												<core:Item text="หน่วยงานการแพทย์ ทอท." key="04" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="ชื่อสถานพยาบาล" />
+										<m:Select id="HNAME" items="{path: 'hosItem>/List'}" enabled="false" 
+											selectedKey="ชื่อโรงพยาบาล">
+											<m:items>
+												<core:Item text="{hosItem>hname}" key="{hosItem>hcode}" />
+											</m:items>
+										</m:Select>
+										<m:Label text="" />
+										<m:Button icon="sap-icon://search" press="searchEmp" id="btnSrc1" enabled="false"  />
+
+										<m:Label text="สถานพยาบาลอื่นๆ" />
+										<m:Input id="OTHTY" value="" enabled="false"></m:Input>
+
+										<m:Label text="โรค" />
+										<m:Select selectedKey="เลือก" id="DSESE" items="{path: 'dseseItem>/List'}" enabled="false" >
+											<m:items>
+												<core:Item text="{dseseItem>dstxt}" key="{dseseItem>dsese}" />
+											</m:items>
+										</m:Select>
+										<m:Label text="" />
+										<m:Button icon="sap-icon://search" press="searchDSG" id="btnSrc2" enabled="false" />
+										<m:Input id="OTDSE" value="" enabled="false" />
+
+										<m:Label text="กลุ่มโรค" visible="false" />
+										<m:Select selectedKey="เลือก" enabled="false" id="DSGRP" visible="false">
+											<m:items>
+												<core:Item text="เลือก" key="เลือก" />
+												<core:Item text="โรคที่เกี่ยวกับระบบทางเดินอาหาร" key="โรคที่เกี่ยวกับระบบทางเดินอาหาร" />
+												<core:Item text="โรคผิวหนัง" key="โรคผิวหนัง" />
+												<core:Item text="ไข้หวัด" key="ไข้หวัด" />
+												<core:Item text="อื่นๆ" key="อื่นๆ" />
+											</m:items>
+										</m:Select>
+										<m:Input id="OTDSG" value="" enabled="false" visible="false" />
+
+										<core:Title text="" class="Col3" />
+
+										<m:Label text="ใบเสร็จเลขที่" />
+										<m:Input value="61-3922201" type="PositionName" id="RCPT1"
+											enabled="false" />
+
+										<m:Label text="วันที่ใบเสร็จ" />
+										<m:DatePicker id="RCDAT"
+											displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy"
+											value="20/11/2561" change="handleChange" enabled="false" />
+
+										<m:Label text="วันที่รักษา" />
+										<m:DatePicker  id="TBDAT"
+											displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy" enabled="false"
+											value="วัน/เดือน/ปี  " />
+										<m:DatePicker  id="TEDAT"
+											displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy" enabled="false"
+											value="วัน/เดือน/ปี  " />
+
+										<m:Label text="รวม" />
+										<m:Input value="1" type="PositionName" enabled="false" id="TDAYS"/>
+										<m:Text text="วัน" />
+
+
+
+									</f:content>
+								</f:SimpleForm>
+
+
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="tab01"
+						title="รายการรักษาพยาบาล(รัฐบาล)">
+						<blocks>
+							<ObjectPageLazyLoader>
+
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+										<m:Table inset="false" id="idTab01">
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:ToolbarSpacer />
+													<m:Button icon="sap-icon://add" text="เพิ่ม" press="onAdd" id="btnAdd"
+														tooltip="เพิ่ม" class="sapUiTinyMargin"></m:Button>
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="รายการรักษา" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="ยอดเงินตามใบเสร็จ (เบิกได้)" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="ยอดเงินตามใบเสร็จ (เบิกไม่ได้)" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="จำนวน(วัน/ครั้ง/ชิ้น)" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="เบิกได้ตามสิทธิ์" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="เบิกไม่ได้ตามสิทธิ์" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="หมายเหตุ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="ลบ" level="H2" />
+												</m:Column>
+											</m:columns>
+<!-- 											<m:items> -->
+<!-- 												<m:ColumnListItem> -->
+<!-- 													<m:cells> -->
+<!-- 														<m:Select selectedKey="ค่ารักษาและอื่นๆ" id="ETTYP03" -->
+<!-- 															enabled="false"> -->
+<!-- 															<m:items> -->
+<!-- 																<core:Item text="ค่ารักษา และ อื่นๆ" -->
+<!-- 																	key="ค่ารักษาและอื่นๆ" /> -->
+<!-- 																<core:Item text="ค่ารักษา" /> -->
+<!-- 																<core:Item text="หัตถการ" /> -->
+<!-- 																<core:Item text="อุปกรณ์" /> -->
+<!-- 																<core:Item text="ยา" /> -->
+<!-- 															</m:items> -->
+<!-- 														</m:Select> -->
+
+<!-- 														<m:Input value="32,323.00" enabled="false" id="REAMT03"/> -->
+<!-- 														<m:Input value="1,800.00" enabled="false" id="RIAMT03"/> -->
+<!-- 														<m:Input value="" enabled="false" id="CLEAMT03"/> -->
+<!-- 														<m:Input value="" enabled="false" id="CLEAMT103"/> -->
+<!-- 														<m:TextArea value="" enabled="false" id="RMRK103"/> -->
+<!-- 													</m:cells> -->
+<!-- 												</m:ColumnListItem> -->
+<!-- 												<m:ColumnListItem> -->
+<!-- 													<m:cells> -->
+<!-- 														<m:Select selectedKey="ค่ารักษา" id="ETTYP103"> -->
+<!-- 															<m:items> -->
+<!-- 																<core:Item text="ค่ารักษา และ อื่นๆ" /> -->
+<!-- 																<core:Item text="ค่ารักษา" key="ค่ารักษา" /> -->
+<!-- 																<core:Item text="หัตถการ" /> -->
+<!-- 																<core:Item text="อุปกรณ์" /> -->
+<!-- 																<core:Item text="ยา" /> -->
+<!-- 															</m:items> -->
+<!-- 														</m:Select> -->
+
+<!-- 														<m:Input value="" enabled="false" id="REAMT103"/> -->
+<!-- 														<m:Input value="" enabled="false" id="RIAMT103"/> -->
+<!-- 														<m:Input value="20,000.00" id="CLEAMT203"/> -->
+<!-- 														<m:Input value="" id="CLEAMT303"/> -->
+<!-- 														<m:TextArea value="" id="RMRK203"/> -->
+<!-- 													</m:cells> -->
+<!-- 												</m:ColumnListItem> -->
+<!-- 												<m:ColumnListItem> -->
+<!-- 													<m:cells> -->
+<!-- 														<m:Select selectedKey="หัตถการ" id="ETTYP203"> -->
+<!-- 															<m:items> -->
+<!-- 																<core:Item text="ค่ารักษา และ อื่นๆ" /> -->
+<!-- 																<core:Item text="ค่ารักษา" /> -->
+<!-- 																<core:Item text="หัตถการ" key="หัตถการ" /> -->
+<!-- 																<core:Item text="อุปกรณ์" /> -->
+<!-- 																<core:Item text="ยา" /> -->
+<!-- 															</m:items> -->
+<!-- 														</m:Select> -->
+
+<!-- 														<m:Input value="" enabled="false" id="REAMT203"/> -->
+<!-- 														<m:Input value="" enabled="false" id="RIAMT203"/> -->
+<!-- 														<m:Input value="2,000.00" id="CLEAMT403"/> -->
+<!-- 														<m:Input value="1,200.00" id="CLEAMT503"/> -->
+<!-- 														<m:TextArea value="" id="RMRK303"/> -->
+<!-- 													</m:cells> -->
+<!-- 												</m:ColumnListItem> -->
+<!-- 												<m:ColumnListItem> -->
+<!-- 													<m:cells> -->
+<!-- 														<m:Select selectedKey="อุปกรณ์" id="ETTYP303"> -->
+<!-- 															<m:items> -->
+<!-- 																<core:Item text="ค่ารักษา และ อื่นๆ" /> -->
+<!-- 																<core:Item text="ค่ารักษา" /> -->
+<!-- 																<core:Item text="หัตถการ" /> -->
+<!-- 																<core:Item text="อุปกรณ์" key="อุปกรณ์" /> -->
+<!-- 																<core:Item text="ยา" /> -->
+<!-- 															</m:items> -->
+<!-- 														</m:Select> -->
+
+<!-- 														<m:Input value="" enabled="false" id="REAMT303"/> -->
+<!-- 														<m:Input value="" enabled="false" id="RIAMT303"/> -->
+<!-- 														<m:Input value="10,000.00" id="CLEAMT603" /> -->
+<!-- 														<m:Input value="" id="CLEAM703"/> -->
+<!-- 														<m:TextArea value="" id="RMRK403"/> -->
+<!-- 													</m:cells> -->
+<!-- 												</m:ColumnListItem> -->
+					
+<!-- 												<m:ColumnListItem> -->
+<!-- 													<m:cells> -->
+<!-- 														<m:Text text="รวม" /> -->
+<!-- 														<m:Text text="32,323.00" /> -->
+<!-- 														<m:Text text="1,800.00" /> -->
+<!-- 														<m:Text text="32,000" /> -->
+<!-- 														<m:Text text="1,200.00" /> -->
+<!-- 														<m:Text text="" /> -->
+<!-- 													</m:cells> -->
+<!-- 												</m:ColumnListItem> -->
+<!-- 											</m:items> -->
+										</m:Table>
+										<m:Label text="" />
+										<m:Text value="" />
+
+
+										<m:Label text="เบิกได้ตามสิทธิ์" />
+										<m:Input value="" enabled="false" id="ANZHL03" />
+										<m:Text text="บาท" />
+
+										<m:Label text="เบิกไม่ได้ตามสิทธิ์" />
+										<m:Input value="" enabled="false" id="SMAMT03" />
+										<m:Text text="บาท" />
+										
+										<m:Label text="จ่ายพนักงาน " />
+										<m:Input value="" enabled="false" id="ANZHL03X" />
+										<m:Text text="บาท" />
+
+										<m:Label text="เกินสิทธิ์" />
+										<m:Input value="" enabled="false" id="SMAMT03X" />
+										<m:Text text="บาท" />
+										
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="tab02"
+						title="รายการรักษาพยาบาล(เอกชน)">
+						<blocks>
+							<ObjectPageLazyLoader>
+
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+										<m:Table inset="false" id="idTab02">
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:ToolbarSpacer />
+													<m:Button icon="sap-icon://add" text="เพิ่ม" press="onAdd" id="btnAdd2"
+														tooltip="เพิ่ม" class="sapUiTinyMargin"></m:Button>
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="รายการรักษา" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="ยอดเงินตามใบเสร็จ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="จำนวน(วัน/ครั้ง/ชิ้น)" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="เบิกได้ตามสิทธิ์" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="เบิกไม่ได้ตามสิทธิ์" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="หมายเหตุ" level="H2" />
+												</m:Column>
+											</m:columns>
+<!-- 											<m:items> -->
+<!-- 												<m:ColumnListItem> -->
+<!-- 													<m:cells> -->
+<!-- 														<m:Select selectedKey="ค่ารักษาและอื่นๆ" id="ETTYP04" -->
+<!-- 															enabled="false"> -->
+<!-- 															<m:items> -->
+<!-- 																<core:Item text="ค่ารักษา และ อื่นๆ" -->
+<!-- 																	key="ค่ารักษาและอื่นๆ" /> -->
+<!-- 																<core:Item text="ค่ารักษา" /> -->
+<!-- 																<core:Item text="หัตถการ" /> -->
+<!-- 																<core:Item text="อุปกรณ์" /> -->
+<!-- 																<core:Item text="ยา" /> -->
+<!-- 															</m:items> -->
+<!-- 														</m:Select> -->
+
+<!-- 														<m:Input value="53,323.00" enabled="false" id="RCAMT04"/> -->
+<!-- 														<m:Input value="" enabled="false" id="RCAMT104"/> -->
+<!-- 														<m:TextArea value="" enabled="false" id="RMRK04"/> -->
+<!-- 													</m:cells> -->
+<!-- 												</m:ColumnListItem> -->
+<!-- 												<m:ColumnListItem> -->
+<!-- 													<m:cells> -->
+<!-- 														<m:Select selectedKey="ค่ารักษา" id="ETTYP104"> -->
+<!-- 															<m:items> -->
+<!-- 																<core:Item text="ค่ารักษา และ อื่นๆ" /> -->
+<!-- 																<core:Item text="ค่ารักษา" key="ค่ารักษา" /> -->
+<!-- 																<core:Item text="หัตถการ" /> -->
+<!-- 																<core:Item text="อุปกรณ์" /> -->
+<!-- 																<core:Item text="ยา" /> -->
+<!-- 															</m:items> -->
+<!-- 														</m:Select> -->
+<!-- 														<m:Input value="" enabled="false" id="RCAMT204"/> -->
+<!-- 														<m:Input value="20,000.00" id="RCAMT304"/> -->
+<!-- 														<m:TextArea value="" id="RMRK104"/> -->
+<!-- 													</m:cells> -->
+<!-- 												</m:ColumnListItem> -->
+<!-- 												<m:ColumnListItem> -->
+<!-- 													<m:cells> -->
+<!-- 														<m:Select selectedKey="หัตถการ" id="ETTYP204"> -->
+<!-- 															<m:items> -->
+<!-- 																<core:Item text="ค่ารักษา และ อื่นๆ" /> -->
+<!-- 																<core:Item text="ค่ารักษา" /> -->
+<!-- 																<core:Item text="หัตถการ" key="หัตถการ" /> -->
+<!-- 																<core:Item text="อุปกรณ์" /> -->
+<!-- 																<core:Item text="ยา" /> -->
+<!-- 															</m:items> -->
+<!-- 														</m:Select> -->
+<!-- 														<m:Input value="" enabled="false" id="RCAMT404"/> -->
+<!-- 														<m:Input value="2,000.00" id="RCAMT504"/> -->
+<!-- 														<m:TextArea value="" id="RMRK204"/> -->
+<!-- 													</m:cells> -->
+<!-- 												</m:ColumnListItem> -->
+<!-- 												<m:ColumnListItem> -->
+<!-- 													<m:cells> -->
+<!-- 														<m:Select selectedKey="อุปกรณ์" id="ETTYP304"> -->
+<!-- 															<m:items> -->
+<!-- 																<core:Item text="ค่ารักษา และ อื่นๆ" /> -->
+<!-- 																<core:Item text="ค่ารักษา" /> -->
+<!-- 																<core:Item text="หัตถการ" /> -->
+<!-- 																<core:Item text="อุปกรณ์" key="อุปกรณ์" /> -->
+<!-- 																<core:Item text="ยา" /> -->
+<!-- 															</m:items> -->
+<!-- 														</m:Select> -->
+<!-- 														<m:Input value="" enabled="false" id="RCAMT604"/> -->
+<!-- 														<m:Input value="10,000.00" id="RCAMT704"/> -->
+<!-- 														<m:TextArea value="หูฟัง" id="RMRK304"/> -->
+<!-- 													</m:cells> -->
+<!-- 												</m:ColumnListItem> -->
+<!-- 												<m:ColumnListItem> -->
+<!-- 													<m:cells> -->
+<!-- 														<m:Text text="รวม" /> -->
+<!-- 														<m:Text text="53,323.00" /> -->
+<!-- 														<m:Text text="32,000.00" /> -->
+<!-- 														<m:Text text="" /> -->
+<!-- 													</m:cells> -->
+<!-- 												</m:ColumnListItem> -->
+<!-- 											</m:items> -->
+										</m:Table>
+
+										<m:Label text="" />
+										<m:Text value="" />
+
+										<m:Label text="จ่ายพนักงาน" />
+										<m:Input value=""  enabled="false" id="ANZHL04"/>
+										<m:Text text="บาท" />
+
+										<m:Label text="เบิกไม่ได้ตามสิทธิ์" />
+										<m:Input value="" enabled="false" id="SMAMT04" />
+										<m:Text text="บาท" />
+
+										<m:Label text="สิทธิ์คงเหลือ" />
+										<m:Input value=""  enabled="false" id="SMAMT04X"/>
+										<m:Text text="บาท" />										
+										
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="tab05" title="ซื้อยา / อุปกรณ์ / LAB)">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<l:VerticalLayout>
+									<f:SimpleForm editable="true"
+										layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2"
+										labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+										emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+										columnsXL="1" columnsL="1" columnsM="1"
+										singleContainerFullSize="false">
+										<f:content>
+											<m:Table id="idTab05" >
+												<m:headerToolbar>
+													<m:Toolbar>
+														<m:ToolbarSpacer />
+														<m:Button icon="sap-icon://add" text="เพิ่ม" press="onAdd" id="btnAdd3"
+															tooltip="เพิ่ม" class="sapUiTinyMargin"></m:Button>
+													</m:Toolbar>
+												</m:headerToolbar>
+												<m:columns>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="รายการรักษา"  level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="ยอดเงินตามใบเสร็จ (เบิกได้)" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="ยอดเงินตามใบเสร็จ (เบิกไม่ได้)" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="จำนวน(วัน/ครั้ง/ชิ้น)" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="เบิกได้ตามสิทธิ์" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="เบิกไม่ได้ตามสิทธิ์" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="หมายเหตุ" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="ลบ" level="H2" />
+													</m:Column>
+												</m:columns>
+
+											</m:Table>
+										</f:content>
+									</f:SimpleForm>
+									
+									<f:SimpleForm columnsXL="1" columnsL="1"
+										columnsM="1" editable="true" layout="ResponsiveGridLayout">
+										<f:content>
+											<m:Table inset="false">
+												<m:columns>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="เลขที่ใบกำกับภาษี" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="วันที่ใบกำกับภาษี" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="TAX ID ร้านค้า" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="ชื่อร้านค้า" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="สาขา ร้านค้า" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="ที่อยู่ร้านค้า" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="ที่อยู่ร้านค้า" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="รหัสไปรษณีย์" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="ประเทศ" level="H2" />
+													</m:Column>
+												</m:columns>
+												<m:items>
+													<m:ColumnListItem>
+														<m:cells>
+															<m:Input enabled="false" value="" id="TXINV" />
+															<m:DatePicker id="TXDAT" placeholder="วัน/เดือน/ปี  " enabled="false"
+																displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy" 
+																value="" change="onDateChange" />
+															<m:Input enabled="false" value="" id="SHTXID" change="onMax13" />
+															<m:Input enabled="false" value="" id="SHNAM" change="onMax35"/>
+															<m:Input enabled="false" value="" id="SHBRNC" change="onMax5"/>
+															<m:Input enabled="false" value="" id="SHPAD" change="onMax35"/>
+															<m:Input enabled="false" value="" id="SHPAD2" change="onMax35"/>
+															<m:Input enabled="false" value="" id="SHPOS" change="onMax5" />
+															<m:Input enabled="false" value="" id="SHCUT" />
+														</m:cells>
+													</m:ColumnListItem>
+												</m:items>
+											</m:Table>
+
+											<m:Label text="" />
+											<m:Text value="" />
+
+											<m:Label text="จำนวนเงินก่อน VAT" />
+											<m:Input value="" enabled="false" id="NVAMT" />
+											<m:Text text="บาท" />
+
+											<m:Label text="Vat" />
+											<m:Input value="" enabled="false" id="VTAMT" />
+											<m:Text text="บาท" />
+
+											<m:Label text="รวม" />
+											<m:Input value="" enabled="false" id="totVal" />
+											<m:Text text="บาท" />
+
+											<m:Label text="จ่ายพนักงาน" />
+											<m:Input value=""  enabled="false" id="empPaylab" />
+											<m:Text text="บาท" />
+
+
+										</f:content>
+									</f:SimpleForm>
+								</l:VerticalLayout>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="tab03"
+						title="เอกสารแนบ(รัฐบาล)">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+										<core:Title text="" />
+										<m:Label text="ต้นฉบับใบเสร็จรับเงิน " labelFor="fileUploader21" required="true"/>
+										<m:Link text="" id="file01"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload1"
+										buttonText="แนบเอกสาร"  maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file01n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+										
+										<m:Label text="ใบแจกแจงรายละเอียดใบเสร็จ" required="false"
+											labelFor="fileUploader22" />
+										<m:Link text="" id="file02"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload2"
+										buttonText="แนบเอกสาร" maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file02n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+
+										<m:Label text="ใบรับรองแพทย์" required="true"
+											labelFor="fileUploader23" />
+										<m:Link text="" id="file03"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload3"
+										buttonText="แนบเอกสาร" maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file03n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+
+										<m:Label text="หนังสือรับรองยานอกบัญชียาหลักแห่งชาติ"
+											labelFor="fileUploader24" />
+										<m:Link text="" id="file04"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload4"
+										buttonText="แนบเอกสาร" maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file04n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+
+										<m:Label text="อื่นๆ (ถ้ามี) " labelFor="fileUploader24" />
+										<m:Link text="" id="file05"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload5"
+										buttonText="แนบเอกสาร" maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file05n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="tab04"
+						title="เอกสารแนบ(เอกชน)">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+										<core:Title text="" />
+										<m:Label text="ใบเสร็จรับเงิน" labelFor="fileUploader21" required="true"/>
+										<m:Link text="" id="file11"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload1"
+										buttonText="แนบเอกสาร"  maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file11n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+										
+										<m:Label text="ใบแจกแจงรายละเอียดใบเสร็จ" 
+											labelFor="fileUploader22" />
+										<m:Link text="" id="file12"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload1"
+										buttonText="แนบเอกสาร"  maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file12n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+
+										<m:Label text="ใบรับรองแพทย์" required="true"
+											labelFor="fileUploader23" />
+										<m:Link text="" id="file13"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload1"
+										buttonText="แนบเอกสาร"  maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file13n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+
+										<m:Label text="ใบอนุญาติให้ดำเนินการสถานพยาบาล" required="true"
+											labelFor="fileUploader24" />
+										<m:Link text="" id="file14"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload1"
+										buttonText="แนบเอกสาร"  maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file14n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+
+										<m:Label text="ใบอนุญาติประกอบกิจการสถานพยาบาล" labelFor="fileUploader25" required="true"/>
+										<m:Link text="" id="file15"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload1"
+										buttonText="แนบเอกสาร"  maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file15n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+
+										<m:Label text="อื่นๆ (ถ้ามี) " labelFor="fileUploader26"/>
+										<m:Link text="" id="file16"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload1"
+										buttonText="แนบเอกสาร"  maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file16n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="tab06"
+						title="เอกสารแนบ(ซื้อยา)">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+										<core:Title text="" />
+										<m:Label text="ใบเสร็จรับเงิน" labelFor="fileUploader21" required="true"/>
+										<m:Link text="" id="file06"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload1"
+										buttonText="แนบเอกสาร"  maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file06n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+										
+										<m:Label text="ใบสั่งแพทย์" required="true"
+											labelFor="fileUploader22" />
+										<m:Link text="" id="file07"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload1"
+										buttonText="แนบเอกสาร"  maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file07n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+
+										<m:Label text="ใบรับรองของแพทย์ ทอท.ที่สั่งให้ไปซื้อยา / อุปกรณ์/ LAB" required="true"
+											labelFor="fileUploader23" />
+										<m:Link text="" id="file08"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload1"
+										buttonText="แนบเอกสาร"  maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file08n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+
+										<m:Label text="หนังสือรับรองยานอกบัญชียาหลักแห่งชาติ" 
+											labelFor="fileUploader24" />
+										<m:Link text="" id="file09"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload1"
+										buttonText="แนบเอกสาร"  maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file09n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+
+										<m:Label text="อื่นๆ (ถ้ามี) " labelFor="fileUploader25" />
+										<m:Link text="" id="file10"
+											href=""></m:Link>
+										<u:FileUploader name="myFileUpload1"
+										buttonText="แนบเอกสาร"  maximumFileSize="5MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG" id="file10n"
+											uploadUrl="upload/" placeholder="" visible="false"
+											uploadComplete="handleUploadComplete" width="100%" />
+
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="ผู้อนุมัติ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+										<m:Table id="appTab01" inset="false">
+<!-- 											<m:headerToolbar> -->
+<!-- 												<m:Toolbar> -->
+<!-- 													<m:ToolbarSpacer /> -->
+<!-- 													<m:Button icon="sap-icon://add" text="เพิ่ม" press="onAdd" -->
+<!-- 														tooltip="เพิ่ม" class="sapUiTinyMargin"></m:Button> -->
+<!-- 												</m:Toolbar> -->
+<!-- 											</m:headerToolbar> -->
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center" width="20rem">
+													<m:Text text="ลำดับ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center" width="20rem">
+													<m:Text text="ชื่อผู้อนุมัติ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="ตำแหน่ง" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="วันที่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="ความเห็น" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="หมายเหตุ" level="H2" />
+												</m:Column>
+											</m:columns>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+								
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			
+			<ObjectPageSection id="approveSection">
+				<subSections>
+					<ObjectPageSubSection id="tab07" title="การอนุมัติ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									<f:content>
+										
+										<m:Label text="ความเห็น" labelFor="selectApprovals" id="lblv1" />
+										<m:Select selectedKey="เลือก" id="sellv1"
+											forceSelection="false" >
+											<m:items>
+												<core:Item text="เลือก" key="เลือก" />
+												<core:Item text="อนุมัติ" key="อนุมัติ" />
+												<core:Item text="ไม่อนุมัติ" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="หมายเหตุ" />
+										<m:TextArea id="avlv1" />
+
+										<m:Label text="วันที่แก้ไข" />
+										<m:Input title="" value="13/10/2561" enabled="true" id="approveDate"
+											editable="false" />
+
+										<m:Label text="ดำเนินการโดย" />
+										<m:Input title="" value="" id="ENAME_APP"
+											enabled="true" editable="false" />
+
+										<m:Label text="ตำแหน่ง" />
+										<m:Input title="" value="" id="PLANS_DESC_APP"
+											enabled="true" editable="false" />
+										<m:Label text="ลำดับถัดไป" />
+										<m:Input title="" value="" id="PLANS_DESC_APPNEXT"
+											enabled="true" editable="false" />
+										
+										<m:Label text="" />
+										<l:VerticalLayout id="btn1">
+											<l:HorizontalLayout>
+												<m:Button text="บันทึก" type="Accept" id="appv1"
+													press="onAccept"></m:Button>
+
+												<m:Button text="ยกเลิก" id="canv1" press="onCancelPressed" ></m:Button>
+											</l:HorizontalLayout>
+										</l:VerticalLayout>
+										<m:Label text="" />
+										
+										<m:Text text="" />
+
+										<m:Label text="" />
+										<m:Text text="" />
+
+										<m:Label text="ความเห็น" labelFor="selectApprovalsup" id="lvup1" visible="false" />
+										<m:Select selectedKey="เลือก" id="selvup" visible="false"
+											forceSelection="false" >
+											<m:items>
+												<core:Item text="เลือก" key="เลือก" />
+												<core:Item text="อนุมัติ" key="อนุมัติ" />
+												<core:Item text="ไม่อนุมัติ" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="หมายเหตุ" id="lvup2" visible="false" />
+										<m:TextArea id="avup1" visible="false" />
+
+										<m:Label text="วันที่แก้ไข" id="lvup3" visible="false" />
+										<m:Input title="" value="" enabled="true" id="approveDateup" visible="false"
+											editable="false" />
+
+										<m:Label text="ดำเนินการโดย" id="lvup4" visible="false" />
+										<m:Input title="" value="" id="ENAME_APPUP" visible="false"
+											enabled="true" editable="false" />
+										
+										<m:Label text="ตำแหน่ง" id="lvup6" visible="false" />
+										<m:Input title="" value="" id="PLANS_DESC_APPUP" visible="false"
+											enabled="true" editable="false" />
+										
+										<m:Label text="ลำดับถัดไป" id="lvup5" visible="false" />
+										<m:Input title="" value="" id="PLANS_DESC_APPUPNEXT" visible="false"
+											enabled="true" editable="false" />
+
+										<m:Label text="" />
+										<l:VerticalLayout  id="btn2">
+											<l:HorizontalLayout>
+												<m:Button text="บันทึก" type="Accept" id="appvup" visible="false"
+													press="onAccept"></m:Button>
+
+												<m:Button text="ยกเลิก" id="canvup" visible="false" press="onCancelPressed"></m:Button>
+											</l:HorizontalLayout>
+										</l:VerticalLayout>
+										
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+			<ObjectPageSection id="approveSection1">
+				<subSections>
+					<ObjectPageSubSection id="tab08" title="การอนุมัต(เอกชน)">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									<f:content>
+										
+<!-- 										<m:Label text="ความเห็น" labelFor="selectApprovals" id="lblv1x" /> -->
+<!-- 										<m:Select selectedKey="เลือก" id="sellv1" -->
+<!-- 											forceSelection="false" > -->
+<!-- 											<m:items> -->
+<!-- 												<core:Item text="เลือก" key="เลือก" /> -->
+<!-- 												<core:Item text="อนุมัติ" key="อนุมัติ" /> -->
+<!-- 												<core:Item text="ไม่อนุมัติ" /> -->
+<!-- 											</m:items> -->
+<!-- 										</m:Select> -->
+
+<!-- 										<m:Label text="หมายเหตุ" /> -->
+<!-- 										<m:TextArea id="avlv1" /> -->
+
+<!-- 										<m:Label text="วันที่แก้ไข" /> -->
+<!-- 										<m:Input title="" value="13/10/2561" enabled="true" id="approveDate" -->
+<!-- 											editable="false" /> -->
+
+<!-- 										<m:Label text="ดำเนินการโดย" /> -->
+<!-- 										<m:Input title="" value="" id="ENAME_APP" -->
+<!-- 											enabled="true" editable="false" /> -->
+
+<!-- 										<m:Label text="ตำแหน่ง" /> -->
+<!-- 										<m:Input title="" value="" id="PLANS_DESC_APP" -->
+<!-- 											enabled="true" editable="false" /> -->
+<!-- 										<m:Label text="ลำดับถัดไป" /> -->
+<!-- 										<m:Input title="" value="" id="PLANS_DESC_APPNEXT" -->
+<!-- 											enabled="true" editable="false" /> -->
+										
+<!-- 										<m:Label text="" /> -->
+<!-- 										<l:VerticalLayout id="btn1"> -->
+<!-- 											<l:HorizontalLayout> -->
+<!-- 												<m:Button text="บันทึก" type="Accept" id="appv1" -->
+<!-- 													press="onAccept"></m:Button> -->
+
+<!-- 												<m:Button text="ยกเลิก" id="canv1"></m:Button> -->
+<!-- 											</l:HorizontalLayout> -->
+<!-- 										</l:VerticalLayout> -->
+<!-- 										<m:Label text="" /> -->
+										
+<!-- 										<m:Text text="" /> -->
+
+<!-- 										<m:Label text="" /> -->
+<!-- 										<m:Text text="" /> -->
+
+<!-- 										<m:Label text="ความเห็น" labelFor="selectApprovalsup" id="lvup1" visible="false" /> -->
+<!-- 										<m:Select selectedKey="เลือก" id="selvup" visible="false" -->
+<!-- 											forceSelection="false" > -->
+<!-- 											<m:items> -->
+<!-- 												<core:Item text="เลือก" key="เลือก" /> -->
+<!-- 												<core:Item text="อนุมัติ" key="อนุมัติ" /> -->
+<!-- 												<core:Item text="ไม่อนุมัติ" /> -->
+<!-- 											</m:items> -->
+<!-- 										</m:Select> -->
+
+<!-- 										<m:Label text="หมายเหตุ" id="lvup2" visible="false" /> -->
+<!-- 										<m:TextArea id="avup1" visible="false" /> -->
+
+<!-- 										<m:Label text="วันที่แก้ไข" id="lvup3" visible="false" /> -->
+<!-- 										<m:Input title="" value="" enabled="true" id="approveDateup" visible="false" -->
+<!-- 											editable="false" /> -->
+
+<!-- 										<m:Label text="ดำเนินการโดย" id="lvup4" visible="false" /> -->
+<!-- 										<m:Input title="" value="" id="ENAME_APPUP" visible="false" -->
+<!-- 											enabled="true" editable="false" /> -->
+										
+<!-- 										<m:Label text="ตำแหน่ง" id="lvup6" visible="false" /> -->
+<!-- 										<m:Input title="" value="" id="PLANS_DESC_APPUP" visible="false" -->
+<!-- 											enabled="true" editable="false" /> -->
+										
+<!-- 										<m:Label text="ลำดับถัดไป" id="lvup5" visible="false" /> -->
+<!-- 										<m:Input title="" value="" id="PLANS_DESC_APPUPNEXT" visible="false" -->
+<!-- 											enabled="true" editable="false" /> -->
+
+<!-- 										<m:Label text="" /> -->
+<!-- 										<l:VerticalLayout  id="btn2"> -->
+<!-- 											<l:HorizontalLayout> -->
+<!-- 												<m:Button text="บันทึก" type="Accept" id="appvup" visible="false" -->
+<!-- 													press="onAccept"></m:Button> -->
+
+<!-- 												<m:Button text="ยกเลิก" id="canvup" visible="false"></m:Button> -->
+<!-- 											</l:HorizontalLayout> -->
+<!-- 										</l:VerticalLayout> -->
+										
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+	<!-- </VBox> -->
+</mvc:View>

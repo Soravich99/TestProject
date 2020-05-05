@@ -1,0 +1,101 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.PA.Referee"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<ObjectPageLayout id="objectPageLayout2">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="เพิ่มข้อมูลพนักงาน ทอท. ที่ติดต่อได้"
+				objectSubtitle="">
+				<!-- <actions> <ObjectPageHeaderActionButton icon="sap-icon://edit" text="edit" 
+					importance="Medium" visible="false"/> <ObjectPageHeaderActionButton icon="sap-icon://save" 
+					text="save" importance="Medium"/> <ObjectPageHeaderActionButton icon="sap-icon://cancel" 
+					text="cancel" importance="Medium"/> <ObjectPageHeaderActionButton icon="sap-icon://refresh" 
+					text=""/> </actions> -->
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+			<ObjectPageSection id="fatherSection">
+				<subSections>
+					<ObjectPageSubSection id="shopConfigurationId"
+						title="เพิ่มข้อมูลพนักงาน ทอท. ที่ติดต่อได้">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopConfigurationLazyLoader">
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="6" emptySpanL="6" emptySpanM="6" emptySpanS="6"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://hr-approval"
+												text="บันทึก" tooltip="บันทึก" press="onSavePressed"
+												class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://save" text="บันทึก"
+												visible="false" tooltip="บันทึก" class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+												press="onCancelPressed" tooltip="ยกเลิก"
+												class="sapUiTinyMargin"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+									<f:content>
+										<core:Title text="" />
+										<m:Label text="คำนำหน้า" required="true" wrapping="true"/>
+										<m:Select id="ANRED" items="{path: 'titleItem>/List'}">
+											<m:items>
+												<core:Item text="{titleItem>atext}" key="{titleItem>anrde}" />
+											</m:items>
+										</m:Select>
+										<m:Label text="ชื่อ" required="true" />
+										<m:Input value="" id="FAVOR" />
+										<m:Label text="นามสกุล" required="true" />
+										<m:Input value="" id="FANAM" />
+										<m:Label text="เบอร์โทร" required="true" />
+										<m:Input value="" id="TELNR" />
+										<m:Label text="รหัสบุคคล"/>
+										<m:Input value="" id="NUM01" />
+										<m:Button text="ค้นหา" icon="sap-icon://search"
+											width="95px" visible="true" id="btnSrch" press="onSearch" />
+										<m:Label text="สังกัด"/>
+										<m:Input value="" id="EFAML" />
+
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+
+
+
+</mvc:View>

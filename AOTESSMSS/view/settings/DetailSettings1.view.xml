@@ -1,0 +1,169 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.settings.MasterSettings"
+	xmlns="sap.uxap"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m"
+	xmlns:c="sap.suite.ui.commons"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+
+	<ObjectPageLayout
+		id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="{i18n>systemSettingsTitle}"
+				objectSubtitle="{i18n>systemSettingsDescriptionTitle}">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<c:ProcessFlow
+			id="processflow1"
+			scrollable="false"
+			wheelZoomable="false"
+			foldedCorners="true">
+			<c:nodes>
+				<c:ProcessFlowNode
+					laneId="1"
+					nodeId="1"
+					title="Create"
+					titleAbbreviation="Req"
+					isTitleClickable="true"
+					children="2"
+					state="Positive"
+					stateText="OK"
+					texts="Requestor create leave request"
+					focused="false" />
+				<c:ProcessFlowNode
+					laneId="2"
+					nodeId="2"
+					title="Manager Approve"
+					titleAbbreviation="MGR"
+					isTitleClickable="true"
+					children="3"
+					state="Neutral"
+					stateText="Pending"
+					texts="Manager approve leave request"
+					focused="true" />
+				<c:ProcessFlowNode
+					laneId="3"
+					nodeId="3"
+					title="HR Approve"
+					titleAbbreviation="HR"
+					isTitleClickable="true"
+					state="Planned"
+					stateText="Planned"
+					texts="HR approve leave request"
+					focused="false" />
+			</c:nodes>
+			<c:lanes>
+				<c:ProcessFlowLaneHeader
+					laneId="1"
+					iconSrc="sap-icon://order-status"
+					text="Created"
+					position="0" />
+				<c:ProcessFlowLaneHeader
+					laneId="2"
+					iconSrc="sap-icon://order-status"
+					text="Manager Approve"
+					position="1" />
+				<c:ProcessFlowLaneHeader
+					laneId="3"
+					iconSrc="sap-icon://order-status"
+					text="HR Approve"
+					position="2" />
+			</c:lanes>
+		</c:ProcessFlow>
+		</headerContent>
+		<sections>
+			<ObjectPageSection>
+			<subSections>
+				<ObjectPageSubSection
+					id="shopOwnerId"
+					title="{i18n>shopOwnerTitle}">
+					<blocks>
+						<ObjectPageLazyLoader
+							id="shopOwnerLazyLoader">
+							<f:SimpleForm
+								title="{i18n>editOwnerDetailTitle}"
+								columnsL="1"
+								columnsM="1"
+								editable="false"
+								layout="ResponsiveGridLayout">
+								<f:content>
+									<core:Title text="{i18n>ownerAddress}"/>
+									<l:VerticalLayout>
+										<m:Label text="{i18n>ownerFirstName}"/>
+										<m:Input
+											type="Text"
+											width="100%"
+											value="John"/>
+										<m:Label
+											class="sapUiTinyMarginTop"
+											text="{i18n>ownerLastName}"/>
+										<m:Input
+											type="Text"
+											width="100%"
+											value="Doe"/>
+									</l:VerticalLayout>
+
+								</f:content>
+							</f:SimpleForm>
+						</ObjectPageLazyLoader>
+					</blocks>
+				</ObjectPageSubSection>
+			</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						id="shopConfigurationId"
+						title="{i18n>shopConfigurationTitle}">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopConfigurationLazyLoader">
+								<f:SimpleForm
+									title="{i18n>editSystemConfigurationTitle}"
+									columnsL="2"
+									columnsM="2"
+									editable="true"
+									layout="ResponsiveGridLayout" >
+									<f:content>
+										<core:Title text="{i18n>storeSettings}" />
+										<l:VerticalLayout>
+											<m:Label text="{i18n>storeName}"/>
+											<m:Input
+												type="Text"
+												width="100%"
+												value="My Shop"/>
+											<m:Label
+												class="sapUiTinyMarginTop"
+												text="{i18n>storeDefaultLanguage}"/>
+											<m:Input
+												type="Text"
+												width="100%"
+												value="English"/>
+											<m:Label
+												class="sapUiTinyMarginTop"
+												text="{i18n>storeCode}"/>
+											<m:Input
+												type="Text"
+												width="100%"
+												value="R2D2-C3P0"/>
+										</l:VerticalLayout>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

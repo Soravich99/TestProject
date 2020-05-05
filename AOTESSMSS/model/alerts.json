@@ -1,0 +1,30 @@
+{
+	"alerts":
+		{
+			"notifications": [
+				{
+					"title": "มีเอกสารรอการอนุมัติ",
+					"description": "ใบลาของ สมชาย รักบ้านเกิด",
+					"date": "1 วันที่แล้ว",
+					"priority": "Medium",
+					"icon": "sap-icon://request"
+				},
+				{
+					"title": "การลาของคุณได้รับการอนุมัติแล้ว",
+					"description": "ใบลาของคุณ",
+					"date": "2 วันที่แล้ว",
+					"priority": "Low",
+					"icon": "sap-icon://request"
+				}
+			],
+			"errors": [
+				{
+					"title": "รหัสผ่านของคุณใกล้หมดอายุ",
+					"subTitle": "Password about to expire",
+					"description": "รหัสผ่านของคุณจะหมดอายุในวันที่ 4/10/2560",
+					"counter": 1
+				}
+			]
+		}
+
+}

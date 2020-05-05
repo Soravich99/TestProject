@@ -1,0 +1,146 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.WorklistFillter"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic">
+
+	<semantic:SemanticPage id="page"
+		headerPinnable="false" toggleHeaderOnTitleClick="false">
+
+		<semantic:titleHeading>
+			<Title text="Worklist" />
+		</semantic:titleHeading>
+
+		<semantic:content>
+			<IconTabBar id="iconTabBar" select="onQuickFilter"
+				expandable="false" headerBackgroundDesign="Transparent">
+				<items>
+					<IconTabFilter key="all" showAll="true" count="5"
+						text="รายการทั้งหมด" />
+					<IconTabSeparator />
+					<IconTabFilter key="อนุมัติ"
+						icon="sap-icon://message-success" iconColor="Positive" count="2"
+						text="อนุมัติแล้ว" />
+					<IconTabFilter key="รออนุมัติ"
+						icon="sap-icon://message-warning" iconColor="Critical" count="2"
+						text="รออนุมัติ" />
+					<IconTabFilter key="ยกเลิก"
+						icon="sap-icon://message-error" iconColor="Negative" count="1"
+						text="ยกเลิก" />
+				</items>
+				<content>
+					<Table id="table"
+						busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true"
+						growingScrollToLoad="true"
+						noDataText="{worklistView>/tableNoDataText}"
+						updateFinished="onUpdateFinished" width="auto"
+						items="{
+							path: '/Worklist',
+							sorter: {
+								path: 'DocType',
+								descending: false
+							}
+						}">
+						<headerToolbar>
+							<Toolbar>
+								<Title id="tableHeader"
+									text="{worklistView>/worklistTableTitle}" />
+								<ToolbarSpacer />
+								<SearchField id="searchField"
+									tooltip="{i18n>worklistSearchTooltip}" search="onSearch"
+									width="auto">
+								</SearchField>
+							</Toolbar>
+						</headerToolbar>
+
+						<columns>
+							<Column width="3rem" minScreenWidth="Phone"
+								demandPopin="true" popinDisplay="Inline">
+								<Text text="ลำดับ" />
+							</Column>
+
+							<Column minScreenWidth="Desktop" demandPopin="true"
+								popinDisplay="Inline">
+								<Text text="เรื่อง" />
+							</Column>
+
+							<Column minScreenWidth="Desktop" demandPopin="true"
+								popinDisplay="Inline">
+								<Text text="งาน" />
+							</Column>
+
+							<Column minScreenWidth="Desktop" demandPopin="true"
+								popinDisplay="Inline">
+								<Text text="เลขที่คำขอ" />
+							</Column>
+
+							<Column minScreenWidth="Desktop" demandPopin="true"
+								popinDisplay="Inline">
+								<Text text="เลขที่เอกสาร" />
+							</Column>
+							<Column minScreenWidth="Desktop" demandPopin="true"
+								popinDisplay="Inline">
+								<Text text="เลขที่ E-DOC" />
+							</Column>
+							<Column minScreenWidth="Desktop" demandPopin="true"
+								popinDisplay="Inline">
+								<Text text="รายละเอียด 1" />
+							</Column>
+							<Column minScreenWidth="Desktop" demandPopin="true"
+								popinDisplay="Inline">
+								<Text text="รายละเอียด 2" />
+							</Column>
+
+							<Column minScreenWidth="Desktop" demandPopin="true"
+								popinDisplay="Inline">
+								<Text text="รายละเอียด 3" />
+							</Column>
+
+							<Column minScreenWidth="Desktop" demandPopin="true"
+								popinDisplay="Inline">
+								<Text text="ได้รับเอกสารจาก" />
+							</Column>
+
+							<Column minScreenWidth="Desktop" demandPopin="true"
+								popinDisplay="Inline">
+								<Text text="วันที่ได้รับเอกสาร" />
+							</Column>
+
+							<Column minScreenWidth="Desktop" demandPopin="true"
+								popinDisplay="Inline">
+								<Text text="วันที่สิ้นสุดการทำเอกสาร" />
+							</Column>
+							
+							<Column minScreenWidth="Desktop" demandPopin="true"
+								popinDisplay="Inline">
+								<Text text="สถานะ" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Navigation" press="onPress">
+								<cells>
+									<Text text="{No}" />
+									<Text text="{DocType}" />
+									<Text text="{DocJob}" />
+									<Text text="{ReqNo}" />
+									<Text text="{DocNo}" />
+									<Text text="{EdocNo}" />
+									<Text text="{Desc1}" />
+									<Text text="{Desc2}" />
+									<Text text="{Desc3}" />
+									<Text text="{DocFrom}" />
+									<Text text="{RecieveDate}" />
+									<Text text="{EndDate}" />
+									<Text text="{Status}" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</IconTabBar>
+		</semantic:content>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail"
+				press="onShareEmailPress" />
+		</semantic:sendEmailAction>
+	</semantic:SemanticPage>
+</mvc:View>

@@ -1,0 +1,115 @@
+
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.TE.SearchTrainingHistory"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:t="sap.ui.table">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="ประวัติการฝึกอบรมของพนักงาน" objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						title="">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<l:VerticalLayout>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="4" labelSpanS="4" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									<f:content>
+										<m:Label text="หลักสูตร" />
+										<m:Input id="className" value=""/>
+										
+										<m:Label text="รหัสพนักงาน" />
+										<m:Input id="empId" />
+										
+										<m:Label text="ชื่อพนักงาน" />
+										<m:Input id="empName" />
+										
+										<m:Label text="" />
+										<m:Button text="ค้นหา" press="onSendPressed" class="sapUiLargeMarginEnd"></m:Button>
+										<m:Button text="ล้างข้อมูล" press="onClearPressed" class="sapUiLargeMarginEnd"></m:Button>
+									</f:content>
+								</f:SimpleForm>
+
+								<m:Table  inset="false" id="trHistable" >
+								<m:headerToolbar>
+									<m:Toolbar>
+										<m:content>
+											<m:Title text="รายการประวัติฝึกอบรม" level="H2"/>
+										</m:content>
+									</m:Toolbar>
+								</m:headerToolbar>
+									<m:columns>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="รหัสพนักงาน" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="ชื่อพนักงาน" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="ตำแหน่งหน่วยงาน" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="หลักสูตร" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="รุ่นฝึกอบรม" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="วันที่ฝึกอบรม" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="ผลการฝึกอบรม" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="ค่าใช้จ่าย (บาท)" level="H2" />
+
+										</m:Column>
+									</m:columns>
+<!-- 									<m:items> -->
+<!-- 										<m:ColumnListItem> -->
+<!-- 											<m:cells> -->
+<!-- 												<m:Label text="{hisItem>pernr}" /> -->
+<!-- 												<m:Label text="{hisItem>name}" /> -->
+<!-- 												<m:Label text="{hisItem>pos}" /> -->
+<!-- 												<m:Text text="{hisItem>ctext}" /> -->
+<!-- 												<m:Text text="{hisItem>rtext}" /> -->
+<!-- 												<m:Text text="{hisItem>date}" /> -->
+<!-- 												<m:Label text="{hisItem>result}" /> -->
+<!-- 												<m:Text text="{hisItem>cost}" /> -->
+<!-- 											</m:cells> -->
+<!-- 										</m:ColumnListItem> -->
+<!-- 									</m:items> -->
+								</m:Table>
+								</l:VerticalLayout>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

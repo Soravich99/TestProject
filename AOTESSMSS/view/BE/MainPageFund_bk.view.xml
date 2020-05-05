@@ -1,0 +1,53 @@
+<mvc:View height="100%"
+	controllerName="sap.ui.demo.toolpageapp.controller.BE.MainPageFund"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<Page id="page">
+		<headerContent>
+
+			<Bar>
+				<contentLeft>
+					<Button id="edit" text="Edit" press="handleEditPress" />
+					<Button id="save" text="Save" type="Emphasized" visible="false"
+						press="handleSavePress" />
+					<Button id="cancel" text="Cancel" visible="false"
+						press="handleCancelPress" />
+					<Button id="create" text="Create" visible="false" press="onCreate" />
+
+				</contentLeft>
+			</Bar>
+			<f:SimpleForm>
+				<f:toolbar id="SimpleFormChange480_12120">
+					<Toolbar>
+						<Title
+							text="สร้างการขอเบิกเงินช่วยเหลืออุทกภัยและอื่นๆ (การเงินสวัสดิการ ทอท.)"
+							level="H2" />
+						<ToolbarSpacer />
+						<Button icon="sap-icon://employee-approvals" text="ส่งเพื่ออนุมัติ"
+							tooltip="ส่งเพื่ออนุมัติ" class="sapUiTinyMargin"></Button>
+						<Button icon="sap-icon://save" text="บันทึก" tooltip="บันทึก"
+							class="sapUiTinyMargin"></Button>
+						<Button icon="sap-icon://cancel" text="ยกเลิก" tooltip="ยกเลิก"
+							class="sapUiTinyMargin"></Button>
+					</Toolbar>
+				</f:toolbar>
+			</f:SimpleForm>
+
+		</headerContent>
+
+
+
+
+
+
+		<core:Fragment id="fr1"
+			fragmentName="sap.ui.demo.toolpageapp.view.BE.ChangeFund" type="XML" />
+		<!-- <footer> <Bar> <contentRight> <Button id="edit" text="Edit" press="handleEditPress" 
+			/> <Button id="save" text="Save" type="Emphasized" visible="false" press="handleSavePress" 
+			/> <Button id="cancel" text="Cancel" visible="false" press="handleCancelPress" 
+			/> </contentRight> </Bar> </footer> -->
+	</Page>
+	
+	
+	
+</mvc:View>

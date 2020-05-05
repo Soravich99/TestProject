@@ -1,0 +1,133 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" controllerName="tableinsert.Main">
+	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="SimpleFormChange480_12120"
+			editable="true" layout="ResponsiveGridLayout" title="กองทุนสะสม"
+			labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="4"
+			adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0"
+			emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3"
+			singleContainerFullSize="false">
+			<f:toolbar>
+				<Toolbar>
+					<Title
+						text="สร้างการขอเบิกเงินช่วยเหลืออุทกภัยและอื่นๆ (การเงินสวัสดิการ ทอท.)"
+						level="H2" />
+					<ToolbarSpacer />
+					<Button icon="sap-icon://employee-approvals"
+						text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ"
+						class="sapUiTinyMargin"></Button>
+					<Button icon="sap-icon://save" text="บันทึก"
+						tooltip="บันทึก" class="sapUiTinyMargin"></Button>
+					<Button icon="sap-icon://cancel" text="ยกเลิก"
+						tooltip="ยกเลิก" class="sapUiTinyMargin"></Button>
+				</Toolbar>
+			</f:toolbar>
+			<f:content>
+				<core:Title text="" />
+				<Label text="หมายเลขเงินเดือน" />
+				<Input value="{SalaryNo}" type="SalaryNo" enabled="false">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S3" />
+					</layoutData>
+				</Input>
+				<Input value="{EmployeeName}" type="EmployeeName"
+					enabled="false" />
+				<Label text="สังกัด" />
+				<Input value="{DepartmentName}" type="DepartmentName"
+					enabled="false" />
+				<Label text="ขอเปลี่ยนนโยบาย" />
+				<Input value="ในช่วงเดือน สิงหาคม มีผลเดือนตุลาคม "
+					enabled="false" />
+				<Label text="นโยบาย" required="true" />
+				<Select id="PolicyName" selectedKey="{PolicyName}">
+					<items>
+						<core:Item text="นโยบาย 1 ตราสารหนี้ 90% ตราสารทุน 10%"
+							key="นโยบาย 1 ตราสารหนี้ 90% ตราสารทุน 10%" />
+						<core:Item text="นโยบาย 2 ตราสารหนี้ 80% ตราสารทุน 20%"
+							key="นโยบาย 2 ตราสารหนี้ 80% ตราสารทุน 20%" />
+						<core:Item text="นโยบาย 3 ตราสารหนี้ 70% ตราสารทุน 30%"
+							key="นโยบาย 3 ตราสารหนี้ 70% ตราสารทุน 30%" />
+					</items>
+				</Select>
+				<Label text="อัตราสะสม" required="true" />
+				<Input value="{AccumulationRate}" type="AccumulationRate"
+					Description="%">
+					<layoutData>
+						<l:GridData span="XL2 L2 M2 S2" />
+					</layoutData>
+				</Input>
+				<Text text="%" />
+
+
+				<core:Title text="" />
+				<Label text="ตำแหน่ง" />
+				<Input value="{PositionName}" type="PositionName"
+					enabled="false" />
+
+				<Label text="สถานะ" />
+				<Input value="{PositionStatus}" type="PositionStatus"
+					enabled="false" />
+			</f:content>
+		</f:SimpleForm>
+		<f:SimpleForm id="SimpleFormChange480_12120-2"
+			editable="true" layout="ResponsiveGridLayout"
+			title="ผู้ได้รับผลประโยชน์" labelSpanXL="4" labelSpanL="4"
+			labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+			emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+			columnsXL="2" columnsL="2" columnsM="1"
+			singleContainerFullSize="false">
+			<f:content>
+
+				<Table id="idProductsTable" inset="false"
+					items="{  path: '/Peoples' }" mode="MultiSelect">
+
+					<headerToolbar>
+						<OverflowToolbar>
+							<content>
+								<ToolbarSpacer />
+								<Button id="addUserButton" icon="sap-icon://add"
+									press="onAddPress" />
+								<Button id="deleteUserButton" icon="sap-icon://delete"
+									press="onDelete" />
+								<!-- <Button id="addUserButton" icon="sap-icon://add" tooltip="" 
+									enabled="{= !${appView>/hasUIChanges}}" press="onCreate" text="เพิ่ม"> <layoutData> 
+									<OverflowToolbarLayoutData priority="NeverOverflow"/> </layoutData> </Button> 
+									<Button id="deleteUserButton" icon="sap-icon://delete" tooltip="" enabled="{= 
+									!${appView>/hasUIChanges}}" press="onDelete" text="ลบ"> <layoutData> <OverflowToolbarLayoutData 
+									priority="NeverOverflow"/> </layoutData> </Button> -->
+
+
+							</content>
+						</OverflowToolbar>
+					</headerToolbar>
+
+					<columns>
+						<Column>
+							<Text text="ลำดับ" />
+						</Column>
+						<Column>
+							<Text text="ชื่อผู้รับผลประโยชน์" />
+						</Column>
+						<Column>
+							<Text text="ร้อยละ" />
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+								<Input value="{Order}" enabled="false" />
+								<Input value="{NameRecieve}" />
+								<Input value="{Rating}" description="%" />
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+
+
+
+
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+</core:FragmentDefinition>

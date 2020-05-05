@@ -1,0 +1,136 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.TE.PreBookTrainingList"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="แบบสำรวจความต้องการฝึกอบรม"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="02-123-4567" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ผู้บังคับบัญชา"
+					text="นาย ขอ แสนดี" id="KZTIM" />
+			
+				<m:ObjectStatus
+					title="ข้อมูลการแพ้อาหาร/อาหารที่งดเว้น" text="เนื้อวัว, ถั่ว" id="SMARK"/>
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId"
+						title="รายชื่อหลักสูตร">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<m:Table id="idTab01" inset="false">
+									<m:columns>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="หลักสูตร" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="ประเภทการพัฒนา" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="คำอธิบายหลักสูตร" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Phone" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center">
+											<m:Text text="หลักสูตรที่ต้องผ่านมาก่อน" level="H2" />
+										</m:Column>
+										<m:Column minScreenWidth="Desktop" demandPopin="true"
+											popinDisplay="Inline" hAlign="Center" sortProperty="workDate">
+											<m:Text text="" level="H2" />
+										</m:Column>
+									</m:columns>
+<!-- 									<m:items> -->
+<!-- 										<m:ColumnListItem> -->
+<!-- 											<m:cells> -->
+<!-- 												<m:Text text="Business Thai" /> -->
+<!-- 												<m:Text text="External Classroom Training" /> -->
+<!-- 												<m:Text text="" /> -->
+<!-- 												<m:Text text="" /> -->
+<!-- 												<m:Button icon="sap-icon://save" -->
+<!-- 													press="onSendPressed" text="สนใจหลักสูตร"></m:Button> -->
+<!-- 											</m:cells> -->
+<!-- 										</m:ColumnListItem> -->
+<!-- 										<m:ColumnListItem> -->
+<!-- 											<m:cells> -->
+<!-- 												<m:Text text="Business English Basic" /> -->
+<!-- 												<m:Text text="Classroom" /> -->
+<!-- 												<m:Text text="conversational business English" /> -->
+<!-- 												<m:Text text="Business English Basic" /> -->
+<!-- 												<m:Button icon="sap-icon://save" -->
+<!-- 													press="onSendPressed" text="สนใจหลักสูตร"></m:Button> -->
+<!-- 											</m:cells> -->
+<!-- 										</m:ColumnListItem> -->
+<!-- 										<m:ColumnListItem> -->
+<!-- 											<m:cells> -->
+<!-- 												<m:Text text="Business English Advance" /> -->
+<!-- 												<m:Text text="E-Learning" /> -->
+<!-- 												<m:Text text="conversational business English" /> -->
+<!-- 												<m:Text text="" /> -->
+<!-- 												<m:Button icon="sap-icon://save" -->
+<!-- 													press="onSendPressed" text="สนใจหลักสูตร"></m:Button> -->
+<!-- 											</m:cells> -->
+<!-- 										</m:ColumnListItem> -->
+<!-- 										<m:ColumnListItem> -->
+<!-- 											<m:cells> -->
+<!-- 												<m:Text text="Business English Communication basic" /> -->
+<!-- 												<m:Text text="Classroom" /> -->
+<!-- 												<m:Text text="conversational business English" /> -->
+<!-- 												<m:Text text="" /> -->
+<!-- 												<m:Button icon="sap-icon://save" -->
+<!-- 													press="onSendPressed" text="สนใจหลักสูตร"></m:Button> -->
+<!-- 											</m:cells> -->
+<!-- 										</m:ColumnListItem> -->
+<!-- 										<m:ColumnListItem> -->
+<!-- 											<m:cells> -->
+<!-- 												<m:Text text="Business English Communication Advance" /> -->
+<!-- 												<m:Text text="Classroom" /> -->
+<!-- 												<m:Text text="conversational business English" /> -->
+<!-- 												<m:Text text="Business English Communication basic" /> -->
+<!-- 												<m:Button icon="sap-icon://save" -->
+<!-- 													press="onSendPressed" text="สนใจแล้ว" enabled="false"></m:Button> -->
+<!-- 											</m:cells> -->
+<!-- 										</m:ColumnListItem> -->
+<!-- 									</m:items> -->
+								</m:Table>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

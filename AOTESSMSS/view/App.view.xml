@@ -1,0 +1,104 @@
+﻿<mvc:View height="100%"
+	controllerName="sap.ui.demo.toolpageapp.controller.App"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:tnt="sap.tnt">
+
+	<tnt:ToolPage
+		id="app"
+		class="sapUiDemoToolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<Button
+					id="sideNavigationToggleButton"
+					icon="sap-icon://menu2"
+					type="Transparent"
+					press="onSideNavButtonPress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Button>
+				<Image src="images/aotlogo.jpg" width="44px"></Image>
+				<ToolbarSpacer/>
+				<Title text="ระบบจัดการข้อมูลบุคคล"/>
+				<ToolbarSpacer/>
+				<Button
+					id="errorButton"
+					icon="sap-icon://message-popup"
+					text="{= ${alerts>/alerts/errors}.length }"
+					visible="{= ${alerts>/alerts/errors}.length === 0 ? false : true }"
+					type="Transparent"
+					press="onMessagePopoverPress">
+					<layoutData>
+						<OverflowToolbarLayoutData closeOverflowOnInteraction="false"/>
+					</layoutData>
+				</Button>
+<!-- 				<Button -->
+<!-- 					id="notificationButton" -->
+<!-- 					icon="sap-icon://ui-notifications" -->
+<!-- 					text="{= ${alerts>/List/notifications}.length }" -->
+<!-- 					visible="{= ${alerts>/List/notifications}.length === 0 ? false : true }" -->
+<!-- 					type="Transparent" -->
+<!-- 					press="onNotificationPress"> -->
+<!-- 					<layoutData> -->
+<!-- 						<OverflowToolbarLayoutData closeOverflowOnInteraction="false"/> -->
+<!-- 					</layoutData> -->
+<!-- 				</Button> -->
+				<Button
+					id="notificationButton"
+					icon="sap-icon://ui-notifications"
+					text="{= ${myNoti>/List}.length }"
+					visible="{= ${myNoti>/List}.length === 0 ? false : true }"
+					type="Transparent"
+					press="onNotificationPress">
+					<layoutData>
+						<OverflowToolbarLayoutData closeOverflowOnInteraction="false"/>
+					</layoutData>
+				</Button>
+				<Button
+					id="userButton"
+					text=""
+					type="Transparent"
+					press="onUserNamePress">
+					<layoutData>
+						<OverflowToolbarLayoutData closeOverflowOnInteraction="false"/>
+					</layoutData>
+				</Button>
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent >
+			<tnt:SideNavigation
+				expanded="{device>/isPhone}"
+				itemSelect="onItemSelect" >
+				<tnt:NavigationList 
+					items="{path: 'side>/navigation', templateShareable: false}">
+					<tnt:NavigationListItem
+						text="{side>title}"
+						icon="{side>icon}"
+						items="{path: 'side>items', templateShareable: false}"
+						key="{side>key}">
+						<tnt:NavigationListItem
+							text="{side>title}"
+							key="{side>key}"
+							enabled="{side>enabled}">
+						</tnt:NavigationListItem>
+					</tnt:NavigationListItem>
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList
+						items="{path: 'side>/fixedNavigation', templateShareable: false}">
+						<tnt:NavigationListItem
+							text="{side>title}"
+							icon="{side>icon}"
+							key="{side>key}">
+						</tnt:NavigationListItem>
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<App id="mainContents"/>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+
+</mvc:View>

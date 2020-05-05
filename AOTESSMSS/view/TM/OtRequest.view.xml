@@ -1,0 +1,112 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.TM.OtRequest"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="ขออนุมัติการทำงานล่วงเวลา(กรณีเร่งด่วน)"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="02-123-4567" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ประเภทตารางการทำงาน"
+					text="ปกติ" id="SCHKZ" />
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId"
+						title="รายละเอียด">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="8" labelSpanL="8"
+									labelSpanM="8" labelSpanS="8" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="2" columnsL="2" columnsM="2"
+									singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://employee-approvals"
+												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ" press="onSendPressed"
+												class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+												tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+									<f:content>
+										<m:Label text="วันที่" labelFor="DTP1" required="true" />
+										<m:DatePicker displayFormat="dd/MM/yyyy" id="DTP1"
+											valueFormat="dd/MM/yyyy" value="วัน/เดือน/ปี"
+											change="handleChange" />
+
+										<m:Label text="เวลาเริ่มต้น-สิ้นสุด" labelFor="DTP1"
+											required="true" />
+										<m:TimePicker valueFormat="HH:mm:ss" id="BEGUZ"
+											displayFormat="HH:mm"
+											change="handleChange"
+											placeholder="Enter time"
+											support2400="true" />
+										<m:TimePicker valueFormat="HH:mm:ss" id="ENDUZ"
+											displayFormat="HH:mm"
+											change="handleChange"
+											placeholder="Enter time"
+											support2400="true" />
+
+										<m:Label
+											text="ขออนุมัติการทำงานล่วงเวลาในช่วง เวลาพักได้หรือไม" />
+										<m:RadioButtonGroup valueState=""
+											select="onChangeType()">
+											<m:buttons>
+												<m:RadioButton id="as" text="รวม" />
+												<m:RadioButton id="er" text="ไม่รวม" />
+											</m:buttons>
+										</m:RadioButtonGroup>
+
+										<m:Label text="รวมจำนวนชั่วโมงขออนุมัติทำงานล่วงเวลา" />
+										<m:Input value="" description="ชั่วโมง" id="totHr"
+											enabled="false" />
+										<m:Label text="เลขที่คำสั่ง" required="true"  />
+										<m:Input value="" id="docno" enabled="true" />
+										<m:Label text="หมายเหตุ" />
+										<m:TextArea id="note" />
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

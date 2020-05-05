@@ -1,0 +1,32 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleFilterDialogConfirm">
+		<filterItems>
+			<ViewSettingsFilterItem
+				text="ประเภท"
+				key="Type"
+				multiSelect="true">
+				<items>
+					<ViewSettingsItem text="จัดการเวลาและการลา" key="จัดการเวลาและการลา" />
+					<ViewSettingsItem text="ระบบสวัสดิการ" key="ระบบสวัสดิการ" />
+					<ViewSettingsItem text="ข้อมูลพนักงาน" key="ข้อมูลพนักงาน" />
+					<ViewSettingsItem text="การฝึกอบรมและสัมมนา" key="การฝึกอบรมและสัมมนา" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="เรื่อง"
+				key="Name"
+				multiSelect="true">
+				<items>
+					<ViewSettingsItem text="ใบลา" key="leave" />
+					<ViewSettingsItem text="การเปลี่ยนกะ/สับเปลี่ยนกะ" key="changeShift" />
+					<ViewSettingsItem text="เบิกเงินค่ารักษาพยาบาล" key="medicalBenefit" />
+					<ViewSettingsItem text="ใบคำร้องขอแก้ไขข้อมูลส่วนตัว" key="changeMyInfo" />
+					<ViewSettingsItem text="ลงทะเบียนพนักงานเข้ารับการฝึกอบรม" key="trainingRegister" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,82 @@
+<core:FragmentDefinition xmlns="sap.uxap"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:m="sap.m"
+	xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<m:Dialog title="รายละเอียด" id="childDialog" afterClose="dialogAfterclose"
+		contentWidth="60%" stretchOnPhone="true">
+		<f:SimpleForm title="ข้อมูลบุตร" columnsL="1" columnsM="1"
+			editable="true" layout="ResponsiveGridLayout" width="100%">
+			<f:content>
+				<m:Label text="ลำดับที่" />
+				<m:Select id="orderChildEdit" selectedKey="1" enabled="false">
+					<m:items>
+						<core:Item text="กรุณาเลือกลำดับที่บุตร" key="none" />
+						<core:Item text="1" key="1" />
+						<core:Item text="2" key="2" />
+						<core:Item text="3" key="3" />
+						<core:Item text="4" key="4" />
+						<core:Item text="5" key="5" />
+					</m:items>
+				</m:Select>
+				<m:Label text="อาชีพ" />
+				<m:Select id="job" selectedKey="none" enabled="false">
+					<m:items>
+						<core:Item text="กรุณาเลือกอาชีพ" key="default" />
+						<core:Item text="พนักงานทอท." key="AOT" />
+						<core:Item text="พนักงานรัฐวิสาหกิจ" key="stateEnterprise" />
+						<core:Item text="ข้าราชการ" key="official" />
+						<core:Item text="ข้าราชการบำนาญ" key="pensioner" />
+						<core:Item text="ข้าราชการบำเหน็จ" key="governmentServant" />
+						<core:Item text="ลูกจ้างราชการ" key="governmentEmployee" />
+						<core:Item text="พนักงานเอกชน" key="privateEmployee" />
+						<core:Item text="ไม่มีอาชีพ" key="none" />
+					</m:items>
+				</m:Select>
+
+				<m:Label text="คำนำหน้า" />
+				<m:Select id="titleChildEdit" selectedKey="1" enabled="false">
+					<m:items>
+						<core:Item text="" key="none" />
+						<core:Item text="ด.ญ." key="1" />
+						<core:Item text="ด.ช." key="2" />
+						<core:Item text="นาง" key="3" />
+						<core:Item text="นาย" key="4" />
+						<core:Item text="นางสาว" key="5" />
+					</m:items>
+				</m:Select>
+				<m:Label text="ชื่อจริง" />
+				<m:Input value="สมหญิง" enabled="false" />
+				<m:Label text="นามสกุล" />
+				<m:Input value="จิตใจงาม" enabled="false" />
+
+				<m:Label text="เลขที่บัตรประชาชน" />
+				<m:Input value="1-5725-58978-00-2" enabled="false" />
+				<m:Label text="วันเดือนปี เกิด" />
+				<m:DatePicker displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy"
+					value="31/01/2559" change="handleChange" enabled="false" />
+				<m:Label text="สถานะบุตร" />
+				<m:Select id="statusChildEdit" selectedKey="1" enabled="false">
+					<m:items>
+						<core:Item text="กรุณาเลือกสถานะบุตร" key="none" />
+						<core:Item text="บุตรในความปกครองของบิดา" key="1" />
+						<core:Item text="บุตรในความปกครองของมารดา" key="2" />
+						<core:Item text="บุตรในความปกครองของบิดาและมารดา" key="3" />
+						<core:Item text="รับรองบุตร" key="4" />
+						<core:Item text="บุตรบุญธรรม" key="5" />
+						s
+					</m:items>
+				</m:Select>
+				<m:Label text="สถานะ"/>
+				<m:RadioButton groupName="GroupB" text="มีชีวิต"
+					selected="true" enabled="false"/>
+				<m:RadioButton groupName="GroupB" text="เสียชีวิต"
+					selected="false" enabled="false"/>
+			</f:content>
+			<!-- <m:footer> <m:Text text="สร้างเมื่อวันที่ 18/08/2018 14:20:00" /> 
+				<m:Text text="แก้ไขเมื่อวันที่ 18/08/2018 14:20:00" /> <m:Text text="อนุมัติเมื่อวันที่ 
+				20/08/2018 08:20:00 โดย คุณหญิงจรัญ สนิทวงค์" /> </m:footer> -->
+		</f:SimpleForm>
+		<m:beginButton>
+			<m:Button text="Close" press="onCloseDialog" />
+		</m:beginButton>
+	</m:Dialog>
+</core:FragmentDefinition>

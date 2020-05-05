@@ -1,0 +1,232 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.PA.ApproveAddress"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<ObjectPageLayout id="objectPageLayout2">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="อนุมัติใบคำร้องขอแก้ไขที่อยู่ตามทะเบียนบ้าน"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+			<ObjectPageSection id="fatherSection">
+				<subSections>
+					<ObjectPageSubSection id="shopConfigurationId"
+						title="แก้ไขที่อยู่ตามทะเบียนบ้าน">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopConfigurationLazyLoader">
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="2" emptySpanL="2" emptySpanM="2" emptySpanS="2"
+									columnsXL="2" columnsL="2" columnsM="2"
+									singleContainerFullSize="false">
+									<f:content>
+										<core:Title text="" />
+										<m:Label text="บ้านเลขที่" required="true" />
+										<m:Input value="1/2" id="BLDNG" enabled="false" />
+										<m:Label text="อาคาร" />
+										<m:Input value="" id="ADR04" enabled="false" />
+										<m:Label text="ห้องที่" />
+										<m:Input value="" id="POSTA" enabled="false" />
+										<m:Label text="ชั้น" />
+										<m:Input value="" id="FLOOR" enabled="false" />
+										<m:Label text="หมู่บ้าน" />
+										<m:Input value="ทดสอบ" id="ADR03" enabled="false" />
+										<m:Label text="หมู่" />
+										<m:Input value="10" id="HSNMR" enabled="false" />
+										<m:Label text="ซอย" />
+										<m:Input value="1" id="STRAS" enabled="false" />
+										<m:Label text="ถนน" />
+										<m:Input value="ทดสอบ" id="LOCAT" enabled="false" />
+										<core:Title text="" />
+										<m:Label text="ตำบล/แขวง" required="true" />
+										<m:Input value="ทดสอบ" id="CONKK" enabled="false" />
+										<m:Label text="อำเภอ/เขต" required="true" />
+										<m:Input value="" id="ORT02" enabled="false" />
+										<m:Label text="จังหวัด" required="true" />
+										<m:Input value="" id="ORT01" visible="false" />
+										<m:Select id="STATE" items="{path: 'stateItem>/List'}" enabled="false" >
+											<m:items>
+												<core:Item text="{stateItem>bezei}" key="{stateItem>bland}" />
+											</m:items>
+										</m:Select>
+										<m:Label text="รหัสไปรษณีย์" required="true" />
+										<m:Input value="10110" id="PSTLZ" enabled="false" />
+										<m:Label text="วันที่มีเปลี่ยนแปลงข้อมูล" />
+										<m:DatePicker displayFormat="dd/MM/yyyy"
+											valueFormat="dd/MM/yyyy" value="" change="handleChange" id="AEDTM" enabled="false" />
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="เอกสารแนบ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+
+										<m:Label text="สำเนาทะเบียนบ้าน"
+											labelFor="fileUploader" />
+										<m:Link text="" id="fileUpload"
+											href=""></m:Link>
+
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="ผู้อนุมัติ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+										<m:Table id="appTab01" inset="false">
+<!-- 											<m:headerToolbar> -->
+<!-- 												<m:Toolbar> -->
+<!-- 													<m:ToolbarSpacer /> -->
+<!-- 													<m:Button icon="sap-icon://add" text="เพิ่ม" press="onAdd" -->
+<!-- 														tooltip="เพิ่ม" class="sapUiTinyMargin"></m:Button> -->
+<!-- 												</m:Toolbar> -->
+<!-- 											</m:headerToolbar> -->
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center" width="20rem">
+													<m:Text text="ชื่อผู้อนุมัติ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="ตำแหน่ง" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="วันที่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="ความเห็น" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="หมายเหตุ" level="H2" />
+												</m:Column>
+											</m:columns>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+								
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			
+			<ObjectPageSection id="approveSection">
+				<subSections>
+					<ObjectPageSubSection title="การอนุมัติ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									<f:content>
+
+										<m:Label text="ความเห็น" labelFor="selectApprovals" />
+										<m:Select selectedKey="เลือก" forceSelection="false" id="selApp">
+											<m:items>
+												<core:Item text="เลือก" key="เลือก" />
+												<core:Item text="อนุมัติ" />
+												<core:Item text="ไม่อนุมัติ" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="หมายเหตุ" />
+										<m:TextArea id="avlv1" />
+
+										<m:Label text="วันที่แก้ไข" />
+										<m:Input title="" value="" enabled="true" id="approveDate"
+											editable="false" />
+
+										<m:Label text="ดำเนินการโดย" />
+										<m:Input title="" value="นาย มานพ สุขใจ (หัวหน้างาน)" id="ENAME_APP"
+											enabled="true" editable="false" />
+
+										<m:Label text="ตำแหน่ง" />
+										<m:Input title="" value="ผอ.ส่วน, ผอ.ฝ่าย" id="PLANS_DESC_APP"
+											enabled="true" editable="false" />
+
+										<m:Label text="ลำดับถัดไป" />
+										<m:Input title="" value="-"
+											enabled="true" editable="false" />
+
+										<m:Label text="" />
+										<l:VerticalLayout>
+											<l:HorizontalLayout>
+												<m:Button text="บันทึก" type="Accept"
+													press="onAccept"></m:Button>
+
+												<m:Button text="ยกเลิก" press="onCancelPressed"></m:Button>
+											</l:HorizontalLayout>
+										</l:VerticalLayout>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+
+
+
+</mvc:View>

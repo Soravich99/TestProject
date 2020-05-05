@@ -1,0 +1,130 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.PA.MaritalStatus"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<ObjectPageLayout id="objectPageLayout2">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="ส่งใบคำร้องขอแก้ไขสถานภาพ" objectSubtitle="">
+				<!-- <actions> <ObjectPageHeaderActionButton icon="sap-icon://edit" text="edit" 
+					importance="Medium" visible="false"/> <ObjectPageHeaderActionButton icon="sap-icon://save" 
+					text="save" importance="Medium"/> <ObjectPageHeaderActionButton icon="sap-icon://cancel" 
+					text="cancel" importance="Medium"/> <ObjectPageHeaderActionButton icon="sap-icon://refresh" 
+					text=""/> </actions> -->
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+		</headerContent>
+		<ObjectPageSection>
+			<subSections>
+				<ObjectPageSubSection id="educationHistoryId"
+					title="ข้อมูลสถานภาพสมรส">
+					<blocks>
+						<ObjectPageLazyLoader>
+							<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="6" emptySpanL="6" emptySpanM="6" emptySpanS="6"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+								<f:toolbar>
+									<m:Toolbar>
+										<m:ToolbarSpacer />
+										<m:Button icon="sap-icon://hr-approval"
+											text="ส่งเพื่ออนุมัติ" tooltip="บันทึก" press="onSendPressed" id="sendBtn"
+											class="sapUiTinyMargin"></m:Button>
+										<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+											tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button>
+									</m:Toolbar>
+								</f:toolbar>
+								<f:content>
+									<!-- สมรส -->
+									<m:Label text="สถานภาพ" required="true" />
+									<m:Select id="MarriageStatus" selectedKey="single"
+										change="onSelectStatus">
+										<m:items>
+											<core:Item text="โสด" key="0" />
+											<core:Item text="สมรส" key="1" />
+											<core:Item text="หย่า" key="2" />
+											<core:Item text="หม้าย" key="3" />
+										</m:items>
+									</m:Select>
+									<m:Label text="เลขทะเบียนที่" id="Married" required="true" />
+									<m:Input value="" placeholder="กรุณากรอกเลขทะเบียน" id="ICNUM" />
+									<m:Label text="วันที่เปลี่ยนแปลงข้อมูล/วันที่จดทะเบียน" required="true" />
+									
+									<m:DatePicker displayFormat="dd/MM/yyyy" id="FAMDT"
+										valueFormat="dd/MM/yyyy" value="" change="handleChange" />
+									<m:Label text="ณ 
+										สำนักทะเบียน"
+										required="false" />
+									<m:Input value=""
+										placeholder="กรุณากรอกเขตที่จดทะเบียน" id="AUTH1" />
+									<m:Label text="จังหวัด" required="false" />
+									<m:Input value=""
+										placeholder="กรุณากรอกจังหวัดที่จดทะเบียน" id="ISSPL" />
+
+								</f:content>
+							</f:SimpleForm>
+						</ObjectPageLazyLoader>
+					</blocks>
+				</ObjectPageSubSection>
+			</subSections>
+		</ObjectPageSection>
+
+		<ObjectPageSection>
+			<subSections>
+				<ObjectPageSubSection id="familyId"
+					title="เอกสารแนบ">
+					<blocks>
+						<ObjectPageLazyLoader id="familyLazyLoader">
+							<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+								<f:content>
+
+									<m:Label text="สำเนาใบจดทะเบียน"
+										labelFor="fileUploader" required="true" />
+									<u:FileUploader name="myFileUpload"
+											buttonText="แนบเอกสาร" maximumFileSize="30MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG"
+											uploadUrl="upload/" placeholder="" id="fileUpload"
+											uploadComplete="handleUploadComplete" width="50%" />
+								</f:content>
+							</f:SimpleForm>
+						</ObjectPageLazyLoader>
+					</blocks>
+				</ObjectPageSubSection>
+			</subSections>
+		</ObjectPageSection>
+
+
+	</ObjectPageLayout>
+
+
+
+</mvc:View>

@@ -1,0 +1,79 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.PA.TaskDetail"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:c="sap.suite.ui.commons">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="การติดตามงาน"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสพนักงาน" text="620001" />
+				<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นายสมชาย01 จิตใจงาม01" />
+				<m:ObjectStatus title="สังกัด"
+					text="สำนักงานใหญ่" />
+				<m:ObjectStatus title="กลุ่มพนักงาน" text="ลูกจ้างทดลองงาน" />
+				<m:ObjectStatus title="กลุ่มย่อยพนักงาน"
+					text="" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="ปฏิบัติงานตำแหน่ง"
+					text="เจ้าหน้าที่บริหารงาน" />
+				<m:ObjectStatus title="แทนเกษียณอายุ" text="-" />
+				<m:ObjectStatus title="วันที่จ้างงาน"
+					text="04/03/2562" />
+				<m:ObjectStatus title="วันที่บรรจุ" text="02/07/2562" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="สถานภาพ" text="โสด" />
+			</l:VerticalLayout>
+
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="สถานะ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<c:ProcessFlow id="processflow" scrollable="false"
+									wheelZoomable="true" foldedCorners="true">
+									<c:nodes>
+										<c:ProcessFlowNode laneId="1" nodeId="1"
+											title="ใบคำร้อง" titleAbbreviation="Req"
+											isTitleClickable="true" children="2" state="Positive"
+											stateText="ใบคำร้อง" texts=""
+											focused="false" />
+										<c:ProcessFlowNode laneId="2" nodeId="2"
+											id="target1" title="อนุมัติโดยฝ่ายบุคคลท่า"
+											titleAbbreviation="" isTitleClickable="true"
+											state="Neutral" stateText="รอการอนุมัติ"
+											texts="" focused="true" />
+									</c:nodes>
+									<c:lanes>
+										<c:ProcessFlowLaneHeader laneId="1"
+											iconSrc="sap-icon://order-status" text="ใบคำร้อง"
+											position="0" />
+										<c:ProcessFlowLaneHeader laneId="2"
+											id="lane2" iconSrc="sap-icon://order-status"
+											text="อนุมัติโดยฝ่ายบุคคลท่า" position="1" />
+									</c:lanes>
+								</c:ProcessFlow>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

@@ -1,0 +1,153 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.PD.JobAppraisal"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:t="sap.ui.table">
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="ผลการประเมินการปฏิบัติงานของพนักงาน" objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+
+
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text=""  id="ANSVH" />
+		
+			</l:VerticalLayout>
+			<l:VerticalLayout>
+			
+				<m:ObjectStatus title="ข้อมูลยืมตัว" text=""  id="-" />
+		
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId"
+						title="ผลการประเมินการปฏิบัติงานของพนักงาน">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<!-- <l:VerticalLayout> <m:Label text="ปีที่ได้รับสิทธิ" labelFor="DTP1" 
+									/> <m:Select id="selectedYear" width="20%" forceSelection="false" selectedKey="2560"> 
+									<core:Item key="2560" text="2560" /> </m:Select> <m:Text text=" " /> </l:VerticalLayout> -->
+								<l:VerticalLayout>
+<!-- 									<m:Table inset="false" width="800px"  items="{path: 'jobappData>/List'}" id="curApprisal"> -->
+									<m:Table inset="false" width="800px" id="curApprisal">
+										<m:headerToolbar>
+											<m:Toolbar>
+												<m:content>
+													<m:Title text="ผลการประเมินการปฏิบัติงาน"
+														level="H2" />
+													<m:ToolbarSpacer />
+												</m:content>
+											</m:Toolbar>
+										</m:headerToolbar>
+										<m:columns>
+											<m:Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Left" width="200px">
+												<m:Text text="การประเมินผลการปฏิบัติงาน" />
+											</m:Column>
+											<m:Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Left" width="200px">
+												<m:Text text="เกรดที่ได้รับ" class="sapUiSmallMarginEnd"/>
+											</m:Column>
+											<m:Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Center" width="200px">
+												<m:Text text="ยอมรับผลการประเมินหรือไม่" />
+											</m:Column>
+											<m:Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Center" width="200px">
+												<m:Text text="" />
+											</m:Column>
+										</m:columns>
+<!-- 										<m:items> -->
+<!-- 											<m:ColumnListItem> -->
+<!-- 												<m:cells> -->
+<!-- 													<m:Text text="{jobappData>year}" /> -->
+<!-- 													<l:HorizontalLayout> -->
+<!-- 														<m:Label text="{jobappData>grade}" class="sapUiSmallMarginEnd" /> -->
+<!-- 													</l:HorizontalLayout> -->
+<!-- 													<l:HorizontalLayout> -->
+<!-- 														<m:Button text="ยอมรับ" type="Accept" press="onClick" id="btnAcc" -->
+<!-- 															class="sapUiSmallMarginEnd"></m:Button> -->
+<!-- 														<m:Button text="ไม่ยอมรับ" press="onClick2" id="btnRej" -->
+<!-- 															type="Reject"></m:Button> -->
+<!-- 													</l:HorizontalLayout> -->
+<!-- 												</m:cells> -->
+<!-- 											</m:ColumnListItem> -->
+<!-- 										</m:items> -->
+									</m:Table>
+
+									<m:Text text="" ></m:Text>
+									<m:Text text="" ></m:Text>
+									
+									<m:Text text="หมายเหตุ : ในกรณีที่ผู้ถูกประเมินไม่กด ยอมรับ หรือ ไม่ยอมรับ ภายใน 7 วันทำการ "  class="myStatus"></m:Text>
+									<m:Text text="จะถือว่าผู้ถูกประเมินยอมรับผลการประเมินนั้น ๆ โดยระบบอัตโนมัติ" class="myStatus"></m:Text>
+									
+									<m:Text text="" ></m:Text>
+									<m:Text text="" ></m:Text>
+
+									<m:Table inset="false" width="800px" items="{path: 'jobhisData>/List'}" id="hisApprisal">
+										<m:headerToolbar>
+											<m:Toolbar>
+												<m:content>
+													<m:Title text="ผลการประเมินการปฏิบัติงานที่ผ่านมา"
+														level="H2" />
+													<m:ToolbarSpacer />
+												</m:content>
+											</m:Toolbar>
+										</m:headerToolbar>
+										<m:columns>
+											<m:Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Left" width="200px">
+												<m:Text text="การประเมินผลการปฏิบัติงาน" />
+											</m:Column>
+											<m:Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Left" width="200px">
+												<m:Text text="เกรดที่ได้รับ" class="sapUiSmallMarginEnd"/>
+											</m:Column>
+											<m:Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Center" width="200px">
+												<m:Text text="" />
+											</m:Column>
+										</m:columns>
+										<m:items>
+											<m:ColumnListItem>
+												<m:cells>
+													<m:Text text="{jobappData>year}" />
+													<l:HorizontalLayout>
+														<m:Label text="{jobappData>grade}" class="sapUiSmallMarginEnd" />
+													</l:HorizontalLayout>
+													
+												</m:cells>
+											</m:ColumnListItem>
+										</m:items>
+									</m:Table>
+								</l:VerticalLayout>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

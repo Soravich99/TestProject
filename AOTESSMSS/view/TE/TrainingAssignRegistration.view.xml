@@ -1,0 +1,178 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.TE.TrainingAssignRegistration"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="ลงทะเบียนพนักงานเข้ารับการฝึกอบรม" objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId"
+						title="รายละเอียดหลักสูตร">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="4" labelSpanS="4" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									<f:content>
+										<core:Title text="รายละเอียดหลักสูตร" />
+										<m:Label text="ชื่อรุ่นหลักสูตร" />
+										<m:TextArea enabled="false" id="c_text" value="การใช้งานเครื่องตรวจสอบวัตถุระเบิด รุ่น2" />
+
+										<m:Label text="รายละเอียดหลักสูตร " />
+										<m:TextArea enabled="false" id="c_desc" value="การใช้งานเครื่องตรวจสอบวัตถุระเบิด รุ่น2" />
+
+										<m:Label text="หลักสูตรที่จำเป็นต้องผ่านมาก่อน" />
+										<m:TextArea enabled="false" id="c_req" value="-" />
+
+										<m:Label text="เริ่มฝึกอบรม" />
+										<m:TextArea enabled="false" id="c_beg" value="15/05/2562"  rows="1"/>
+
+										<m:Label text="สิ้นสุดฝึกอบรม" />
+										<m:TextArea enabled="false" id="c_end" value="16/05/2562"  rows="1"/>
+
+										<m:Label text="สถานที่ฝึกอบรม" />
+										<m:TextArea enabled="false" id="c_loc" value="สำนักงานใหญ่" rows="1"/>
+
+										<m:Label text="โควต้าสำหรับหน่วยงาน" />
+										<m:Input enabled="false" value="" id="quotao" />
+
+										<core:Title text="ตารางฝึกอบรม" />
+
+										<m:Table inset="false" id="trainSche">
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="วันที่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="เวลาเริ่ม" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" hAlign="Center">
+													<m:Text text="เวลาสิ้นสุด" level="H2" />
+												</m:Column>
+											</m:columns>
+											
+										</m:Table>
+										<core:Title text="" />
+
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="deligateTab"
+						title="รายชื่อพนักงานที่ต้องเข้ารับการฝึกอบรม">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<f:SimpleForm columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:content>
+										<l:VerticalLayout>
+											<m:Table inset="false" mode="MultiSelect" id="empRegis">
+												<m:columns>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="รหัสพนักงาน" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="ชื่อ - นามสกุล" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="ดูประวัติการฝึกอบรม" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline" hAlign="Center">
+														<m:Text text="ลำดับการลงทะเบียน" level="H2" />
+													</m:Column>
+												</m:columns>
+<!-- 												<m:items> -->
+<!-- 													<m:ColumnListItem> -->
+<!-- 														<m:cells> -->
+<!-- 															<m:Text text="A0001" /> -->
+<!-- 															<m:Text text="นาย อิทธิ ใจดี" /> -->
+<!-- 															<m:Button icon="sap-icon://search" -->
+<!-- 																press="onClickMoreInfo" text="ดูข้อมูล"></m:Button> -->
+<!-- 															<m:Select selectedKey="เลือก"> -->
+<!-- 																<m:items> -->
+<!-- 																	<core:Item text="เลือก" key="เลือก" /> -->
+<!-- 																	<core:Item text="ตัวจริง" key="ตัวจริง" /> -->
+<!-- 																	<core:Item text="ตัวสำรอง" /> -->
+<!-- 																</m:items> -->
+<!-- 															</m:Select> -->
+<!-- 														</m:cells> -->
+<!-- 													</m:ColumnListItem> -->
+<!-- 													<m:ColumnListItem> -->
+<!-- 														<m:cells> -->
+<!-- 															<m:Text text="A0002" /> -->
+<!-- 															<m:Text text="นาย กอไก่ สุขใจ" /> -->
+<!-- 															<m:Button icon="sap-icon://search" -->
+<!-- 																press="onClickMoreInfo" text="ดูข้อมูล"></m:Button> -->
+<!-- 															<m:Select selectedKey="เลือก"> -->
+<!-- 																<m:items> -->
+<!-- 																	<core:Item text="เลือก" key="เลือก" /> -->
+<!-- 																	<core:Item text="ตัวจริง" key="ตัวจริง" /> -->
+<!-- 																	<core:Item text="ตัวสำรอง" /> -->
+<!-- 																</m:items> -->
+<!-- 															</m:Select> -->
+<!-- 														</m:cells> -->
+<!-- 													</m:ColumnListItem> -->
+<!-- 													<m:ColumnListItem> -->
+<!-- 														<m:cells> -->
+<!-- 															<m:Text text="A0003" /> -->
+<!-- 															<m:Text text="นาย อนิรุท มีสุขดี" /> -->
+<!-- 															<m:Button icon="sap-icon://search" -->
+<!-- 																press="onClickMoreInfo" text="ดูข้อมูล"></m:Button> -->
+<!-- 															<m:Select selectedKey="เลือก"> -->
+<!-- 																<m:items> -->
+<!-- 																	<core:Item text="เลือก" key="เลือก" /> -->
+<!-- 																	<core:Item text="ตัวจริง" key="ตัวจริง" /> -->
+<!-- 																	<core:Item text="ตัวสำรอง" /> -->
+<!-- 																</m:items> -->
+<!-- 															</m:Select> -->
+<!-- 														</m:cells> -->
+<!-- 													</m:ColumnListItem> -->
+<!-- 												</m:items> -->
+											</m:Table>
+											<m:Label text="" />
+											<m:Text text="" />
+											<l:HorizontalLayout>
+
+												<m:Button text="ยืนยันการลงทะเบียน" id="regisBtn"
+													class="sapUiTinyMargin" press="onSendPressed" />
+											</l:HorizontalLayout>
+										</l:VerticalLayout>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

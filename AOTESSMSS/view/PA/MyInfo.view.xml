@@ -1,0 +1,1236 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.PA.MyInfo"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:ff="sap.f" xmlns:m="sap.m" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.ui.table"
+	xmlns:c="sap.ui.core" xmlns:n="sap.suite.ui.commons.networkgraph"
+	xmlns:layout="sap.suite.ui.commons.networkgraph.layout"
+	xmlns:t="sap.ui.table" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+
+	<ObjectPageLayout id="ObjectPageLayout"
+		alwaysShowContentHeader="false" preserveHeaderStateOnScroll="false"
+		headerContentPinnable="true" isChildPage="true"
+		enableLazyLoading="false">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="ข้อมูลของฉัน"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="pernr" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="fullname" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+			<ObjectPageSection>
+				<!-- <customAnchorBarButton> <m:Button icon="sap-icon://hint" text="AAAA"/> 
+					</customAnchorBarButton> -->
+				<subSections>
+					<ObjectPageSubSection id="personalInfoId"
+						title="ข้อมูลของฉัน">
+
+						<blocks>
+							<ObjectPageLazyLoader
+								id="personalInfoLazyLoader">
+
+								<f:SimpleForm labelSpanL="1" labelSpanM="1"
+									labelSpanS="1" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									layout="ResponsiveLayout">
+<!-- 									<m:Image densityAware="false" id="imgProfile" -->
+<!-- 										src="images/photoESS.jpg" width="200px" /> -->
+									<m:Image densityAware="false" id="imgProfile"
+										 width="200px" />
+								</f:SimpleForm>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://edit" text="แก้ไข"
+												tooltip="แก้ไข" class="sapUiTinyMargin"
+												press="onPressButton"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+									<core:Title text="ข้อมูลส่วนตัว"></core:Title>
+									<l:VerticalLayout width="100%">
+										<m:Label text="ชื่อ สกุล (ภาษาไทย)" />
+										<m:Text text="นายสมชาย จิตใจงาม" id="tname" />
+										<m:Label text="ชื่อ สกุล (ภาษาอังกฤษ)"
+											class="sapUiSmallMarginTop" />
+										<m:Text text="Mr.Somchai Jitchaingam" id="ename" />
+										<m:Label text="วันเกิด" class="sapUiSmallMarginTop" />
+										<m:Text text="01/01/2533" id="birthdath" />
+										<m:Label text="เลขบัตรประชาชน"
+											class="sapUiSmallMarginTop" />
+										<m:Text text="1-2345-67890-12-3" id="idcard" />
+										<m:Label text="ศาสนา" class="sapUiSmallMarginTop" />
+										<m:Text text="พุทธ" id="religion" />
+										<m:Label text="สัญชาติ" class="sapUiSmallMarginTop" />
+										<m:Text text="ไทย" id="nation" />
+										<m:Label text="กรุ๊ปเลือด" class="sapUiSmallMarginTop" />
+										<m:Text text="" id="bloodty" />
+										<m:Label text="สถานภาพทางทหาร"
+											class="sapUiSmallMarginTop" />
+										<m:Text text="" id="military" />
+										<l:HorizontalLayout>
+
+											<m:Label text="สถานภาพสมรส"
+												class="sapUiSmallMarginTop" />
+											<m:Button icon="sap-icon://edit" text="แก้ไข"
+												tooltip="แก้ไข" class="sapUiTinyMargin"
+												press="onPressEditMaritalStatus"></m:Button>
+										</l:HorizontalLayout>
+										<m:Text text="โสด" id="marrid" />
+									</l:VerticalLayout>
+								</f:SimpleForm>
+
+								<f:SimpleForm labelSpanL="4" labelSpanM="4"
+									id="contractEdit" labelSpanS="4" emptySpanL="0" emptySpanM="0"
+									emptySpanS="0" maxContainerCols="2" layout="ResponsiveLayout"
+									width="100%">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://save" text="บันทึก" press="onSaveinfo"
+												tooltip="บันทึก" class="sapUiTinyMargin" visible="true"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+									<core:Title text="ข้อมูลทั่วไป"></core:Title>
+									<l:VerticalLayout width="100%">
+										<m:Label text="ข้อมูลการแพ้อาหาร/อาหารที่งดเว้น" />
+										<m:Input value="-" id="SMARK" enabled="true" />
+										<m:Label text="กรุ๊ปเลือด" />
+										<m:Select id="BGRUP" >
+											<m:items>
+												<core:Item text="" key="" />
+												<core:Item text="O+" key="O+" />
+												<core:Item text="O-" key="O-" />
+												<core:Item text="A+" key="A+" />
+												<core:Item text="A-" key="A-" />
+												<core:Item text="B+" key="B+" />
+												<core:Item text="B-" key="B-" />
+												<core:Item text="AB+" key="AB+" />
+												<core:Item text="AB-" key="AB-" />
+											</m:items>
+										</m:Select>
+									</l:VerticalLayout>
+									<core:Title text="ข้อมูลติดต่อ"></core:Title>
+									<l:VerticalLayout width="100%">
+										<m:Label text="อีเมล์ที่ทำงาน" />
+										<m:Text text=""
+											enabled="true" id="USRID0007" />
+										<m:Label text="อีเมล์ส่วนตัว" />
+										<m:Input value="" enabled="true" id="USRID_LONG0010" />
+										<m:Label text="เบอร์โทรศัพท์มือถือ" />
+										<m:Input value="" enabled="true" id="USRID0005" />
+										<m:Label text="เบอร์โทรศัพท์ส่วนตัว" />
+										<m:Input value="" enabled="true" id="USRID0006" />
+										<m:Label text="เบอร์โทรศัพท์ที่ทำงาน 1" />
+										<m:Input type="Tel" width="100%" value=""
+											enabled="true" id="USRID0002" />
+										<m:Label text="เบอร์โทรศัพท์ที่ทำงาน 2" />
+										<m:Input type="Tel" width="100%" value=""
+											enabled="true" id="USRID0003"/>
+										<m:Label text="เบอร์ Fax" />
+										<m:Input type="Tel" width="100%" value=""
+											enabled="true" id="USRID0004" />
+										<m:Label text="Facebook" />
+										<m:Input value=""
+											enabled="true" id="USRID0009" />
+										<m:Label text="Instagram ID" />
+										<m:Input value=""
+											enabled="true" id="USRID0012" />
+										<m:Label text="Line ID" />
+										<m:Input value="" enabled="true" id="USRID0008" />
+										<m:Label text="ชื่อเล่น" />
+										<m:Input value="" enabled="true" id="USRID0013" />
+									</l:VerticalLayout>
+								</f:SimpleForm>
+								<f:SimpleForm labelSpanL="1" labelSpanM="1"
+									labelSpanS="1" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									layout="ResponsiveLayout">
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="AddressId"
+						title="ที่อยู่">
+						<blocks>
+							<ObjectPageLazyLoader id="addressLoader">
+								<l:VerticalLayout>
+									<f:SimpleForm columnsXL="1" columnsL="1"
+										columnsM="1" editable="true" layout="ResponsiveGridLayout">
+										<m:Table id="idAddressRigTable" items="{path: 'addData>/List'}">
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:Title text="ที่อยู่ตามทะเบียนบ้าน" level="H2" />
+													<m:ToolbarSpacer />
+													<m:Button icon="sap-icon://edit" text="แก้ไข"
+														tooltip="แก้ไข" class="sapUiTinyMargin"
+														press="onPressButton2"></m:Button>
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="บ้านเลขที่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="อาคาร" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ห้องที่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ชั้น" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="หมู่บ้าน" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+													hAlign="Center">
+													<m:Text text="หมู่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+													hAlign="Center">
+													<m:Text text="ซอย" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+													hAlign="Center">
+													<m:Text text="ถนน" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+													hAlign="Center">
+													<m:Text text="แขวง/ตำบล" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+													hAlign="Center">
+													<m:Text text="เขต/อำเภอ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+													hAlign="Center">
+													<m:Text text="จังหวัด" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+													hAlign="Center">
+													<m:Text text="รหัสไปรษณีย์" level="H2" />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="{addData>bldng}" />
+														<m:Text text="{addData>adr04}" />
+														<m:Text text="{addData>posta}" />
+														<m:Text text="{addData>floor}" />
+														<m:Text text="{addData>adr03}" />
+														<m:Text text="{addData>hsnmr}" />
+														<m:Text text="{addData>stras}" />
+														<m:Text text="{addData>locat}" />
+														<m:Text text="{addData>conkk}" />
+														<m:Text text="{addData>ort02}" />
+														<m:Text text="{addData>ort01}" />
+														<m:Text text="{addData>pstlz}" />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:SimpleForm> 
+
+									<f:SimpleForm columnsXL="1" columnsL="1"
+										columnsM="1" editable="true" layout="ResponsiveGridLayout">
+										<m:Table id="idAddressTable" mode="MultiSelect" items="{path: 'addData1>/List'}">
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:Title text="ที่อยู่ปัจจุบัน" level="H2" />
+													<m:ToolbarSpacer />
+													<!--<m:Button icon="sap-icon://add" text="เพิ่ม"
+														tooltip="เพิ่ม" class="sapUiTinyMargin"></m:Button>-->
+													<m:Button icon="sap-icon://edit" text="แก้ไข" press="onEditCureentAdd"
+														tooltip="แก้ไข" class="sapUiTinyMargin"></m:Button>
+												<!--<m:Button icon="sap-icon://delete" text="ลบ"
+														tooltip="ลบ" class="sapUiTinyMargin"
+														press="onDeleteDialog"></m:Button>
+													<m:Button icon="sap-icon://save" text="บันทึก" tooltip="บันทึก" 
+														class="sapUiTinyMargin"></m:Button> <m:Button icon="sap-icon://cancel" text="ยกเลิก" 
+														tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button> -->
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="บ้านเลขที่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="อาคาร" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ห้องที่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ชั้น" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="หมู่บ้าน" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+													hAlign="Center">
+													<m:Text text="หมู่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+													hAlign="Center">
+													<m:Text text="ซอย" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+													hAlign="Center">
+													<m:Text text="ถนน" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+													hAlign="Center">
+													<m:Text text="แขวง/ตำบล" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+													hAlign="Center">
+													<m:Text text="เขต/อำเภอ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+													hAlign="Center">
+													<m:Text text="จังหวัด" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+													hAlign="Center">
+													<m:Text text="รหัสไปรษณีย์" level="H2" />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="{addData1>bldng}" />
+														<m:Text text="{addData1>adr04}" />
+														<m:Text text="{addData1>posta}" />						
+														<m:Text text="{addData1>floor}" />
+														<m:Text text="{addData1>adr03}" />
+														<m:Text text="{addData1>hsnmr}" />
+														<m:Text text="{addData1>stras}" />
+														<m:Text text="{addData1>locat}" />
+														<m:Text text="{addData1>conkk}" />
+														<m:Text text="{addData1>ort02}" />
+														<m:Text text="{addData1>ort01}" />
+														<m:Text text="{addData1>pstlz}" />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:SimpleForm>
+								</l:VerticalLayout>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="ข้อมูลครอบครัว">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<l:VerticalLayout>
+									<f:SimpleForm columnsXL="1" columnsL="1"
+										columnsM="1" editable="true" layout="ResponsiveGridLayout">
+										<f:content>
+											<m:Table id="idFamilyTable" inset="false"  items="{path: 'famData>/List'}">
+												<m:headerToolbar>
+													<m:Toolbar>
+														<m:Title text="ข้อมูลบิดา/มารดา" level="H2" />
+														<m:ToolbarSpacer />
+														<m:Button icon="sap-icon://add"
+															text="เพิ่มข้อมูลบิดา/มารดา"
+															tooltip="เพิ่มข้อมูลบิดา/มารดา" class="sapUiTinyMargin"
+															press="onPressAddParent"></m:Button>
+													</m:Toolbar>
+												</m:headerToolbar>
+												<m:columns>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="ชื่อ" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="นามสกุล" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+														hAlign="Center">
+														<m:Text text="ความสัมพันธ์" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+														hAlign="Center">
+														<m:Text text="ดูรายละเอียด" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+														hAlign="Center">
+														<m:Text text="แก้ไข" level="H2" />
+													</m:Column>
+												</m:columns>
+												<m:items>
+													<m:ColumnListItem>
+														<m:cells>
+															<m:Text text="{famData>favor}" />
+															<m:Text text="{famData>fanam}" />
+															<m:Text text="{famData>status}" />
+															<m:Button press="onPressButton4"
+																 app:mydata="{famData>subty}" icon="sap-icon://search" />
+															<m:Button press="onPressButton5"
+																 app:mydata="{famData>subty}" icon="sap-icon://edit" />
+														</m:cells>
+													</m:ColumnListItem>
+												</m:items>
+											</m:Table>
+										</f:content>
+									</f:SimpleForm>
+
+									<f:SimpleForm columnsXL="1" columnsL="1"
+										columnsM="1" editable="true" layout="ResponsiveGridLayout">
+										<f:content>
+											<m:Table inset="false" id="idSpourseTab" items="{path: 'famData2>/List'}">
+												<m:headerToolbar>
+													<m:Toolbar>
+														<m:Title text="ข้อมูลคู่สมรส" level="H2" />
+														<m:ToolbarSpacer />
+														<m:Button icon="sap-icon://add"
+															text="เพิ่มข้อมูลคู่สมรส" tooltip="เพิ่มคู่สมรส"
+															class="sapUiTinyMargin" press="onPressButton3"></m:Button>
+														<!-- <m:ToolbarSpacer /> <m:Button icon="sap-icon://edit" text="แก้ไข" 
+															tooltip="แก้ไข" class="sapUiTinyMargin"></m:Button> -->
+													</m:Toolbar>
+												</m:headerToolbar>
+												<m:columns>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="ชื่อ" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="นามสกุล" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+														hAlign="Center">
+														<m:Text text="ความสัมพันธ์" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+														hAlign="Center">
+														<m:Text text="ดูรายละเอียด" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+														hAlign="Center">
+														<m:Text text="แก้ไข" level="H2" />
+													</m:Column>
+												</m:columns>
+												<m:items>
+													<m:ColumnListItem>
+														<m:cells>
+															<m:Text text="{famData2>favor}" />
+															<m:Text text="{famData2>fanam}" />
+															<m:Text text="{famData2>status}" />
+															<m:Button press="onPressButton4"
+																app:mydata="{famData2>subty}" icon="sap-icon://search" />
+															<m:Button press="onPressButton5"
+																app:mydata="{famData2>subty}" icon="sap-icon://edit" />
+														</m:cells>
+													</m:ColumnListItem>
+												</m:items>
+											</m:Table>
+										</f:content>
+									</f:SimpleForm>
+
+									<f:SimpleForm columnsXL="1" columnsL="1"
+										columnsM="1" editable="true" layout="ResponsiveGridLayout">
+										<f:content>
+											<m:Table id="idChildTable" inset="false" items="{path: 'famData3>/List'}">
+												<m:headerToolbar>
+													<m:Toolbar>
+														<m:Title text="ข้อมูลบุตร" level="H2" />
+														<m:ToolbarSpacer />
+														<m:Button icon="sap-icon://add" text="เพิ่ม"
+															tooltip="เพิ่ม" class="sapUiTinyMargin"
+															press="onPressButton6"></m:Button>
+													</m:Toolbar>
+												</m:headerToolbar>
+												<m:columns>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="ลำดับที่" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="ชื่อ" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="นามสกุล" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="สถานะ" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+														hAlign="Center">
+														<m:Text text="ดูรายละเอียด" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline" vAlign="Middle"
+														hAlign="Center">
+														<m:Text text="แก้ไข" level="H2" />
+													</m:Column>
+												</m:columns>
+												<m:items>
+													<m:ColumnListItem>
+														<m:cells>
+															<m:Text text="{famData3>no}" />
+															<m:Text text="{famData3>favor}" />
+															<m:Text text="{famData3>fanam}" />
+															<m:Text text="{famData3>status}" />
+															<m:Button press="onPressButton11"
+																app:mydata="{famData3>no}" icon="sap-icon://search" />
+															<m:Button press="onPressButton10"
+																app:mydata="{famData3>no}" icon="sap-icon://edit" />
+														</m:cells>
+													</m:ColumnListItem>
+												</m:items>
+											</m:Table>
+										</f:content>
+									</f:SimpleForm>
+								</l:VerticalLayout>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="tId"
+						title="บุคคลที่ติดต่อได้">
+						<blocks>
+							<ObjectPageLazyLoader id="tLazyLoader">
+								<l:VerticalLayout>
+									<f:SimpleForm columnsXL="1" columnsL="1"
+										columnsM="1" editable="true" layout="ResponsiveGridLayout">
+										<f:content>
+											<m:Table id="idcontactPersonTable" mode="MultiSelect" items="{path: 'famData4>/List'}">
+												<m:headerToolbar>
+													<m:Toolbar>
+														<m:Title text="บุคคลที่ติดต่อได้" level="H2" />
+														<m:ToolbarSpacer />
+														<m:Button icon="sap-icon://add" text="เพิ่ม"
+															tooltip="เพิ่ม" class="sapUiTinyMargin" press="onAddContact"></m:Button>
+													</m:Toolbar>
+												</m:headerToolbar>
+												<m:columns>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="คำนำหน้า" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="ชื่อ" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="สกุล" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="ที่อยู่" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="เบอร์โทร" level="H2" />
+													</m:Column>
+												</m:columns>
+												<m:items>
+													<m:ColumnListItem>
+														<m:cells>
+															<m:Text text="{famData4>title}" />
+															<m:Text text="{famData4>favor}" />
+															<m:Text text="{famData4>fanam}" />
+															<m:Text text="{famData4>address}" />
+															<m:Text text="{famData4>telnr}" />
+														</m:cells>
+													</m:ColumnListItem>
+												</m:items>
+											</m:Table>
+										</f:content>
+									</f:SimpleForm>
+
+									<f:SimpleForm columnsXL="1" columnsL="1"
+										columnsM="1" editable="true" layout="ResponsiveGridLayout">
+										<f:content>
+											<m:Table id="idcontactAOTPersonTable" items="{path: 'famData5>/List'}"
+												mode="MultiSelect">
+												<m:headerToolbar>
+													<m:Toolbar>
+														<m:Title text="พนักงานทอท.ที่ติดต่อได้" level="H2" />
+														<m:ToolbarSpacer />
+														<m:Button icon="sap-icon://add" text="เพิ่ม" press="onAddRefer"
+															tooltip="เพิ่ม" class="sapUiTinyMargin"></m:Button>
+													</m:Toolbar>
+												</m:headerToolbar>
+												<m:columns>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="คำนำหน้า" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="ชื่อ" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="สกุล" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="เบอร์โทร" level="H2" />
+													</m:Column>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="รหัสบุคคล" level="H2" id="PRNR"/>
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="สังกัด" level="H2" />
+													</m:Column>
+												</m:columns>
+												<m:items>
+													<m:ColumnListItem>
+														<m:cells>
+															<m:Text text="{famData5>title}" />
+															<m:Text text="{famData5>favor}" />
+															<m:Text text="{famData5>fanam}" />
+															<m:Text text="{famData5>telnr}" />
+															<m:Text text="{famData5>perno}" />
+															<m:Text text="{famData5>efaml}" />
+														</m:cells>
+													</m:ColumnListItem>
+												</m:items>
+											</m:Table>
+										</f:content>
+									</f:SimpleForm>
+								</l:VerticalLayout>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="educationHistoryId"
+						title="ประวัติการศึกษา">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="educationHistoryLazyLoader">
+								<f:SimpleForm columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:content>
+										<m:Table id="idEducationHistoryTable" inset="false" items="{path: 'eduData>/List'}" >
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:Title text="ประวัติการศึกษา" level="H2" />
+													<m:ToolbarSpacer />
+													<m:Button icon="sap-icon://add" text="เพิ่ม"
+														tooltip="เพิ่ม" class="sapUiTinyMargin"
+														press="onPressButton8"></m:Button>
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ระดับ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วุฒิ" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="สาขา" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="สถานศึกษา" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วันที่เริ่มการศึกษา" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วันที่จบการศึกษา" level="H2" />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="{eduData>sltext}" />
+														<m:Text text="{eduData>degree}" />
+														<m:Text
+															text="{eduData>brnch}" />
+														<m:Text text="{eduData>insti}" />
+														<m:Text text="{eduData>begda}" />
+														<m:Text text="{eduData>endda}" />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="insigniaId"
+						title="ประวัติการรับเครื่องราชย์">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="insigniaLazyLoader">
+								<f:SimpleForm columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:content>
+										<m:Table id="idInsigniaTable" inset="false" items="{path: 'badgeData>/List'}">
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:Title text="ประวัติการรับเครื่องราชย์"
+														level="H2" />
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ชื่อชั้นตรา" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="รหัสชั้นตรา" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="วันที่ได้รับ" level="H2" />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="{badgeData>badge}" />
+														<m:Text text="{badgeData>stext}" />
+														<m:Text text="{badgeData>begda}" />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="workHistoryId"
+						title="ประวัติการดำรงตำแหน่ง">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="workHisotoryLazyLoader">
+								<f:SimpleForm columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:content>
+
+										<m:Table id="idWorkHistoryTable" inset="false"  items="{path: 'hisData>/List'}">
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:Title text="ประวัติการดำรงตำแหน่ง" level="H2" />
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													width="20em">
+													<m:Text text="ตำแหน่ง" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ระดับ" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="สังกัด" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="วันที่ดำรงตำแหน่ง" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="วันที่ร่วมงานกับ ทอท." />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="{hisData>pos}" />
+														<m:Text text="{hisData>level}" />
+														<m:Text text="{hisData>depart}" />
+														<m:Text text="{hisData>begda}" />
+														<m:Text text="{hisData>join}" />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection visible="false">
+				<subSections>
+					<ObjectPageSubSection id="shopConfigurationId"
+						title="ข้อมูลประวัติการทำงาน">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopConfigurationLazyLoader">
+								<f:SimpleForm columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:content>
+
+										<m:Table id="idProductsTable" inset="false">
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:Title text="ประวัติการทำงาน" level="H2" />
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													width="20em">
+													<m:Text text="ตำแหน่ง" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ฝ่าย" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="พื้นที่รับผิดชอบ" />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:ObjectIdentifier
+															title="Project Manager" text="05/2017 - 09/2017" />
+														<m:Text text="Markets and Sales" />
+														<m:Text text="Bangkok/HQ" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:ObjectIdentifier
+															title="Project Coordinator" text="01/2017 - 05/2017" />
+														<m:Text text="Markets and Sales" />
+														<m:Text text="Bangkok/HQ" />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection visible="false">
+				<subSections>
+					<ObjectPageSubSection id="departmentInfoId"
+						title="ข้อมูลฝ่าย">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="departmentInfoLazyLoader">
+								<f:SimpleForm columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:content>
+										<m:Table id="idDepartmentInfoTable" inset="false">
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:Title text="ข้อมูลฝ่าย" level="H2" />
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ประเภทการจ้าง" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เวลาการทำงาน" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ท่าอากาศยาน" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="{i18n>OU}" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ฝ่าย" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="สายงาน" level="H2" />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="พนักงานประจำ" />
+														<m:Text text="8:00-17:00" />
+														<m:Text text="Suvarnabhumi Airport" />
+														<m:Text text="HQ/BKK" />
+														<m:Text text="Markets and Sales" />
+														<m:Text text="งานควบคุมคุณภาพ" />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection visible="false">
+				<subSections>
+					<ObjectPageSubSection id="trainingHistoryId"
+						title="ประวัติการฝึกอบรม">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="trainingHistoryLazyLoader">
+								<f:SimpleForm columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:content>
+										<m:Table id="idTrainingHistoryTable" inset="false">
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:Title text="ประวัติการฝึกอบรม" level="H2" />
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ประเภทหลักสูตร" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ชื่อหลักสูตร" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="รุ่นหลักสูตร" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="วันที่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="สถานที่" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="ผู้จัด" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="ค่าใช้จ่าย" level="H2" />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="-" />
+														<m:Text text="-" />
+														<m:Text text="-" />
+														<m:Text text="-" />
+														<m:Text text="-" />
+														<m:Text text="-" />
+														<m:Text text="-" />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection visible="false">
+				<subSections>
+					<ObjectPageSubSection id="evaluationHistoryId"
+						title="ประวัติผลการประเมิน">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="evaluationHistoryLazyLoader">
+								<f:SimpleForm columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:content>
+										<m:Table id="idEvaluationHistoryTable" inset="false">
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:Title text="ประวัติผลการประเมิน" level="H2" />
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="รอบการประเมิน" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Desktop"
+													demandPopin="true" popinDisplay="Inline">
+													<m:Text text="ผู้ประเมิน" level="H2" />
+												</m:Column>
+												<m:Column minScreenWidth="Phone" demandPopin="true"
+													popinDisplay="Inline" hAlign="Center">
+													<m:Text text="คะแนน" level="H2" />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="รอบที่ 2 - 2560" />
+														<m:Text text="สมหญิง ยั่งยืนยง" />
+														<m:Text text="4" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="รอบที่ 1 - 2560" />
+														<m:Text text="สมหญิง ยั่งยืนยง" />
+														<m:Text text="4" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="รอบที่ 2 - 2560" />
+														<m:Text text="สมหญิง ยั่งยืนยง" />
+														<m:Text text="3" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="รอบที่ 1 - 2559" />
+														<m:Text text="สมหญิง ยั่งยืนยง" />
+														<m:Text text="3" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="รอบที่ 2 - 2559" />
+														<m:Text text="สมหญิง ยั่งยืนยง" />
+														<m:Text text="3" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text text="รอบที่ 1 - 2558" />
+														<m:Text text="สมหญิง ยั่งยืนยง" />
+														<m:Text text="3" />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection visible="false">
+				<subSections>
+					<ObjectPageSubSection id="employeeDocumentId"
+						title="เอกสารพนักงาน">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="employeeDocumentLazyLoader">
+								<f:SimpleForm columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:content>
+										<l:VerticalLayout>
+											<m:Table id="idCertificationTable" inset="false">
+												<m:headerToolbar>
+													<m:Toolbar>
+														<m:Title text="เอกสารพนักงาน" level="H2" />
+													</m:Toolbar>
+												</m:headerToolbar>
+												<m:columns>
+													<m:Column minScreenWidth="Phone"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="ชื่อเอกสาร" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="วันที่สร้าง" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="วันที่แก้ไข" />
+													</m:Column>
+													<m:Column minScreenWidth="Desktop"
+														demandPopin="true" popinDisplay="Inline">
+														<m:Text text="เวอร์ชัน" />
+													</m:Column>
+												</m:columns>
+												<m:items>
+													<m:ColumnListItem>
+														<m:cells>
+															<m:Link text="สัญญาว่าจ้าง.pdf" />
+														</m:cells>
+														<m:cells>
+															<m:Text text="28/09/2560" />
+														</m:cells>
+														<m:cells>
+															<m:Text text="28/09/2560" />
+														</m:cells>
+														<m:cells>
+															<m:Text text="1.0" />
+														</m:cells>
+													</m:ColumnListItem>
+													<m:ColumnListItem>
+														<m:cells>
+															<m:Link text="ใบรับรองการอบรม.pdf" />
+														</m:cells>
+														<m:cells>
+															<m:Text text="28/09/2560" />
+														</m:cells>
+														<m:cells>
+															<m:Text text="28/09/2560" />
+														</m:cells>
+														<m:cells>
+															<m:Text text="1.0" />
+														</m:cells>
+													</m:ColumnListItem>
+													<m:ColumnListItem>
+														<m:cells>
+															<m:Link text="หลักฐานการศึกษา.pdf" />
+														</m:cells>
+														<m:cells>
+															<m:Text text="28/09/2560" />
+														</m:cells>
+														<m:cells>
+															<m:Text text="28/09/2560" />
+														</m:cells>
+														<m:cells>
+															<m:Text text="1.0" />
+														</m:cells>
+													</m:ColumnListItem>
+												</m:items>
+											</m:Table>
+											<m:UploadCollection id="UploadCollection"
+												maximumFilenameLength="55" maximumFileSize="10"
+												multiple="true" sameFilenameAllowed="true"
+												instantUpload="false" change="onChange"
+												fileDeleted="onFileDeleted"
+												filenameLengthExceed="onFilenameLengthExceed"
+												fileSizeExceed="onFileSizeExceed"
+												typeMissmatch="onTypeMissmatch"
+												uploadComplete="onUploadComplete"
+												beforeUploadStarts="onBeforeUploadStarts"
+												noDataText="ลากวางเอกสารที่นี่ หรือกด +"
+												noDataDescription="" numberOfAttachmentsText="เพิ่มเอกสาร">
+											</m:UploadCollection>
+										</l:VerticalLayout>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

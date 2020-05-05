@@ -1,0 +1,41 @@
+{
+	"SupplierCollection": [
+		{
+			"SupplierName": "Red Point Stores",
+			"ImportantBookNo": "0000000000",
+			"ImportantDocNo": "ร02",
+			"HouseNumber": "1618",
+			"ZIPCode": "31415",
+			"City": "กรุงเทพ",
+			"TitleEmp": "นาย",
+			"RankEmp": "ดร.",
+			"THFirstName": "กษิภณ",
+			"THLastName": "อภิมุขคุณานนท์",
+			"ENFirstName": "Kasiphon",
+			"ENLastName": "Aphimukkhunanon",
+			"DocNo": "01",
+			"IssuedAt" : "บางกอกใหญ่",
+			"IssuedDate" : "16/07/2561",
+			"Religion" : "พุทธ",
+			"IDcard": "0-0000-00-0000-00-0",
+			"Nationality": "ไทย",
+			"Origin": "ไทย",
+			"BirthDate": "01/01/2525",
+			"NickName": "น้อย",
+			"ExpirationDate": "16/07/2570",
+			"MarriageStatus": [
+				{"Status": "โสด","StatusID": "Single"},
+				{"Status": "สมรส","StatusID": "Married"},
+				{"Status": "หย่า","StatusID": "divorce"},
+				{"Status": "หม้าย","StatusID": "Widow"}
+			],
+			
+			"MilitaryStatus": "สด.8",
+			"MarriageRegisNumber": "",
+			"MarriageIssuedDate":"23/07/2557",
+			"NoChildren":"ไม่มี",
+			"Spouse":"นางสมใจ ใจดี"
+			
+		}
+	]
+}

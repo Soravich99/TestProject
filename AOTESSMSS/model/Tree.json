@@ -1,0 +1,46 @@
+{
+  "training": {
+    "classes": [
+      {
+        "name": "Excel",
+        "status": "1",
+        "statusName": "เปิดให้ลงทะเบียน",
+        "prebook": "1",
+        "classes": [
+          {
+            "genNo": "9",
+            "period": "01/01/2018 - 05/01/2018",
+            "location": "ทอท.5",
+            "book": "1"
+          },
+          {
+            "genNo": "10",
+            "period": "06/01/2018 - 10/01/2018",
+            "location": "ทอท.3",
+            "book": "1"
+          }
+        ]
+      },
+      {
+        "name": "Word",
+        "status": "0",
+        "statusName": "ยังไม่เปิดให้ลงทะเบียน",
+        "prebook": "0",
+        "classes": [
+          {
+            "genNo": "1",
+            "period": "01/01/2018 - 05/01/2018",
+            "location": "สนญ",
+            "book": "1"
+          },
+          {
+            "genNo": "2",
+            "period": "06/01/2018 - 10/01/2018",
+            "location": "Dusit",
+            "book": "1"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,220 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.PA.Education"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<ObjectPageLayout id="objectPageLayout2">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="ส่งใบคำร้องขอแก้ประวัติการศึกษา" objectSubtitle="">
+				<!-- <actions> <ObjectPageHeaderActionButton icon="sap-icon://edit" text="edit" 
+					importance="Medium" visible="false"/> <ObjectPageHeaderActionButton icon="sap-icon://save" 
+					text="save" importance="Medium"/> <ObjectPageHeaderActionButton icon="sap-icon://cancel" 
+					text="cancel" importance="Medium"/> <ObjectPageHeaderActionButton icon="sap-icon://refresh" 
+					text=""/> </actions> -->
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสพนักงาน" text="620001" />
+				<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นายสมชาย01 จิตใจงาม01" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์"
+					text="089-123-4567" />
+				<m:ObjectStatus title="Email"
+					text="Somchai01test@gmail.com" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="ฝ่าย" text="ฝทส0101" />
+				<m:ObjectStatus title="ส่วน" text="สทส010101" />
+				<m:ObjectStatus title="ปฏิบัติงานตำแหน่ง"
+					text="เจ้าหน้าที่บริหารงาน" />
+				<m:ObjectStatus title="ประเภทตารางการทำงาน"
+					text="ปกติ" />
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+			<ObjectPageSection id="fatherSection">
+				<subSections>
+					<ObjectPageSubSection id="shopConfigurationId"
+						title="แก้ไขประวัติการศึกษา">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopConfigurationLazyLoader">
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="2" labelSpanS="2" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://hr-approval"
+												text="ส่งเพื่ออนุมัติ" tooltip="บันทึก"
+												class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+												press="onCancelPressed" tooltip="ยกเลิก"
+												class="sapUiTinyMargin"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+									<f:content>
+										<core:Title text="รายละเอียด" />
+										<m:Label text="ประเทศ" required="true" />
+										<m:Select id="country" selectedKey="1">
+											<m:items>
+												<core:Item text="ไทย" key="1" />
+												<core:Item text="อังกฤษ" key="2" />
+												<core:Item text="นิวซีแลนด์" key="3" />
+												<core:Item text="ญี่ปุ่น" key="4" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="ระดับ" required="true" />
+										<m:Select id="eduLeEdit" selectedKey="3">
+											<m:items>
+												<core:Item text="ปริญญาตรี" key="1" />
+												<core:Item text="ปริญญาโท" key="2" />
+												<core:Item text="ปริญญาเอก" key="3" />
+												<core:Item text="อื่นๆ" key="4" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="โปรดระบุ" visible="false" />
+										<m:Input value="" placeholder="อื่นๆ โปรดระบุ"
+											visible="false" />
+
+										<m:Label text="วุฒิ" required="true" />
+										<m:Select id="eduEdit" selectedKey="1">
+											<m:items>
+												<core:Item text="Doctor of Philosophy" key="1" />
+												<core:Item text="MASTER OF  SCIENCE" key="2" />
+												<core:Item text="MASTER OF  ENGINEERING" key="3" />
+												<core:Item text="อื่นๆ" key="4" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="โปรดระบุ" visible="false" />
+										<m:Input value="" placeholder="อื่นๆ โปรดระบุ"
+											visible="false" />
+
+										<m:Label text="สาขา" required="true" />
+										<m:Select id="eduBranchEdit" selectedKey="4">
+											<m:items>
+												<core:Item text="เทคโนโลยีสารสนเทศ" key="1" />
+												<core:Item text="วิศวกรรมการบินและอวกาศ" key="2" />
+												<core:Item text="การบริหารทรัพยากรบุคคล" key="3" />
+												<core:Item text="อื่นๆ" key="4" />
+											</m:items>
+										</m:Select>
+										<m:Label text="โปรดระบุ" />
+										<m:Input
+											value="Technopreneurship and Innovation Management"
+											placeholder="อื่นๆ โปรดระบุ" />
+
+										<m:Label text="ชื่อสถานศึกษา" required="true" />
+										<m:Select id="eduLoEdit" selectedKey="3">
+											<m:items>
+												<core:Item text="มหาวิทยาลัยแม่ฟ้าหลวง" key="1" />
+												<core:Item text="มหาวิทยาลัยเชียงใหม่" key="2" />
+												<core:Item text="จุฬาลงกรณ์มหาวิทยาลัย" key="3" />
+												<core:Item text="อื่นๆ" key="4" />
+											</m:items>
+										</m:Select>
+										<m:Label text="โปรดระบุ" visible="false" />
+										<m:Input value="" placeholder="อื่นๆ โปรดระบุ"
+											visible="false" />
+
+										<m:Label text="เกรดเฉลี่ย" required="true" />
+										<m:Input value="4.00"
+											placeholder="กรุณากรอกเกรดเฉลี่ย" />
+										<m:Label text="วันที่เริ่มศึกษา" required="true" />
+										<m:DatePicker displayFormat="dd/MM/yyyy"
+											valueFormat="dd/MM/yyyy" value="31/01/2552"
+											change="handleChange" />
+										<m:Label text="วันที่จบศึกษา" required="true" />
+										<m:DatePicker displayFormat="dd/MM/yyyy"
+											valueFormat="dd/MM/yyyy" value="31/12/2555"
+											change="handleChange" />
+
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="เอกสารแนบ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+
+										<m:Label text="สำเนาใบรับรองการสำเร็จการศึกษา"
+											labelFor="fileUploader" />
+										<u:FileUploader name="myFileUpload"
+											uploadUrl="upload/" placeholder=""
+											uploadComplete="handleUploadComplete" width="100%" />
+										<m:Button text="Upload" press="handleUploadPress"
+											width="25%"></m:Button>
+
+										<m:Label text="สำเนาใบแสดงผลการศึกษา"
+											labelFor="fileUploader77" />
+										<u:FileUploader name="myFileUpload"
+											uploadUrl="upload/" placeholder=""
+											uploadComplete="handleUploadComplete" width="100%" />
+										<m:Button text="Upload" press="handleUploadPress"
+											width="25%"></m:Button>
+
+										<m:Label text="สำเนาใบประกอบวิชาชีพ"
+											labelFor="fileUploader2" />
+										<u:FileUploader name="myFileUpload"
+											uploadUrl="upload/" placeholder=""
+											uploadComplete="handleUploadComplete" width="100%" />
+										<m:Button text="Upload" press="handleUploadPress"
+											width="25%"></m:Button>
+
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm title="" columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://employee-approvals"
+												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ"
+												class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+												tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

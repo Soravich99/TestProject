@@ -1,0 +1,152 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.PA.Address"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<ObjectPageLayout id="objectPageLayout2">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="ส่งใบคำร้องขอแก้ไขที่อยู่ตามทะเบียนบ้าน"
+				objectSubtitle="">
+				<!-- <actions> <ObjectPageHeaderActionButton icon="sap-icon://edit" text="edit" 
+					importance="Medium" visible="false"/> <ObjectPageHeaderActionButton icon="sap-icon://save" 
+					text="save" importance="Medium"/> <ObjectPageHeaderActionButton icon="sap-icon://cancel" 
+					text="cancel" importance="Medium"/> <ObjectPageHeaderActionButton icon="sap-icon://refresh" 
+					text=""/> </actions> -->
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสพนักงาน" text="620001" />
+				<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นายสมชาย01 จิตใจงาม01" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์"
+					text="089-123-4567" />
+				<m:ObjectStatus title="Email"
+					text="somchai.j@airportthai.co.th" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="ฝ่าย" text="ฝทส0101" />
+				<m:ObjectStatus title="ส่วน" text="สทส010101" />
+				<m:ObjectStatus title="ปฏิบัติงานตำแหน่ง"
+					text="เจ้าหน้าที่บริหารงาน" />
+				<m:ObjectStatus title="ประเภทตารางการทำงาน"
+					text="ปกติ" />
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+			<ObjectPageSection id="fatherSection">
+				<subSections>
+					<ObjectPageSubSection id="shopConfigurationId"
+						title="แก้ไขที่อยู่ตามทะเบียนบ้าน">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopConfigurationLazyLoader">
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="2" labelSpanS="2" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://hr-approval"
+												text="ส่งเพื่ออนุมัติ" tooltip="บันทึก"
+												class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://save" text="บันทึก"
+												visible="false" tooltip="บันทึก" class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+												press="onCancelPressed" tooltip="ยกเลิก"
+												class="sapUiTinyMargin"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+									<f:content>
+										<core:Title text="" />
+										<m:Label text="บ้านเลขที่" required="true" />
+										<m:Input value="1/2" />
+										<m:Label text="หมู่บ้าน" />
+										<m:Input value="ทดสอบ" />
+										<m:Label text="หมู่" required="true" />
+										<m:Input value="10" />
+										<m:Label text="ซอย" />
+										<m:Input value="1" />
+										<m:Label text="ถนน" required="true" />
+										<m:Input value="ทดสอบ" />
+										<core:Title text="" />
+										<m:Label text="ตำบล/แขวง" required="true" />
+										<m:Input value="ทดสอบ" />
+										<m:Label text="อำเภอ/เขต" required="true" />
+										<m:Input value="ทดสอบ" />
+										<m:Label text="จังหวัด" required="true" />
+										<m:Input value="กรุงเทพ" />
+										<m:Label text="รหัสไปรษณีย์" required="true" />
+										<m:Input value="10110" />
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="เอกสารแนบ">
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+
+										<m:Label text="สำเนาทะเบียนบ้าน"
+											labelFor="fileUploader" />
+										<u:FileUploader name="myFileUpload"
+											uploadUrl="upload/" placeholder=""
+											uploadComplete="handleUploadComplete" width="100%" />
+										<m:Button text="Upload" press="handleUploadPress"
+											width="25%"></m:Button>
+
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm title="" columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://employee-approvals"
+												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ"
+												class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+												tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+
+
+
+</mvc:View>

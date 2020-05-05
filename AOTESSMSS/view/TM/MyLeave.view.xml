@@ -1,0 +1,128 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.TM.MyLeave"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:t="sap.ui.table">
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="ตรวจสอบสิทธิการลา"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="555814" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="02-123-4567" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text=""/>
+				<m:ObjectStatus title="Email"
+					text="pongsak.s@airportthai.co.th"  />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ประเภทตารางการทำงาน"
+					text="กะ" />
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId"
+						title="ตรวจสอบสิทธิการลา">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<f:SimpleForm id="form1" editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:Text text="ปีที่ได้รับสิทธิ" />
+											<m:Select id="selectYear" selectedKey="2019"
+												change="onChangeLeaveType">
+												<m:items>
+													<core:Item text="2019" key="2019" />
+												</m:items>
+											</m:Select>
+											<m:ToolbarSpacer />
+										</m:Toolbar>
+									</f:toolbar>
+									<t:Table id="leaveTable" rows="{leaveList>/List}"
+										selectionMode="None" visibleRowCount="8">
+										<t:columns>
+											<t:Column width="15rem">
+												<m:Label text="ประเภทการลา" />
+												<t:template>
+													<m:Text text="{leaveList>ktart}" />
+												</t:template>
+											</t:Column>
+											<t:Column width="9rem" hAlign="Center">
+												<m:Label text="จำนวนวันที่ได้รับสิทธิ" />
+												<t:template>
+													<m:Text text="{leaveList>anzhl}" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column width="9rem" hAlign="Center">
+												<m:Label text="จำนวนวันที่ใช้ไป" />
+												<t:template>
+													<m:Text text="{leaveList>kverb}" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column width="9rem" hAlign="Center">
+												<m:Label text="จำนวนวันคงเหลือ" />
+												<t:template>
+													<m:Text text="{leaveList>balance}" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column width="9rem" hAlign="Center" warpping="true">
+												<m:Label text="จำนวนวันรอการอนุมัติ" warpping="true"/>
+												<t:template>
+													<m:Text text="{leaveList>approvingAmt}" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column width="9rem" hAlign="Center">
+												<m:Label text="วันที่เริ่มต้นได้รับสิทธิ" />
+												<t:template>
+													<m:Text text="{leaveList>begda}" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column width="9rem" hAlign="Center">
+												<m:Label text="วันที่สิ้นสุดได้รับสิทธิ" />
+												<t:template>
+													<m:Text text="{leaveList>endda}" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column width="9rem" hAlign="Center">
+												<m:Label text="หมายเหตุ" />
+												<t:template>
+													<m:Text text="{remark}" wrapping="false" />
+												</t:template>
+											</t:Column>
+										</t:columns>
+									</t:Table>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

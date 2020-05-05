@@ -1,0 +1,219 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.PA.EditMyInfo"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<ObjectPageLayout id="objectPageLayout">
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="ใบคำร้องขอแก้ไขข้อมูลส่วนตัว" objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+
+		</headerContent>
+
+		<sections>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId"
+						title="แก้ไขข้อมูลส่วนตัว">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="2" emptySpanL="2" emptySpanM="2" emptySpanS="2"
+									columnsXL="2" columnsL="2" columnsM="2"
+									singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://hr-approval"
+												text="ส่งเพื่ออนุมัติ" tooltip="บันทึก"  press="onSavePressed"
+												class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://save" text="บันทึก"  press="onSavePressed"
+												tooltip="บันทึก" class="sapUiTinyMargin" visible="false" ></m:Button>
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+												press="onCancelPressed" tooltip="ยกเลิก"
+												class="sapUiTinyMargin"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+									<f:content>
+										<core:Title text="" />
+										<m:Label text="คำนำหน้า" required="true" wrapping="true"/>
+										<m:Select id="ANRED" items="{path: 'titleItem>/List'}">
+											<m:items>
+												<core:Item text="{titleItem>atext}" key="{titleItem>anrde}" />
+											</m:items>
+										</m:Select>
+										<m:Label text="ยศ" />
+										<m:Select id="NAMZU" items="{path: 'otitleItem>/List'}">
+											<m:items>
+												<core:Item text="{otitleItem>ttout}" key="{otitleItem>titel}" />
+											</m:items>
+										</m:Select>
+										<m:Label text="ชื่อ(ภาษาไทย)" required="true" />
+										<m:Input value="กษิภณ" id="VORNA"/>
+<!-- 										<m:Label text="วันที่เปลี่ยนชื่อ" /> -->
+<!-- 										<m:DatePicker displayFormat="dd/MM/yyyy" id="BEGDA" -->
+<!-- 											valueFormat="dd/MM/yyyy" value="" change="handleChange" /> -->
+										<m:Label text="นามสกุล (ภาษาไทย)" required="true" />
+										<m:Input value="อภิมุขคุณานนท์" id="NACHN"/>
+<!-- 										<m:Label text="วันที่เปลี่ยนสกุล" /> -->
+<!-- 										<m:DatePicker displayFormat="dd/MM/yyyy" id="BEGDA2" -->
+<!-- 											valueFormat="dd/MM/yyyy" value="" change="handleChange" /> -->
+
+										<m:Label text="คำนำหน้าชื่อ (ภาษาอังกฤษ)" required="true" wrapping="true"/>
+										<m:Select id="VORSW" selectedKey="">
+											<m:items>
+												<core:Item text="" key="" />
+												<core:Item text="MR." key="MR." />
+												<core:Item text="MISS" key="MISS" />
+												<core:Item text="MRS." key="MRS." />
+												<core:Item text="MASTER" key="MASTER" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="ยศ (ภาษาอังกฤษ)" />
+										<m:Select id="TITEL" items="{path: 'eotitleItem>/List'}">
+											<m:items>
+												<core:Item text="{eotitleItem>ttout}" key="{eotitleItem>titel}" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="ชื่อ (ภาษาอังกฤษ)"
+											required="true" />
+										<m:Input value="Somchai" id="FNAMR" />
+
+										<m:Label text="นามสกุล (ภาษาอังกฤษ)"
+											required="true" />
+										<m:Input value="Jitchaingam" id="LNAMR" />
+
+										<core:Title text="" />
+
+										<m:Label text="วันเกิด" labelFor="DTP1" />
+										<m:DatePicker displayFormat="dd/MM/yyyy"
+											enabled="false" valueFormat="dd/MM/yyyy" value="01/01/2533"
+											change="handleChange" id="GBDAT" />
+
+										<m:Label text="ศาสนา" />
+										<m:Select id="ReligionEdit" items="{path: 'reliItem>/List'}">
+											<m:items>
+												<core:Item text="{reliItem>ktext}" key="{reliItem>konfe}" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="สัญชาติ" />
+										<m:Input value="ไทย" enabled="false" id="NATIO"/>
+
+										<m:Label text="กรุ๊ปเลือด" />
+										<m:Select id="titleBloodEditEng" enabled="false">
+											<m:items>
+												<core:Item text="" key="" />
+												<core:Item text="O+" key="O+" />
+												<core:Item text="O-" key="O-" />
+												<core:Item text="A+" key="A+" />
+												<core:Item text="A-" key="A-" />
+												<core:Item text="B+" key="B+" />
+												<core:Item text="B-" key="B-" />
+												<core:Item text="AB+" key="AB+" />
+												<core:Item text="AB-" key="AB-" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="สถานภาพทางทหาร" />
+										<m:Input value="" enabled="false" id="MILSA" />
+
+										<m:Label text="สถานภาพสมรส" />
+										<m:Select selectedKey="single" id="FAMST"
+											change="onSelectStatus" enabled="false">
+											<m:items>
+												<core:Item text="โสด" key="0" />
+												<core:Item text="สมรส" key="1" />
+												<core:Item text="หย่า" key="2" />
+												<core:Item text="หม้าย" key="3" />
+											</m:items>
+										</m:Select>
+										<m:Label text="วันที่เปลี่ยนแปลงข้อมูล" required="true"/>
+										<m:DatePicker displayFormat="dd/MM/yyyy" id="BEGDA"
+											valueFormat="dd/MM/yyyy" value="" change="handleChange" />
+<!-- 										<m:Label text="เหตุผลของการเปลี่ยนแปลงข้อมูล"  required="true" /> -->
+<!-- 										<m:Input value="" enabled="true" id="REASON" /> -->
+
+										<m:Label text="หมายเหตุ" />
+										<m:Text
+											text="แก้ไขสถานภาพสมรสได้ที่ใบคำร้องขอแก้ไขข้อมูลสถานภาพสมรส" />
+
+
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="familyId"
+						title="เอกสารแนบ">
+						<blocks>
+							<ObjectPageLazyLoader id="familyLazyLoader">
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="5" labelSpanL="5"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="2" emptySpanL="2" emptySpanM="2" emptySpanS="2"
+									columnsXL="1" columnsL="1" columnsM="1"
+									singleContainerFullSize="false">
+									<f:content>
+
+										<m:Label text="สำเนาใบเปลี่ยนคำนำหน้า/ใบแต่งตั้งยศ/ใบเปลี่ยนชื่อ/ใบเปลี่ยนนามสกุล"
+											labelFor="fileUploader" />
+										<u:FileUploader name="myFileUpload"
+											buttonText="แนบเอกสาร" maximumFileSize="30MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG"
+											uploadUrl="upload/" placeholder="" id="file01"
+											uploadComplete="handleUploadComplete" width="100%" />
+
+										<m:Label text="สำเนาบัตรประชาชน"
+											labelFor="fileUploader77" required="true" />
+										<u:FileUploader name="myFileUpload"
+											buttonText="แนบเอกสาร" maximumFileSize="30MB" fileType="PDF,pdf,jpg,jpeg,PNG,png,JPG,JPEG"
+											uploadUrl="upload/" placeholder="" id="file02"
+											uploadComplete="handleUploadComplete" width="100%" />
+										
+										
+
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

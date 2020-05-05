@@ -1,0 +1,37 @@
+﻿{
+	"SupplierCollection": [
+		{
+			"SalaryNo": "539999",
+			"EmployeeName": "นาง งาม  รักการงาน",
+			"PositionName": " เจ้าหน้าที่งานบุคคล",
+			"PositionStatus": "Active",
+			"DepartmentName": "ฝ่ายทรัพยากรบุคคล ",
+			"PolicyName": "นโยบาย 1 ตราสารหนี้ 90% ตราสารทุน 10%",
+			"SpouseName": "นาย มั่งคง  รักการงาน",
+			"SpouseOcName": "วิศวกร",
+			"SpouseCompany" : "บริษัท อิตาเลียนไทย จำกัด",
+			"SpouseStatus" : "สมรส",
+			"AccumulationRate" : "10"
+		}
+	],
+	
+"Peoples": [
+		{
+			"Order": "1",
+			"NameRecieve": "นาย บี รักการงาน",
+			"Rating": "30"
+		},
+		{
+			"Order": "2",
+			"NameRecieve": "นาย ซี รักการงาน",
+			"Rating": "40"
+		},
+		{
+			"Order": "3",
+			"NameRecieve": "นาย ดี รักการงาน",
+			"Rating": "30"
+		}
+		
+	]
+	
+}

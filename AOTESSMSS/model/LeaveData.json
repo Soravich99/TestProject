@@ -1,0 +1,84 @@
+{
+  "LeaveTypes": [
+    {
+      "LeaveType": "ลาพักผ่อน",
+      "startDate": "01/01/2561",
+      "endDate": "31/12/2561",
+      "quota": "10",
+      "used": "2",
+      "balance": "5",
+      "approvingAmt": "3",
+      "remark": "-"
+    },
+    {
+      "LeaveType": "ลาป่วย",
+      "startDate": "01/01/2561",
+      "endDate": "31/12/2561",
+      "quota": "75",
+      "used": "-",
+      "balance": "75",
+      "approvingAmt": "-",
+      "remark": "-"
+    },
+    {
+      "LeaveType": "ลาป่วย (ไม่จ่าย)",
+      "startDate": "01/01/2561",
+      "endDate": "31/12/2561",
+      "quota": "15",
+      "used": "-",
+      "balance": "15",
+      "approvingAmt": "-",
+      "remark": "-"
+    },
+    {
+      "LeaveType": "ลากิจ",
+      "startDate": "01/01/2561",
+      "endDate": "31/12/2561",
+      "quota": "30",
+      "used": "-",
+      "balance": "30",
+      "approvingAmt": "-",
+      "remark": "-"
+    },
+	{
+      "LeaveType": "ลากิจ (ไม่จ่าย)",
+      "startDate": "01/01/2561",
+      "endDate": "31/12/2561",
+      "quota": "-",
+      "used": "-",
+      "balance": "-",
+      "approvingAmt": "-",
+      "remark": "-"
+    },
+	{
+      "LeaveType": "ลาคลอด",
+      "startDate": "01/01/2561",
+      "endDate": "31/12/2561",
+      "quota": "90",
+      "used": "-",
+      "balance": "90",
+      "approvingAmt": "-",
+      "remark": "-"
+    },
+	{
+      "LeaveType": "ลากิจส่วนตัวเพื่อเลี้ยงดูบุตร",
+      "startDate": "01/01/2561",
+      "endDate": "31/12/2561",
+      "quota": "30",
+      "used": "-",
+      "balance": "30",
+      "approvingAmt": "-",
+      "remark": "-"
+    },
+	{
+      "LeaveType": "ลากิจส่วนตัวเพื่อเลี้ยงดูบุตร (ไม่จ่าย)",
+      "startDate": "01/01/2561",
+      "endDate": "31/12/2561",
+      "quota": "120",
+      "used": "-",
+      "balance": "120",
+      "approvingAmt": "-",
+      "remark": "-"
+    }
+  ]
+}

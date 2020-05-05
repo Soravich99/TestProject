@@ -1,0 +1,36 @@
+﻿<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<TableSelectDialog
+		noDataText="No Dsese Found"
+		title="เลือกโรค"
+		search="handleSearch2"
+		confirm="handleClose2"
+		cancel="handleClosex2"
+		items="{
+			path : 'dseseItem>/List',
+			sorter : {
+				path : 'dsese',
+				descending : false
+			}
+		}">
+		<ColumnListItem>
+			<cells>
+				<Text text="{dseseItem>dsese}" />
+				<Text text="{dseseItem>dstxt}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column width="12em">
+				<header>
+					<Text text="รหัสโรค" />
+				</header>
+			</Column>
+			<Column width="12em">
+				<header>
+					<Text text="ชื่อโรค" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

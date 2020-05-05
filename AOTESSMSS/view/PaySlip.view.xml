@@ -1,0 +1,188 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.PaySlip"
+	xmlns="sap.uxap"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+
+	<ObjectPageLayout
+		id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="ใบแจ้งยอดเงินเดือน"
+				objectSubtitle="">
+				<!-- <actions>
+					<ObjectPageHeaderActionButton
+						class="sapUiTinyMarginTop"
+						id="save"
+						text="บันทึก"
+						hideText="false"
+						press="onSavePressed"
+						type="Emphasized"/>
+					<ObjectPageHeaderActionButton
+						class="sapUiTinyMarginTop"
+						id="cancel"
+						text="ยกเลิก"
+						press="onCancelPressed"
+						hideText="false"/>
+				</actions> -->
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+		</headerContent>
+		<sections>
+			<ObjectPageSection>
+			<subSections>
+				<ObjectPageSubSection
+					id="shopOwnerId"
+					title="ใบแจ้งยอดเงินเดือน">
+					<blocks>
+						<ObjectPageLazyLoader
+							id="shopOwnerLazyLoader">
+							<f:SimpleForm
+								columnsL="1"
+								columnsM="1"
+								editable="true"
+								layout="ResponsiveGridLayout">
+								<f:content>
+								<l:VerticalLayout>
+								<m:Table id="idCertificationTable"
+											inset="false">
+											<m:headerToolbar>
+												<m:Toolbar>
+													<m:Title text="เอกสารใบแจ้งยอดเงินเดือน" level="H2"/>
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column
+													minScreenWidth="Phone"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เอกสาร" />
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ปี/เดือน" />
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Link
+															text="PaySlip_2560_Sep.pdf" />
+													</m:cells>
+													<m:cells>
+														<m:Text
+															text="2560/09" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Link
+															text="PaySlip_2560_Aug.pdf" />
+													</m:cells>
+													<m:cells>
+														<m:Text
+															text="2560/08" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Link
+															text="PaySlip_2560_Jul.pdf" />
+													</m:cells>
+													<m:cells>
+														<m:Text
+															text="2560/07" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Link
+															text="PaySlip_2560_Jun.pdf" />
+													</m:cells>
+													<m:cells>
+														<m:Text
+															text="2560/06" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Link
+															text="PaySlip_2560_May.pdf" />
+													</m:cells>
+													<m:cells>
+														<m:Text
+															text="2560/05" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Link
+															text="PaySlip_2560_Apr.pdf" />
+													</m:cells>
+													<m:cells>
+														<m:Text
+															text="2560/04" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Link
+															text="PaySlip_2560_Mar.pdf" />
+													</m:cells>
+													<m:cells>
+														<m:Text
+															text="2560/03" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Link
+															text="PaySlip_2560_Feb.pdf" />
+													</m:cells>
+													<m:cells>
+														<m:Text
+															text="2560/02" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Link
+															text="PaySlip_2560_Jan.pdf" />
+													</m:cells>
+													<m:cells>
+														<m:Text
+															text="2560/01" />
+													</m:cells>
+												</m:ColumnListItem>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Link
+															text="PaySlip_2559_Dec.pdf" />
+													</m:cells>
+													<m:cells>
+														<m:Text
+															text="2559/12" />
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+								</l:VerticalLayout>
+								</f:content>
+							</f:SimpleForm>
+						</ObjectPageLazyLoader>
+					</blocks>
+				</ObjectPageSubSection>
+			</subSections>
+			</ObjectPageSection>
+			
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

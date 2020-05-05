@@ -1,0 +1,182 @@
+<mvc:View controllerName="sap.ui.demo.toolpageapp.controller.BE.ChildrenAllowanceType3"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:t="sap.ui.table" xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified"
+	xmlns:mvc="sap.ui.core.mvc">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader objectTitle="เงินช่วยเหลือบุตร"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<sections>
+
+			<ObjectPageSection>
+								<subSections>
+									<ObjectPageSubSection
+										title="เงินช่วยเหลือบุตร">
+										<blocks>
+											<ObjectPageLazyLoader>
+												<f:SimpleForm
+													columnsL="2"
+													columnsM="2"
+													editable="true"
+													layout="ResponsiveGridLayout" >
+													
+													<f:toolbar>
+													<m:Toolbar>
+														<m:Title text="" level="H2" />
+														<m:ToolbarSpacer />
+														<m:Button icon="sap-icon://employee-approvals" text="ส่งเพื่ออนุมัติ"
+															tooltip="ส่งเพื่ออนุมัติ" class="sapUiTinyMargin"></m:Button>
+														<m:Button icon="sap-icon://save" text="บันทึก"
+															tooltip="บันทึก" class="sapUiTinyMargin"></m:Button>
+														<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+															tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button>
+													</m:Toolbar>
+													</f:toolbar>
+													
+													
+													<f:content>
+														 <l:VerticalLayout>
+														
+														<m:Label text="ประเภทการขอ : "/>
+															<m:Input value="การขอบอกเลิกเงินช่วยเหลือบุตร" type="SalaryNo" enabled="false">
+																<m:layoutData>
+										                  			<l:GridData span="L8 M8 S8" />
+										                		</m:layoutData>
+										            		</m:Input>
+														 
+														
+															<m:Label text="วันที่ขอ : "/>
+															<m:Input value="10/08/2018" type="SalaryNo" enabled="false" class="sapUiContentPadding">
+																<m:layoutData>
+												                  <l:GridData span="L8 M8 S8" />
+												                </m:layoutData>
+												            </m:Input>
+														
+														
+														<m:Table id="idEducationHistoryTable_15555"
+											inset="false">
+											
+													<m:headerToolbar> 
+														<m:Toolbar> 
+															<m:Title text="" level="H2" /> 
+														</m:Toolbar> 
+													</m:headerToolbar>
+																								
+											
+											
+											<m:columns>
+												
+												<m:Column
+													minScreenWidth="Phone"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ชื่อ - นามสกุล" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วัน เดือน ปี เกิด" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="อายุ" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วันที่มีผล" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วันที่สิ้นสุด" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เลขที่บัตรประชาชน" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="เบิกได้ตามสิทธิ" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ยกเลิก" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="สาเหตุ" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="วันที่มีผลยกเลิก" level="H2"/>
+												</m:Column>
+												<m:Column
+													minScreenWidth="Desktop"
+													demandPopin="true"
+													popinDisplay="Inline">
+													<m:Text text="ตกเบิก" level="H2"/>
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem>
+													<m:cells>
+														<m:Text
+															text="นายสมโชค ดังใจหมาย" />
+														<m:Text
+															text="10/1/2003" />
+														<m:Text
+															text="15 ปี" />
+														<m:Text
+															text="01/03/2018" />
+														<m:Text
+															text="10/01/2021" />
+														<m:Text
+															text="1100500123456" />
+														<m:Text
+															text="300.00" />
+														<core:Icon 
+															src="sap-icon://accept"/>
+														<m:Text
+															text="เสียชีวิต" />
+														<m:Text
+															text="12/06/2018"/>	
+														<m:Text
+															text="-300"/>	
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>																					
+										</m:Table>
+																			
+													 </l:VerticalLayout>
+													</f:content>
+												</f:SimpleForm>
+											</ObjectPageLazyLoader>
+										</blocks>
+									</ObjectPageSubSection>
+								</subSections>
+							</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

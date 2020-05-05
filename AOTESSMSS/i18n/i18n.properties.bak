@@ -1,0 +1,500 @@
+﻿# This Is The Resource Bundle For The ToolPage App
+
+#XTIT: Application name
+appTitle=Self-Services Control Panel
+
+#YDES: Application description
+appDescription=showing typical controls of the sap.tnt library
+
+#~~~ App View ~~~~~~~~~~~~~~~~~~~~~~~~~~
+#XTXT: Text in the user button
+userName=นายสมชาย01 จิตใจงาม01
+
+#XTIT: Title for the notification popover
+notificationTitle=Notifications
+
+#XTXT: Text for the button inside notification popover
+notificationButtonText=Show all Notifications
+
+#XTIT: Title for the user popover
+userHeaderTitle=Settings
+
+#~~~ Home View ~~~~~~~~~~~~~~~~~~~~~~~~~~
+#XTIT: Title in the second row
+shopAdminTitle=Self-Services Tool
+
+#XTXT: Text for the access link
+accessLink=Access the tool
+
+#XTXT: Text for the learn about link
+learnLink=Learn more
+
+#XTIT: Title in the administration cell
+administrationTitle=My Info
+
+#XTXT: Text in the administration cell
+administrationContent=My profile information
+
+#XTIT: Title in the products cell
+productTitle=My Services
+
+#XTXT: Text in the products cell
+productContent=Access to HR services
+
+#XTIT: Title in the revenue cell
+revenueTitle=My Learning
+
+#XTXT: Text in the revenue cell
+revenueContent=Access to courses and training
+
+#XTIT: Title in the supplier cell
+supplierTitle=Benefits
+
+#XTXT: Text in the supplier cell
+supplierContent=Claim or request corporate benefit
+
+#XTIT: Title in the social media cell
+socialMediaTitle=Salary
+
+#XTXT: Text in the social media cell
+socialMediaContent=View the latest information about your salary
+
+#XTIT: Toolbar title in the customer overview cell
+customerOverviewTitle=Statistics
+
+#XTXT: Customer name column in the customer overview table
+customerName=Name
+
+#XTXT: Product ID column in the customer overview table
+productId=Amount
+
+#XTXT: Last Purchase column in the customer overview table
+lastPurchase=Date
+
+#XTXT: Payment column in the customer overview table
+payment=Status
+
+#XTXT: Amount column in the customer overview table
+amount=Amount
+
+#~~~ Settings Views ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#XBUT: Text on the save button
+save=Save
+
+#XBUT: Text on the cancel button
+cancel=Cancel
+
+#XTIT: Title in the system settings header
+systemSettingsTitle=Leave Request
+
+#XTXT: Description in the system settings header
+systemSettingsDescriptionTitle=Review or approve leave request
+
+#XTIT: User name and last login message the system settings header
+systemSettingsLastLoginTitle=คุณกำลังใช้งานระบบด้วยบัญชี: {0}\nเข้าใช้งานระบบครั้งล่าสุดเมื่อ: {1}
+
+#XTIT: Title for the owner detail tab
+shopOwnerTitle=Leave Detail
+
+#XTIT: Simple form title in the shop owner detail tab
+editOwnerDetailTitle=Leave Detail
+
+#XTIT: Address title in the shop owner detail tab
+ownerAddress=Address
+
+#XFLD: First name field in the owner detail tab
+ownerFirstName=First Name
+
+#XFLD: Last name field in the owner detail tab
+ownerLastName=Last Name
+
+#XFLD: Street/Nr field in the owner detail tab
+ownerStreet=Street/Nr
+
+#XFLD: ZIP Code field in the owner detail tab
+ownerZipCode=ZIP Code/ City
+
+#XFLD: Country field in the owner detail tab
+ownerCountry=Country
+
+#XTIT: Contact details title in the shop owner detail tab
+ownerContact=Contact Details
+
+#XFLD: Mobile field in the owner detail tab
+ownerMobile=Mob.
+
+#XFLD: Fax field in the owner detail tab
+ownerFax=Fax
+
+#XFLD: Email field in the owner detail and shop configuration tabs
+mail=E-Mail
+
+#XTIT: Title for the shop configuration tab
+shopConfigurationTitle=Approval Detail
+
+#XTIT: Simple form title in the shop configuration tab
+editSystemConfigurationTitle=Approval Detail
+
+#XTIT: Store settings title in the shop configuration tab
+storeSettings=Store Settings
+
+#XFLD: Store name field in the shop configuration tab
+storeName=Store Name
+
+#XFLD: Default language field in the shop configuration tab
+storeDefaultLanguage=Default Language
+
+#XFLD: Company code field in the shop configuration tab
+storeCode=Company Code
+
+#XTIT: Store Contact title in the shop configuration tab
+StoreContact=Contact Details
+
+#XFLD: Online website field in the shop configuration tab
+storeWebSite=Online website
+
+#XFLD: Phone field in the shop configuration tab
+storePhone=Phone
+
+#~~~ Statistics Views ~~~~~~~~~~~~~~~~~~~~~~~~~~
+#XTIT: Title in the statistics page toolbar
+shopStatisticsTitle=Statistics
+
+#XTIT: System Resource Usage
+sysResUsage=System Resource Usage
+
+#XTIT: Data title in the order status
+orderStatusDate=1 Jan 2017 - 31 Dec 2017
+
+#XTIT: Initial Calls
+initCalls=Initial Calls
+
+#XTIT: Downtime
+downtime=Downtime
+
+#XTIT: Reloads
+reLoads=Reloads
+
+#XTIT: Maintenance
+maintenance=Maintenance
+
+#XTIT: Max. Memory Usage
+maxMemUsage=Max. Memory Usage
+
+#XTIT: Data title in the Customer Rating
+customerRatingDate=1 Jan 2017 - 31 Dec 2017
+
+#XTIT: Trend in Memory Consumption
+memTrendTitle=Trend in Memory Consumption
+
+#XTIT: Data title in the Sales Trend
+salesTrendDate=1 Jan 2017 - 31 Dec 2017
+
+#XFLD: First label in the  X axis sales trend
+salesTrendLabelXStart=July.2016
+
+#XFLD: Second label in the  X axis sales trend
+salesTrendLabelXEnd=September.2016
+
+#XFLD: First label in the Y axis sales trend
+salesTrendLabelYStart=0
+
+#XFLD: Second label in the Y axis sales trend
+salesTrendLabelYEnd=100000
+
+#XTIT: Data title in the Cancelled Orders
+canceledOrdersDate=1 Jan 2017 - 31 Dec 2017
+
+#XTIT: Data title in the Net Promoter Score
+netPromoterDate=1 Jan 2017 - 31 Dec 2017
+
+#XTIT: Data title in the Target Revenue
+revenueDate=1 Jan 2017 - 31 Dec 2017
+
+#XTIT: Data title in the goal progress
+goalProgressDate=1 Jan 2017 - 31 Dec 2017
+
+#XTIT: Data title in the profit margin
+profitMarginDate=1 Jan 2017 - 31 Dec 2017
+
+#XFLD: First label in the Profit Margin
+profitMarginStartLabel=1.October.2016
+
+#XFLD: Second label in the Profit Margin
+profitMarginEndLabel=30.September 2016
+
+#XTIT: Overall System Uptime
+ovSysUptime=Leave Quota
+
+#XTIT: Distinct Users
+disUsersMonth=Leave per Month
+
+#XTIT: Maintenance Completion in Percent
+maintCompl=Utilization in Percent
+
+#XTIT: Impact on Cost Center
+impCostCenter=Impact on Cost Center
+
+#XTIT: Database Usage and Throughput
+databaseUsage=Utilization per Month
+
+#XTIT: Costs for Upgraded Storage
+costUpgStor=Costs for Upgraded Storage
+
+#~~~ MyInfo Views ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#XBUT: Text on the save button
+msave=Save
+
+#XBUT: Text on the cancel button
+mcancel=Cancel
+
+#XTIT: Title in the system settings header
+msystemSettingsTitle=My Information
+
+#XTXT: Description in the system settings header
+msystemSettingsDescriptionTitle=All about your information
+
+#XTIT: User name and last login message the system settings header
+msystemSettingsLastLoginTitle=You are logged in as: {0}\nLast Login: {1}
+
+#XTIT: Title for the owner detail tab
+mshopOwnerTitle=Personal Detail
+
+#XTIT: Simple form title in the shop owner detail tab
+meditOwnerDetailTitle=Personal Detail
+
+#XTIT: Address title in the shop owner detail tab
+mownerAddress=Address
+
+#XFLD: First name field in the owner detail tab
+mownerFirstName=First Name
+
+#XFLD: Last name field in the owner detail tab
+mownerLastName=Last Name
+
+#XFLD: Street/Nr field in the owner detail tab
+mownerStreet=Street
+
+#XFLD: ZIP Code field in the owner detail tab
+mownerZipCode=ZIP Code
+mownerCity=City
+
+#XFLD: Country field in the owner detail tab
+mownerCountry=Country
+
+#XTIT: Contact details title in the shop owner detail tab
+mownerContact=Contact Details
+
+#XFLD: Mobile field in the owner detail tab
+mownerMobile=Mobile
+
+#XFLD: Fax field in the owner detail tab
+mownerFax=Fax
+
+#XFLD: Email field in the owner detail and shop configuration tabs
+mmail=E-Mail
+
+#XTIT: Title for the shop configuration tab
+mshopConfigurationTitle=Career Information
+
+#XTIT: Simple form title in the shop configuration tab
+meditSystemConfigurationTitle=Career Information
+
+#XTIT: Store settings title in the shop configuration tab
+mstoreSettings=Store Settings
+
+#XFLD: Store name field in the shop configuration tab
+mstoreName=Store Name
+
+#XFLD: Default language field in the shop configuration tab
+mstoreDefaultLanguage=Default Language
+
+#XFLD: Company code field in the shop configuration tab
+mstoreCode=Company Code
+
+#XTIT: Store Contact title in the shop configuration tab
+mStoreContact=Contact Details
+
+#XFLD: Online website field in the shop configuration tab
+mstoreWebSite=Online website
+
+#XFLD: Phone field in the shop configuration tab
+mstorePhone=Phone
+
+tileQuota=Annual Leave quota remaining
+tileQuotaUnit=days
+tileQuota2=Sick Leave quota remaining
+tileQuotaUnit2=days
+tileCourseEnrolled=Enrolled Courses
+tileCourseEnrolledUnit=courses
+tileDayWorkHere=Days working here
+tileDayWorkHereUnit=days
+
+position=Position
+site=Site
+
+telephone=Telephone
+departmentInfo=Department Information
+evaluationHistory=Evaluation History
+employeeDocument=Employee Document
+edit=Edit
+
+hiringType=Hiring Type
+workingTime=Working Time
+OU=OU
+serviceLine=Service Line
+department=Department
+
+evaluationRound=Evaluation Round
+rating=Rating
+evaluator=Evaluator
+
+certification=Certification
+
+#-- Leave Detail ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#XBUT: Text on the save button
+lsave=Save
+
+#XBUT: Text on the cancel button
+lcancel=Cancel
+
+#XTIT: Title in the system settings header
+lsystemSettingsTitle=Leave Request
+
+#XTXT: Description in the system settings header
+lsystemSettingsDescriptionTitle=Here you can create/review your leave request
+
+#XTIT: User name and last login message the system settings header
+lsystemSettingsLastLoginTitle=You are logged in as: {0}\nLast Login: {1}
+
+#XTIT: Title for the owner detail tab
+lshopOwnerTitle=Leave Detail
+
+#XTIT: Simple form title in the shop owner detail tab
+leditOwnerDetailTitle=Leave Detail
+
+#XTIT: Title for the shop configuration tab
+lshopConfigurationTitle=Attachments
+
+#XTIT: Simple form title in the shop configuration tab
+leditSystemConfigurationTitle=Attachments
+
+startDate= Start Date
+endDate=End Date
+leaveType=Leave Type
+
+
+# This is the resource bundle for Manage Products
+
+#XTIT: Application name
+appTitle=Manage Products
+
+#YDES: Application description
+appDescription=My Worklist App
+
+#~~~ Worklist View ~~~~~~~~~~~~~~~~~~~~~~~~~~
+#XTIT: Worklist view title
+worklistViewTitle=Manage ProductsPlural
+
+#XTIT: Worklist page title
+worklistTitle=Manage Products
+
+#XTIT: Table view title
+worklistTableTitle=ProductsPlural
+
+#XTOL: Tooltip for the search field
+worklistSearchTooltip=Enter a Product name or a part of it.
+
+#XBLI: text for a table with no data with filter or search
+worklistNoDataWithSearchText=No matching ProductsPlural found
+
+#XTIT: Table view title with placeholder for the number of items
+worklistTableTitleCount=Products ({0})
+
+#XTIT: The title of the column containing the ProductName of Products
+tableNameColumnTitle=ProductName
+
+#XTIT: The title of the column containing the UnitsInStock and the unit of measure
+tableUnitNumberColumnTitle=UnitsInStock
+
+#XTIT: The title of the column containing Supplier name
+TableSupplierColumnTitle=Supplier
+
+#XTIT: The title of the column containing Price
+TablePriceColumnTitle=Price
+
+#XTIT: The title of the column containing Ordered Units
+TableUnitsOrderedColumnTitle=Units Ordered
+
+#XTIT: The title of the column containing Units in Stock
+TableUnitsInStockColumnTitle=Units in Stock
+
+#XBLI: text for a table with no data
+tableNoDataText=No ProductsPlural are currently available
+
+#XLNK: text for link in 'not found' pages
+backToWorklist=Show Manage Products
+
+#XTIT: The title of the products quick filter
+WorklistFilterProductsAll=Products
+
+#XTIT: The title of the out of stock products filter
+WorklistFilterOutOfStock=Out of Stock
+
+#XTIT: The title of the low stock products filter
+WorklistFilterShortage=Shortage
+
+#XTIT: The title of the products in stock filter
+WorklistFilterInStock=Plenty in Stock
+
+#~~~ Object View ~~~~~~~~~~~~~~~~~~~~~~~~~~
+#XTIT: Object view title
+objectViewTitle=Products Details
+
+#XTIT: Object page title
+objectTitle=Products
+
+
+#XTIT: Label for the ProductName
+ProductNameLabel=ProductName
+
+#XTIT: Label for the UnitsInStock
+UnitsInStockLabel=UnitsInStock
+
+
+#~~~ Share Menu Options ~~~~~~~~~~~~~~~~~~~~~~~
+
+#XTIT: Send E-Mail subject
+shareSendEmailWorklistSubject=Email subject PLEASE REPLACE ACCORDING TO YOUR USE CASE
+
+#YMSG: Send E-Mail message
+shareSendEmailWorklistMessage=Email body PLEASE REPLACE ACCORDING TO YOUR USE CASE\r\n{0}
+
+#XTIT: Send E-Mail subject
+shareSendEmailObjectSubject=Email subject including object identifier PLEASE REPLACE ACCORDING TO YOUR USE CASE {0}
+
+#YMSG: Send E-Mail message
+shareSendEmailObjectMessage=Email body PLEASE REPLACE ACCORDING TO YOUR USE CASE {0} (id: {1})\r\n{2}
+
+
+#~~~ Not Found View ~~~~~~~~~~~~~~~~~~~~~~~
+
+#XTIT: Not found view title
+notFoundTitle=Not Found
+
+#YMSG: The Products not found text is displayed when there is no Products with this id
+noObjectFoundText=This Product is not available
+
+#YMSG: The Products not available text is displayed when there is no data when starting the app
+noObjectsAvailableText=No ProductsPlural are currently available
+
+#YMSG: The not found text is displayed when there was an error loading the resource (404 error)
+notFoundText=The requested resource was not found
+
+#~~~ Error Handling ~~~~~~~~~~~~~~~~~~~~~~~
+
+#YMSG: Error dialog description
+errorText=Sorry, a technical error occurred! Please try again later.

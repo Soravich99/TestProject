@@ -1,0 +1,421 @@
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.BE.CreateFloodDonate"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<!-- <VBox class="sapUiSmallMargin"> -->
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="เงินช่วยเหลือภัยพิบัติ" objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="วันที่จ้างงาน"
+					text="" />
+				<m:ObjectStatus title="วันที่บรรจุ" text="" />
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+				<m:ObjectStatus title="สถานภาพ" text="" />
+			</l:VerticalLayout>
+
+		</headerContent>
+		<sections>
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId"
+						title="เงินช่วยเหลือภัยพิบัติ">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<f:SimpleForm title="เงินช่วยเหลืออุทกภัย"
+									editable="true" layout="ResponsiveGridLayout" labelSpanXL="4"
+									labelSpanL="4" labelSpanM="4" labelSpanS="4"
+									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3"
+									columnsM="3" singleContainerFullSize="false">
+
+									<f:toolbar>
+										<m:Toolbar>
+											<m:Title
+												text="สร้างการขอเบิกเงินช่วยเหลือภัยพิบัติและอื่นๆ (การเงินสวัสดิการ ทอท.)"
+												level="H2" />
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://employee-approvals"
+												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ"
+												class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://save" text="บันทึก"
+												tooltip="บันทึก" class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+												tooltip="ยกเลิก" class="sapUiTinyMargin" press="onCancel"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+
+									<f:content>
+										<core:Title text=""
+											class="sapUiSmallMarginBeginEnd" />
+
+										<m:Label text="เลขที่คำขอ" />
+										<m:Input value="" enabled="false"
+											class="sapUiContentPadding">
+											<m:layoutData>
+												<l:GridData span="L8 M8 S8" />
+											</m:layoutData>
+										</m:Input>
+
+										<m:Label text="วันที่ขอ" />
+										<m:Input value="20/11/2560" enabled="false"
+											class="sapUiContentPadding">
+											<m:layoutData>
+												<l:GridData span="L8 M8 S8" />
+											</m:layoutData>
+										</m:Input>
+
+										<m:Label text="ประเภทการประสบภัย" required="true" />
+										<m:Select selectedKey="ประเภทการประสบภัย"
+											id="selectType" change="onChangeType">
+											<m:items>
+												<core:Item text="อุทกภัย" key="อุทกภัย" />
+												<core:Item text="อัคคีภัย" />
+												<core:Item text="วาตภัย" key="วาตภัย" />
+											</m:items>
+										</m:Select>
+
+										<m:Label text="วันที่ประสบเหตุ" required="true" />
+										<m:DatePicker id="DTP2"
+											displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy"
+											value="วัน/เดือน/ปี" change="handleChange" width="50%" />
+
+										<m:Label text="รายการทรัพย์สินที่เสียหาย"
+											required="true" />
+										<m:TextArea
+											value="เครื่องไมโครเวฟ ราคา 8000 บาท  ทีวี ราคา 12000 บาท เตียง และฟูกที่นอน รวม 20000"
+											rows="5" />
+
+										<m:Label text="จำนวนเงินที่ขอเบิก" required="true" />
+										<m:Input value="" type="department" />
+
+										<m:Label text="เบิกได้ตามสิทธิ" />
+										<m:Input value="2,000.00" type="department"
+											enabled="false" />
+
+										<core:Title text="" class="Col2" />
+										<m:Label text="ที่อยู่" />
+										<m:TextArea
+											value="111/234 ถ.รัชดาภิเษก เขต/แขวง ห้วยขวาง กรุงเทพฯ"
+											rows="2" enabled="false" />
+										<m:Label text="สถานภาพผู้พักอาศัย" required="true" />
+										<m:Select selectedKey="สถานภาพผู้พักอาศัย">
+											<m:items>
+												<core:Item text="สถานภาพผู้พักอาศัย"
+													key="สถานภาพผู้พักอาศัย" />
+												<core:Item text="ผู้อาศัย" />
+												<core:Item text="ผู้เช่า" />
+											</m:items>
+										</m:Select>
+
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId2"
+						title="เอกสารแนบ">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader2">
+
+								<f:SimpleForm id="SimpleFormDisplay480_12120-2"
+									editable="false" layout="ResponsiveGridLayout" labelSpanXL="1"
+									labelSpanL="1" labelSpanM="12" labelSpanS="12"
+									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1"
+									columnsM="1" singleContainerFullSize="false">
+									<f:content>
+
+										<m:Label text="แนบเอกสาร" />
+										<l:VerticalLayout>
+											<l:HorizontalLayout>
+												<m:CheckBox text="หนังสือรับรองจากหน่วยงานราชการ"
+													selected="true" required="true">
+													<m:layoutData>
+														<l:GridData linebreak="true" indentL="1"
+															indentM="1" />
+													</m:layoutData>
+												</m:CheckBox>
+											</l:HorizontalLayout>
+											<l:HorizontalLayout>
+												<m:CheckBox text="สำเนาทะเบียนบ้าน">
+													<m:layoutData>
+														<l:GridData linebreak="true" indentL="1"
+															indentM="1" />
+													</m:layoutData>
+												</m:CheckBox>
+											</l:HorizontalLayout>
+											<l:HorizontalLayout>
+												<m:CheckBox text="รูปถ่าย">
+													<m:layoutData>
+														<l:GridData linebreak="true" indentL="1"
+															indentM="1" />
+													</m:layoutData>
+												</m:CheckBox>
+											</l:HorizontalLayout>
+
+											<l:HorizontalLayout>
+												<m:CheckBox text="สัญญาเช่าบ้าน">
+													<m:layoutData>
+														<l:GridData linebreak="true" indentL="1"
+															indentM="1" />
+													</m:layoutData>
+												</m:CheckBox>
+											</l:HorizontalLayout>
+											<l:HorizontalLayout>
+												<m:CheckBox id="focusMe" text="เอกสารอื่นๆ">
+													<m:layoutData>
+														<l:GridData linebreak="true" indentL="1"
+															indentM="1" />
+													</m:layoutData>
+												</m:CheckBox>
+												<m:Input value=" " class="sapUiTinyMargin" />
+											</l:HorizontalLayout>
+										</l:VerticalLayout>
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId3"
+						title="หนังสือรับรองจากหน่วยงานราชการ">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader3">
+								<f:SimpleForm id="SimpleFormDisplay480_121202-3"
+									editable="false" layout="ResponsiveGridLayout" labelSpanXL="4"
+									labelSpanL="4" labelSpanM="12" labelSpanS="12"
+									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1"
+									columnsM="1" singleContainerFullSize="false">
+									<f:content>
+										<l:VerticalLayout>
+											<m:UploadCollection id="UploadCollection3"
+												maximumFilenameLength="80" maximumFileSize="10"
+												multiple="true" sameFilenameAllowed="true"
+												instantUpload="false" change="onChange"
+												fileDeleted="onFileDeleted"
+												filenameLengthExceed="onFilenameLengthExceed"
+												fileSizeExceed="onFileSizeExceed"
+												typeMissmatch="onTypeMissmatch"
+												uploadComplete="onUploadComplete"
+												beforeUploadStarts="onBeforeUploadStarts"
+												noDataText="ลากวางเอกสารที่นี่ หรือกด +"
+												noDataDescription="" numberOfAttachmentsText="เพิ่มเอกสาร">
+											</m:UploadCollection>
+										</l:VerticalLayout>
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId4"
+						title="สำเนาทะเบียนบ้าน">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader4">
+								<f:SimpleForm id="SimpleFormDisplay480_121202-4"
+									editable="false" layout="ResponsiveGridLayout" labelSpanXL="4"
+									labelSpanL="4" labelSpanM="12" labelSpanS="12"
+									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1"
+									columnsM="1" singleContainerFullSize="false">
+									<f:content>
+										<l:VerticalLayout>
+											<m:UploadCollection id="UploadCollection4"
+												maximumFilenameLength="80" maximumFileSize="10"
+												multiple="true" sameFilenameAllowed="true"
+												instantUpload="false" change="onChange"
+												fileDeleted="onFileDeleted"
+												filenameLengthExceed="onFilenameLengthExceed"
+												fileSizeExceed="onFileSizeExceed"
+												typeMissmatch="onTypeMissmatch"
+												uploadComplete="onUploadComplete"
+												beforeUploadStarts="onBeforeUploadStarts"
+												noDataText="ลากวางเอกสารที่นี่ หรือกด +"
+												noDataDescription="" numberOfAttachmentsText="เพิ่มเอกสาร">
+											</m:UploadCollection>
+										</l:VerticalLayout>
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId5"
+						title="รูปถ่าย">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader5">
+								<f:SimpleForm id="SimpleFormDisplay480_121202-5"
+									editable="false" layout="ResponsiveGridLayout" labelSpanXL="4"
+									labelSpanL="4" labelSpanM="12" labelSpanS="12"
+									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1"
+									columnsM="1" singleContainerFullSize="false">
+									<f:content>
+										<l:VerticalLayout>
+											<m:UploadCollection id="UploadCollection5"
+												maximumFilenameLength="80" maximumFileSize="10"
+												multiple="true" sameFilenameAllowed="true"
+												instantUpload="false" change="onChange"
+												fileDeleted="onFileDeleted"
+												filenameLengthExceed="onFilenameLengthExceed"
+												fileSizeExceed="onFileSizeExceed"
+												typeMissmatch="onTypeMissmatch"
+												uploadComplete="onUploadComplete"
+												beforeUploadStarts="onBeforeUploadStarts"
+												noDataText="ลากวางเอกสารที่นี่ หรือกด +"
+												noDataDescription="" numberOfAttachmentsText="เพิ่มเอกสาร">
+											</m:UploadCollection>
+										</l:VerticalLayout>
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId6"
+						title="สัญญาเช่าบ้าน">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader6">
+								<f:SimpleForm id="SimpleFormDisplay480_121202-6"
+									editable="false" layout="ResponsiveGridLayout" labelSpanXL="4"
+									labelSpanL="4" labelSpanM="12" labelSpanS="12"
+									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1"
+									columnsM="1" singleContainerFullSize="false">
+									<f:content>
+										<l:VerticalLayout>
+											<m:UploadCollection id="UploadCollection6"
+												maximumFilenameLength="80" maximumFileSize="10"
+												multiple="true" sameFilenameAllowed="true"
+												instantUpload="false" change="onChange"
+												fileDeleted="onFileDeleted"
+												filenameLengthExceed="onFilenameLengthExceed"
+												fileSizeExceed="onFileSizeExceed"
+												typeMissmatch="onTypeMissmatch"
+												uploadComplete="onUploadComplete"
+												beforeUploadStarts="onBeforeUploadStarts"
+												noDataText="ลากวางเอกสารที่นี่ หรือกด +"
+												noDataDescription="" numberOfAttachmentsText="เพิ่มเอกสาร">
+											</m:UploadCollection>
+										</l:VerticalLayout>
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId7"
+						title="อื่นๆ">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader7">
+								<f:SimpleForm id="SimpleFormDisplay480_121202-7"
+									editable="false" layout="ResponsiveGridLayout" labelSpanXL="4"
+									labelSpanL="4" labelSpanM="12" labelSpanS="12"
+									adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1"
+									columnsM="1" singleContainerFullSize="false">
+									<f:content>
+										<l:VerticalLayout>
+											<m:UploadCollection id="UploadCollection7"
+												maximumFilenameLength="80" maximumFileSize="10"
+												multiple="true" sameFilenameAllowed="true"
+												instantUpload="false" change="onChange"
+												fileDeleted="onFileDeleted"
+												filenameLengthExceed="onFilenameLengthExceed"
+												fileSizeExceed="onFileSizeExceed"
+												typeMissmatch="onTypeMissmatch"
+												uploadComplete="onUploadComplete"
+												beforeUploadStarts="onBeforeUploadStarts"
+												noDataText="ลากวางเอกสารที่นี่ หรือกด +"
+												noDataDescription="" numberOfAttachmentsText="เพิ่มเอกสาร">
+											</m:UploadCollection>
+										</l:VerticalLayout>
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+
+
+
+		</sections>
+	</ObjectPageLayout>
+
+	<!-- </VBox> -->
+</mvc:View>

@@ -1,0 +1,182 @@
+﻿<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.TM.ChangeTurn"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="สร้างใบขออนุมัติสับเปลี่ยน/แทนเวร" objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<l:VerticalLayout>
+				<m:ObjectStatus title="รหัสบุคคล" text="" id="PERNR" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์" text="02-123-4567" id="USRID1" />
+				<m:ObjectStatus title="เบอร์โทรศัพท์ที่ทำงาน1" text="" id="USRID2"/>
+				<m:ObjectStatus title="Email"
+					text="" id="USRID_LONG" />
+				
+							
+			</l:VerticalLayout>
+
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ชื่อ - นามสกุล"
+					text="นาย สมชาย จิดใจงาม" id="ENAME" />
+				<m:ObjectStatus title="ตำแหน่งงาน" text="" id="PLANS_DESC" />
+				<m:ObjectStatus title="กลุ่มย่อยบุคคล" text="" id="PERSG" />
+				<m:ObjectStatus title="สังกัด" text=""  id="MAIN_PLANS_ORG-O_SHORT" />
+				<m:ObjectStatus title="กลุ่มบุคคล" text="" id="PERSK" />
+				<m:ObjectStatus title="รักษาการ" text="-"  id="ANSVH" />
+		
+			</l:VerticalLayout>
+			<l:VerticalLayout>
+			<m:ObjectStatus title="ประเภทตารางการทำงาน"
+					text="ปกติ" id="SCHKZ" />
+			</l:VerticalLayout>
+		</headerContent>
+		<sections>
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="shopOwnerId"
+						title="ข้อมูลการสับเปลี่ยน/แทนเวร">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									<f:toolbar>
+										<m:Toolbar>
+											<m:ToolbarSpacer />
+											<m:Button icon="sap-icon://employee-approvals"
+												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ" press="onSendPressed"
+												class="sapUiTinyMargin"></m:Button>
+											<m:Button icon="sap-icon://cancel" text="ยกเลิก"
+												tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button>
+										</m:Toolbar>
+									</f:toolbar>
+									<f:content>
+										<m:Label text="ประเภท" required="true" />
+										<m:RadioButtonGroup valueState=""
+											select="onChangeType" id="type">
+											<m:buttons>
+												<m:RadioButton id="a" text="แทนเวร" />
+												<m:RadioButton id="b" text="สับเปลี่ยนเวร" />
+											</m:buttons>
+										</m:RadioButtonGroup>
+
+										<m:Label text="วันที่ " required="true" />
+										<m:DatePicker id="DTP2"
+											displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy"
+											value="วัน/เดือน/ปี" change="onChangeDate" />
+
+										<m:Label text="เวลางานเวร " />
+										<m:Input value="" enabled="false" id="timper1">
+											<m:layoutData>
+												<l:GridData span="XL3 L3 M3 S3" />
+											</m:layoutData>
+										</m:Input>
+										<m:Input value="" enabled="false" id="GEBER1" change="onGEBER"/>
+
+										<m:Label text="คำสั่งจัดเวร" />
+										<m:Input value="" enabled="false" id="ORDNO" />
+
+										<m:Label text="ผู้รับแทน/สับเปลี่ยน" required="true" />
+										<m:Input value="" enabled="false" id="PERNO">
+											<m:layoutData>
+												<l:GridData span="XL3 L3 M3 S3" />
+											</m:layoutData>
+										</m:Input>
+										<m:Input id="changer" enabled="false" >
+										<m:layoutData>
+												<l:GridData span="XL3 L3 M3 S3" />
+											</m:layoutData>
+										</m:Input>
+										<m:Button icon="sap-icon://search" press="searchEmp"/>
+										<m:Label text="เวลางานเวร " />
+										<m:Input value="" enabled="false" id="timper2">
+											<m:layoutData>
+												<l:GridData span="XL3 L3 M3 S3" />
+											</m:layoutData>
+										</m:Input>
+										<m:Input value="" enabled="false" id="GEBER2" change="onGEBER"/>
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection id="changerDate"
+						title="">
+						<blocks>
+							<ObjectPageLazyLoader id="changerDetails">
+
+								<f:SimpleForm editable="true"
+									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsXL="3" columnsL="3" columnsM="3"
+									singleContainerFullSize="false">
+									<f:content>
+										<m:CheckBox select="onChangeSwap"
+											id="selecteSwap"
+											text="ทั้งนี้จะขอสับเปลี่ยนเวร ให้กับผู้รับแทนเวรครั้งถัดไปตามตารางเวร" />
+										<m:Label text="สับเปลี่ยนเวรในวันที่ " required="true" />
+										<m:DatePicker id="changeTime"
+											displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy"
+											value="วัน/เดือน/ปี" change="onChangeDate2" enabled="false" />
+
+										<m:Label text="เวลางานเผู้รับ " />
+										<m:Input value="" enabled="false" id="timper3">
+											<m:layoutData>
+												<l:GridData span="XL3 L3 M3 S3" />
+											</m:layoutData>
+										</m:Input>
+										<m:Input value="" enabled="false" id="GEBER3" change="onGEBER"/>
+									</f:content>
+								</f:SimpleForm>
+
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<ObjectPageLazyLoader>
+								<f:SimpleForm title="" columnsL="1" columnsM="1"
+									editable="true" layout="ResponsiveGridLayout">
+									<f:toolbar>
+										<m:Toolbar>
+<!-- 											<m:ToolbarSpacer /> -->
+<!-- 											<m:Button icon="sap-icon://employee-approvals" -->
+<!-- 												text="ส่งเพื่ออนุมัติ" tooltip="ส่งเพื่ออนุมัติ" -->
+<!-- 												class="sapUiTinyMargin"></m:Button> -->
+<!-- 											<m:Button icon="sap-icon://cancel" text="ยกเลิก" -->
+<!-- 												tooltip="ยกเลิก" class="sapUiTinyMargin"></m:Button> -->
+										</m:Toolbar>
+									</f:toolbar>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

@@ -1,0 +1,225 @@
+﻿
+<mvc:View
+	controllerName="sap.ui.demo.toolpageapp.controller.BE.FundReport"
+	xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:t="sap.ui.table">
+
+	<ObjectPageLayout id="objectPageLayout">
+
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="รายงานสรุปการเปลี่ยนแปลงข้อมูลเงินสะสมและกองทุนของพนักงาน"
+				objectSubtitle="">
+			</ObjectPageHeader>
+		</headerTitle>
+		<sections>
+
+<!-- 			<ObjectPageSection> -->
+<!-- 				<subSections> -->
+<!-- 					<ObjectPageSubSection -->
+<!-- 						title="นโยบาย"> -->
+<!-- 						<blocks> -->
+<!-- 							<ObjectPageLazyLoader> -->
+<!-- 								<f:SimpleForm editable="true" -->
+<!-- 									layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" -->
+<!-- 									labelSpanM="4" labelSpanS="4" adjustLabelSpan="false" -->
+<!-- 									emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" -->
+<!-- 									columnsXL="3" columnsL="3" columnsM="3" -->
+<!-- 									singleContainerFullSize="false"> -->
+<!-- 									<f:content> -->
+<!-- 										<core:Title text="" /> -->
+<!-- 										<m:Label text="วันที่เริ่มต้น" /> -->
+<!-- 										<m:DatePicker id="DATE1" placeholder="วัน/เดือน/ปี  " -->
+<!-- 											displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy" -->
+<!-- 											value="" change="" > -->
+<!-- 											<m:layoutData> -->
+<!-- 												<l:GridData span="L8 M8 S8" /> -->
+<!-- 											</m:layoutData> -->
+<!-- 										</m:DatePicker> -->
+										
+<!-- 										<m:Label text="วันที่สิ้นสุด" /> -->
+<!-- 										<m:DatePicker id="DATE2" placeholder="วัน/เดือน/ปี  " -->
+<!-- 											displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy" -->
+<!-- 											value="" change="" > -->
+<!-- 											<m:layoutData> -->
+<!-- 												<l:GridData span="L8 M8 S8" /> -->
+<!-- 											</m:layoutData> -->
+<!-- 										</m:DatePicker> -->
+										
+<!-- 										<m:Label text="" /> -->
+<!-- 										<m:Button text="ค้นหา" press="onSendPressed" class="sapUiLargeMarginEnd"></m:Button> -->
+										
+<!-- 									</f:content> -->
+<!-- 								</f:SimpleForm> -->
+<!-- 							</ObjectPageLazyLoader> -->
+<!-- 						</blocks> -->
+<!-- 					</ObjectPageSubSection> -->
+<!-- 				</subSections> -->
+<!-- 			</ObjectPageSection> -->
+
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopOwnerLazyLoader">
+								<l:VerticalLayout>
+									<m:VBox class="sapUiSmallMargin" alignItems="Center">
+										<m:Text text="ท่าอากาศยานไทย จำกัดมหาชน" class="header_text"/>
+
+										<m:Text
+											text="รายงานสรุปการเปลี่ยนแปลงข้อมูลเงินสะสมและกองทุนของพนักงาน" class="header_text"/>
+										<m:Text text="" />
+									</m:VBox>
+									
+									<f:SimpleForm editable="true"
+										layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+										labelSpanM="4" labelSpanS="4" adjustLabelSpan="false"
+										emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+										columnsXL="3" columnsL="3" columnsM="3"
+										singleContainerFullSize="false">
+										<f:content>
+											<core:Title text="" />
+											<m:Label text="วันที่เริ่มต้น" />
+											<m:DatePicker id="DATE1X" placeholder="วัน/เดือน/ปี  "
+												displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy"
+												value="" change="" >
+												<m:layoutData>
+													<l:GridData span="L8 M8 S8" />
+												</m:layoutData>
+											</m:DatePicker>
+											
+											<m:Label text="วันที่สิ้นสุด" />
+											<m:DatePicker id="DATE2X" placeholder="วัน/เดือน/ปี  "
+												displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy"
+												value="" change="" >
+												<m:layoutData>
+													<l:GridData span="L8 M8 S8" />
+												</m:layoutData>
+											</m:DatePicker>
+											
+											<m:Label text="" />
+											<m:Button text="ค้นหา" press="onSearchPressed" class="sapUiLargeMarginEnd"></m:Button>
+											
+										</f:content>
+									</f:SimpleForm>
+
+									<m:Table inset="false" id="fundTab">
+										<m:columns>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="ลำดับ" level="H2" />
+											</m:Column>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="วันที่เปลี่ยนแปลง" level="H2" />
+											</m:Column>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="รหัสสมาชิก" level="H2" />
+											</m:Column>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="ชื่อ-นามสกุล" level="H2" />
+											</m:Column>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="สังกัด" level="H2" />
+											</m:Column>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="หัวข้อการเปลี่ยนแปลง" level="H2" />
+											</m:Column>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="เดิม" level="H2" />
+											</m:Column>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="ใหม่" level="H2" />
+
+											</m:Column>
+											<m:Column minScreenWidth="Phone" demandPopin="true"
+												popinDisplay="Inline" hAlign="Center">
+												<m:Text text="วันที่มีผล" level="H2" />
+											</m:Column>
+										</m:columns>
+<!-- 										<m:items> -->
+<!-- 											<m:ColumnListItem> -->
+<!-- 												<m:cells> -->
+<!-- 													<m:Label text="1" /> -->
+<!-- 													<m:Label text="26/7/2560" /> -->
+<!-- 													<m:Text text="นาย โชคดี ดังใจหวัง" /> -->
+<!-- 													<m:Text text="ขอเปลี่ยนนโยบาย" /> -->
+<!-- 													<m:Text -->
+<!-- 														text="นโยบาย 1 ตราสารหนี้ 90 % ตราสารทุน 10 %" /> -->
+<!-- 													<m:Text -->
+<!-- 														text="นโยบาย 3 ตราสารหนี้ 70 % ตราสารทุน 30 %" /> -->
+<!-- 												</m:cells> -->
+<!-- 											</m:ColumnListItem> -->
+<!-- 											<m:ColumnListItem> -->
+<!-- 												<m:cells> -->
+<!-- 													<m:Label text="2" /> -->
+<!-- 													<m:Label text="26/7/2560" /> -->
+<!-- 													<m:Text text="นาย โชคดี ดังใจหวัง" /> -->
+<!-- 													<m:Text text="ขอเปลี่ยนอัตราสะสม (%)" /> -->
+<!-- 													<m:Text text="10" /> -->
+<!-- 													<m:Text text="5" /> -->
+<!-- 												</m:cells> -->
+<!-- 											</m:ColumnListItem> -->
+<!-- 											<m:ColumnListItem> -->
+<!-- 												<m:cells> -->
+<!-- 													<m:Label text="3" /> -->
+<!-- 													<m:Label text="26/7/2560" /> -->
+<!-- 													<m:Text text="นาย นิมิต มุ่งหวัง" /> -->
+<!-- 													<m:Text text="ขอเปลี่ยนนโยบาย" /> -->
+<!-- 													<m:Text -->
+<!-- 														text="นโยบาย 2 ตราสารหนี้ 80 % ตราสารทุน 20 %" /> -->
+<!-- 													<m:Text -->
+<!-- 														text="นโยบาย 3 ตราสารหนี้ 70 % ตราสารทุน 30 %" /> -->
+<!-- 												</m:cells> -->
+<!-- 											</m:ColumnListItem> -->
+<!-- 											<m:ColumnListItem> -->
+<!-- 												<m:cells> -->
+<!-- 													<m:Label text="4" /> -->
+<!-- 													<m:Label text="28/7/2560" /> -->
+<!-- 													<m:Text text="นาย นิมิต มุ่งหวัง" /> -->
+<!-- 													<m:Text text="ขอเปลี่ยนอัตราสะสม (%)" /> -->
+<!-- 													<m:Text text="10" /> -->
+<!-- 													<m:Text text="8" /> -->
+<!-- 												</m:cells> -->
+<!-- 											</m:ColumnListItem> -->
+<!-- 											<m:ColumnListItem> -->
+<!-- 												<m:cells> -->
+<!-- 													<m:Label text="5" /> -->
+<!-- 													<m:Label text="29/7/2560" /> -->
+<!-- 													<m:Text text="นางสาว สมใจ นิสัยดี" /> -->
+<!-- 													<m:Text text="ขอเปลี่ยนอัตราสะสม (%)" /> -->
+<!-- 													<m:Text text="8" /> -->
+<!-- 													<m:Text text="10" /> -->
+<!-- 												</m:cells> -->
+<!-- 											</m:ColumnListItem> -->
+<!-- 											<m:ColumnListItem> -->
+<!-- 												<m:cells> -->
+<!-- 													<m:Label text="5" /> -->
+<!-- 													<m:Label text="29/7/2560" /> -->
+<!-- 													<m:Text text="นาง กรองแก้ว รักสะอาด" /> -->
+<!-- 													<m:Text text="ขอเปลี่ยนอัตราสะสม (%)" /> -->
+<!-- 													<m:Text text="5" /> -->
+<!-- 													<m:Text text="10" /> -->
+<!-- 												</m:cells> -->
+<!-- 											</m:ColumnListItem> -->
+<!-- 										</m:items> -->
+									</m:Table>
+								</l:VerticalLayout>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>
